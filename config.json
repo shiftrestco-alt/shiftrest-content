@@ -1,0 +1,13 @@
+{
+  "mode": "draft",
+  "posts_per_week": 7,
+  "metricool_blog_id": 7171980,
+  "network": "tiktok",
+  "timezone": "America/New_York",
+  "slots": {
+    "morning": "07:30",
+    "midday": "12:30",
+    "evening": "20:30"
+  },
+  "note": "mode=draft queues posts as Metricool drafts for approval; set to auto to schedule with draft=false"
+}

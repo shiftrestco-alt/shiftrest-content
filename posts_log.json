@@ -1,0 +1,93 @@
+[
+  {
+    "id": "p001",
+    "metricool_id": 385280154,
+    "scheduled": "2026-10-01T07:30:00",
+    "pillar": "why_sleep_matters",
+    "hook_style": "stat",
+    "slides": 6,
+    "slot": "morning",
+    "ab_group": "",
+    "title": "17 hours awake can impair you like a drink",
+    "status": "draft",
+    "metrics": null
+  },
+  {
+    "id": "p002",
+    "metricool_id": 385280243,
+    "scheduled": "2026-10-02T12:30:00",
+    "pillar": "sleep_score_tips",
+    "hook_style": "list",
+    "slides": 7,
+    "slot": "midday",
+    "ab_group": "",
+    "title": "5 things that can raise your sleep score",
+    "status": "draft",
+    "metrics": null
+  },
+  {
+    "id": "p003",
+    "metricool_id": 385280273,
+    "scheduled": "2026-10-03T20:30:00",
+    "pillar": "myth_bust",
+    "hook_style": "myth",
+    "slides": 6,
+    "slot": "evening",
+    "ab_group": "",
+    "title": "Your sleep score is not a medical number",
+    "status": "draft",
+    "metrics": null
+  },
+  {
+    "id": "p004",
+    "metricool_id": 385280295,
+    "scheduled": "2026-10-04T07:30:00",
+    "pillar": "why_sleep_matters",
+    "hook_style": "question",
+    "slides": 6,
+    "slot": "morning",
+    "ab_group": "",
+    "title": "Why do you wake up tired after 8 hours?",
+    "status": "draft",
+    "metrics": null
+  },
+  {
+    "id": "p005",
+    "metricool_id": 385280322,
+    "scheduled": "2026-10-05T12:30:00",
+    "pillar": "sleep_score_tips",
+    "hook_style": "stat",
+    "slides": 6,
+    "slot": "midday",
+    "ab_group": "coffee-hook",
+    "title": "Coffee 6 hours before bed cost over an hour of sleep",
+    "status": "draft",
+    "metrics": null
+  },
+  {
+    "id": "p006",
+    "metricool_id": 385280363,
+    "scheduled": "2026-10-06T20:30:00",
+    "pillar": "why_sleep_matters",
+    "hook_style": "bold_claim",
+    "slides": 7,
+    "slot": "evening",
+    "ab_group": "",
+    "title": "Sleep is the most underrated performance upgrade",
+    "status": "draft",
+    "metrics": null
+  },
+  {
+    "id": "p007",
+    "metricool_id": 385280388,
+    "scheduled": "2026-10-07T12:30:00",
+    "pillar": "sleep_score_tips",
+    "hook_style": "question",
+    "slides": 6,
+    "slot": "midday",
+    "ab_group": "coffee-hook",
+    "title": "Is your afternoon coffee ruining your sleep?",
+    "status": "draft",
+    "metrics": null
+  }
+]
