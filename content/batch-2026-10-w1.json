@@ -1,0 +1,337 @@
+{
+  "batch": "2026-10-w1",
+  "timezone": "America/New_York",
+  "posts": [
+    {
+      "id": "p001",
+      "date": "2026-10-01T07:30:00",
+      "pillar": "why_sleep_matters",
+      "hook_style": "stat",
+      "slot": "morning",
+      "ab_group": "",
+      "title": "17 hours awake can impair you like a drink",
+      "caption": "After 17-19 hours awake, performance dropped to the level seen at 0.05% blood alcohol in one well-known study (Williamson & Feyer, 2000). Protect your sleep. #sleep #sleepscience #healthtok #sleeptips #sleepscore",
+      "slides": [
+        {
+          "text": "17 hours awake and your brain performs like you've had a drink",
+          "sub": "What sleep loss does to you"
+        },
+        {
+          "kind": "point",
+          "label": "The research",
+          "title": "After 17\u201319 hours awake, performance matched 0.05% blood alcohol",
+          "body": "In a widely cited study, reaction time and accuracy on tests dropped to the level seen at a blood alcohol concentration of 0.05%.",
+          "source": "Source: Williamson & Feyer, Occup Environ Med, 2000"
+        },
+        {
+          "kind": "point",
+          "label": "Go further",
+          "title": "At 24 hours awake it was around 0.10%",
+          "body": "That is above the 0.08% US legal driving limit. Being awake a full day is not a small thing."
+        },
+        {
+          "kind": "point",
+          "label": "The trap",
+          "title": "People tend to underestimate how impaired they are",
+          "body": "Attention, reaction time, and judgement slip first, and those are the skills you use to notice that you're slipping."
+        },
+        {
+          "kind": "point",
+          "label": "What helps",
+          "title": "Protect a consistent wake time",
+          "body": "Get light in your first hour awake and keep caffeine earlier in the day. Small habits that support better sleep."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p002",
+      "date": "2026-10-02T12:30:00",
+      "pillar": "sleep_score_tips",
+      "hook_style": "list",
+      "slot": "midday",
+      "ab_group": "",
+      "title": "5 things that can raise your sleep score",
+      "caption": "Five habits that tend to support better sleep and a better sleep score. Pick one and run it for a week. #sleepscore #sleeptips #sleep #sleephygiene #healthtok",
+      "slides": [
+        {
+          "text": "5 things that can raise your sleep score",
+          "sub": "Start with number 1"
+        },
+        {
+          "kind": "point",
+          "label": "1",
+          "title": "Wake at the same time every day",
+          "body": "Even weekends. A steady wake time helps anchor your body clock, and regular sleep is linked to better sleep quality."
+        },
+        {
+          "kind": "point",
+          "label": "2",
+          "title": "Get morning light",
+          "body": "A few minutes to half an hour outside in your first hour awake helps set your body clock for the night ahead."
+        },
+        {
+          "kind": "point",
+          "label": "3",
+          "title": "Cool and dark",
+          "body": "Around 65\u00b0F (18\u00b0C) and as dark as you can make it. Blackout curtains or a mask both work."
+        },
+        {
+          "kind": "point",
+          "label": "4",
+          "title": "Set a caffeine cutoff",
+          "body": "Many experts suggest stopping 8 or more hours before bed. Caffeine can cut sleep even 6 hours out."
+        },
+        {
+          "kind": "point",
+          "label": "5",
+          "title": "Wind down for 30 minutes",
+          "body": "Dim the lights and do something calm. Give your brain a runway instead of a cliff."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p003",
+      "date": "2026-10-03T20:30:00",
+      "pillar": "myth_bust",
+      "hook_style": "myth",
+      "slot": "evening",
+      "ab_group": "",
+      "title": "Your sleep score is not a medical number",
+      "caption": "Wearable sleep scores are estimates, not a sleep lab. Trends over weeks are more useful than any single night. #sleepscore #sleep #sleepscience #wearables #healthtok",
+      "slides": [
+        {
+          "text": "Your sleep score is not a medical number",
+          "sub": "Here is how to use it anyway"
+        },
+        {
+          "kind": "point",
+          "label": "What it is",
+          "title": "An estimate from movement and heart rate",
+          "body": "Most wearables model your sleep. A sleep lab measures brain activity directly, and that is the gold standard."
+        },
+        {
+          "kind": "point",
+          "label": "Why trends win",
+          "title": "One bad night means very little",
+          "body": "Look at your two-week average. Trends show what your habits are doing, and single nights are mostly noise."
+        },
+        {
+          "kind": "point",
+          "label": "What moves it",
+          "title": "Duration, consistency, and a calmer night",
+          "body": "Alcohol and late heavy meals tend to raise nighttime heart rate, which tends to pull scores down."
+        },
+        {
+          "kind": "point",
+          "label": "How to use it",
+          "title": "Change one habit, watch the trend",
+          "body": "Pick one change for a week: caffeine cutoff, wake time, or room temperature. Then compare."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p004",
+      "date": "2026-10-04T07:30:00",
+      "pillar": "why_sleep_matters",
+      "hook_style": "question",
+      "slot": "morning",
+      "ab_group": "",
+      "title": "Why do you wake up tired after 8 hours?",
+      "caption": "Hours are only part of the story. Timing, sleep quality, and sometimes a sleep disorder matter too. If you're tired every day, talk to a doctor. #sleep #sleeptips #sleepscience #healthtok #tired",
+      "slides": [
+        {
+          "text": "Why do you wake up tired after 8 hours?",
+          "sub": "4 common reasons"
+        },
+        {
+          "kind": "point",
+          "label": "1",
+          "title": "Your schedule is inconsistent",
+          "body": "Shifting sleep by a couple of hours on weekends is sometimes called social jet lag, and it can leave you groggy on Monday."
+        },
+        {
+          "kind": "point",
+          "label": "2",
+          "title": "Sleep inertia",
+          "body": "Waking from deep sleep can cause grogginess that typically fades within about 30 minutes. Light and movement help."
+        },
+        {
+          "kind": "point",
+          "label": "3",
+          "title": "Quality, not just quantity",
+          "body": "Alcohol, noise, light, and heat can fragment sleep so 8 hours in bed is less than 8 hours of good sleep."
+        },
+        {
+          "kind": "point",
+          "label": "4",
+          "title": "Something medical",
+          "body": "If you are tired every day despite enough time in bed, ask a doctor. Sleep apnea is common and often missed."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p005",
+      "date": "2026-10-05T12:30:00",
+      "pillar": "sleep_score_tips",
+      "hook_style": "stat",
+      "slot": "midday",
+      "ab_group": "coffee-hook",
+      "title": "Coffee 6 hours before bed cost over an hour of sleep",
+      "caption": "Caffeine is linked to less sleep even when taken 6 hours before bed (Drake et al., J Clin Sleep Med, 2013). Try an earlier cutoff for a week and see what your sleep trend does. #sleep #sleeptips #sleepscore #caffeine #healthtok",
+      "slides": [
+        {
+          "text": "Coffee 6 hours before bed cost people over an hour of sleep",
+          "sub": "One study, and what to do about it"
+        },
+        {
+          "kind": "point",
+          "label": "The study",
+          "title": "Caffeine 6 hours before bed still cost over an hour of sleep",
+          "body": "Researchers gave people 400 mg of caffeine 0, 3, or 6 hours before bedtime. Even the 6-hour group slept over an hour less.",
+          "source": "Source: Drake et al., J Clin Sleep Med, 2013"
+        },
+        {
+          "kind": "point",
+          "label": "The catch",
+          "title": "You may not notice it",
+          "body": "Participants did not always feel that their sleep was worse. The effect can be there even when you feel fine."
+        },
+        {
+          "kind": "point",
+          "label": "The dose",
+          "title": "400 mg is about four cups of coffee",
+          "body": "Smaller amounts have smaller effects, but timing still matters. Sensitivity varies a lot from person to person."
+        },
+        {
+          "kind": "point",
+          "label": "Try this",
+          "title": "Set a caffeine cutoff at least 8 hours before bed",
+          "body": "Bed at 11 pm? Last coffee around 3 pm. Give it a week and watch your sleep score trend."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p006",
+      "date": "2026-10-06T20:30:00",
+      "pillar": "why_sleep_matters",
+      "hook_style": "bold_claim",
+      "slot": "evening",
+      "ab_group": "",
+      "title": "Sleep is the most underrated performance upgrade",
+      "caption": "Memory, mood, immunity, and safety all lean on sleep. Most adults need 7 or more hours. #sleep #sleepscience #healthtok #sleeptips #sleepscore",
+      "slides": [
+        {
+          "text": "Sleep is the most underrated performance upgrade",
+          "sub": "It's free. Here's what it does."
+        },
+        {
+          "kind": "point",
+          "label": "Memory",
+          "title": "Sleep helps lock in what you learned",
+          "body": "While you sleep, your brain consolidates memories from the day. Cutting sleep short cuts that process."
+        },
+        {
+          "kind": "point",
+          "label": "Mood",
+          "title": "Short sleep is linked to lower mood and higher stress",
+          "body": "When you're underslept, small problems tend to feel bigger."
+        },
+        {
+          "kind": "point",
+          "label": "Immunity",
+          "title": "Short sleepers caught more colds",
+          "body": "In one study, people sleeping under 6 hours had roughly four times the odds of catching a cold after virus exposure versus 7+ hours.",
+          "source": "Source: Prather et al., Sleep, 2015"
+        },
+        {
+          "kind": "point",
+          "label": "Safety",
+          "title": "Reaction time and accuracy drop with less sleep",
+          "body": "That is why fatigue is a factor in many accidents, from driving to the workplace."
+        },
+        {
+          "kind": "point",
+          "label": "How much",
+          "title": "Most adults need 7 or more hours",
+          "body": "That is the consensus recommendation from the American Academy of Sleep Medicine and the Sleep Research Society."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p007",
+      "date": "2026-10-07T12:30:00",
+      "pillar": "sleep_score_tips",
+      "hook_style": "question",
+      "slot": "midday",
+      "ab_group": "coffee-hook",
+      "title": "Is your afternoon coffee ruining your sleep?",
+      "caption": "Caffeine is linked to less sleep even when taken 6 hours before bed (Drake et al., J Clin Sleep Med, 2013). Try an earlier cutoff for a week and see what your sleep trend does. #sleep #sleeptips #sleepscore #caffeine #healthtok",
+      "slides": [
+        {
+          "text": "Is your afternoon coffee ruining your sleep?",
+          "sub": "One study, and what to do about it"
+        },
+        {
+          "kind": "point",
+          "label": "The study",
+          "title": "Caffeine 6 hours before bed still cost over an hour of sleep",
+          "body": "Researchers gave people 400 mg of caffeine 0, 3, or 6 hours before bedtime. Even the 6-hour group slept over an hour less.",
+          "source": "Source: Drake et al., J Clin Sleep Med, 2013"
+        },
+        {
+          "kind": "point",
+          "label": "The catch",
+          "title": "You may not notice it",
+          "body": "Participants did not always feel that their sleep was worse. The effect can be there even when you feel fine."
+        },
+        {
+          "kind": "point",
+          "label": "The dose",
+          "title": "400 mg is about four cups of coffee",
+          "body": "Smaller amounts have smaller effects, but timing still matters. Sensitivity varies a lot from person to person."
+        },
+        {
+          "kind": "point",
+          "label": "Try this",
+          "title": "Set a caffeine cutoff at least 8 hours before bed",
+          "body": "Bed at 11 pm? Last coffee around 3 pm. Give it a week and watch your sleep score trend."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    }
+  ]
+}
