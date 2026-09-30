@@ -4,13 +4,14 @@
   "posts": [
     {
       "id": "p001",
+      "rev": 2,
       "date": "2026-10-01T07:30:00",
       "pillar": "why_sleep_matters",
       "hook_style": "stat",
       "slot": "morning",
       "ab_group": "",
       "title": "17 hours awake can impair you like a drink",
-      "caption": "After 17-19 hours awake, performance dropped to the level seen at 0.05% blood alcohol in one well-known study (Williamson & Feyer, 2000). Protect your sleep. #sleep #sleepscience #healthtok #sleeptips #sleepscore",
+      "caption": "After 17-19 hours awake, response speed and accuracy were as poor as at 0.05% blood alcohol, or worse, in one well-known study (Williamson & Feyer, 2000). Protect your sleep. #sleep #sleepscience #healthtok #sleeptips #sleepscore",
       "slides": [
         {
           "text": "17 hours awake and your brain performs like you've had a drink",
@@ -19,21 +20,22 @@
         {
           "kind": "point",
           "label": "The research",
-          "title": "After 17\u201319 hours awake, performance matched 0.05% blood alcohol",
-          "body": "In a widely cited study, reaction time and accuracy on tests dropped to the level seen at a blood alcohol concentration of 0.05%.",
+          "title": "After 17\u201319 hours awake, performance was as poor as at 0.05% blood alcohol, or worse",
+          "body": "In a widely cited study, response speeds were up to 50% slower on some tests and accuracy was worse than at a blood alcohol level of 0.05%.",
           "source": "Source: Williamson & Feyer, Occup Environ Med, 2000"
         },
         {
           "kind": "point",
           "label": "Go further",
-          "title": "At 24 hours awake it was around 0.10%",
-          "body": "That is above the 0.08% US legal driving limit. Being awake a full day is not a small thing."
+          "title": "After longer without sleep, it reached the 0.10% level",
+          "body": "Performance matched the level seen at 0.10%, the highest alcohol dose in the study. That is above the 0.08% US legal driving limit.",
+          "source": "Source: Williamson & Feyer, Occup Environ Med, 2000"
         },
         {
           "kind": "point",
-          "label": "The trap",
-          "title": "People tend to underestimate how impaired they are",
-          "body": "Attention, reaction time, and judgement slip first, and those are the skills you use to notice that you're slipping."
+          "label": "Why it matters",
+          "title": "Speed and accuracy both dropped",
+          "body": "Slower responses and more mistakes are a bad combination for driving, clinical work, or anything safety-critical."
         },
         {
           "kind": "point",
@@ -50,6 +52,7 @@
     },
     {
       "id": "p002",
+      "rev": 2,
       "date": "2026-10-02T12:30:00",
       "pillar": "sleep_score_tips",
       "hook_style": "list",
@@ -66,25 +69,25 @@
           "kind": "point",
           "label": "1",
           "title": "Wake at the same time every day",
-          "body": "Even weekends. A steady wake time helps anchor your body clock, and regular sleep is linked to better sleep quality."
+          "body": "Even weekends. A steady wake time helps anchor your body clock."
         },
         {
           "kind": "point",
           "label": "2",
           "title": "Get morning light",
-          "body": "A few minutes to half an hour outside in your first hour awake helps set your body clock for the night ahead."
+          "body": "Step outside soon after waking. Daylight is far brighter than indoor light, which helps set your body clock."
         },
         {
           "kind": "point",
           "label": "3",
           "title": "Cool and dark",
-          "body": "Around 65\u00b0F (18\u00b0C) and as dark as you can make it. Blackout curtains or a mask both work."
+          "body": "Aim for about 65\u201368\u00b0F (18\u201320\u00b0C) and as dark as you can make it. Blackout curtains or a mask both work."
         },
         {
           "kind": "point",
           "label": "4",
           "title": "Set a caffeine cutoff",
-          "body": "Many experts suggest stopping 8 or more hours before bed. Caffeine can cut sleep even 6 hours out."
+          "body": "Stop well before bed. In one study, caffeine 6 hours before bed still cut sleep by over an hour."
         },
         {
           "kind": "point",
@@ -101,6 +104,7 @@
     },
     {
       "id": "p003",
+      "rev": 2,
       "date": "2026-10-03T20:30:00",
       "pillar": "myth_bust",
       "hook_style": "myth",
@@ -129,7 +133,7 @@
           "kind": "point",
           "label": "What moves it",
           "title": "Duration, consistency, and a calmer night",
-          "body": "Alcohol and late heavy meals tend to raise nighttime heart rate, which tends to pull scores down."
+          "body": "Habits like alcohol and late meals can make nights more restless, which trackers may score lower."
         },
         {
           "kind": "point",
@@ -146,6 +150,7 @@
     },
     {
       "id": "p004",
+      "rev": 2,
       "date": "2026-10-04T07:30:00",
       "pillar": "why_sleep_matters",
       "hook_style": "question",
@@ -168,7 +173,7 @@
           "kind": "point",
           "label": "2",
           "title": "Sleep inertia",
-          "body": "Waking from deep sleep can cause grogginess that typically fades within about 30 minutes. Light and movement help."
+          "body": "Waking from deep sleep can cause grogginess called sleep inertia. It usually fades, and light and movement can help."
         },
         {
           "kind": "point",
@@ -191,16 +196,17 @@
     },
     {
       "id": "p005",
+      "rev": 2,
       "date": "2026-10-05T12:30:00",
       "pillar": "sleep_score_tips",
       "hook_style": "stat",
       "slot": "midday",
       "ab_group": "coffee-hook",
-      "title": "Coffee 6 hours before bed cost over an hour of sleep",
-      "caption": "Caffeine is linked to less sleep even when taken 6 hours before bed (Drake et al., J Clin Sleep Med, 2013). Try an earlier cutoff for a week and see what your sleep trend does. #sleep #sleeptips #sleepscore #caffeine #healthtok",
+      "title": "Caffeine 6 hours before bed cost people over an hour of sleep",
+      "caption": "Caffeine taken 6 hours before bed cut sleep by over an hour in a lab study (Drake et al., J Clin Sleep Med, 2013). Try an earlier cutoff for a week and see what your sleep trend does. #sleep #sleeptips #sleepscore #caffeine #healthtok",
       "slides": [
         {
-          "text": "Coffee 6 hours before bed cost people over an hour of sleep",
+          "text": "Caffeine 6 hours before bed cost people over an hour of sleep",
           "sub": "One study, and what to do about it"
         },
         {
@@ -214,19 +220,19 @@
           "kind": "point",
           "label": "The catch",
           "title": "You may not notice it",
-          "body": "Participants did not always feel that their sleep was worse. The effect can be there even when you feel fine."
+          "body": "Participants were unaware of the sleep disturbance, even though it showed up when their sleep was measured objectively."
         },
         {
           "kind": "point",
           "label": "The dose",
-          "title": "400 mg is about four cups of coffee",
-          "body": "Smaller amounts have smaller effects, but timing still matters. Sensitivity varies a lot from person to person."
+          "title": "400 mg is roughly 2 to 4 cups of coffee",
+          "body": "The exact number depends on cup size and how strong the coffee is. Sensitivity also varies from person to person."
         },
         {
           "kind": "point",
           "label": "Try this",
-          "title": "Set a caffeine cutoff at least 8 hours before bed",
-          "body": "Bed at 11 pm? Last coffee around 3 pm. Give it a week and watch your sleep score trend."
+          "title": "Set a caffeine cutoff more than 6 hours before bed",
+          "body": "Bed at 11 pm? Last coffee by 5 pm or earlier. Give it a week and watch your sleep score trend."
         },
         {
           "kind": "cta",
@@ -237,13 +243,14 @@
     },
     {
       "id": "p006",
+      "rev": 2,
       "date": "2026-10-06T20:30:00",
       "pillar": "why_sleep_matters",
       "hook_style": "bold_claim",
       "slot": "evening",
       "ab_group": "",
       "title": "Sleep is the most underrated performance upgrade",
-      "caption": "Memory, mood, immunity, and safety all lean on sleep. Most adults need 7 or more hours. #sleep #sleepscience #healthtok #sleeptips #sleepscore",
+      "caption": "Memory, mood, immunity, and safety all lean on sleep. Adults should get 7 or more hours (AASM and SRS). #sleep #sleepscience #healthtok #sleeptips #sleepscore",
       "slides": [
         {
           "text": "Sleep is the most underrated performance upgrade",
@@ -264,8 +271,8 @@
         {
           "kind": "point",
           "label": "Immunity",
-          "title": "Short sleepers caught more colds",
-          "body": "In one study, people sleeping under 6 hours had roughly four times the odds of catching a cold after virus exposure versus 7+ hours.",
+          "title": "Short sleepers were more likely to catch a cold",
+          "body": "In one study of 164 adults, those sleeping under 6 hours were about 4.2 times more likely to catch a cold than those sleeping over 7 hours.",
           "source": "Source: Prather et al., Sleep, 2015"
         },
         {
@@ -277,8 +284,9 @@
         {
           "kind": "point",
           "label": "How much",
-          "title": "Most adults need 7 or more hours",
-          "body": "That is the consensus recommendation from the American Academy of Sleep Medicine and the Sleep Research Society."
+          "title": "Adults should get 7 or more hours",
+          "body": "That is the consensus recommendation from the American Academy of Sleep Medicine and the Sleep Research Society.",
+          "source": "Source: AASM and SRS consensus statement, 2015"
         },
         {
           "kind": "cta",
@@ -289,13 +297,14 @@
     },
     {
       "id": "p007",
+      "rev": 2,
       "date": "2026-10-07T12:30:00",
       "pillar": "sleep_score_tips",
       "hook_style": "question",
       "slot": "midday",
       "ab_group": "coffee-hook",
       "title": "Is your afternoon coffee ruining your sleep?",
-      "caption": "Caffeine is linked to less sleep even when taken 6 hours before bed (Drake et al., J Clin Sleep Med, 2013). Try an earlier cutoff for a week and see what your sleep trend does. #sleep #sleeptips #sleepscore #caffeine #healthtok",
+      "caption": "Caffeine taken 6 hours before bed cut sleep by over an hour in a lab study (Drake et al., J Clin Sleep Med, 2013). Try an earlier cutoff for a week and see what your sleep trend does. #sleep #sleeptips #sleepscore #caffeine #healthtok",
       "slides": [
         {
           "text": "Is your afternoon coffee ruining your sleep?",
@@ -312,19 +321,19 @@
           "kind": "point",
           "label": "The catch",
           "title": "You may not notice it",
-          "body": "Participants did not always feel that their sleep was worse. The effect can be there even when you feel fine."
+          "body": "Participants were unaware of the sleep disturbance, even though it showed up when their sleep was measured objectively."
         },
         {
           "kind": "point",
           "label": "The dose",
-          "title": "400 mg is about four cups of coffee",
-          "body": "Smaller amounts have smaller effects, but timing still matters. Sensitivity varies a lot from person to person."
+          "title": "400 mg is roughly 2 to 4 cups of coffee",
+          "body": "The exact number depends on cup size and how strong the coffee is. Sensitivity also varies from person to person."
         },
         {
           "kind": "point",
           "label": "Try this",
-          "title": "Set a caffeine cutoff at least 8 hours before bed",
-          "body": "Bed at 11 pm? Last coffee around 3 pm. Give it a week and watch your sleep score trend."
+          "title": "Set a caffeine cutoff more than 6 hours before bed",
+          "body": "Bed at 11 pm? Last coffee by 5 pm or earlier. Give it a week and watch your sleep score trend."
         },
         {
           "kind": "cta",

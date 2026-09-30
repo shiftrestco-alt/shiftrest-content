@@ -1,0 +1,666 @@
+{
+  "batch": "2026-10-w2",
+  "timezone": "America/New_York",
+  "posts": [
+    {
+      "id": "p008",
+      "date": "2026-10-08T07:30:00",
+      "pillar": "why_sleep_matters",
+      "hook_style": "question",
+      "slot": "morning",
+      "ab_group": "stages-hook",
+      "title": "What is your brain doing while you sleep?",
+      "caption": "Sleep runs in cycles of light, deep, and REM sleep, about 80-100 minutes each (NIH NHLBI). Deep sleep dominates early, REM later. #sleep #sleepscience #sleepcycle #healthtok #brain",
+      "slides": [
+        {
+          "text": "What is your brain doing while you sleep?",
+          "sub": "The 4 things to know"
+        },
+        {
+          "kind": "point",
+          "label": "The stages",
+          "title": "Sleep has light, deep, and REM stages",
+          "body": "Stage 1 is the transition into sleep, stage 2 is light sleep, and stage 3 is deep sleep. REM is when your eyes move rapidly and most dreaming happens.",
+          "source": "Source: NIH NHLBI, Stages of sleep"
+        },
+        {
+          "kind": "point",
+          "label": "Early night",
+          "title": "Deep sleep comes first",
+          "body": "You usually spend more time in deep sleep early in the night, so the first few hours matter.",
+          "source": "Source: NIH NHLBI, Stages of sleep"
+        },
+        {
+          "kind": "point",
+          "label": "Late night",
+          "title": "REM comes later",
+          "body": "You usually get more REM sleep later in the night, which is why cutting your sleep short tends to cut into REM.",
+          "source": "Source: NIH NHLBI, Stages of sleep"
+        },
+        {
+          "kind": "point",
+          "label": "The pattern",
+          "title": "You cycle through it 4 to 6 times",
+          "body": "A full cycle takes roughly 80 to 100 minutes. Most people go through four to six cycles a night.",
+          "source": "Source: NIH NHLBI, Stages of sleep"
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p009",
+      "date": "2026-10-08T20:30:00",
+      "pillar": "myth_bust",
+      "hook_style": "myth",
+      "slot": "evening",
+      "ab_group": "",
+      "title": "Alcohol helps you sleep? Here's what the research says",
+      "caption": "Alcohol can shorten the time to fall asleep, but it tends to cut REM sleep and disrupt the second half of the night (Ebrahim et al., 2013). #sleep #alcohol #sleepscience #healthtok #sleeptips",
+      "slides": [
+        {
+          "text": "Alcohol helps you sleep",
+          "sub": "What the research says"
+        },
+        {
+          "kind": "point",
+          "label": "The upside",
+          "title": "It can help you fall asleep faster",
+          "body": "Across studies, alcohol shortened the time it took to fall asleep at all doses tested.",
+          "source": "Source: Ebrahim et al., Alcohol Clin Exp Res, 2013"
+        },
+        {
+          "kind": "point",
+          "label": "The trade",
+          "title": "More deep sleep early, less REM",
+          "body": "Most studies found more deep sleep in the first half of the night and less REM sleep at moderate and high doses.",
+          "source": "Source: Ebrahim et al., Alcohol Clin Exp Res, 2013"
+        },
+        {
+          "kind": "point",
+          "label": "The cost",
+          "title": "The second half of the night gets worse",
+          "body": "The review found more disrupted sleep in the second half of the night, which offsets the early benefit.",
+          "source": "Source: Ebrahim et al., Alcohol Clin Exp Res, 2013"
+        },
+        {
+          "kind": "point",
+          "label": "So what",
+          "title": "Fast to fall asleep is not the same as good sleep",
+          "body": "You may drop off quickly and still get sleep that is lighter and more broken than usual."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p010",
+      "date": "2026-10-09T12:30:00",
+      "pillar": "why_sleep_matters",
+      "hook_style": "question",
+      "slot": "midday",
+      "ab_group": "",
+      "title": "Can you catch up on lost sleep on the weekend?",
+      "caption": "In a small lab study, weekend recovery sleep did not prevent metabolic disruption from a week of short sleep (Depner et al., 2019). Consistency beats cramming. #sleep #sleepdebt #sleepscience #healthtok #sleeptips",
+      "slides": [
+        {
+          "text": "Can you catch up on lost sleep on the weekend?",
+          "sub": "One lab study says not fully"
+        },
+        {
+          "kind": "point",
+          "label": "The study",
+          "title": "Short weeknights, then a weekend to sleep in",
+          "body": "In a small lab study, people slept about 5 hours a night on weekdays, were allowed to sleep in on the weekend, then went back to 5 hours.",
+          "source": "Source: Depner et al., Current Biology, 2019"
+        },
+        {
+          "kind": "point",
+          "label": "The result",
+          "title": "Weekend recovery sleep did not prevent metabolic disruption",
+          "body": "Insulin sensitivity still dropped. The recovery group's body rhythms were also disrupted when short sleep resumed.",
+          "source": "Source: Depner et al., Current Biology, 2019"
+        },
+        {
+          "kind": "point",
+          "label": "Takeaway",
+          "title": "Sleeping in may help you feel better, but it may not undo a short week",
+          "body": "It is one small study, but it points the same way: steady sleep every night beats cramming it into the weekend."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p011",
+      "date": "2026-10-09T20:30:00",
+      "pillar": "sleep_score_tips",
+      "hook_style": "bold_claim",
+      "slot": "evening",
+      "ab_group": "",
+      "title": "Your bedroom may be too warm for good sleep",
+      "caption": "Your body cools down to fall asleep, and a bedroom around 65-68F (18-20C) supports that (Sleep Foundation). #sleeptips #sleepscore #sleephygiene #sleep #healthtok",
+      "slides": [
+        {
+          "text": "Your bedroom may be too warm for good sleep",
+          "sub": "The number to aim for"
+        },
+        {
+          "kind": "point",
+          "label": "Your body clock",
+          "title": "Your body cools itself to fall asleep",
+          "body": "Your temperature starts dropping about two hours before you sleep and keeps falling until the early morning.",
+          "source": "Source: Sleep Foundation, best bedroom temperature"
+        },
+        {
+          "kind": "point",
+          "label": "The target",
+          "title": "Aim for 65\u201368\u00b0F (18\u201320\u00b0C)",
+          "body": "That range works with your body's natural cooling instead of against it.",
+          "source": "Source: Sleep Foundation, best bedroom temperature"
+        },
+        {
+          "kind": "point",
+          "label": "Too warm",
+          "title": "A hot room interferes with cooling",
+          "body": "It can disrupt sleep quality and cut into time in the restorative stages of sleep.",
+          "source": "Source: Sleep Foundation, best bedroom temperature"
+        },
+        {
+          "kind": "point",
+          "label": "Try this",
+          "title": "Turn it down before bed",
+          "body": "Lower the thermostat an hour before bedtime, use lighter bedding, or run a fan. Then watch your sleep score trend."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p012",
+      "date": "2026-10-10T07:30:00",
+      "pillar": "why_sleep_matters",
+      "hook_style": "stat",
+      "slot": "morning",
+      "ab_group": "stages-hook",
+      "title": "Sleeping 8 hours means a third of your life asleep. Here's what it's doing",
+      "caption": "Sleep runs in cycles of light, deep, and REM sleep, about 80-100 minutes each (NIH NHLBI). Deep sleep dominates early, REM later. #sleep #sleepscience #sleepcycle #healthtok #brain",
+      "slides": [
+        {
+          "text": "You'll spend about a third of your life asleep. Here is what it is doing",
+          "sub": "The 4 things to know"
+        },
+        {
+          "kind": "point",
+          "label": "The stages",
+          "title": "Sleep has light, deep, and REM stages",
+          "body": "Stage 1 is the transition into sleep, stage 2 is light sleep, and stage 3 is deep sleep. REM is when your eyes move rapidly and most dreaming happens.",
+          "source": "Source: NIH NHLBI, Stages of sleep"
+        },
+        {
+          "kind": "point",
+          "label": "Early night",
+          "title": "Deep sleep comes first",
+          "body": "You usually spend more time in deep sleep early in the night, so the first few hours matter.",
+          "source": "Source: NIH NHLBI, Stages of sleep"
+        },
+        {
+          "kind": "point",
+          "label": "Late night",
+          "title": "REM comes later",
+          "body": "You usually get more REM sleep later in the night, which is why cutting your sleep short tends to cut into REM.",
+          "source": "Source: NIH NHLBI, Stages of sleep"
+        },
+        {
+          "kind": "point",
+          "label": "The pattern",
+          "title": "You cycle through it 4 to 6 times",
+          "body": "A full cycle takes roughly 80 to 100 minutes. Most people go through four to six cycles a night.",
+          "source": "Source: NIH NHLBI, Stages of sleep"
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p013",
+      "date": "2026-10-10T12:30:00",
+      "pillar": "sleep_score_tips",
+      "hook_style": "list",
+      "slot": "midday",
+      "ab_group": "",
+      "title": "What's actually in your sleep score?",
+      "caption": "Sleep scores usually blend duration, stages, timing, and restlessness. Each brand weights them differently, so compare your own trend. #sleepscore #sleeptracker #sleep #sleepscience #healthtok",
+      "slides": [
+        {
+          "text": "What is actually in your sleep score?",
+          "sub": "5 things trackers look at"
+        },
+        {
+          "kind": "point",
+          "label": "1",
+          "title": "Duration",
+          "body": "Adults should get 7 or more hours on a regular basis. Most scores start here.",
+          "source": "Source: AASM and SRS consensus statement, 2015"
+        },
+        {
+          "kind": "point",
+          "label": "2",
+          "title": "Sleep stages",
+          "body": "Trackers estimate your light, deep, and REM sleep. Deep sleep comes earlier in the night and REM later, and these are estimates, not lab measurements.",
+          "source": "Source: NIH NHLBI, Stages of sleep"
+        },
+        {
+          "kind": "point",
+          "label": "3",
+          "title": "Timing and consistency",
+          "body": "Going to bed and waking at similar times each day tends to count in your favor."
+        },
+        {
+          "kind": "point",
+          "label": "4",
+          "title": "Heart rate and HRV",
+          "body": "Many trackers include nighttime heart rate and heart rate variability. Both vary a lot from person to person, so watch your own trend."
+        },
+        {
+          "kind": "point",
+          "label": "5",
+          "title": "Restlessness",
+          "body": "Wake-ups and movement during the night can pull a score down, even if total time in bed looks fine."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p014",
+      "date": "2026-10-11T07:30:00",
+      "pillar": "myth_bust",
+      "hook_style": "myth",
+      "slot": "morning",
+      "ab_group": "",
+      "title": "You need exactly 8 hours of sleep. Do you?",
+      "caption": "The expert guideline is 7 or more hours for adults, a minimum, not a fixed target (AASM and SRS). #sleep #sleepmyths #sleepscience #healthtok #sleeptips",
+      "slides": [
+        {
+          "text": "You need exactly 8 hours of sleep",
+          "sub": "What the guideline actually says"
+        },
+        {
+          "kind": "point",
+          "label": "The guideline",
+          "title": "Adults should sleep 7 or more hours",
+          "body": "The American Academy of Sleep Medicine and the Sleep Research Society recommend 7 or more hours per night on a regular basis for adults 18 to 60.",
+          "source": "Source: AASM and SRS consensus statement, 2015"
+        },
+        {
+          "kind": "point",
+          "label": "The catch",
+          "title": "Seven is a floor, not a target",
+          "body": "\"Seven or more\" means some people will need 8 or 9. There is no single magic number."
+        },
+        {
+          "kind": "point",
+          "label": "Check yourself",
+          "title": "Go by how you feel, with 7 as the floor",
+          "body": "If you wake up rested and stay alert through the day, you are probably in your range. If you are dragging, aim higher."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p015",
+      "date": "2026-10-11T20:30:00",
+      "pillar": "sleep_score_tips",
+      "hook_style": "list",
+      "slot": "evening",
+      "ab_group": "",
+      "title": "A wind-down routine backed by research",
+      "caption": "Four evening habits with some research behind them: a warm shower, screens away, a to-do list, and a cool dark room. #sleeptips #sleephygiene #bedtimeroutine #sleep #healthtok",
+      "slides": [
+        {
+          "text": "A wind-down routine backed by research",
+          "sub": "4 steps"
+        },
+        {
+          "kind": "point",
+          "label": "1",
+          "title": "Take a warm shower or bath 1\u20132 hours before bed",
+          "body": "A review of studies found water around 104\u2013109\u00b0F (40\u201343\u00b0C) at that time helped people fall asleep about 10 minutes sooner on average.",
+          "source": "Source: Haghayegh et al., Sleep Med Rev, 2019"
+        },
+        {
+          "kind": "point",
+          "label": "2",
+          "title": "Put screens away about an hour before bed",
+          "body": "Occupational health guidance suggests avoiding computers an hour or so before bedtime, since light can signal your brain to stay alert.",
+          "source": "Source: CDC NIOSH, Training for Nurses on Shift Work"
+        },
+        {
+          "kind": "point",
+          "label": "3",
+          "title": "Write tomorrow's to-do list",
+          "body": "In a sleep lab study, people who wrote a to-do list at bedtime fell asleep faster than those who wrote about what they had already done.",
+          "source": "Source: Scullin et al., J Exp Psychol Gen, 2018"
+        },
+        {
+          "kind": "point",
+          "label": "4",
+          "title": "Keep the room cool and dark",
+          "body": "Aim for 65\u201368\u00b0F (18\u201320\u00b0C) and as dark as you can make it.",
+          "source": "Source: Sleep Foundation, best bedroom temperature"
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p016",
+      "date": "2026-10-12T12:30:00",
+      "pillar": "sleep_score_tips",
+      "hook_style": "question",
+      "slot": "midday",
+      "ab_group": "",
+      "title": "How much light do you really need in the morning?",
+      "caption": "Daylight can be up to 10,000 lux outdoors, while bright office lighting rarely tops 500 (Sleep Foundation). Step outside soon after waking. #sleeptips #morninglight #sleepscore #sleep #healthtok",
+      "slides": [
+        {
+          "text": "How much light do you really need in the morning?",
+          "sub": "Why outside beats inside"
+        },
+        {
+          "kind": "point",
+          "label": "The gap",
+          "title": "Outdoor light is far brighter than indoor light",
+          "body": "Direct sunlight can reach up to 10,000 lux. Even bright office lighting rarely goes above about 500 lux.",
+          "source": "Source: Sleep Foundation, light and sleep"
+        },
+        {
+          "kind": "point",
+          "label": "The habit",
+          "title": "Morning sunlight is a healthy light habit",
+          "body": "Getting morning sunlight and reducing evening light may help improve sleep quality.",
+          "source": "Source: Sleep Foundation, light and sleep"
+        },
+        {
+          "kind": "point",
+          "label": "Try this",
+          "title": "Step outside soon after you wake up",
+          "body": "Overcast skies are usually still brighter than indoor light, so a cloudy day still counts."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p017",
+      "date": "2026-10-12T20:30:00",
+      "pillar": "night_shift",
+      "hook_style": "list",
+      "slot": "evening",
+      "ab_group": "",
+      "title": "Sleeping after a night shift: 5 tips from occupational health guidance",
+      "caption": "Tips from CDC NIOSH guidance for night workers. Only wear sunglasses home if someone else is driving. #nightshift #shiftwork #sleeptips #sleep #healthtok",
+      "slides": [
+        {
+          "text": "Sleeping after a night shift: 5 tips",
+          "sub": "From CDC NIOSH guidance"
+        },
+        {
+          "kind": "point",
+          "label": "1",
+          "title": "Go straight to bed when you get home",
+          "body": "The more sleep you get before 2 pm, the better rested you will be.",
+          "source": "Source: CDC NIOSH, Training for Nurses on Shift Work"
+        },
+        {
+          "kind": "point",
+          "label": "2",
+          "title": "Spend as much time in bed as you can",
+          "body": "Night workers tend to get less and poorer sleep than day workers, so protect your sleep time.",
+          "source": "Source: CDC NIOSH, Training for Nurses on Shift Work"
+        },
+        {
+          "kind": "point",
+          "label": "3",
+          "title": "Make the room very dark",
+          "body": "So dark you cannot see your hand in front of your face, or wear an eye mask. Blackout shades help.",
+          "source": "Source: CDC NIOSH, Training for Nurses on Shift Work"
+        },
+        {
+          "kind": "point",
+          "label": "4",
+          "title": "Block noise and interruptions",
+          "body": "Use earplugs or white noise, and ask the people around you not to disturb your sleep.",
+          "source": "Source: CDC NIOSH, Training for Nurses on Shift Work"
+        },
+        {
+          "kind": "point",
+          "label": "5",
+          "title": "Sunglasses on the way home, only if someone else drives",
+          "body": "Dark sunglasses can reduce the light that signals your body to be alert. Do not wear them while driving, since they can raise drowsiness and crash risk.",
+          "source": "Source: CDC NIOSH, Training for Nurses on Shift Work"
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p018",
+      "date": "2026-10-13T07:30:00",
+      "pillar": "why_sleep_matters",
+      "hook_style": "stat",
+      "slot": "morning",
+      "ab_group": "",
+      "title": "Two short nights raised appetite by 24% in one study",
+      "caption": "In a small study of 12 young men, two nights of 4-hour sleep lowered leptin, raised ghrelin, and increased appetite (Spiegel et al., 2004). #sleep #sleepscience #healthtok #hunger #sleeptips",
+      "slides": [
+        {
+          "text": "Two short nights raised appetite by 24%",
+          "sub": "One small study, and why tired days feel hungrier"
+        },
+        {
+          "kind": "point",
+          "label": "The study",
+          "title": "12 men slept 4 hours for two nights",
+          "body": "Healthy young men in a University of Chicago study were compared after two nights of 4 hours vs two nights of 10 hours.",
+          "source": "Source: Spiegel et al., Ann Intern Med, 2004"
+        },
+        {
+          "kind": "point",
+          "label": "The hormones",
+          "title": "Fullness signal down, hunger signal up",
+          "body": "Leptin, which signals fullness, fell 18%. Ghrelin, which signals hunger, rose 28%. Overall appetite rose 24%.",
+          "source": "Source: Spiegel et al., Ann Intern Med, 2004"
+        },
+        {
+          "kind": "point",
+          "label": "The cravings",
+          "title": "Sweet, salty, and starchy foods won",
+          "body": "Desire for candy, cookies, chips, and bread rose, while desire for fruit, vegetables, and dairy rose much less.",
+          "source": "Source: Spiegel et al., Ann Intern Med, 2004"
+        },
+        {
+          "kind": "point",
+          "label": "The caveat",
+          "title": "It is one small study",
+          "body": "It shows why tired days can feel hungrier. On short-sleep days, plan your snacks before the cravings hit."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p019",
+      "date": "2026-10-13T12:30:00",
+      "pillar": "sleep_score_tips",
+      "hook_style": "bold_claim",
+      "slot": "midday",
+      "ab_group": "",
+      "title": "The best nap is shorter than you think",
+      "caption": "A 26-minute nap improved pilots' alertness by up to 54% and performance by 34% in a NASA study (1995). #nap #sleeptips #sleep #healthtok #productivity",
+      "slides": [
+        {
+          "text": "The best nap is shorter than you think",
+          "sub": "What NASA found"
+        },
+        {
+          "kind": "point",
+          "label": "The study",
+          "title": "A 26-minute nap helped pilots",
+          "body": "In a 1995 NASA study, pilots given a nap opportunity on long flights showed up to 54% better alertness and 34% better performance.",
+          "source": "Source: NASA pilot nap study, 1995"
+        },
+        {
+          "kind": "point",
+          "label": "The risk",
+          "title": "Longer naps can leave you groggy",
+          "body": "Longer naps are more likely to cause sleep inertia, that dazed, sluggish feeling. Naps of 20 to 30 minutes can boost alertness without significant grogginess.",
+          "source": "Source: Sleep Foundation, NASA nap"
+        },
+        {
+          "kind": "point",
+          "label": "Try this",
+          "title": "Set a timer for 25 minutes",
+          "body": "Lie down somewhere dark and quiet. Give yourself a few extra minutes to fall asleep."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p020",
+      "date": "2026-10-14T07:30:00",
+      "pillar": "night_shift",
+      "hook_style": "question",
+      "slot": "morning",
+      "ab_group": "",
+      "title": "When should night-shift workers drink coffee?",
+      "caption": "Guidance from CDC NIOSH: caffeine early in the shift, stop several hours before the shift ends. #nightshift #shiftwork #caffeine #sleeptips #healthtok",
+      "slides": [
+        {
+          "text": "When should night-shift workers drink coffee?",
+          "sub": "What occupational health guidance says"
+        },
+        {
+          "kind": "point",
+          "label": "The clock",
+          "title": "Caffeine has a half-life of 5 to 6 hours",
+          "body": "It takes about 30 minutes to kick in, and in some people it stays in the system much longer.",
+          "source": "Source: CDC NIOSH, Training for Nurses on Shift Work"
+        },
+        {
+          "kind": "point",
+          "label": "The plan",
+          "title": "Use it at the start of the shift",
+          "body": "NIOSH says night workers who rely on caffeine could use it at the beginning of the shift, then stop several hours before the shift ends.",
+          "source": "Source: CDC NIOSH, Training for Nurses on Shift Work"
+        },
+        {
+          "kind": "point",
+          "label": "The catch",
+          "title": "Late coffee follows you to bed",
+          "body": "A cup near the end of a night shift can leave enough caffeine to cause restlessness or waking during your sleep the next morning.",
+          "source": "Source: CDC NIOSH, Training for Nurses on Shift Work"
+        },
+        {
+          "kind": "point",
+          "label": "Bonus",
+          "title": "Pair it with a nap",
+          "body": "In nurse studies, a 2.5-hour nap plus caffeine at the start of the shift had positive effects on alertness.",
+          "source": "Source: CDC NIOSH, Training for Nurses on Shift Work"
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    },
+    {
+      "id": "p021",
+      "date": "2026-10-14T20:30:00",
+      "pillar": "why_sleep_matters",
+      "hook_style": "stat",
+      "slot": "evening",
+      "ab_group": "",
+      "title": "Under 4 hours of sleep: 11.5 times the crash risk",
+      "caption": "Drivers who slept under 4 hours had 11.5 times the crash risk of those who slept 7 or more hours (AAA Foundation, 2016). If you're very sleepy, don't drive. #sleep #drowsydriving #sleepscience #healthtok #safety",
+      "slides": [
+        {
+          "text": "Under 4 hours of sleep and your crash risk is 11.5 times higher",
+          "sub": "Compared with 7+ hours"
+        },
+        {
+          "kind": "point",
+          "label": "The study",
+          "title": "7,234 drivers in 4,571 crashes",
+          "body": "The AAA Foundation analyzed a national crash survey and compared crash risk by how much the driver had slept.",
+          "source": "Source: AAA Foundation for Traffic Safety, 2016"
+        },
+        {
+          "kind": "point",
+          "label": "The ladder",
+          "title": "Risk climbs as sleep drops",
+          "body": "6\u20137 hours: 1.3 times. 5\u20136 hours: 1.9 times. 4\u20135 hours: 4.3 times. Under 4 hours: 11.5 times.",
+          "source": "Source: AAA Foundation for Traffic Safety, 2016"
+        },
+        {
+          "kind": "point",
+          "label": "The point",
+          "title": "Even one or two hours short matters",
+          "body": "Sleeping 5\u20136 hours was linked to nearly double the crash risk compared with 7 or more hours.",
+          "source": "Source: AAA Foundation for Traffic Safety, 2016"
+        },
+        {
+          "kind": "point",
+          "label": "Do this",
+          "title": "If you are very sleepy, do not drive",
+          "body": "Pull over somewhere safe or let someone else drive. Save the trip for when you have slept."
+        },
+        {
+          "kind": "cta",
+          "text": "Better sleep is a skill. Get one tip a day.",
+          "sub": "Follow for daily sleep science"
+        }
+      ]
+    }
+  ]
+}

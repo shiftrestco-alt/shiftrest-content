@@ -158,7 +158,8 @@ def main(path):
         total = len(post["slides"])
         for i, s in enumerate(post["slides"], 1):
             kind = s.get("kind") or ("hook" if i == 1 else "cta" if i == total else "point")
-            render_slide(kind, s, i, total, os.path.join(outdir, f"slide_{i}.png"))
+            suffix = f"_r{post['rev']}" if post.get("rev") else ""
+            render_slide(kind, s, i, total, os.path.join(outdir, f"slide_{i}{suffix}.png"))
         print("rendered", post["id"], total, "slides")
 
 
