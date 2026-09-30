@@ -1,6 +1,6 @@
 {
   "mode": "draft",
-  "posts_per_week": 7,
+  "posts_per_week": 14,
   "metricool_blog_id": 7171980,
   "network": "tiktok",
   "timezone": "America/New_York",
@@ -9,5 +9,36 @@
     "midday": "12:30",
     "evening": "20:30"
   },
-  "note": "mode=draft queues posts as Metricool drafts for approval; set to auto to schedule with draft=false"
+  "note": "mode=draft queues posts as Metricool drafts for approval; set to auto to schedule with draft=false. Metricool ids change on every update; use metricool_uuid to find a post again.",
+  "posts_per_day": 2,
+  "weekly_slot_pattern": {
+    "Thu": [
+      "morning",
+      "evening"
+    ],
+    "Fri": [
+      "midday",
+      "evening"
+    ],
+    "Sat": [
+      "morning",
+      "midday"
+    ],
+    "Sun": [
+      "morning",
+      "evening"
+    ],
+    "Mon": [
+      "midday",
+      "evening"
+    ],
+    "Tue": [
+      "morning",
+      "midday"
+    ],
+    "Wed": [
+      "morning",
+      "evening"
+    ]
+  }
 }
