@@ -2,7 +2,7 @@
 """Render carousel slides (1080x1920) from a batch JSON file.
 
 Usage: python3 tools/render.py content/batch-2026-10-w1.json
-Output: images/<post_id>/slide_<n>.png
+Output: images/<post_id>/slide_<n>.jpg
 """
 import json, os, sys
 from PIL import Image, ImageDraw, ImageFont
@@ -146,7 +146,7 @@ def render_slide(kind, slide, idx, total, out):
     if kind != "hook":
         ct = f"{idx}/{total}"
         d.text((W - MARGIN - d.textlength(ct, font=ff), H - 110), ct, font=ff, fill=MUTED)
-    img.save(out, optimize=True)
+    img.convert("RGB").save(out, "JPEG", quality=92)  # TikTok rejects PNG
 
 
 def main(path):
@@ -159,7 +159,7 @@ def main(path):
         for i, s in enumerate(post["slides"], 1):
             kind = s.get("kind") or ("hook" if i == 1 else "cta" if i == total else "point")
             suffix = f"_r{post['rev']}" if post.get("rev") else ""
-            render_slide(kind, s, i, total, os.path.join(outdir, f"slide_{i}{suffix}.png"))
+            render_slide(kind, s, i, total, os.path.join(outdir, f"slide_{i}{suffix}.jpg"))
         print("rendered", post["id"], total, "slides")
 
 
