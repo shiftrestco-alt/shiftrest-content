@@ -2,8 +2,8 @@
   {
     "id": "p001",
     "week": "w1",
-    "metricool_id": 385986214,
-    "metricool_uuid": "3264252991167678381",
+    "metricool_id": 387513836,
+    "metricool_uuid": "881166812976269547",
     "scheduled": "2026-10-01T20:30:00",
     "pillar": "why_sleep_matters",
     "hook_style": "stat",
@@ -11,14 +11,29 @@
     "slot": "evening",
     "ab_group": "",
     "title": "17 hours awake can impair you like a drink",
-    "status": "scheduled",
-    "metrics": null
+    "status": "published",
+    "metrics": {
+      "views": 306,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saves": null,
+      "follows": 0,
+      "follows_per_1k_views": 0.0,
+      "comments_per_view": 0.0,
+      "avg_watch_s": null,
+      "completion_rate": null,
+      "as_of": "2026-10-05"
+    },
+    "previous_uuid": "3264252991167678381",
+    "published_at": "2026-10-03T17:45:46",
+    "url": "https://www.tiktok.com/@shiftrest.co/video/7692561041980476702"
   },
   {
     "id": "p002",
     "week": "w1",
-    "metricool_id": 385986253,
-    "metricool_uuid": "-1822461736218376270",
+    "metricool_id": 387513970,
+    "metricool_uuid": "9040383698258379545",
     "scheduled": "2026-10-02T12:30:00",
     "pillar": "sleep_score_tips",
     "hook_style": "list",
@@ -26,13 +41,28 @@
     "slot": "midday",
     "ab_group": "",
     "title": "5 things that can raise your sleep score",
-    "status": "scheduled",
-    "metrics": null
+    "status": "published",
+    "metrics": {
+      "views": 305,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saves": null,
+      "follows": 0,
+      "follows_per_1k_views": 0.0,
+      "comments_per_view": 0.0,
+      "avg_watch_s": null,
+      "completion_rate": null,
+      "as_of": "2026-10-05"
+    },
+    "previous_uuid": "-1822461736218376270",
+    "published_at": "2026-10-03T17:46:20",
+    "url": "https://www.tiktok.com/@shiftrest.co/video/7692561169130851615"
   },
   {
     "id": "p003",
     "week": "w1",
-    "metricool_id": 385986283,
+    "metricool_id": 387514062,
     "metricool_uuid": "3448717746405918108",
     "scheduled": "2026-10-03T20:30:00",
     "pillar": "myth_bust",
@@ -41,14 +71,28 @@
     "slot": "evening",
     "ab_group": "",
     "title": "Your sleep score is not a medical number",
-    "status": "scheduled",
-    "metrics": null
+    "status": "published",
+    "metrics": {
+      "views": 120,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saves": null,
+      "follows": 0,
+      "follows_per_1k_views": 0.0,
+      "comments_per_view": 0.0,
+      "avg_watch_s": null,
+      "completion_rate": null,
+      "as_of": "2026-10-05"
+    },
+    "published_at": "2026-10-03T20:30:36",
+    "url": "https://www.tiktok.com/@shiftrest.co/video/7692603490786430238"
   },
   {
     "id": "p004",
     "week": "w1",
-    "metricool_id": 385986324,
-    "metricool_uuid": "4017999137258293349",
+    "metricool_id": 388175083,
+    "metricool_uuid": "3740490871706108733",
     "scheduled": "2026-10-04T07:30:00",
     "pillar": "why_sleep_matters",
     "hook_style": "question",
@@ -56,13 +100,16 @@
     "slot": "morning",
     "ab_group": "",
     "title": "Why do you wake up tired after 8 hours?",
-    "status": "scheduled",
-    "metrics": null
+    "status": "published",
+    "metrics": null,
+    "previous_uuid": "4017999137258293349",
+    "published_at": "2026-10-04T23:26:00",
+    "url": "https://www.tiktok.com/@shiftrest.co/video/7693019880878083359"
   },
   {
     "id": "p005",
     "week": "w1",
-    "metricool_id": 385986352,
+    "metricool_id": 388175220,
     "metricool_uuid": "-2213533330304906430",
     "scheduled": "2026-10-05T12:30:00",
     "pillar": "sleep_score_tips",
@@ -77,7 +124,7 @@
   {
     "id": "p006",
     "week": "w1",
-    "metricool_id": 385986398,
+    "metricool_id": 388175123,
     "metricool_uuid": "-7259398087182498517",
     "scheduled": "2026-10-06T20:30:00",
     "pillar": "why_sleep_matters",
@@ -86,13 +133,15 @@
     "slot": "evening",
     "ab_group": "",
     "title": "Sleep is the most underrated performance upgrade",
-    "status": "scheduled",
-    "metrics": null
+    "status": "published",
+    "metrics": null,
+    "published_at": "2026-10-04T23:28:00",
+    "url": "https://www.tiktok.com/@shiftrest.co/video/7693020380482538782"
   },
   {
     "id": "p007",
     "week": "w1",
-    "metricool_id": 385986441,
+    "metricool_id": 388175256,
     "metricool_uuid": "3073596809138358456",
     "scheduled": "2026-10-07T12:30:00",
     "pillar": "sleep_score_tips",
@@ -107,7 +156,7 @@
   {
     "id": "p008",
     "week": "w2",
-    "metricool_id": 385986478,
+    "metricool_id": 388175299,
     "metricool_uuid": "-854131595376770478",
     "scheduled": "2026-10-08T07:30:00",
     "pillar": "why_sleep_matters",
@@ -122,7 +171,7 @@
   {
     "id": "p009",
     "week": "w2",
-    "metricool_id": 385986526,
+    "metricool_id": 388175336,
     "metricool_uuid": "-1211932424986407046",
     "scheduled": "2026-10-08T20:30:00",
     "pillar": "myth_bust",
@@ -137,7 +186,7 @@
   {
     "id": "p010",
     "week": "w2",
-    "metricool_id": 385986562,
+    "metricool_id": 388175351,
     "metricool_uuid": "1603596063400741571",
     "scheduled": "2026-10-09T12:30:00",
     "pillar": "why_sleep_matters",
@@ -152,7 +201,7 @@
   {
     "id": "p011",
     "week": "w2",
-    "metricool_id": 385986599,
+    "metricool_id": 388175137,
     "metricool_uuid": "752021304308876488",
     "scheduled": "2026-10-09T20:30:00",
     "pillar": "sleep_score_tips",
@@ -161,13 +210,15 @@
     "slot": "evening",
     "ab_group": "",
     "title": "Your bedroom may be too warm for good sleep",
-    "status": "scheduled",
-    "metrics": null
+    "status": "published",
+    "metrics": null,
+    "published_at": "2026-10-04T23:30:00",
+    "url": "https://www.tiktok.com/@shiftrest.co/video/7693021032940145951"
   },
   {
     "id": "p012",
     "week": "w2",
-    "metricool_id": 385986673,
+    "metricool_id": 388175377,
     "metricool_uuid": "1080598613593637003",
     "scheduled": "2026-10-10T07:30:00",
     "pillar": "why_sleep_matters",
@@ -182,7 +233,7 @@
   {
     "id": "p013",
     "week": "w2",
-    "metricool_id": 385986714,
+    "metricool_id": 388175403,
     "metricool_uuid": "4080573985009650820",
     "scheduled": "2026-10-10T12:30:00",
     "pillar": "sleep_score_tips",
@@ -197,7 +248,7 @@
   {
     "id": "p014",
     "week": "w2",
-    "metricool_id": 385986760,
+    "metricool_id": 388175422,
     "metricool_uuid": "-680452441377652676",
     "scheduled": "2026-10-11T07:30:00",
     "pillar": "myth_bust",
@@ -212,7 +263,7 @@
   {
     "id": "p015",
     "week": "w2",
-    "metricool_id": 385986831,
+    "metricool_id": 388175443,
     "metricool_uuid": "-2012700215565463913",
     "scheduled": "2026-10-11T20:30:00",
     "pillar": "sleep_score_tips",
@@ -227,7 +278,7 @@
   {
     "id": "p016",
     "week": "w2",
-    "metricool_id": 385986843,
+    "metricool_id": 388175469,
     "metricool_uuid": "-6312643293807228929",
     "scheduled": "2026-10-12T12:30:00",
     "pillar": "sleep_score_tips",
@@ -242,7 +293,7 @@
   {
     "id": "p017",
     "week": "w2",
-    "metricool_id": 385986906,
+    "metricool_id": 388175504,
     "metricool_uuid": "8077109644404870380",
     "scheduled": "2026-10-12T20:30:00",
     "pillar": "night_shift",
@@ -257,7 +308,7 @@
   {
     "id": "p018",
     "week": "w2",
-    "metricool_id": 385986946,
+    "metricool_id": 388175528,
     "metricool_uuid": "-7270460426871223715",
     "scheduled": "2026-10-13T07:30:00",
     "pillar": "why_sleep_matters",
@@ -272,7 +323,7 @@
   {
     "id": "p019",
     "week": "w2",
-    "metricool_id": 385986977,
+    "metricool_id": 388175539,
     "metricool_uuid": "8582851991996288381",
     "scheduled": "2026-10-13T12:30:00",
     "pillar": "sleep_score_tips",
@@ -287,7 +338,7 @@
   {
     "id": "p020",
     "week": "w2",
-    "metricool_id": 385987027,
+    "metricool_id": 388175559,
     "metricool_uuid": "-4700794843966061972",
     "scheduled": "2026-10-14T07:30:00",
     "pillar": "night_shift",
@@ -302,7 +353,7 @@
   {
     "id": "p021",
     "week": "w2",
-    "metricool_id": 385987079,
+    "metricool_id": 388175594,
     "metricool_uuid": "-4907647230525026758",
     "scheduled": "2026-10-14T20:30:00",
     "pillar": "why_sleep_matters",
