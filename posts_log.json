@@ -469,5 +469,50 @@
     "title": "Why do you get sick when you're exhausted?",
     "status": "scheduled",
     "metrics": null
+  },
+  {
+    "id": "p029",
+    "week": "w4-extra",
+    "metricool_id": 390001920,
+    "metricool_uuid": "-310808406088988710",
+    "scheduled": "2026-10-07T20:30:00",
+    "pillar": "night_shift",
+    "hook_style": "pattern_interrupt",
+    "slides": 7,
+    "slot": "evening",
+    "ab_group": "",
+    "title": "You drove home drunk this morning",
+    "status": "scheduled",
+    "metrics": null
+  },
+  {
+    "id": "p030",
+    "week": "w4-extra",
+    "metricool_id": 390001986,
+    "metricool_uuid": "-4269628835692654836",
+    "scheduled": "2026-10-09T20:30:00",
+    "pillar": "night_shift",
+    "hook_style": "curiosity_gap",
+    "slides": 7,
+    "slot": "evening",
+    "ab_group": "",
+    "title": "The 20 minutes that ruin your day sleep",
+    "status": "scheduled",
+    "metrics": null
+  },
+  {
+    "id": "p031",
+    "week": "w4-extra",
+    "metricool_id": 390002003,
+    "metricool_uuid": "-1024208337337956937",
+    "scheduled": "2026-10-13T20:30:00",
+    "pillar": "night_shift",
+    "hook_style": "contrarian",
+    "slides": 7,
+    "slot": "evening",
+    "ab_group": "",
+    "title": "Your 8 hours of day sleep isn't 8 hours",
+    "status": "scheduled",
+    "metrics": null
   }
 ]
