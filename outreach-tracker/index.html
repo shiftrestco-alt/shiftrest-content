@@ -351,8 +351,11 @@ function dueFollowUps(){ const now=Date.now(); return contactsArr().filter(c=>AW
 // rank: 1 = priority contact, 2 = normal (default), 3 = long shot. Rank first, then firm priority.
 function queue(){ return contactsArr().filter(c=>c.stage==="todo").sort((a,b)=>(a.rank??2)-(b.rank??2) || (S.firms.get(a.firmId)?.priority??99)-(S.firms.get(b.firmId)?.priority??99) || (a.createdAt||"").localeCompare(b.createdAt||"")); }
 function variantSends(vid){ let n=0; for(const c of S.contacts.values()) if(c.variantId===vid && c.sentAt) n++; return n; }
+// Auto-pick a hook. A contact's own variantPref wins. Alumni-only hooks never go to non-alumni, and prefOnly hooks are used only when a contact asks for them.
 function pickVariant(c){
-  const act=[...S.variants.entries()].filter(([,v])=>v.active!==false);
+  const pref=S.variants.get(c.variantPref); if(pref && pref.active!==false) return c.variantPref;
+  const alum = c.source==="iona-alumni" || /Iona alum/i.test(c.notes||"");
+  const act=[...S.variants.entries()].filter(([,v])=>v.active!==false && !v.prefOnly && (alum || !v.alumniOnly));
   const tiers=[ act.filter(([,v])=>v.firmId===c.firmId && v.persona===c.persona), act.filter(([,v])=>!v.firmId && v.persona===c.persona), act.filter(([,v])=>v.firmId===c.firmId), act.filter(([,v])=>!v.firmId) ];
   for(const t of tiers){ if(t.length){ t.sort((a,b)=>variantSends(a[0])-variantSends(b[0])); return t[0][0]; } }
   return act[0]?.[0]||"";
