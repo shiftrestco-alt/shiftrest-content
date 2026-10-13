@@ -348,7 +348,8 @@ const firmName = id => S.firms.get(id)?.name || "Unknown firm";
 function sentContacts(){ return contactsArr().filter(c=>c.sentAt); }
 function touchesOn(day, kinds){ let n=0; for(const c of S.contacts.values()) for(const t of (c.touches||[])) if(dayKey(t.at)===day && (!kinds||kinds.includes(t.kind))) n++; return n; }
 function dueFollowUps(){ const now=Date.now(); return contactsArr().filter(c=>AWAITING.includes(c.stage) && c.nextFollowUpAt && new Date(c.nextFollowUpAt).getTime()<=now).sort((a,b)=>a.nextFollowUpAt.localeCompare(b.nextFollowUpAt)); }
-function queue(){ return contactsArr().filter(c=>c.stage==="todo").sort((a,b)=>(S.firms.get(a.firmId)?.priority??99)-(S.firms.get(b.firmId)?.priority??99) || (a.createdAt||"").localeCompare(b.createdAt||"")); }
+// rank: 1 = priority contact, 2 = normal (default), 3 = long shot. Rank first, then firm priority.
+function queue(){ return contactsArr().filter(c=>c.stage==="todo").sort((a,b)=>(a.rank??2)-(b.rank??2) || (S.firms.get(a.firmId)?.priority??99)-(S.firms.get(b.firmId)?.priority??99) || (a.createdAt||"").localeCompare(b.createdAt||"")); }
 function variantSends(vid){ let n=0; for(const c of S.contacts.values()) if(c.variantId===vid && c.sentAt) n++; return n; }
 function pickVariant(c){
   const act=[...S.variants.entries()].filter(([,v])=>v.active!==false);
