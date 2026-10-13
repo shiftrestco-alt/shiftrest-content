@@ -1,0 +1,781 @@
+<title>Internship Outreach Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky top bar with view tabs; one centered working column; drawers slide in from the right for compose/edit. */
+:root{
+  --paper:#F3F4F7; --surface:#FFFFFF; --sunk:#EBEDF1; --ink:#15171C; --muted:#5B616E; --line:#DADDE4;
+  --accent:#7A1F2B; --accent-ink:#FFFFFF; --accent-soft:#F4E6E8; --gold:#9A7110;
+  --ok:#1D7348; --ok-soft:#E3F2EA; --warn:#9A5B00; --warn-soft:#FBEFD9; --bad:#AE2A20; --bad-soft:#FBE6E3; --info:#2B58A3; --info-soft:#E4ECF8;
+  --display:"Archivo",ui-sans-serif,system-ui,sans-serif; --body:"Archivo",ui-sans-serif,system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --r:8px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#111216; --surface:#1A1C21; --sunk:#22252B; --ink:#ECEDF0; --muted:#9BA1AD; --line:#2E3138;
+  --accent:#E2788A; --accent-ink:#1A0B0E; --accent-soft:#3A1F25; --gold:#E2B64E;
+  --ok:#55C990; --ok-soft:#163327; --warn:#E6A84A; --warn-soft:#3A2C14; --bad:#F2766B; --bad-soft:#3D1E1B; --info:#86AAF0; --info-soft:#1C2A44; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#111216; --surface:#1A1C21; --sunk:#22252B; --ink:#ECEDF0; --muted:#9BA1AD; --line:#2E3138;
+  --accent:#E2788A; --accent-ink:#1A0B0E; --accent-soft:#3A1F25; --gold:#E2B64E;
+  --ok:#55C990; --ok-soft:#163327; --warn:#E6A84A; --warn-soft:#3A2C14; --bad:#F2766B; --bad-soft:#3D1E1B; --info:#86AAF0; --info-soft:#1C2A44; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--paper);color:var(--ink)}
+body{font-family:var(--body);font-size:14px;line-height:1.45;font-variation-settings:"wdth" 100}
+a{color:var(--info)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-inner{max-width:1240px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;line-height:1.1;margin-right:auto}
+.brand b{font-family:var(--display);font-weight:800;font-stretch:80%;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+.brand span{color:var(--muted);font-size:12px}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;max-width:100%}
+nav.tabs button{border:0;background:none;padding:8px 12px;border-radius:6px;cursor:pointer;color:var(--muted);font-weight:600;white-space:nowrap}
+nav.tabs button[aria-current="true"]{background:var(--accent-soft);color:var(--accent)}
+nav.tabs button:hover{color:var(--ink)}
+.conn{display:flex;gap:6px;font-size:11px;color:var(--muted);flex-wrap:wrap}
+.conn i{font-style:normal;padding:2px 7px;border-radius:99px;background:var(--sunk)}
+.conn i.on{background:var(--ok-soft);color:var(--ok)}
+
+main{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:20px 80px;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h2{font-size:15px;font-weight:800;font-stretch:85%;text-transform:uppercase;letter-spacing:.05em}
+h3{font-size:15px;font-weight:700}
+.sub{color:var(--muted);font-size:13px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.spread{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.section{display:flex;flex-direction:column;gap:10px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.pad{padding:14px 16px}
+
+.btn{border:1px solid var(--line);background:var(--surface);padding:7px 12px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;white-space:nowrap}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{border-color:transparent;background:none}
+.btn.small{padding:4px 9px;font-size:12px}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.btn:disabled{opacity:.5;cursor:default}
+
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--sunk);color:var(--muted);white-space:nowrap}
+.chip.urgent{background:var(--bad-soft);color:var(--bad)} .chip.soon{background:var(--warn-soft);color:var(--warn)}
+.chip.open{background:var(--ok-soft);color:var(--ok)} .chip.neutral{background:var(--info-soft);color:var(--info)}
+.st-todo{background:var(--sunk);color:var(--muted)} .st-sent,.st-fu1,.st-fu2{background:var(--info-soft);color:var(--info)}
+.st-replied{background:var(--warn-soft);color:var(--warn)} .st-call,.st-referral,.st-interview{background:var(--ok-soft);color:var(--ok)}
+.st-noreply,.st-declined,.st-bounced{background:var(--bad-soft);color:var(--bad)}
+.persona{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+
+/* KPI strip */
+.kpis{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:10px}
+@media (max-width:860px){.kpis{grid-template-columns:1fr 1fr}.kpis .goal{grid-column:1/-1}}
+.kpi{padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi .label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.kpi .val{font-family:var(--mono);font-size:26px;font-weight:500;line-height:1.1}
+.kpi .val small{font-size:14px;color:var(--muted)}
+.meter{height:10px;background:var(--sunk);border-radius:99px;overflow:hidden;display:flex}
+.meter b{display:block;height:100%;background:var(--accent)}
+.meter b.fu{background:var(--gold)}
+.ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--muted)}
+
+.deadlines{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}
+.dl{flex:0 0 auto;padding:10px 12px;border-left:4px solid var(--line);display:flex;flex-direction:column;gap:2px;min-width:200px;max-width:280px}
+.dl.urgent{border-left-color:var(--bad)} .dl.soon{border-left-color:var(--warn)} .dl.later{border-left-color:var(--info)}
+.dl .days{font-family:var(--mono);font-size:20px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.two>*{min-width:0}
+
+.list{display:flex;flex-direction:column}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:10px 14px;border-top:1px solid var(--line);align-items:center}
+.item:first-child{border-top:0}
+.item .who{min-width:0}
+.item .who b{font-weight:700}
+.item .meta{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty{padding:22px 16px;color:var(--muted);text-align:left}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:left;font-weight:700;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap;background:var(--surface);position:sticky;top:0}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:hover td{background:var(--sunk)}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+select.stage{border:0;border-radius:99px;padding:3px 8px;font-size:12px;font-weight:700;cursor:pointer}
+.li{font-family:var(--mono);font-size:11px;font-weight:600;padding:1px 5px;border-radius:4px;background:var(--info-soft);color:var(--info);text-decoration:none}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text],input[type=email],input[type=url],input[type=number],input[type=search],select,textarea{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 9px;min-width:0}
+textarea{width:100%;resize:vertical;line-height:1.5}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--muted)}
+label.f>input,label.f>select,label.f>textarea{font-weight:400;color:var(--ink);font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.grid2{grid-template-columns:1fr}}
+.grid2 .full{grid-column:1/-1}
+
+/* firm cards */
+.firms{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+@media (max-width:400px){.firms{grid-template-columns:1fr}}
+.firm{display:flex;flex-direction:column;gap:8px;padding:14px 16px;min-width:0}
+.firm .rank{font-family:var(--mono);color:var(--muted);font-size:12px}
+.firm .av{font-family:var(--display);font-style:italic;font-weight:600}
+.firm dl{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin:0;font-size:12.5px}
+.firm dt{color:var(--muted);font-weight:600}
+.firm dd{margin:0}
+.funnel{display:flex;gap:14px;font-size:12px;color:var(--muted)}
+.funnel b{font-family:var(--mono);font-size:16px;color:var(--ink);display:block;font-weight:500}
+
+/* experiments */
+.dims{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px}
+@media (max-width:420px){.dims{grid-template-columns:1fr}}
+.bar{height:6px;background:var(--sunk);border-radius:99px;overflow:hidden;min-width:60px}
+.bar b{display:block;height:100%;background:var(--ok)}
+.lowN{color:var(--muted);font-size:10px;font-family:var(--mono)}
+.variants{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px}
+@media (max-width:420px){.variants{grid-template-columns:1fr}}
+.var{padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.var.off{opacity:.55}
+.var .subj{font-weight:700}
+.var pre{white-space:pre-wrap;font-family:var(--body);margin:0;font-size:12.5px;color:var(--muted);max-height:7.5em;overflow:hidden}
+.tags{display:flex;gap:4px;flex-wrap:wrap}
+.tag{font-size:11px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--muted)}
+.tag b{color:var(--ink);font-weight:600}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(10,10,14,.45);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(620px,100%);background:var(--surface);z-index:41;display:flex;flex-direction:column;border-left:1px solid var(--line);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer header{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.drawer .body{padding:16px 18px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;flex:1}
+.drawer footer{padding:12px 18px;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.note{font-size:12px;color:var(--muted);background:var(--sunk);border-radius:6px;padding:8px 10px}
+.note.warn{background:var(--warn-soft);color:var(--warn)}
+.counter{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+/* playbook */
+.play{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+@media (max-width:400px){.play{grid-template-columns:1fr}}
+.play article{padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.play article .k{font-family:var(--mono);font-size:11px;color:var(--accent);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.play p,.play ul{margin:0;font-size:13.5px;max-width:65ch}
+.play ul{padding-left:18px;display:flex;flex-direction:column;gap:3px}
+
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);padding:9px 14px;border-radius:8px;z-index:60;font-weight:600;font-size:13px;max-width:calc(100% - 32px)}
+@media (prefers-reduced-motion:no-preference){.drawer{animation:slide .18s ease-out}@keyframes slide{from{transform:translateX(24px);opacity:.6}to{transform:none;opacity:1}}}
+</style>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand"><b>Outreach Desk</b><span>Boden Grimes · Summer internship recruiting</span></div>
+    <nav class="tabs" id="tabs" aria-label="Views">
+      <button data-view="today">Today</button>
+      <button data-view="pipeline">Pipeline</button>
+      <button data-view="firms">Firms</button>
+      <button data-view="tests">Experiments</button>
+      <button data-view="playbook">Playbook</button>
+      <button data-view="settings">Settings</button>
+    </nav>
+    <div class="conn" id="conn"><i id="c-db">Database</i><i id="c-gm">Gmail</i><i id="c-ai">Claude</i></div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="panel pad empty" id="boot">Loading your firms, contacts and hook tests…</div>
+</main>
+
+<div id="toast" hidden></div>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-modal="true" role="dialog"></aside>
+
+<script>
+(() => {
+"use strict";
+// ---------- constants ----------
+const STAGES = [
+  ["todo","Not contacted"],["sent","Emailed"],["fu1","Follow-up 1 sent"],["fu2","Follow-up 2 sent"],
+  ["replied","Replied"],["call","Call booked"],["referral","Referral / resume fwd"],["interview","Interview"],
+  ["noreply","No reply"],["declined","Declined"],["bounced","Bounced"]];
+const STAGE_LABEL = Object.fromEntries(STAGES);
+const AWAITING = ["sent","fu1","fu2"];
+const REPLIED = ["replied","call","referral","interview","declined"];
+const POSITIVE = ["call","referral","interview"];
+const PERSONAS = ["Technician","Team Player","MD / Partner","Gatekeeper","Warm intro"];
+const DESIRES = {"Technician":"Proof you can do the work","Team Player":"Someone reliable they'd staff","MD / Partner":"Relevance and a reason to care","Gatekeeper":"Eligibility, clarity, zero extra work","Warm intro":"A fellow alum worth helping"};
+const ANGLES = ["ER / EMT story","Iona connection","Local / proximity","Stock pitch & AI","Firm news / deal","Their own words","Eligibility check"];
+const MECHS = ["EMT overnight shifts","3.9 GPA + SIE + BMC","Perplexity top 500 pitch","Investment thesis / writing sample","Spanish with patients","Iona alumni ties","Local (Stamford)"];
+const CTAS = ["10-minute call","Critique my work","Point me to the right person","Confirm eligibility","Flag my application","Referral / intro","Any open role"];
+const DIMS = [["persona","Avatar (recipient)"],["desire","Desire"],["angle","Angle"],["mechanism","Mechanism (proof)"],["cta","CTA"],["variant","Hook (subject line)"],["firm","Firm"]];
+const GMAIL = "Gmail";
+
+// ---------- state ----------
+const S = { firms:new Map(), contacts:new Map(), variants:new Map(),
+  settings:{dailyGoal:50, followUpDays:[3,7], signature:"Best,\nBoden Grimes", fu1Subject:"Re: {subject}", fu1Body:"Hi {first},\n\nBumping this in case it got buried.\n\n{signature}", fu2Subject:"Re: {subject}", fu2Body:"Hi {first},\n\nLast note from me.\n\n{signature}"},
+  loaded:{firms:false,contacts:false,variants:false}, view:"today",
+  f:{firm:"",stage:"",persona:"",q:""}, vf:{firm:"",persona:""} };
+let db=null, sample=null, mcp=null, canWrite=true;
+
+const $ = (s,el=document)=>el.querySelector(s);
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const nowISO = () => new Date().toISOString();
+const dayKey = d => { const x=new Date(d); return x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0"); };
+const todayKey = () => dayKey(Date.now());
+const fmtDate = iso => iso ? new Date(iso).toLocaleDateString(undefined,{month:"short",day:"numeric"}) : "—";
+const pct = (a,b) => b ? Math.round(100*a/b) : 0;
+const uid = p => p + "_" + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+function addBusinessDays(from, n){ const d=new Date(from); let k=0; while(k<n){ d.setDate(d.getDate()+1); const w=d.getDay(); if(w!==0&&w!==6) k++; } d.setHours(8,0,0,0); return d.toISOString(); }
+function daysUntil(dateStr){ const t=new Date(dateStr+"T23:59:00"); return Math.ceil((t - new Date())/86400000); }
+
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(toast._t); toast._t=setTimeout(()=>t.hidden=true,3200); }
+async function copy(text, what){ try{ await navigator.clipboard.writeText(text); toast(what+" copied"); }catch{ toast("Copy blocked here. Select the text and copy it manually."); } }
+
+// ---------- merge fields ----------
+function nameParts(name){ const clean=String(name||"").replace(/["“”].*?["“”]/g,"").replace(/\b(Jr|Sr|II|III)\.?$/,"").trim(); const p=clean.split(/\s+/).filter(Boolean); const first=p[0]||""; const last=(p.filter(x=>!/^[A-Z]\.$/.test(x)).slice(1).pop())||""; return {first,last}; }
+function fill(tpl, c, extra={}){
+  const f = S.firms.get(c?.firmId)||{}; const {first,last}=nameParts(c?.name);
+  const map = {first, last, firm: shortFirm(f.name||""), role:c?.role||"", signature:S.settings.signature||"", subject:extra.subject||c?.subject||""};
+  return String(tpl||"").replace(/\{(\w+)\}/g,(m,k)=> k in map ? map[k] : m);
+}
+function shortFirm(n){ return n.split(":")[0].replace(/\s*\(.*\)/,"").trim(); }
+function guessEmail(name, firm){
+  if(!firm?.emailPattern) return "";
+  const {first,last}=nameParts(name); const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z]/g,"");
+  return firm.emailPattern.replace("{first}",norm(first)).replace("{last}",norm(last)).replace("{f}",norm(first).slice(0,1));
+}
+
+// ---------- derived ----------
+const contactsArr = () => [...S.contacts.values()];
+const firmName = id => S.firms.get(id)?.name || "Unknown firm";
+function sentContacts(){ return contactsArr().filter(c=>c.sentAt); }
+function touchesOn(day, kinds){ let n=0; for(const c of S.contacts.values()) for(const t of (c.touches||[])) if(dayKey(t.at)===day && (!kinds||kinds.includes(t.kind))) n++; return n; }
+function dueFollowUps(){ const now=Date.now(); return contactsArr().filter(c=>AWAITING.includes(c.stage) && c.nextFollowUpAt && new Date(c.nextFollowUpAt).getTime()<=now).sort((a,b)=>a.nextFollowUpAt.localeCompare(b.nextFollowUpAt)); }
+function queue(){ return contactsArr().filter(c=>c.stage==="todo").sort((a,b)=>(S.firms.get(a.firmId)?.priority??99)-(S.firms.get(b.firmId)?.priority??99) || (a.createdAt||"").localeCompare(b.createdAt||"")); }
+function variantSends(vid){ let n=0; for(const c of S.contacts.values()) if(c.variantId===vid && c.sentAt) n++; return n; }
+function pickVariant(c){
+  const act=[...S.variants.entries()].filter(([,v])=>v.active!==false);
+  const tiers=[ act.filter(([,v])=>v.firmId===c.firmId && v.persona===c.persona), act.filter(([,v])=>!v.firmId && v.persona===c.persona), act.filter(([,v])=>v.firmId===c.firmId), act.filter(([,v])=>!v.firmId) ];
+  for(const t of tiers){ if(t.length){ t.sort((a,b)=>variantSends(a[0])-variantSends(b[0])); return t[0][0]; } }
+  return act[0]?.[0]||"";
+}
+
+// ---------- writes ----------
+async function write(col, id, data, mode="update"){
+  if(!db){ toast("Database isn't connected in this view, so changes can't be saved."); return false; }
+  try{ const ref=db.collection(col).doc(id); if(mode==="set") await ref.set(data); else if(mode==="delete") await ref.delete(); else await ref.update(data); return true; }
+  catch(e){ if(e?.code==="invalid_argument" && mode!=="set"){ canWrite=false; } toast(e?.code==="quota_exceeded" ? "Storage is full. Delete old contacts to add more." : "Couldn't save ("+(e?.code||"error")+")."); return false; }
+}
+function touch(c, kind, extra={}){ const t=(c.touches||[]).slice(-40); t.push({at:nowISO(), kind, ...extra}); return t; }
+
+async function markSent(cid, {variantId, subject}){
+  const c=S.contacts.get(cid); if(!c) return;
+  const v=S.variants.get(variantId)||{};
+  const at=nowISO();
+  const test={persona:c.persona, desire:v.desire||DESIRES[c.persona]||"", angle:v.angle||"", mechanism:v.mechanism||"", cta:v.cta||""};
+  const ok=await write("contacts",cid,{stage:"sent", sentAt:at, lastTouchAt:at, variantId:variantId||"", subject, test, followUps:0, nextFollowUpAt:addBusinessDays(at,S.settings.followUpDays?.[0]||3), touches:touch(c,"email",{variantId})});
+  if(ok) toast("Logged as sent. Follow-up scheduled for "+fmtDate(addBusinessDays(at,S.settings.followUpDays?.[0]||3))+".");
+}
+async function markFollowUp(cid){
+  const c=S.contacts.get(cid); if(!c) return;
+  const n=(c.followUps||0)+1; const at=nowISO(); const gaps=S.settings.followUpDays||[3,7];
+  const next = n>=2 ? addBusinessDays(at,5) : addBusinessDays(at,(gaps[1]||7)-(gaps[0]||3));
+  const ok=await write("contacts",cid,{stage:n>=2?"fu2":"fu1", followUps:n, lastTouchAt:at, nextFollowUpAt:next, touches:touch(c,"followup",{n})});
+  if(ok) toast(n>=2?"Final follow-up logged. Marked no-reply in 5 business days if silent.":"Follow-up logged.");
+}
+async function setStage(cid, stage){
+  const c=S.contacts.get(cid); if(!c) return;
+  const patch={stage, lastTouchAt:nowISO(), touches:touch(c,"stage",{stage})};
+  if(REPLIED.includes(stage) && !c.repliedAt) patch.repliedAt=nowISO();
+  if(!AWAITING.includes(stage)) patch.nextFollowUpAt="";
+  if(stage==="todo"){ patch.sentAt=""; }
+  await write("contacts",cid,patch);
+}
+// Auto-close: contacts whose last follow-up is overdue become "No reply". Runs once per load after data arrives.
+let autoClosed=false;
+async function autoClose(){
+  if(autoClosed||!db||!canWrite) return; autoClosed=true;
+  const now=Date.now();
+  for(const c of contactsArr()){
+    if(c.stage==="fu2" && c.nextFollowUpAt && new Date(c.nextFollowUpAt).getTime()<now){
+      await write("contacts",c.__id,{stage:"noreply",nextFollowUpAt:"",touches:touch(c,"stage",{stage:"noreply",auto:true})});
+    }
+  }
+}
+
+// ---------- render ----------
+function render(){
+  for(const b of document.querySelectorAll("#tabs button")) b.setAttribute("aria-current", String(b.dataset.view===S.view));
+  const m=$("#main");
+  const ready=S.loaded.firms&&S.loaded.contacts&&S.loaded.variants;
+  if(!db){ m.innerHTML=`<div class="panel pad empty"><h3>Your tracker data lives in this artifact's database</h3><p class="sub">Open this page in claude.ai while signed in to load firms, contacts and hook tests. The database isn't available in this view.</p></div>`; return; }
+  if(!ready){ m.innerHTML=`<div class="panel pad empty">Loading your firms, contacts and hook tests…</div>`; return; }
+  if(!S.firms.size && !S.contacts.size){ m.innerHTML=`<div class="panel pad empty"><h3>No firms yet</h3><p class="sub">Add your first firm on the Firms tab, then add the people you'll reach out to there.</p><div class="row" style="margin-top:10px"><button class="btn primary" data-act="new-firm">Add a firm</button></div></div>`; return; }
+  const keepScroll=window.scrollY;
+  m.innerHTML = ({today:viewToday, pipeline:viewPipeline, firms:viewFirms, tests:viewTests, playbook:viewPlaybook, settings:viewSettings}[S.view]||viewToday)();
+  window.scrollTo(0,keepScroll);
+  const q=$("#f-q"); if(q && renderFocus==="f-q"){ q.focus(); q.setSelectionRange(q.value.length,q.value.length); }
+}
+let renderFocus="";
+
+function stageChip(st){ return `<span class="chip st-${st}">${esc(STAGE_LABEL[st]||st)}</span>`; }
+function liLink(c){ return c.linkedin ? `<a class="li" href="${esc(c.linkedin)}" target="_blank" rel="noopener" title="Open LinkedIn">in</a>` : ""; }
+
+function viewToday(){
+  const goal=S.settings.dailyGoal||50, today=todayKey();
+  const firstToday=touchesOn(today,["email"]), fuToday=touchesOn(today,["followup"]);
+  const due=dueFollowUps(), q=queue();
+  const sent=sentContacts(), replied=sent.filter(c=>REPLIED.includes(c.stage)), pos=sent.filter(c=>POSITIVE.includes(c.stage));
+  const wk=Date.now()-7*86400000; const repliesWk=contactsArr().filter(c=>c.repliedAt && new Date(c.repliedAt).getTime()>wk).length;
+  const firmsDl=[...S.firms.entries()].filter(([,f])=>f.keyDate).map(([id,f])=>({id,f,d:daysUntil(f.keyDate)})).filter(x=>x.d>=-1).sort((a,b)=>a.d-b.d);
+  const w1=Math.min(100,pct(firstToday,goal)), w2=Math.max(0,Math.min(100-w1,pct(fuToday,goal)));
+  const remaining=Math.max(0,goal-firstToday-fuToday);
+  return `
+  <section class="kpis">
+    <div class="panel kpi goal">
+      <div class="spread"><span class="label">Today's outreach</span><span class="counter">${remaining? remaining+" to go":"Goal hit"}</span></div>
+      <div class="val">${firstToday+fuToday}<small> / ${goal}</small></div>
+      <div class="meter" role="img" aria-label="${firstToday} new emails and ${fuToday} follow-ups of ${goal}"><b style="width:${w1}%"></b><b class="fu" style="width:${w2}%"></b></div>
+      <div class="ticks"><span>${firstToday} new · ${fuToday} follow-ups</span><span>${goal}</span></div>
+    </div>
+    <div class="panel kpi"><span class="label">Follow-ups due</span><span class="val">${due.length}</span></div>
+    <div class="panel kpi"><span class="label">Replies · 7 days</span><span class="val">${repliesWk}</span></div>
+    <div class="panel kpi"><span class="label">Reply rate</span><span class="val">${pct(replied.length,sent.length)}<small>%</small></span><span class="sub">${replied.length} of ${sent.length} emailed</span></div>
+    <div class="panel kpi"><span class="label">Calls / referrals</span><span class="val">${pos.length}</span><span class="sub">${pct(pos.length,sent.length)}% of emailed</span></div>
+  </section>
+
+  ${firmsDl.length?`<section class="section"><h2>Key dates</h2><div class="deadlines">${firmsDl.map(({f,d})=>`<div class="panel dl ${d<=21?"urgent":d<=60?"soon":"later"}"><span class="days">${d<=0?"Today":d+" days"}</span><b>${esc(f.name)}</b><span class="sub">${esc(f.keyDateLabel||"")} · ${fmtDate(f.keyDate+"T12:00")}</span></div>`).join("")}</div></section>`:""}
+
+  <div class="two">
+    <section class="section">
+      <div class="spread"><h2>Follow-ups due</h2>${mcp&&due.length?`<button class="btn small" data-act="gm-bulk-fu">Draft all ${Math.min(due.length,15)} in Gmail</button>`:""}</div>
+      <div class="panel list">${due.length? due.slice(0,25).map(c=>`
+        <div class="item"><div class="who"><b>${esc(c.name)}</b> ${liLink(c)} <span class="persona">${esc(c.persona)}</span><div class="meta">${esc(firmName(c.firmId))} · ${stageChip(c.stage)} · last touch ${fmtDate(c.lastTouchAt)}</div></div>
+        <div class="row"><button class="btn small primary" data-act="compose" data-id="${c.__id}" data-mode="fu">Follow up</button></div></div>`).join("")
+        :`<div class="empty">Nothing due. Follow-ups are scheduled automatically ${S.settings.followUpDays?.[0]||3} and ${S.settings.followUpDays?.[1]||7} business days after you log an email as sent.</div>`}</div>
+    </section>
+    <section class="section">
+      <div class="spread"><h2>Next up · ${q.length} not contacted</h2>
+        <div class="row">${mcp&&q.length?`<button class="btn small" data-act="gm-bulk-new">Draft next ${Math.min(q.length,10)} in Gmail</button>`:""}<button class="btn small" data-act="new-contact">Add person</button></div></div>
+      <div class="panel list">${q.length? q.slice(0,25).map(c=>{ const vid=pickVariant(c), v=S.variants.get(vid); return `
+        <div class="item"><div class="who"><b>${esc(c.name)}</b> ${liLink(c)} <span class="persona">${esc(c.persona)}</span><div class="meta">${esc(firmName(c.firmId))}${v?` · hook: “${esc(fill(v.subject,c))}”`:""}</div></div>
+        <div class="row"><button class="btn small primary" data-act="compose" data-id="${c.__id}">Compose</button></div></div>`}).join("")
+        :`<div class="empty">Everyone in your list has been contacted. Add people with <b>Add person</b> or paste a batch on the Pipeline tab.</div>`}</div>
+    </section>
+  </div>
+  ${mcp?`<section class="panel pad spread"><div><h3>Check Gmail for replies</h3><span class="sub">Searches your inbox for messages from everyone you've emailed in the last 60 days and moves them to Replied.</span></div><button class="btn" data-act="gm-check">Check replies</button></section>`:""}
+  `;
+}
+
+function viewPipeline(){
+  const {firm,stage,persona,q}=S.f; const ql=q.toLowerCase();
+  let rows=contactsArr().filter(c=>(!firm||c.firmId===firm)&&(!stage||c.stage===stage)&&(!persona||c.persona===persona)&&(!ql||(c.name+" "+c.role+" "+c.email+" "+firmName(c.firmId)).toLowerCase().includes(ql)));
+  rows.sort((a,b)=>(S.firms.get(a.firmId)?.priority??99)-(S.firms.get(b.firmId)?.priority??99)||a.name.localeCompare(b.name));
+  const firmOpts=[...S.firms.entries()].sort((a,b)=>(a[1].priority??99)-(b[1].priority??99)).map(([id,f])=>`<option value="${id}" ${firm===id?"selected":""}>${esc(f.name)}</option>`).join("");
+  const counts={}; for(const c of S.contacts.values()) counts[c.stage]=(counts[c.stage]||0)+1;
+  return `
+  <section class="section">
+    <div class="spread"><h2>Pipeline · ${rows.length} of ${S.contacts.size}</h2><div class="row"><button class="btn" data-act="paste">Paste a batch</button><button class="btn primary" data-act="new-contact">Add person</button></div></div>
+    <div class="row" style="gap:6px">${STAGES.filter(([k])=>counts[k]).map(([k,l])=>`<button class="chip st-${k}" style="border:0;cursor:pointer" data-act="fstage" data-v="${stage===k?"":k}">${esc(l)} <span class="num">${counts[k]}</span></button>`).join("")}</div>
+    <div class="filters">
+      <input type="search" id="f-q" placeholder="Search name, role, email" value="${esc(q)}" aria-label="Search">
+      <select id="f-firm" aria-label="Firm"><option value="">All firms</option>${firmOpts}</select>
+      <select id="f-stage" aria-label="Stage"><option value="">All stages</option>${STAGES.map(([k,l])=>`<option value="${k}" ${stage===k?"selected":""}>${l}</option>`).join("")}</select>
+      <select id="f-persona" aria-label="Avatar"><option value="">All avatars</option>${PERSONAS.map(p=>`<option ${persona===p?"selected":""}>${p}</option>`).join("")}</select>
+    </div>
+    <div class="panel tablewrap">${rows.length?`<table><thead><tr><th>Person</th><th>Firm</th><th>Avatar</th><th>Stage</th><th>Hook sent</th><th>Last touch</th><th>Next follow-up</th><th></th></tr></thead><tbody>
+      ${rows.map(c=>{ const v=S.variants.get(c.variantId); const due=c.nextFollowUpAt && new Date(c.nextFollowUpAt)<=new Date() && AWAITING.includes(c.stage); return `<tr>
+        <td><b>${esc(c.name)}</b> ${liLink(c)}<div class="sub" style="max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(c.role)}</div></td>
+        <td>${esc(shortFirm(firmName(c.firmId)))}</td>
+        <td><span class="persona">${esc(c.persona)}</span></td>
+        <td><select class="stage st-${c.stage}" data-act="stage" data-id="${c.__id}" aria-label="Stage for ${esc(c.name)}">${STAGES.map(([k,l])=>`<option value="${k}" ${c.stage===k?"selected":""}>${l}</option>`).join("")}</select></td>
+        <td style="max-width:240px">${c.subject?`<span title="${esc(v?.label||"")}">${esc(c.subject)}</span>`:"<span class='sub'>—</span>"}</td>
+        <td class="n">${fmtDate(c.lastTouchAt)}</td>
+        <td class="n" style="${due?"color:var(--bad);font-weight:600":""}">${AWAITING.includes(c.stage)?fmtDate(c.nextFollowUpAt):"—"}</td>
+        <td><div class="row" style="flex-wrap:nowrap;gap:4px"><button class="btn small primary" data-act="compose" data-id="${c.__id}" ${AWAITING.includes(c.stage)?'data-mode="fu"':""}>${AWAITING.includes(c.stage)?"Follow up":c.stage==="todo"?"Compose":"Email"}</button><button class="btn small" data-act="edit-contact" data-id="${c.__id}">Edit</button></div></td></tr>`}).join("")}
+      </tbody></table>`:`<div class="empty">No one matches these filters.</div>`}</div>
+  </section>`;
+}
+
+function firmStats(fid){ const cs=contactsArr().filter(c=>c.firmId===fid); const s=cs.filter(c=>c.sentAt); return {total:cs.length, sent:s.length, replied:s.filter(c=>REPLIED.includes(c.stage)).length, pos:s.filter(c=>POSITIVE.includes(c.stage)).length}; }
+function viewFirms(){
+  const fs=[...S.firms.entries()].sort((a,b)=>(a[1].priority??99)-(b[1].priority??99));
+  return `<section class="section"><div class="spread"><h2>Firms · ${fs.length}</h2><button class="btn primary" data-act="new-firm">Add firm</button></div>
+  <div class="firms">${fs.map(([id,f])=>{ const st=firmStats(id); const d=f.keyDate?daysUntil(f.keyDate):null; return `
+    <article class="panel firm">
+      <div class="spread"><span class="rank">#${f.priority??"–"}</span><span class="chip ${esc(f.statusTone||"neutral")}">${esc(f.status||"")}</span></div>
+      <div><h3>${esc(f.name)}</h3><div class="sub">${esc(f.tier||"")} · ${esc(f.location||"")}</div></div>
+      ${f.avatar?`<div>Avatar: <span class="av">${esc(f.avatar)}</span></div>`:""}
+      <dl>${f.program?`<dt>Program</dt><dd>${esc(f.program)}</dd>`:""}${f.eligibility?`<dt>Eligible</dt><dd>${esc(f.eligibility)}</dd>`:""}<dt>Timing</dt><dd>${esc(f.keyDateLabel||"—")}${d!==null&&d>=0?` · <b>${d} days</b>`:""}</dd><dt>Email</dt><dd class="mono" style="font-size:12px;word-break:break-all">${esc(f.emailPattern||"—")} <span class="sub">${esc(f.emailConfidence||"")}</span></dd></dl>
+      <div class="funnel"><span><b>${st.total}</b>people</span><span><b>${st.sent}</b>emailed</span><span><b>${st.replied}</b>replied</span><span><b>${st.pos}</b>calls</span></div>
+      <div class="row"><button class="btn small primary" data-act="new-contact" data-firm="${id}">Add person</button><button class="btn small" data-act="filter-firm" data-id="${id}">View people</button><button class="btn small" data-act="edit-firm" data-id="${id}">Edit</button></div>
+    </article>`}).join("")}</div></section>`;
+}
+
+function dimKey(c, dim){ if(dim==="variant") return c.variantId? (S.variants.get(c.variantId)?.subject||c.subject||c.variantId) : ""; if(dim==="firm") return shortFirm(firmName(c.firmId)); if(dim==="persona") return c.test?.persona||c.persona; return c.test?.[dim]||""; }
+function dimTable(dim,label){
+  const g=new Map(); for(const c of sentContacts()){ const k=dimKey(c,dim); if(!k) continue; const r=g.get(k)||{n:0,r:0,p:0}; r.n++; if(REPLIED.includes(c.stage)) r.r++; if(POSITIVE.includes(c.stage)) r.p++; g.set(k,r); }
+  const rows=[...g.entries()].sort((a,b)=>(b[1].r/b[1].n)-(a[1].r/a[1].n)||b[1].n-a[1].n);
+  return `<div class="panel"><div class="pad" style="padding-bottom:6px"><h3>${esc(label)}</h3></div>${rows.length?`<div class="tablewrap"><table><thead><tr><th>${esc(label)}</th><th class="n">Sent</th><th class="n">Replies</th><th style="width:90px">Reply %</th><th class="n">Calls</th></tr></thead><tbody>${rows.slice(0,dim==="variant"?12:10).map(([k,r])=>`<tr><td>${esc(k)}${r.n<20?' <span class="lowN">low n</span>':""}</td><td class="n">${r.n}</td><td class="n">${r.r}</td><td><div class="row" style="flex-wrap:nowrap;gap:6px"><div class="bar" style="flex:1"><b style="width:${pct(r.r,r.n)}%"></b></div><span class="num" style="font-size:12px">${pct(r.r,r.n)}%</span></div></td><td class="n">${r.p}</td></tr>`).join("")}</tbody></table></div>`:`<div class="empty" style="padding-top:4px">Results appear here once you log emails as sent.</div>`}</div>`;
+}
+function viewTests(){
+  const {firm,persona}=S.vf;
+  const vs=[...S.variants.entries()].filter(([,v])=>(!firm||(firm==="_any"?!v.firmId:v.firmId===firm))&&(!persona||v.persona===persona)).sort((a,b)=>(S.firms.get(a[1].firmId)?.priority??0)-(S.firms.get(b[1].firmId)?.priority??0)||PERSONAS.indexOf(a[1].persona)-PERSONAS.indexOf(b[1].persona));
+  const firmOpts=[...S.firms.entries()].sort((a,b)=>(a[1].priority??99)-(b[1].priority??99)).map(([id,f])=>`<option value="${id}" ${firm===id?"selected":""}>${esc(f.name)}</option>`).join("");
+  const stats=vid=>{ const cs=contactsArr().filter(c=>c.variantId===vid&&c.sentAt); return {n:cs.length,r:cs.filter(c=>REPLIED.includes(c.stage)).length,p:cs.filter(c=>POSITIVE.includes(c.stage)).length}; };
+  return `
+  <section class="section"><h2>What's working</h2>
+    <p class="sub" style="max-width:75ch">Each email you log stores its avatar, desire, angle, mechanism, CTA and hook. Rows marked <span class="lowN">low n</span> have fewer than 20 sends, so treat them as noise until they fill in. Compare angles within one avatar before calling a winner.</p>
+    <div class="dims">${DIMS.map(([d,l])=>dimTable(d,l)).join("")}</div>
+  </section>
+  <section class="section">
+    <div class="spread"><h2>Hook library · ${vs.length}</h2><button class="btn primary" data-act="new-variant">New variant</button></div>
+    <div class="filters"><select id="vf-firm" aria-label="Firm"><option value="">All firms</option><option value="_any" ${firm==="_any"?"selected":""}>Any firm (generic)</option>${firmOpts}</select>
+      <select id="vf-persona" aria-label="Avatar"><option value="">All avatars</option>${PERSONAS.map(p=>`<option ${persona===p?"selected":""}>${p}</option>`).join("")}</select></div>
+    <div class="variants">${vs.map(([id,v])=>{ const s=stats(id); return `
+      <article class="panel var ${v.active===false?"off":""}">
+        <div class="spread"><span class="persona">${esc(v.persona)}</span><span class="sub">${esc(v.firmId?shortFirm(firmName(v.firmId)):"Any firm")}${v.parentId?" · variation":""}</span></div>
+        <div class="subj">${esc(v.subject)}</div>
+        <pre>${esc(v.body)}</pre>
+        <div class="tags"><span class="tag">Desire <b>${esc(v.desire||"")}</b></span><span class="tag">Angle <b>${esc(v.angle||"")}</b></span><span class="tag">Mechanism <b>${esc(v.mechanism||"")}</b></span><span class="tag">CTA <b>${esc(v.cta||"")}</b></span></div>
+        <div class="spread"><span class="num sub">${s.n} sent · ${s.r} replies (${pct(s.r,s.n)}%) · ${s.p} calls</span>
+          <div class="row" style="gap:4px">${sample?`<button class="btn small" data-act="ai-vary" data-id="${id}">Make variations</button>`:""}<button class="btn small" data-act="edit-variant" data-id="${id}">Edit</button><button class="btn small ghost" data-act="toggle-variant" data-id="${id}">${v.active===false?"Resume":"Pause"}</button></div></div>
+      </article>`}).join("")||`<div class="panel empty">No variants match these filters.</div>`}</div>
+  </section>`;
+}
+
+function viewPlaybook(){
+  const cards=[
+    ["01 · This week","Morgan Stanley first",`<p>Early Insights closes <b>Oct 30, 11:55 p.m. ET</b>. Submit the application this week, then email Monique Jean and Carlos Muñoz (both Iona alumni). An alum is the highest-reply contact you have. Leerink, Synchrony and First Citizens are open and rolling, so they come next.</p>`],
+    ["02 · Volume","50 a day needs about 1,000 names",`<p>The PDF names 22 people. At 50 a day you'd use them up before lunch. Build each firm out to 20–40 people:</p><ul><li>LinkedIn: search the firm, filter by <b>School: Iona</b>, then by titles like Analyst and Associate.</li><li>Add more firms: healthcare banks (Cain Brothers/KeyBanc, Ziegler, Torreya, Jefferies HC), elite boutiques (Evercore, PJT, Moelis, Houlihan Lokey), and Stamford/Greenwich shops (UBS Stamford, Point72, Viking, AQR, Silver Point, Tudor).</li><li>Mix: about 70% analysts and associates (1–4 years out), 20% VPs, 10% MDs and recruiters. Junior bankers reply the most and remember what recruiting felt like.</li></ul>`],
+    ["03 · Deliverability","Protect your inbox before you scale",`<ul><li>Send from your <b>@iona.edu</b> address. Bankers open .edu mail from students.</li><li>Ramp up: about 15 a day in week one, 30 in week two, then 50. A new mailbox that jumps straight to 50 cold emails a day gets flagged as spam.</li><li>Verify every pattern-based address (Hunter, NeverBounce). If more than 5% bounce, your later emails start landing in spam.</li><li>Plain text. No links, images or attachments in the first email. Give each one a personal first line.</li><li>Send Tue–Thu, 6:30–8 a.m. ET or around 6 p.m. Skip Fridays and weekends.</li></ul>`],
+    ["04 · The ask","Ask for 10 minutes, not a job",`<p>The first email asks for a short call or one specific question. Keep the body under 90 words and write subject lines under 8 words. Only gatekeepers get application-specific asks. Save the resume for after they reply, unless they ask for it first.</p>`],
+    ["05 · Follow-ups","Most replies come from the follow-up",`<p>The tracker schedules a bump after 3 business days and a final note after 7. Reply in the same thread with 1–2 lines. After two follow-ups, stop. A third email reads as pushy at a small firm where everyone talks.</p>`],
+    ["06 · Testing","One variable at a time",`<ul><li>The recipient sets the avatar, so you can't test it. Within one avatar, test angle first (ER story vs. Iona vs. stock pitch). That's where the biggest differences show up.</li><li>Give each arm 30–50 sends before you call a winner. Until then a 2-reply difference is noise.</li><li>Once an angle wins, test hooks, then CTAs. Pause losers so new sends rotate into the winners.</li><li>Use <b>Make variations</b> on your best hook to spin out three versions that each change one variable.</li></ul>`],
+    ["07 · Multichannel","Pair every email with LinkedIn",`<p>Send a connection request the same day, with a note under 300 characters: “Iona finance sophomore and Stamford ER EMT. Just emailed you about [firm]'s program. Would value connecting.” Save the LinkedIn URL in the tracker. Do it by hand. LinkedIn bans accounts that use automation tools.</p>`],
+    ["08 · The call","Turn calls into referrals",`<ul><li>Have a 30-second story ready: ER shifts → why finance → why this firm, why this group.</li><li>Ask about their path, what separates great interns, and what they'd do as a sophomore in your shoes.</li><li>Always close with: “Is there anyone else you think I should talk to?” Log the names as new people.</li><li>Send a thank-you within 24 hours. Two weeks later, send an update on something they suggested. When applications open, ask if they'd flag your application, and mark them Referral.</li></ul>`],
+    ["09 · Be ready","Outreach gets the interview; prep wins it",`<ul><li>Technicals: accounting flow-through, DCF, comps, EV vs. equity value, plus a few LBO basics. Work through the BIWS/WSO 400-question guide.</li><li>Healthcare: know one recent deal per target bank and one sub-sector view (e.g., provider margins, GLP-1s, behavioral health roll-ups).</li><li>Keep the Ivanhoe/rare-earths pitch to 2 minutes, and know its weak point.</li><li>Apply the day each posting opens. Outreach backs up an application; it doesn't replace one.</li></ul>`],
+    ["10 · Accuracy","Don't overclaim",`<p>Bankers check. Say “SIE in November” until you pass it. Phrase rankings exactly as they happened (“top 500 of 1,400+”). Keep claims about December 2028 eligibility to a question, as the Leerink and Morgan Stanley gatekeeper hooks do.</p>`],
+  ];
+  return `<section class="section"><h2>Playbook</h2><p class="sub" style="max-width:75ch">How to run 50 a day without burning your inbox or your reputation, and how to turn replies into an offer.</p>
+  <div class="play">${cards.map(([k,t,b])=>`<article class="panel"><span class="k">${k}</span><h3>${t}</h3>${b}</article>`).join("")}</div></section>`;
+}
+
+function viewSettings(){
+  const s=S.settings;
+  return `<section class="section" style="max-width:760px"><h2>Settings</h2>
+  <form class="panel pad grid2" id="settings-form">
+    <label class="f">Daily outreach goal<input type="number" id="s-goal" min="1" max="200" value="${esc(s.dailyGoal)}"></label>
+    <label class="f">Follow-up days (business days after first email)<input type="text" id="s-fu" value="${esc((s.followUpDays||[3,7]).join(", "))}"></label>
+    <label class="f full">Signature (used as {signature})<textarea id="s-sig" rows="4">${esc(s.signature)}</textarea></label>
+    <label class="f">Follow-up 1 subject<input type="text" id="s-fu1s" value="${esc(s.fu1Subject)}"></label>
+    <label class="f">Follow-up 2 subject<input type="text" id="s-fu2s" value="${esc(s.fu2Subject)}"></label>
+    <label class="f full">Follow-up 1 body<textarea id="s-fu1b" rows="5">${esc(s.fu1Body)}</textarea></label>
+    <label class="f full">Follow-up 2 body<textarea id="s-fu2b" rows="5">${esc(s.fu2Body)}</textarea></label>
+    <p class="note full">Merge fields: {first} {last} {firm} {role} {subject} {signature}</p>
+    <div class="full row"><button class="btn primary" type="submit">Save settings</button></div>
+  </form>
+  <div class="panel pad section"><h3>Email automation</h3>
+    <p class="sub">${mcp?"Gmail is available on this page. You can create drafts for the next people in your queue, create follow-up drafts, and check your inbox for replies. Drafts are never sent automatically; you review and hit send in Gmail.":"Gmail isn't connected for this page yet. Connect Gmail in claude.ai settings, then reopen this page and allow it when asked. Until then, use Copy and log each email as sent."}</p></div>
+  </section>`;
+}
+
+// ---------- drawer ----------
+function openDrawer(title, bodyHTML, footHTML){
+  const d=$("#drawer"); d.innerHTML=`<header><h3>${esc(title)}</h3><button class="btn small ghost" data-act="close" aria-label="Close">Close</button></header><div class="body">${bodyHTML}</div>${footHTML?`<footer>${footHTML}</footer>`:""}`;
+  d.hidden=false; $("#scrim").hidden=false; setTimeout(()=>d.querySelector("input,select,textarea,button")?.focus(),30);
+}
+function closeDrawer(){ $("#drawer").hidden=true; $("#scrim").hidden=true; $("#drawer").innerHTML=""; }
+
+function firmSelect(id, sel, withNew){ return `<select id="${id}">${[...S.firms.entries()].sort((a,b)=>(a[1].priority??99)-(b[1].priority??99)).map(([fid,f])=>`<option value="${fid}" ${sel===fid?"selected":""}>${esc(f.name)}</option>`).join("")}${withNew?'<option value="__new">+ New firm…</option>':""}</select>`; }
+const opts=(arr,sel)=>arr.map(x=>`<option ${x===sel?"selected":""}>${esc(x)}</option>`).join("");
+
+function contactForm(c={}, cid=""){
+  openDrawer(cid?"Edit person":"Add person",`
+    <div class="grid2">
+      <label class="f full">Firm${firmSelect("cf-firm",c.firmId,true)}</label>
+      <label class="f full" id="cf-newfirm-wrap" hidden>New firm name<input type="text" id="cf-newfirm"></label>
+      <label class="f">Name<input type="text" id="cf-name" value="${esc(c.name)}" required></label>
+      <label class="f">Avatar<select id="cf-persona">${opts(PERSONAS,c.persona||"Technician")}</select></label>
+      <label class="f full">Role / title<input type="text" id="cf-role" value="${esc(c.role)}"></label>
+      <label class="f full">LinkedIn URL<input type="url" id="cf-li" value="${esc(c.linkedin)}" placeholder="https://www.linkedin.com/in/…"></label>
+      <label class="f full">Email<div class="row" style="flex-wrap:nowrap"><input type="email" id="cf-email" value="${esc(c.email)}" style="flex:1"><button type="button" class="btn small" data-act="guess-email">Guess from firm format</button></div></label>
+      ${cid?`<label class="f">Stage<select id="cf-stage">${STAGES.map(([k,l])=>`<option value="${k}" ${c.stage===k?"selected":""}>${l}</option>`).join("")}</select></label><span></span>`:""}
+      <label class="f full">Notes<textarea id="cf-notes" rows="3">${esc(c.notes)}</textarea></label>
+    </div>
+    ${cid&&(c.touches||[]).length?`<div><h3 style="margin-bottom:6px">History</h3><div class="note">${(c.touches||[]).slice().reverse().map(t=>`${fmtDate(t.at)} · ${esc(t.kind==="email"?"Emailed":t.kind==="followup"?"Follow-up "+(t.n||""):t.kind==="stage"?"Stage → "+(STAGE_LABEL[t.stage]||t.stage)+(t.auto?" (auto)":""):t.kind)}`).join("<br>")}</div></div>`:""}
+    ${cid?`<div class="row" id="del-row"><button class="btn small danger" data-act="del-ask">Delete person</button></div>`:""}`,
+    `<button class="btn" data-act="close">Cancel</button><button class="btn primary" data-act="save-contact" data-id="${cid}">${cid?"Save":"Add person"}</button>`);
+}
+async function saveContact(cid){
+  let firmId=$("#cf-firm").value;
+  const name=$("#cf-name").value.trim(); if(!name){ toast("Add a name first."); return; }
+  if(firmId==="__new"){ const n=$("#cf-newfirm").value.trim(); if(!n){ toast("Name the new firm."); return; } firmId=uid("f"); if(!await write("firms",firmId,{name:n,tier:"",location:"",status:"Not researched",statusTone:"neutral",priority:(S.firms.size+1),emailPattern:"",createdAt:nowISO()},"set")) return; }
+  const data={firmId,name,persona:$("#cf-persona").value,role:$("#cf-role").value.trim(),linkedin:$("#cf-li").value.trim(),email:$("#cf-email").value.trim(),notes:$("#cf-notes").value};
+  if(cid){ const st=$("#cf-stage").value; const c=S.contacts.get(cid); if(c&&st!==c.stage){ await setStage(cid,st); } if(await write("contacts",cid,data)){ toast("Saved."); closeDrawer(); } }
+  else { const id=uid("c"); if(await write("contacts",id,{...data,stage:"todo",createdAt:nowISO(),sentAt:"",lastTouchAt:"",nextFollowUpAt:"",followUps:0,variantId:"",subject:"",test:{},touches:[],source:"manual"},"set")){ toast(name+" added to the queue."); closeDrawer(); } }
+}
+
+function firmForm(f={}, fid=""){
+  openDrawer(fid?"Edit firm":"Add firm",`<div class="grid2">
+    <label class="f full">Firm name<input type="text" id="ff-name" value="${esc(f.name)}"></label>
+    <label class="f">Type / tier<input type="text" id="ff-tier" value="${esc(f.tier)}" placeholder="Best fit · Healthcare IB"></label>
+    <label class="f">Location<input type="text" id="ff-loc" value="${esc(f.location)}"></label>
+    <label class="f">Status<input type="text" id="ff-status" value="${esc(f.status)}" placeholder="Open now"></label>
+    <label class="f">Status color<select id="ff-tone">${[["urgent","Urgent"],["soon","Soon"],["open","Open"],["neutral","Info"]].map(([k,l])=>`<option value="${k}" ${f.statusTone===k?"selected":""}>${l}</option>`).join("")}</select></label>
+    <label class="f">Key date<input type="text" id="ff-date" value="${esc(f.keyDate)}" placeholder="YYYY-MM-DD"></label>
+    <label class="f">Priority (1 = first)<input type="number" id="ff-pri" value="${esc(f.priority??S.firms.size+1)}"></label>
+    <label class="f full">Key date / timing note<input type="text" id="ff-datelabel" value="${esc(f.keyDateLabel)}"></label>
+    <label class="f full">Program<textarea id="ff-program" rows="2">${esc(f.program)}</textarea></label>
+    <label class="f full">Eligibility<textarea id="ff-elig" rows="2">${esc(f.eligibility)}</textarea></label>
+    <label class="f">Company avatar<input type="text" id="ff-avatar" value="${esc(f.avatar)}" placeholder="The Fortress"></label>
+    <label class="f">Email pattern<input type="text" id="ff-pattern" value="${esc(f.emailPattern)}" placeholder="{first}.{last}@firm.com"></label>
+    <label class="f full">Avatar notes (what they value, what turns them off)<textarea id="ff-avnotes" rows="4">${esc(f.avatarNotes)}</textarea></label>
+    <p class="note full">Email pattern tokens: {first} {last} {f} (first initial). Used by “Guess from firm format.”</p></div>`,
+    `<button class="btn" data-act="close">Cancel</button><button class="btn primary" data-act="save-firm" data-id="${fid}">${fid?"Save":"Add firm"}</button>`);
+}
+async function saveFirm(fid){
+  const name=$("#ff-name").value.trim(); if(!name){ toast("Add a firm name."); return; }
+  const data={name,tier:$("#ff-tier").value.trim(),location:$("#ff-loc").value.trim(),status:$("#ff-status").value.trim(),statusTone:$("#ff-tone").value,keyDate:$("#ff-date").value.trim(),keyDateLabel:$("#ff-datelabel").value.trim(),priority:Number($("#ff-pri").value)||99,program:$("#ff-program").value.trim(),eligibility:$("#ff-elig").value.trim(),avatar:$("#ff-avatar").value.trim(),avatarNotes:$("#ff-avnotes").value.trim(),emailPattern:$("#ff-pattern").value.trim()};
+  if(data.keyDate && !/^\d{4}-\d{2}-\d{2}$/.test(data.keyDate)){ toast("Key date must look like 2026-10-30."); return; }
+  const ok = fid ? await write("firms",fid,data) : await write("firms",uid("f"),{...data,createdAt:nowISO()},"set");
+  if(ok){ toast("Saved."); closeDrawer(); }
+}
+
+function variantForm(v={}, vid=""){
+  openDrawer(vid?"Edit variant":"New variant",`<div class="grid2">
+    <label class="f">Firm<select id="vf2-firm"><option value="">Any firm (generic)</option>${[...S.firms.entries()].map(([id,f])=>`<option value="${id}" ${v.firmId===id?"selected":""}>${esc(f.name)}</option>`).join("")}</select></label>
+    <label class="f">Avatar<select id="vf2-persona">${opts(PERSONAS,v.persona||"Technician")}</select></label>
+    <label class="f full">Desire (what this avatar wants)<input type="text" id="vf2-desire" value="${esc(v.desire||DESIRES[v.persona||"Technician"])}" list="dl-desire"></label>
+    <label class="f">Angle<input type="text" id="vf2-angle" value="${esc(v.angle)}" list="dl-angle"></label>
+    <label class="f">Mechanism (proof)<input type="text" id="vf2-mech" value="${esc(v.mechanism)}" list="dl-mech"></label>
+    <label class="f full">CTA<input type="text" id="vf2-cta" value="${esc(v.cta)}" list="dl-cta"></label>
+    <label class="f full">Hook: subject line<input type="text" id="vf2-subject" value="${esc(v.subject)}"></label>
+    <label class="f full">Body<textarea id="vf2-body" rows="10">${esc(v.body||"Hi {first},\n\n\n\n{signature}")}</textarea></label>
+    <p class="note full">Merge fields: {first} {last} {firm} {role} {signature}. Keep the body under 90 words.</p>
+    </div>
+    <datalist id="dl-desire">${Object.values(DESIRES).map(x=>`<option value="${esc(x)}">`).join("")}</datalist>
+    <datalist id="dl-angle">${ANGLES.map(x=>`<option value="${esc(x)}">`).join("")}</datalist>
+    <datalist id="dl-mech">${MECHS.map(x=>`<option value="${esc(x)}">`).join("")}</datalist>
+    <datalist id="dl-cta">${CTAS.map(x=>`<option value="${esc(x)}">`).join("")}</datalist>`,
+    `<button class="btn" data-act="close">Cancel</button><button class="btn primary" data-act="save-variant" data-id="${vid}" data-parent="${esc(v.parentId||"")}">${vid?"Save":"Add variant"}</button>`);
+}
+async function saveVariant(vid, parentId){
+  const subject=$("#vf2-subject").value.trim(), body=$("#vf2-body").value;
+  if(!subject){ toast("Add a subject line."); return; }
+  const firmId=$("#vf2-firm").value, persona=$("#vf2-persona").value;
+  const data={firmId,persona,desire:$("#vf2-desire").value.trim(),angle:$("#vf2-angle").value.trim(),mechanism:$("#vf2-mech").value.trim(),cta:$("#vf2-cta").value.trim(),subject,body,label:`${(firmId||"generic").toUpperCase()} · ${persona}`};
+  const ok = vid ? await write("variants",vid,data) : await write("variants",uid("v"),{...data,active:true,source:"manual",parentId:parentId||"",createdAt:nowISO()},"set");
+  if(ok){ toast("Variant saved. New sends rotate into it automatically."); closeDrawer(); }
+}
+
+// Compose
+let composeCtx=null;
+function compose(cid, mode){
+  const c=S.contacts.get(cid); if(!c) return;
+  const isFu = mode==="fu" || AWAITING.includes(c.stage);
+  const fuN = (c.followUps||0)+1;
+  const vid = isFu ? c.variantId : (c.variantId || pickVariant(c));
+  composeCtx={cid,isFu,fuN};
+  const f=S.firms.get(c.firmId)||{};
+  const vOpts=[...S.variants.entries()].filter(([,v])=>v.active!==false&&(!v.firmId||v.firmId===c.firmId)).sort((a,b)=>(b[1].firmId===c.firmId)-(a[1].firmId===c.firmId)||(b[1].persona===c.persona)-(a[1].persona===c.persona));
+  const subj = isFu ? fill(fuN>=2?S.settings.fu2Subject:S.settings.fu1Subject, c) : fill(S.variants.get(vid)?.subject,c);
+  const body = isFu ? fill(fuN>=2?S.settings.fu2Body:S.settings.fu1Body, c) : fill(S.variants.get(vid)?.body,c);
+  openDrawer(isFu?`Follow-up ${fuN} · ${c.name}`:`Compose · ${c.name}`,`
+    <div class="note"><b>${esc(c.name)}</b> · ${esc(c.role||"")}<br>${esc(f.name||"")} · <span class="persona">${esc(c.persona)}</span> wants: ${esc(DESIRES[c.persona]||"")}${f.avatar?`<br>Company avatar: <i>${esc(f.avatar)}</i>`:""}</div>
+    ${f.avatarNotes?`<details><summary class="sub" style="cursor:pointer">What ${esc(shortFirm(f.name||""))} values</summary><p class="sub">${esc(f.avatarNotes)}</p></details>`:""}
+    ${isFu?`<p class="note">Original email: “${esc(c.subject||"")}” on ${fmtDate(c.sentAt)}. Reply in that same Gmail thread if you can.</p>`:`<label class="f">Hook to test<select id="cm-variant">${vOpts.map(([id,v])=>`<option value="${id}" ${id===vid?"selected":""}>${esc((v.firmId?"":"[Generic] ")+v.persona+" · "+v.subject)} (${variantSends(id)} sent)</option>`).join("")}</select></label>
+    <div class="tags" id="cm-tags"></div>`}
+    <label class="f">To<div class="row" style="flex-wrap:nowrap"><input type="email" id="cm-to" value="${esc(c.email)}" style="flex:1"><button class="btn small" data-act="cp" data-src="cm-to">Copy</button></div></label>
+    ${!c.email?`<p class="note warn">No email saved. Use “Guess from firm format” on Edit, or reach out on LinkedIn.</p>`:/verify|bounce/i.test(c.notes||"")?`<p class="note warn">${esc(c.notes)}</p>`:""}
+    <label class="f">Subject<div class="row" style="flex-wrap:nowrap"><input type="text" id="cm-subject" value="${esc(subj)}" style="flex:1"><button class="btn small" data-act="cp" data-src="cm-subject">Copy</button></div></label>
+    <label class="f"><span class="spread">Body <span class="counter" id="cm-wc"></span></span><textarea id="cm-body" rows="12">${esc(body)}</textarea></label>
+    <div class="row"><button class="btn small" data-act="cp" data-src="cm-body">Copy body</button>${c.linkedin?`<a class="btn small" href="${esc(c.linkedin)}" target="_blank" rel="noopener">Open LinkedIn</a>`:""}</div>`,
+    `${mcp?`<button class="btn" data-act="gm-draft">Create Gmail draft</button>`:""}<button class="btn primary" data-act="log-sent">${isFu?"Log follow-up as sent":"Log as sent"}</button>`);
+  updateComposeMeta();
+}
+function updateComposeMeta(){
+  const b=$("#cm-body"); if(b){ const w=(b.value.replace(/\{signature\}/,"").split(/\s+/).filter(Boolean).length); $("#cm-wc").textContent=w+" words"; }
+  const sel=$("#cm-variant"), tags=$("#cm-tags"); if(sel&&tags){ const v=S.variants.get(sel.value)||{}; tags.innerHTML=`<span class="tag">Angle <b>${esc(v.angle||"")}</b></span><span class="tag">Mechanism <b>${esc(v.mechanism||"")}</b></span><span class="tag">CTA <b>${esc(v.cta||"")}</b></span>`; }
+}
+async function logComposed(){
+  if(!composeCtx) return; const {cid,isFu}=composeCtx;
+  const to=$("#cm-to").value.trim(); const c=S.contacts.get(cid);
+  if(to && c && to!==c.email) await write("contacts",cid,{email:to});
+  if(isFu) await markFollowUp(cid); else await markSent(cid,{variantId:$("#cm-variant")?.value||"", subject:$("#cm-subject").value});
+  closeDrawer();
+}
+
+// ---------- Gmail ----------
+function gmErr(e){ const c=e?.code; return c==="server_not_connected"||c==="server_not_found"?"Gmail isn't connected to your claude.ai account yet.":c==="not_granted"||c==="consent_required"?"Gmail access wasn't allowed for this page.":c==="needs_reauth"?"Reconnect Gmail in claude.ai settings.":c==="rate_limited"?"Gmail is rate-limiting. Try again in a minute.":"Gmail request failed ("+(c||"error")+")."; }
+async function gmDraft(to, subject, body){ return mcp.callTool(GMAIL,"create_draft",{to:[to],subject,body},{cache:false}); }
+async function draftFromCompose(){
+  const to=$("#cm-to").value.trim(); if(!to){ toast("Add an email address first."); return; }
+  const btn=$('[data-act="gm-draft"]'); btn.disabled=true; btn.textContent="Creating…";
+  try{ await gmDraft(to,$("#cm-subject").value,$("#cm-body").value); toast("Draft created in Gmail. Logging it as sent; review and send it from Gmail."); await logComposed(); }
+  catch(e){ toast(gmErr(e)); btn.disabled=false; btn.textContent="Create Gmail draft"; }
+}
+async function bulkDraft(kind){
+  const list = kind==="fu" ? dueFollowUps().slice(0,15) : queue().filter(c=>c.email).slice(0,10);
+  if(!list.length){ toast(kind==="fu"?"No follow-ups due.":"No one in the queue has an email address."); return; }
+  let n=0; toast(`Creating ${list.length} Gmail drafts…`);
+  for(const c of list){
+    try{
+      if(kind==="fu"){ const k=(c.followUps||0)+1; await gmDraft(c.email, fill(k>=2?S.settings.fu2Subject:S.settings.fu1Subject,c), fill(k>=2?S.settings.fu2Body:S.settings.fu1Body,c)); await markFollowUp(c.__id); }
+      else { const vid=pickVariant(c), v=S.variants.get(vid); if(!v) continue; const subj=fill(v.subject,c); await gmDraft(c.email, subj, fill(v.body,c)); await markSent(c.__id,{variantId:vid,subject:subj}); }
+      n++;
+    }catch(e){ toast(gmErr(e)+` Stopped after ${n}.`); return; }
+  }
+  toast(`${n} drafts are in Gmail and logged as sent. Review each one and send it from Gmail.`);
+}
+async function checkReplies(){
+  const btn=$('[data-act="gm-check"]'); if(btn){ btn.disabled=true; btn.textContent="Checking…"; }
+  const watch=contactsArr().filter(c=>c.email&&(AWAITING.includes(c.stage)||c.stage==="noreply"));
+  let found=0;
+  try{
+    for(let i=0;i<watch.length;i+=15){
+      const chunk=watch.slice(i,i+15);
+      const query="("+chunk.map(c=>"from:"+c.email).join(" OR ")+") newer_than:60d";
+      const res=await mcp.callTool(GMAIL,"search_threads",{query,pageSize:50},{cache:false});
+      const text=JSON.stringify(res?.payload??res?.content??"").toLowerCase();
+      for(const c of chunk){ if(text.includes(c.email.toLowerCase())){ await setStage(c.__id,"replied"); found++; } }
+    }
+    toast(found?`${found} new ${found===1?"reply":"replies"} found and moved to Replied.`:"No new replies yet.");
+  }catch(e){ toast(gmErr(e)); }
+  if(btn){ btn.disabled=false; btn.textContent="Check replies"; }
+}
+
+// ---------- Claude variations ----------
+async function aiVary(vid){
+  const v=S.variants.get(vid); if(!v||!sample) return; const f=S.firms.get(v.firmId)||{};
+  openDrawer("Variations · "+v.subject,`<p class="sub" id="ai-status">Asking Claude for three variations, each changing one variable…</p><div id="ai-out" class="section"></div>`,`<button class="btn" data-act="close">Close</button>`);
+  const prompt=`You write short cold emails for a college sophomore seeking a finance internship.
+Candidate: Boden Grimes, Iona University BBA Finance (graduating Dec 2028), 3.9 GPA, lives in Stamford CT. EMT-B working 12-hour overnight shifts in the Stamford Hospital ER. BMC certified. Taking the SIE exam in November (not yet passed). Placed top 500 of 1,400+ in the Perplexity stock pitch competition (Ivanhoe Mines / U.S. rare-earth supply thesis); built a platform that placed 8th of 35+. Speaks Spanish with patients.
+Firm: ${f.name||"(any firm; use {firm})"}. Company avatar: ${f.avatar||"n/a"}. What they value: ${f.avatarNotes||"n/a"}. Program: ${f.program||"n/a"}.
+Recipient avatar: ${v.persona}. What they want: ${v.desire||DESIRES[v.persona]}.
+Current variant: angle "${v.angle}", mechanism "${v.mechanism}", CTA "${v.cta}".
+Subject: ${v.subject}
+Body:
+${v.body}
+
+Write 3 new variations. Each must change exactly ONE variable vs. the current one: the first changes the hook (subject + opening line), the second changes the angle, the third changes the CTA. Rules: subject under 8 words; body under 90 words, plain text, start with "Hi {first}," and end with "{signature}"; no flattery, no "I hope this finds you well", no claims beyond the facts above; one low-friction ask.
+Reply with only a JSON array of 3 objects: [{"changed":"hook","subject":"","body":"","angle":"","mechanism":"","cta":"","why":"one sentence on what this tests"}]`;
+  try{
+    const arr=await sample.json(prompt,{modelTier:"default"});
+    const list=Array.isArray(arr)?arr:(arr?.variations||[]);
+    aiVary.cache={vid,list};
+    $("#ai-status").textContent="Save the ones worth testing. Saved variants join the rotation automatically.";
+    $("#ai-out").innerHTML=list.map((x,i)=>`<article class="panel var"><div class="spread"><span class="persona">Changes: ${esc(x.changed)}</span></div><div class="subj">${esc(x.subject)}</div><pre style="max-height:none">${esc(x.body)}</pre><div class="tags"><span class="tag">Angle <b>${esc(x.angle)}</b></span><span class="tag">Mechanism <b>${esc(x.mechanism)}</b></span><span class="tag">CTA <b>${esc(x.cta)}</b></span></div><p class="sub">${esc(x.why)}</p><div class="row"><button class="btn small primary" data-act="ai-save" data-i="${i}">Save as variant</button></div></article>`).join("");
+  }catch(e){ $("#ai-status").textContent = e?.code==="not_granted"?"Claude wasn't allowed for this page, so variations aren't available.":e?.code==="rate_limited"?"Too many requests right now. Try again in a minute.":"Claude couldn't generate variations ("+(e?.code||"error")+")."; }
+}
+async function aiSave(i, btn){
+  const {vid,list}=aiVary.cache||{}; const x=list?.[i], v=S.variants.get(vid); if(!x||!v) return;
+  btn.disabled=true;
+  const ok=await write("variants",uid("v"),{firmId:v.firmId,persona:v.persona,desire:v.desire,angle:x.angle||v.angle,mechanism:x.mechanism||v.mechanism,cta:x.cta||v.cta,subject:x.subject,body:x.body,label:`${(v.firmId||"generic").toUpperCase()} · ${v.persona} · AI (${x.changed})`,active:true,source:"claude",parentId:vid,createdAt:nowISO()},"set");
+  btn.textContent= ok?"Saved":"Save as variant"; if(!ok) btn.disabled=false;
+}
+
+// ---------- paste batch ----------
+function pasteForm(){
+  openDrawer("Paste a batch of people",`<p class="sub">One person per line, comma- or tab-separated:<br><span class="mono" style="font-size:12px">Name, Role, Firm, Email, LinkedIn URL, Avatar</span><br>Only Name and Firm are required. Unknown firms are created. Missing emails are guessed from the firm's email pattern. Avatar defaults to Technician for analysts/associates, MD / Partner for MDs and partners, Gatekeeper for recruiters.</p>
+  <textarea id="paste-box" rows="12" placeholder="Jane Doe, Healthcare IB Analyst, Leerink Partners, , https://www.linkedin.com/in/janedoe"></textarea><p class="sub" id="paste-preview"></p>`,
+  `<button class="btn" data-act="close">Cancel</button><button class="btn primary" data-act="paste-save">Add people</button>`);
+}
+function inferPersona(role){ const r=(role||"").toLowerCase(); if(/recruit|talent|campus|human|people|hr\b|assistant/.test(r)) return "Gatekeeper"; if(/managing director|\bmd\b|partner|chair|ceo|cio|head|president|founder/.test(r)) return "MD / Partner"; if(/vp|vice president|associate|director/.test(r)) return "Team Player"; return "Technician"; }
+function parsePaste(){
+  const lines=($("#paste-box")?.value||"").split(/\n/).map(l=>l.trim()).filter(Boolean);
+  return lines.map(l=>{ const p=(l.includes("\t")?l.split("\t"):l.split(",")).map(x=>x.trim()); return {name:p[0]||"",role:p[1]||"",firm:p[2]||"",email:p[3]||"",linkedin:p[4]||"",persona:PERSONAS.find(x=>x.toLowerCase()===(p[5]||"").toLowerCase())||inferPersona(p[1])}; }).filter(r=>r.name&&r.firm);
+}
+async function pasteSave(){
+  const rows=parsePaste(); if(!rows.length){ toast("Nothing to add. Each line needs at least a name and a firm."); return; }
+  const byName=new Map([...S.firms.entries()].map(([id,f])=>[f.name.toLowerCase(),id]));
+  const findFirm=n=>{ const l=n.toLowerCase(); if(byName.has(l)) return byName.get(l); for(const [k,id] of byName) if(k.includes(l)||l.includes(shortFirm(k))) return id; return null; };
+  let added=0;
+  for(const r of rows){
+    let fid=findFirm(r.firm);
+    if(!fid){ fid=uid("f"); if(!await write("firms",fid,{name:r.firm,tier:"",location:"",status:"Not researched",statusTone:"neutral",priority:S.firms.size+1+added,emailPattern:"",createdAt:nowISO()},"set")) return; byName.set(r.firm.toLowerCase(),fid); }
+    const email=r.email||guessEmail(r.name,S.firms.get(fid));
+    if(!await write("contacts",uid("c"),{firmId:fid,name:r.name,role:r.role,email,linkedin:r.linkedin,persona:r.persona,stage:"todo",notes:r.email?"":(email?"Email guessed from firm pattern; verify.":""),createdAt:nowISO(),sentAt:"",lastTouchAt:"",nextFollowUpAt:"",followUps:0,variantId:"",subject:"",test:{},touches:[],source:"paste"},"set")) break;
+    added++;
+  }
+  toast(`${added} ${added===1?"person":"people"} added to the queue.`); closeDrawer();
+}
+
+// ---------- events ----------
+document.addEventListener("click", async e=>{
+  const t=e.target.closest("[data-act],[data-view]"); if(!t) return;
+  if(t.dataset.view){ S.view=t.dataset.view; try{localStorage.setItem("od-view",S.view)}catch{} render(); window.scrollTo(0,0); return; }
+  const a=t.dataset.act, id=t.dataset.id;
+  if(t.tagName==="SELECT") return;
+  switch(a){
+    case "close": closeDrawer(); break;
+    case "compose": compose(id,t.dataset.mode); break;
+    case "log-sent": t.disabled=true; await logComposed(); break;
+    case "gm-draft": await draftFromCompose(); break;
+    case "gm-bulk-new": t.disabled=true; await bulkDraft("new"); break;
+    case "gm-bulk-fu": t.disabled=true; await bulkDraft("fu"); break;
+    case "gm-check": await checkReplies(); break;
+    case "cp": { const el=$("#"+t.dataset.src); await copy(el.value, t.dataset.src==="cm-to"?"Email":t.dataset.src==="cm-subject"?"Subject":"Body"); break; }
+    case "new-contact": contactForm({firmId:t.dataset.firm||S.f.firm||[...S.firms.keys()][0]}); break;
+    case "edit-contact": contactForm(S.contacts.get(id),id); break;
+    case "save-contact": t.disabled=true; await saveContact(id); t.disabled=false; break;
+    case "guess-email": { const fid=$("#cf-firm").value; const g=guessEmail($("#cf-name").value,S.firms.get(fid)); if(g){ $("#cf-email").value=g; toast("Guessed from the firm's pattern. Verify before sending."); } else toast("This firm has no email pattern yet. Add one on the Firms tab."); break; }
+    case "del-ask": $("#del-row").innerHTML=`<span class="sub">Delete this person and their history?</span><button class="btn small danger" data-act="del-yes" data-id="${$('[data-act="save-contact"]').dataset.id}">Delete</button><button class="btn small" data-act="del-no">Keep</button>`; break;
+    case "del-no": $("#del-row").innerHTML=`<button class="btn small danger" data-act="del-ask">Delete person</button>`; break;
+    case "del-yes": if(await write("contacts",id,null,"delete")){ toast("Deleted."); closeDrawer(); } break;
+    case "new-firm": firmForm(); break;
+    case "edit-firm": firmForm(S.firms.get(id),id); break;
+    case "save-firm": t.disabled=true; await saveFirm(id); t.disabled=false; break;
+    case "filter-firm": S.f={firm:id,stage:"",persona:"",q:""}; S.view="pipeline"; render(); window.scrollTo(0,0); break;
+    case "fstage": S.f.stage=t.dataset.v; render(); break;
+    case "new-variant": variantForm({firmId:S.vf.firm&&S.vf.firm!=="_any"?S.vf.firm:"",persona:S.vf.persona||"Technician"}); break;
+    case "edit-variant": variantForm(S.variants.get(id),id); break;
+    case "save-variant": t.disabled=true; await saveVariant(id,t.dataset.parent); t.disabled=false; break;
+    case "toggle-variant": { const v=S.variants.get(id); await write("variants",id,{active:v.active===false}); break; }
+    case "ai-vary": aiVary(id); break;
+    case "ai-save": aiSave(Number(t.dataset.i),t); break;
+    case "paste": pasteForm(); break;
+    case "paste-save": t.disabled=true; await pasteSave(); t.disabled=false; break;
+  }
+});
+$("#scrim").addEventListener("click",closeDrawer);
+document.addEventListener("keydown",e=>{ if(e.key==="Escape" && !$("#drawer").hidden) closeDrawer(); });
+document.addEventListener("change", async e=>{
+  const t=e.target;
+  if(t.matches('select[data-act="stage"]')){ await setStage(t.dataset.id,t.value); return; }
+  if(t.id==="f-firm"){ S.f.firm=t.value; render(); } else if(t.id==="f-stage"){ S.f.stage=t.value; render(); } else if(t.id==="f-persona"){ S.f.persona=t.value; render(); }
+  else if(t.id==="vf-firm"){ S.vf.firm=t.value; render(); } else if(t.id==="vf-persona"){ S.vf.persona=t.value; render(); }
+  else if(t.id==="cm-variant"){ const c=S.contacts.get(composeCtx?.cid), v=S.variants.get(t.value); if(c&&v){ $("#cm-subject").value=fill(v.subject,c); $("#cm-body").value=fill(v.body,c); updateComposeMeta(); } }
+  else if(t.id==="cf-firm"){ $("#cf-newfirm-wrap").hidden = t.value!=="__new"; }
+  else if(t.id==="vf2-persona"){ const d=$("#vf2-desire"); if(d && Object.values(DESIRES).includes(d.value)) d.value=DESIRES[t.value]; }
+});
+document.addEventListener("input", e=>{
+  if(e.target.id==="f-q"){ S.f.q=e.target.value; renderFocus="f-q"; clearTimeout(render._q); render._q=setTimeout(()=>{ render(); renderFocus=""; },180); }
+  if(e.target.id==="cm-body") updateComposeMeta();
+  if(e.target.id==="paste-box"){ const r=parsePaste(); $("#paste-preview").textContent=r.length?`${r.length} ${r.length===1?"person":"people"} ready to add.`:""; }
+});
+document.addEventListener("submit", async e=>{
+  if(e.target.id!=="settings-form") return; e.preventDefault();
+  const fu=$("#s-fu").value.split(/[,\s]+/).map(Number).filter(n=>n>0).slice(0,2);
+  const data={dailyGoal:Math.max(1,Number($("#s-goal").value)||50),followUpDays:fu.length===2?fu:[3,7],signature:$("#s-sig").value,fu1Subject:$("#s-fu1s").value,fu1Body:$("#s-fu1b").value,fu2Subject:$("#s-fu2s").value,fu2Body:$("#s-fu2b").value};
+  if(await write("settings","main",{...S.settings,...data},"set")) toast("Settings saved.");
+});
+
+// ---------- boot ----------
+try{ const v=localStorage.getItem("od-view"); if(v) S.view=v; }catch{}
+render();
+(async()=>{
+  const C=window.claude;
+  if(!C?.use){ db=null; S.loaded={firms:true,contacts:true,variants:true}; render(); return; }
+  db=await C.use("db");
+  $("#c-db").classList.toggle("on",!!db);
+  if(!db){ render(); return; }
+  try{ const u=await C.use("user"); const w=await u?.can?.("data.write"); if(w===false) canWrite=false; }catch{}
+  const sub=(name,map)=>db.collection(name).onSnapshot(snap=>{ map.clear(); for(const d of snap.docs){ map.set(d.id,{...d.data(),__id:d.id}); } S.loaded[name]=true; if($("#drawer").hidden) render(); else softRender(); if(name==="contacts") autoClose(); }, err=>{ S.loaded[name]=true; toast("Lost the live connection to your data ("+err.code+"). Reload the page."); render(); });
+  sub("firms",S.firms); sub("contacts",S.contacts); sub("variants",S.variants);
+  db.doc("settings/main").onSnapshot(s=>{ if(s.exists) Object.assign(S.settings,s.data()); if($("#drawer").hidden) render(); },()=>{});
+  C.use("sample").then(s=>{ sample=s; $("#c-ai").classList.toggle("on",!!s); if(s && S.view==="tests" && $("#drawer").hidden) render(); });
+  C.use("mcp").then(m=>{ mcp=m; $("#c-gm").classList.toggle("on",!!m); if(m && $("#drawer").hidden) render(); });
+})();
+// While a drawer is open, re-render the page underneath without touching the drawer.
+function softRender(){ const d=$("#drawer"); const keep=d.hidden; render(); d.hidden=keep; }
+})();
+</script>
