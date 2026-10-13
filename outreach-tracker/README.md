@@ -1,8 +1,9 @@
-# Outreach Desk
+# Jordan Belfort's Internship Program
 
 Cold-outreach tracker for summer internship recruiting (10 target firms from the Target Firms Outreach PDF).
 
 - Live app: https://claude.ai/artifact/HteCWMbpZfKKs1GiUo382k
+- `banner.webp`: banner photo
 - `index.html`: the app (published as a claude.ai artifact with a shared database, Claude, and Gmail access)
 - `build_seed.py` → `seed.json`: firms, contacts, 43 hook variants and settings pulled from the PDF (already loaded into the live app)
 

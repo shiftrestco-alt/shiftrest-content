@@ -1,22 +1,25 @@
-<title>Internship Outreach Desk</title>
+<title>Jordan Belfort's Internship Program</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: sticky top bar with view tabs; one centered working column; drawers slide in from the right for compose/edit. */
+/* Layout: photo banner, then a sticky tab bar; one centered working column; drawers slide in from the right for compose/edit. Money green + gold. */
 :root{
-  --paper:#F3F4F7; --surface:#FFFFFF; --sunk:#EBEDF1; --ink:#15171C; --muted:#5B616E; --line:#DADDE4;
-  --accent:#7A1F2B; --accent-ink:#FFFFFF; --accent-soft:#F4E6E8; --gold:#9A7110;
+  --paper:#F2F4F2; --surface:#FFFFFF; --sunk:#E8ECE9; --ink:#121714; --muted:#56605A; --line:#D7DDD9;
+  --accent:#17663F; --accent-ink:#FFFFFF; --accent-soft:#E0EFE6; --gold:#8E6A0E;
+  --av1:#2F62B8; --av2:#0E7C7B; --av3:#9A6F00; --av4:#8A3FA0; --av5:#C2491D;
   --ok:#1D7348; --ok-soft:#E3F2EA; --warn:#9A5B00; --warn-soft:#FBEFD9; --bad:#AE2A20; --bad-soft:#FBE6E3; --info:#2B58A3; --info-soft:#E4ECF8;
   --display:"Archivo",ui-sans-serif,system-ui,sans-serif; --body:"Archivo",ui-sans-serif,system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --r:8px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#111216; --surface:#1A1C21; --sunk:#22252B; --ink:#ECEDF0; --muted:#9BA1AD; --line:#2E3138;
-  --accent:#E2788A; --accent-ink:#1A0B0E; --accent-soft:#3A1F25; --gold:#E2B64E;
+  --paper:#0F1311; --surface:#171C19; --sunk:#202622; --ink:#ECEFEC; --muted:#99A39D; --line:#2B332E;
+  --accent:#5DCB92; --accent-ink:#07160E; --accent-soft:#163323; --gold:#E2B64E;
+  --av1:#7FA8F2; --av2:#4FC6C3; --av3:#E2B64E; --av4:#C88BE0; --av5:#F08A5E;
   --ok:#55C990; --ok-soft:#163327; --warn:#E6A84A; --warn-soft:#3A2C14; --bad:#F2766B; --bad-soft:#3D1E1B; --info:#86AAF0; --info-soft:#1C2A44; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --paper:#111216; --surface:#1A1C21; --sunk:#22252B; --ink:#ECEDF0; --muted:#9BA1AD; --line:#2E3138;
-  --accent:#E2788A; --accent-ink:#1A0B0E; --accent-soft:#3A1F25; --gold:#E2B64E;
+  --paper:#0F1311; --surface:#171C19; --sunk:#202622; --ink:#ECEFEC; --muted:#99A39D; --line:#2B332E;
+  --accent:#5DCB92; --accent-ink:#07160E; --accent-soft:#163323; --gold:#E2B64E;
+  --av1:#7FA8F2; --av2:#4FC6C3; --av3:#E2B64E; --av4:#C88BE0; --av5:#F08A5E;
   --ok:#55C990; --ok-soft:#163327; --warn:#E6A84A; --warn-soft:#3A2C14; --bad:#F2766B; --bad-soft:#3D1E1B; --info:#86AAF0; --info-soft:#1C2A44; color-scheme:dark}
 *{box-sizing:border-box}
 html,body{background:var(--paper);color:var(--ink)}
@@ -161,13 +164,88 @@ label.f>input,label.f>select,label.f>textarea{font-weight:400;color:var(--ink);f
 .play p,.play ul{margin:0;font-size:13.5px;max-width:65ch}
 .play ul{padding-left:18px;display:flex;flex-direction:column;gap:3px}
 
+/* banner: one fixed dark look over the photo, in both themes */
+.banner{position:relative;overflow:hidden;background:#0A0F0C;color:#F4EBCF;isolation:isolate}
+.banner-bg{position:absolute;inset:-30px;background:url(banner.webp) center 35%/cover no-repeat;filter:blur(16px) brightness(.42) saturate(1.25);z-index:-1}
+.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,10,8,.92) 0%,rgba(6,10,8,.55) 55%,rgba(6,10,8,.2) 100%);z-index:-1}
+.banner-inner{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:22px;display:flex;gap:24px;align-items:center;justify-content:space-between}
+.banner-copy{display:flex;flex-direction:column;gap:8px;min-width:0}
+.banner .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#D9B95A}
+.banner h1{font-family:var(--display);font-weight:800;font-stretch:75%;text-transform:uppercase;font-size:clamp(30px,5.4vw,52px);line-height:.95;letter-spacing:.005em;color:#F7EFD6}
+.banner h1 em{font-style:normal;color:#E2BF5C}
+.banner p{margin:0;max-width:52ch;color:#D6DCD6;font-size:14.5px}
+.banner-photo{width:300px;max-width:42%;aspect-ratio:383/234;object-fit:cover;border-radius:6px;border:1px solid rgba(226,191,92,.55);box-shadow:0 10px 30px rgba(0,0,0,.5);flex:0 0 auto}
+.banner small{display:block;font-size:10.5px;color:#8E978F}
+@media (max-width:640px){.banner-inner{flex-direction:column-reverse;align-items:flex-start}.banner-photo{max-width:100%;width:100%}}
+
+/* avatars */
+.avatar{--c:var(--av1);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;flex:0 0 auto;color:var(--c);border:1.5px solid var(--c);background:color-mix(in srgb,var(--c) 14%,var(--surface))}
+.avatar svg{width:58%;height:58%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.avatar.sm{width:18px;height:18px;border-width:1px;vertical-align:-4px;margin-right:5px}
+.avatar.lg{width:46px;height:46px;border-width:2px}
+.persona{white-space:nowrap}
+
+/* road to 1,000 */
+.road{padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px}
+.road .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.road-title{font-size:clamp(30px,5vw,44px);font-family:var(--mono);font-weight:500;text-transform:none;letter-spacing:0;line-height:1.05}
+.road-title small{font-size:15px;color:var(--muted);font-family:var(--body)}
+.road-track{position:relative;height:18px;background:var(--sunk);border-radius:99px;margin-block:18px 8px}
+.road-track>b{position:absolute;inset:0 auto 0 0;border-radius:99px;background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 60%,var(--gold)));min-width:18px}
+.road-track>i{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--line);transform:translateX(-1px)}
+.road-track>i.hit{background:var(--gold)}
+.road-track>i span{position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap}
+.road-track>i:last-child span{transform:translateX(-100%)}
+.miles{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+@media (max-width:640px){.miles{grid-template-columns:repeat(2,1fr)}}
+.mile{border:1px solid var(--line);border-radius:6px;padding:6px 9px;font-size:12px;display:flex;flex-direction:column;min-width:0}
+.mile b{font-family:var(--mono);font-weight:500}
+.mile.hit{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,var(--surface))}
+.mile.next{border-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media (max-width:700px){.stats{grid-template-columns:1fr 1fr}}
+.stat{display:flex;flex-direction:column;gap:2px;min-width:0}
+.stat .label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.stat .v{font-family:var(--mono);font-size:20px}
+.funnel2{display:flex;flex-direction:column;gap:7px}
+.fstep{display:grid;grid-template-columns:110px 1fr 120px;gap:10px;align-items:center;font-size:13px}
+@media (max-width:520px){.fstep{grid-template-columns:86px 1fr 92px}}
+.fstep .fb{height:22px;background:var(--sunk);border-radius:4px;overflow:hidden}
+.fstep .fb b{display:block;height:100%;background:var(--accent);opacity:.85;border-radius:4px;min-width:3px}
+.fstep .fn{font-family:var(--mono);font-size:12px;text-align:right;color:var(--muted)}
+.fstep .fn b{color:var(--ink);font-weight:500;font-size:14px}
+.lanes{display:flex;flex-direction:column}
+.lane{display:grid;grid-template-columns:auto minmax(150px,1.2fr) 2fr auto;gap:12px;align-items:center;padding:11px 14px;border-top:1px solid var(--line)}
+.lane:first-child{border-top:0}
+@media (max-width:720px){.lane{grid-template-columns:auto 1fr}.lane .segs,.lane .lnums{grid-column:1/-1}}
+.lane .nm{display:flex;flex-direction:column;min-width:0}
+.lane .nm b{font-family:var(--display);font-weight:700}
+.segs{display:flex;height:12px;border-radius:99px;overflow:hidden;background:var(--sunk)}
+.segs span{display:block;height:100%}
+.lnums{display:flex;gap:14px;font-size:12px;color:var(--muted);white-space:nowrap}
+.lnums b{font-family:var(--mono);color:var(--ink);font-weight:500;font-size:14px;display:block}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+
 #toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);padding:9px 14px;border-radius:8px;z-index:60;font-weight:600;font-size:13px;max-width:calc(100% - 32px)}
 @media (prefers-reduced-motion:no-preference){.drawer{animation:slide .18s ease-out}@keyframes slide{from{transform:translateX(24px);opacity:.6}to{transform:none;opacity:1}}}
 </style>
 
+<section class="banner" aria-label="Jordan Belfort's Internship Program">
+  <div class="banner-bg"></div>
+  <div class="banner-inner">
+    <div class="banner-copy">
+      <span class="eyebrow">Boden Grimes · Summer 2027 recruiting desk</span>
+      <h1>Jordan Belfort's<br><em>Internship Program</em></h1>
+      <p id="banner-line">Act as if. Write like the analyst they already want to hire.</p>
+      <small>A fan tribute. Not affiliated with Jordan Belfort.</small>
+    </div>
+    <img class="banner-photo" src="banner.webp" alt="Leonardo DiCaprio as Jordan Belfort, grinning and holding up a dollar bill at his desk" width="383" height="234">
+  </div>
+</section>
 <header class="top">
   <div class="top-inner">
-    <div class="brand"><b>Outreach Desk</b><span>Boden Grimes · Summer internship recruiting</span></div>
+    <div class="brand"><b>The Desk</b><span>Jordan Belfort's Internship Program</span></div>
     <nav class="tabs" id="tabs" aria-label="Views">
       <button data-view="today">Today</button>
       <button data-view="pipeline">Pipeline</button>
@@ -181,7 +259,7 @@ label.f>input,label.f>select,label.f>textarea{font-weight:400;color:var(--ink);f
 </header>
 
 <main id="main">
-  <div class="panel pad empty" id="boot">Loading your firms, contacts and hook tests…</div>
+  <div class="panel pad empty" id="boot">Opening the desk…</div>
 </main>
 
 <div id="toast" hidden></div>
@@ -207,6 +285,27 @@ const MECHS = ["EMT overnight shifts","3.9 GPA + SIE + BMC","Perplexity top 500 
 const CTAS = ["10-minute call","Critique my work","Point me to the right person","Confirm eligibility","Flag my application","Referral / intro","Any open role"];
 const DIMS = [["persona","Avatar (recipient)"],["desire","Desire"],["angle","Angle"],["mechanism","Mechanism (proof)"],["cta","CTA"],["variant","Hook (subject line)"],["firm","Firm"]];
 const GMAIL = "Gmail";
+// Each recipient avatar gets its own badge, color and desk nickname so tests read at a glance.
+const AV = {
+  "Technician":   {nick:"The Model Builder", line:"Show them the work.",                    c:"--av1", icon:'<path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/>'},
+  "Team Player":  {nick:"The Deal Team",     line:"Be the one they'd staff on Monday.",     c:"--av2", icon:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15.5 14.4c3 .2 5.5 2.3 5.5 5.6"/>'},
+  "MD / Partner": {nick:"The Big Fish",      line:"Three lines. Make every one count.",     c:"--av3", icon:'<rect x="3" y="7.5" width="18" height="12.5" rx="2"/><path d="M9 7.5V5.5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>'},
+  "Gatekeeper":   {nick:"The Front Desk",    line:"Make their job easy and they open the door.", c:"--av4", icon:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14.5 8.5l2 2"/>'},
+  "Warm intro":   {nick:"The Inside Line",   line:"A friend of a friend always gets a callback.", c:"--av5", icon:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'},
+};
+function avatarBadge(p, size=""){ const a=AV[p]||AV["Technician"]; return `<span class="avatar ${size}" style="--c:var(${a.c})" aria-hidden="true"><svg viewBox="0 0 24 24">${a.icon}</svg></span>`; }
+function personaTag(p){ const a=AV[p]||AV["Technician"]; return `<span class="persona" style="color:var(${a.c})" title="${esc(a.nick)}">${avatarBadge(p,"sm")}${esc(p)}</span>`; }
+const TARGET = 1000;
+const MILESTONES = [[100,"Off the bench"],[250,"Making noise"],[500,"Halfway up the tower"],[750,"Corner office in sight"],[1000,"Wolf status"]];
+const BANNER_LINES = [
+  "Act as if. Write like the analyst they already want to hire.",
+  "The fortune is in the follow-up. Nobody remembers the first email.",
+  "Every no gets you closer to the yes. Keep dialing.",
+  "Confidence is earned on volume. 50 today, then 50 more tomorrow.",
+  "Sell the story only you can tell: ER shifts at night, models by day.",
+  "The goal isn't one reply. It's a pipeline that can't miss.",
+  "Stay on the straight line: one clear ask, every single time.",
+];
 
 // ---------- state ----------
 const S = { firms:new Map(), contacts:new Map(), variants:new Map(),
@@ -272,14 +371,14 @@ async function markSent(cid, {variantId, subject}){
   const at=nowISO();
   const test={persona:c.persona, desire:v.desire||DESIRES[c.persona]||"", angle:v.angle||"", mechanism:v.mechanism||"", cta:v.cta||""};
   const ok=await write("contacts",cid,{stage:"sent", sentAt:at, lastTouchAt:at, variantId:variantId||"", subject, test, followUps:0, nextFollowUpAt:addBusinessDays(at,S.settings.followUpDays?.[0]||3), touches:touch(c,"email",{variantId})});
-  if(ok) toast("Logged as sent. Follow-up scheduled for "+fmtDate(addBusinessDays(at,S.settings.followUpDays?.[0]||3))+".");
+  if(ok) toast("Sent. Follow-up locked in for "+fmtDate(addBusinessDays(at,S.settings.followUpDays?.[0]||3))+".");
 }
 async function markFollowUp(cid){
   const c=S.contacts.get(cid); if(!c) return;
   const n=(c.followUps||0)+1; const at=nowISO(); const gaps=S.settings.followUpDays||[3,7];
   const next = n>=2 ? addBusinessDays(at,5) : addBusinessDays(at,(gaps[1]||7)-(gaps[0]||3));
   const ok=await write("contacts",cid,{stage:n>=2?"fu2":"fu1", followUps:n, lastTouchAt:at, nextFollowUpAt:next, touches:touch(c,"followup",{n})});
-  if(ok) toast(n>=2?"Final follow-up logged. Marked no-reply in 5 business days if silent.":"Follow-up logged.");
+  if(ok) toast(n>=2?"Final follow-up logged. Marked no-reply in 5 business days if silent.":"Follow-up logged. Persistence closes.");
 }
 async function setStage(cid, stage){
   const c=S.contacts.get(cid); if(!c) return;
@@ -307,8 +406,9 @@ function render(){
   const m=$("#main");
   const ready=S.loaded.firms&&S.loaded.contacts&&S.loaded.variants;
   if(!db){ m.innerHTML=`<div class="panel pad empty"><h3>Your tracker data lives in this artifact's database</h3><p class="sub">Open this page in claude.ai while signed in to load firms, contacts and hook tests. The database isn't available in this view.</p></div>`; return; }
-  if(!ready){ m.innerHTML=`<div class="panel pad empty">Loading your firms, contacts and hook tests…</div>`; return; }
+  if(!ready){ m.innerHTML=`<div class="panel pad empty">Opening the desk…</div>`; return; }
   if(!S.firms.size && !S.contacts.size){ m.innerHTML=`<div class="panel pad empty"><h3>No firms yet</h3><p class="sub">Add your first firm on the Firms tab, then add the people you'll reach out to there.</p><div class="row" style="margin-top:10px"><button class="btn primary" data-act="new-firm">Add a firm</button></div></div>`; return; }
+  const bl=$("#banner-line"); if(bl) bl.textContent=bannerLine();
   const keepScroll=window.scrollY;
   m.innerHTML = ({today:viewToday, pipeline:viewPipeline, firms:viewFirms, tests:viewTests, playbook:viewPlaybook, settings:viewSettings}[S.view]||viewToday)();
   window.scrollTo(0,keepScroll);
@@ -331,7 +431,7 @@ function viewToday(){
   return `
   <section class="kpis">
     <div class="panel kpi goal">
-      <div class="spread"><span class="label">Today's outreach</span><span class="counter">${remaining? remaining+" to go":"Goal hit"}</span></div>
+      <div class="spread"><span class="label">Today's dials</span><span class="counter">${remaining? remaining+" to go. Stay on the phones.":"Goal hit. That's a closer's day."}</span></div>
       <div class="val">${firstToday+fuToday}<small> / ${goal}</small></div>
       <div class="meter" role="img" aria-label="${firstToday} new emails and ${fuToday} follow-ups of ${goal}"><b style="width:${w1}%"></b><b class="fu" style="width:${w2}%"></b></div>
       <div class="ticks"><span>${firstToday} new · ${fuToday} follow-ups</span><span>${goal}</span></div>
@@ -342,27 +442,90 @@ function viewToday(){
     <div class="panel kpi"><span class="label">Calls / referrals</span><span class="val">${pos.length}</span><span class="sub">${pct(pos.length,sent.length)}% of emailed</span></div>
   </section>
 
-  ${firmsDl.length?`<section class="section"><h2>Key dates</h2><div class="deadlines">${firmsDl.map(({f,d})=>`<div class="panel dl ${d<=21?"urgent":d<=60?"soon":"later"}"><span class="days">${d<=0?"Today":d+" days"}</span><b>${esc(f.name)}</b><span class="sub">${esc(f.keyDateLabel||"")} · ${fmtDate(f.keyDate+"T12:00")}</span></div>`).join("")}</div></section>`:""}
+  ${firmsDl.length?`<section class="section"><h2>Clock's ticking</h2><div class="deadlines">${firmsDl.map(({f,d})=>`<div class="panel dl ${d<=21?"urgent":d<=60?"soon":"later"}"><span class="days">${d<=0?"Today":d+" days"}</span><b>${esc(f.name)}</b><span class="sub">${esc(f.keyDateLabel||"")} · ${fmtDate(f.keyDate+"T12:00")}</span></div>`).join("")}</div></section>`:""}
 
   <div class="two">
     <section class="section">
-      <div class="spread"><h2>Follow-ups due</h2>${mcp&&due.length?`<button class="btn small" data-act="gm-bulk-fu">Draft all ${Math.min(due.length,15)} in Gmail</button>`:""}</div>
+      <div class="spread"><h2>Follow-ups due</h2><span class="sub">The fortune is in the follow-up.</span>${mcp&&due.length?`<button class="btn small" data-act="gm-bulk-fu">Draft all ${Math.min(due.length,15)} in Gmail</button>`:""}</div>
       <div class="panel list">${due.length? due.slice(0,25).map(c=>`
-        <div class="item"><div class="who"><b>${esc(c.name)}</b> ${liLink(c)} <span class="persona">${esc(c.persona)}</span><div class="meta">${esc(firmName(c.firmId))} · ${stageChip(c.stage)} · last touch ${fmtDate(c.lastTouchAt)}</div></div>
+        <div class="item"><div class="who"><b>${esc(c.name)}</b> ${liLink(c)} ${personaTag(c.persona)}<div class="meta">${esc(firmName(c.firmId))} · ${stageChip(c.stage)} · last touch ${fmtDate(c.lastTouchAt)}</div></div>
         <div class="row"><button class="btn small primary" data-act="compose" data-id="${c.__id}" data-mode="fu">Follow up</button></div></div>`).join("")
-        :`<div class="empty">Nothing due. Follow-ups are scheduled automatically ${S.settings.followUpDays?.[0]||3} and ${S.settings.followUpDays?.[1]||7} business days after you log an email as sent.</div>`}</div>
+        :`<div class="empty">Nobody's waiting on you. Follow-ups get scheduled automatically ${S.settings.followUpDays?.[0]||3} and ${S.settings.followUpDays?.[1]||7} business days after you log an email as sent, so go load the board.</div>`}</div>
     </section>
     <section class="section">
-      <div class="spread"><h2>Next up · ${q.length} not contacted</h2>
+      <div class="spread"><h2>On the board · ${q.length} to contact</h2>
         <div class="row">${mcp&&q.length?`<button class="btn small" data-act="gm-bulk-new">Draft next ${Math.min(q.length,10)} in Gmail</button>`:""}<button class="btn small" data-act="new-contact">Add person</button></div></div>
       <div class="panel list">${q.length? q.slice(0,25).map(c=>{ const vid=pickVariant(c), v=S.variants.get(vid); return `
-        <div class="item"><div class="who"><b>${esc(c.name)}</b> ${liLink(c)} <span class="persona">${esc(c.persona)}</span><div class="meta">${esc(firmName(c.firmId))}${v?` · hook: “${esc(fill(v.subject,c))}”`:""}</div></div>
+        <div class="item"><div class="who"><b>${esc(c.name)}</b> ${liLink(c)} ${personaTag(c.persona)}<div class="meta">${esc(firmName(c.firmId))}${v?` · hook: “${esc(fill(v.subject,c))}”`:""}</div></div>
         <div class="row"><button class="btn small primary" data-act="compose" data-id="${c.__id}">Compose</button></div></div>`}).join("")
-        :`<div class="empty">Everyone in your list has been contacted. Add people with <b>Add person</b> or paste a batch on the Pipeline tab.</div>`}</div>
+        :`<div class="empty">Board's clear. Every name has heard from you. Add people with <b>Add person</b> or paste a batch on the Pipeline tab.</div>`}</div>
     </section>
   </div>
-  ${mcp?`<section class="panel pad spread"><div><h3>Check Gmail for replies</h3><span class="sub">Searches your inbox for messages from everyone you've emailed in the last 60 days and moves them to Replied.</span></div><button class="btn" data-act="gm-check">Check replies</button></section>`:""}
+  ${mcp?`<section class="panel pad spread"><div><h3>See who called back</h3><span class="sub">Searches your inbox for messages from everyone you've emailed in the last 60 days and moves them to Replied.</span></div><button class="btn" data-act="gm-check">Check replies</button></section>`:""}
   `;
+}
+
+function emailsSent(sinceMs=0){ let n=0; for(const c of S.contacts.values()) for(const t of (c.touches||[])) if((t.kind==="email"||t.kind==="followup") && new Date(t.at).getTime()>=sinceMs) n++; return n; }
+function bannerLine(){
+  const sent=emailsSent(), goal=S.settings.dailyGoal||50, today=touchesOn(todayKey(),["email","followup"]);
+  if(sent>=TARGET) return "1,000 sent. That's wolf status. Now turn those calls into offers.";
+  if(today>=goal) return `${today} out the door today. That's how a closer finishes the day.`;
+  const d=Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/86400000);
+  return BANNER_LINES[d % BANNER_LINES.length];
+}
+function viewRoad(){
+  const sent=emailsSent(), reached=sentContacts().length, goal=S.settings.dailyGoal||50;
+  const left=Math.max(0,TARGET-sent), p=Math.min(100,sent/TARGET*100);
+  const pace=emailsSent(Date.now()-7*86400000)/5; // per weekday over the last 7 days
+  const etaGoal=left?fmtDate(addBusinessDays(Date.now(),Math.ceil(left/goal))):"Done";
+  const etaPace=!left?"Done":pace>0?fmtDate(addBusinessDays(Date.now(),Math.ceil(left/pace))):"Start sending";
+  const next=MILESTONES.find(([n])=>sent<n);
+  const cs=sentContacts();
+  const replied=cs.filter(c=>REPLIED.includes(c.stage)).length, calls=cs.filter(c=>POSITIVE.includes(c.stage)).length;
+  const refs=cs.filter(c=>c.stage==="referral"||c.stage==="interview").length, ints=cs.filter(c=>c.stage==="interview").length;
+  const steps=[["Emailed",reached],["Replied",replied],["Call booked",calls],["Referral",refs],["Interview",ints]];
+  const real=sent>=30;
+  const rate=real?{r:replied/sent,c:calls/sent,f:refs/sent,i:ints/sent}:{r:.07,c:.03,f:.01,i:.005};
+  const proj=k=>Math.round(rate[k]*TARGET);
+  // Avatar lanes: everyone in the book, split by who they are.
+  const lanes=PERSONAS.map(p=>{ const all=contactsArr().filter(c=>c.persona===p); const s=all.filter(c=>c.sentAt);
+    const seg={todo:all.filter(c=>c.stage==="todo").length, wait:all.filter(c=>AWAITING.includes(c.stage)).length, rep:all.filter(c=>c.stage==="replied").length, pos:all.filter(c=>POSITIVE.includes(c.stage)).length, dead:all.filter(c=>["noreply","declined","bounced"].includes(c.stage)).length};
+    return {p, total:all.length, sent:s.length, rep:s.filter(c=>REPLIED.includes(c.stage)).length, pos:seg.pos, seg}; });
+  const totalSent=lanes.reduce((a,l)=>a+l.sent,0)||1;
+  const segColors={todo:"var(--line)",wait:"var(--info)",rep:"var(--warn)",pos:"var(--ok)",dead:"var(--bad)"};
+  return `
+  <section class="panel road">
+    <div class="spread" style="align-items:flex-end">
+      <div><span class="eyebrow">Road to 1,000</span><h2 class="road-title">${sent.toLocaleString()} <small>of 1,000 emails sent</small></h2></div>
+      <div class="sub" style="text-align:right">${next?`Next milestone: <b style="color:var(--ink)">${next[1]}</b><br>${(next[0]-sent).toLocaleString()} emails away`:`<b style="color:var(--ink)">Wolf status.</b><br>Now turn those calls into offers.`}</div>
+    </div>
+    <div class="road-track" role="progressbar" aria-label="Emails sent toward 1,000" aria-valuemin="0" aria-valuemax="${TARGET}" aria-valuenow="${sent}"><b style="width:${p}%"></b>${MILESTONES.map(([n])=>`<i class="${sent>=n?"hit":""}" style="left:${n/TARGET*100}%"><span>${n}</span></i>`).join("")}</div>
+    <div class="miles">${MILESTONES.map(([n,l])=>`<div class="mile ${sent>=n?"hit":next&&next[0]===n?"next":""}"><b>${n.toLocaleString()}</b>${esc(l)}</div>`).join("")}</div>
+    <div class="stats">
+      <div class="stat"><span class="label">People reached</span><span class="v">${reached}</span></div>
+      <div class="stat"><span class="label">Your pace</span><span class="v">${pace?pace.toFixed(1):"0"}<small class="sub"> / weekday</small></span></div>
+      <div class="stat"><span class="label">1,000 at ${goal}/day</span><span class="v">${etaGoal}</span></div>
+      <div class="stat"><span class="label">1,000 at your pace</span><span class="v">${etaPace}</span></div>
+    </div>
+  </section>
+
+  <div class="two">
+    <section class="panel pad section">
+      <div class="spread"><h2>The funnel</h2><span class="sub">${real?"Projected from your numbers":"Benchmark until you hit 30 sends"}</span></div>
+      <div class="funnel2">${steps.map(([l,n],i)=>{ const prev=i?steps[i-1][1]:0; return `<div class="fstep"><span>${l}</span><div class="fb"><b style="width:${reached?Math.max(n/reached*100,n?3:0):0}%"></b></div><span class="fn"><b>${n}</b>${i&&prev?` · ${pct(n,prev)}%`:""}</span></div>`; }).join("")}</div>
+      <p class="note">At 1,000 emails that's about <b>${proj("r")}</b> replies, <b>${proj("c")}</b> calls, <b>${proj("f")}</b> referrals and <b>${proj("i")}</b> interviews. It only takes one offer.</p>
+    </section>
+    <section class="panel section" style="gap:0">
+      <div class="pad spread" style="padding-bottom:8px"><h2>By avatar</h2>
+        <div class="legend"><span><i style="background:var(--line)"></i>Not contacted</span><span><i style="background:var(--info)"></i>Waiting</span><span><i style="background:var(--warn)"></i>Replied</span><span><i style="background:var(--ok)"></i>Call+</span><span><i style="background:var(--bad)"></i>Dead</span></div></div>
+      <div class="lanes">${lanes.map(l=>{ const a=AV[l.p]; const share=pct(l.sent,totalSent); const thin=l.total&&totalSent>=40&&share<10; return `
+        <div class="lane">${avatarBadge(l.p,"lg")}
+          <div class="nm"><b style="color:var(--c);--c:var(${a.c})">${esc(a.nick)}</b><span class="sub">${esc(l.p)} · ${esc(a.line)}</span>${thin?`<span class="sub" style="color:var(--warn)">Under-tested. Send more here to get a real read.</span>`:""}</div>
+          <div class="segs" role="img" aria-label="${esc(l.p)}: ${l.seg.todo} not contacted, ${l.seg.wait} waiting, ${l.seg.rep} replied, ${l.seg.pos} calls, ${l.seg.dead} dead">${l.total?Object.entries(l.seg).filter(([,n])=>n).map(([k,n])=>`<span style="width:${n/l.total*100}%;background:${segColors[k]}"></span>`).join(""):""}</div>
+          <div class="lnums"><span><b>${l.total}</b>people</span><span><b>${l.sent}</b>sent</span><span><b>${pct(l.rep,l.sent)}%</b>reply</span><span><b>${l.pos}</b>calls</span></div>
+        </div>`}).join("")}</div>
+    </section>
+  </div>`;
 }
 
 function viewPipeline(){
@@ -371,9 +534,9 @@ function viewPipeline(){
   rows.sort((a,b)=>(S.firms.get(a.firmId)?.priority??99)-(S.firms.get(b.firmId)?.priority??99)||a.name.localeCompare(b.name));
   const firmOpts=[...S.firms.entries()].sort((a,b)=>(a[1].priority??99)-(b[1].priority??99)).map(([id,f])=>`<option value="${id}" ${firm===id?"selected":""}>${esc(f.name)}</option>`).join("");
   const counts={}; for(const c of S.contacts.values()) counts[c.stage]=(counts[c.stage]||0)+1;
-  return `
+  return `${viewRoad()}
   <section class="section">
-    <div class="spread"><h2>Pipeline · ${rows.length} of ${S.contacts.size}</h2><div class="row"><button class="btn" data-act="paste">Paste a batch</button><button class="btn primary" data-act="new-contact">Add person</button></div></div>
+    <div class="spread"><h2>The book · ${rows.length} of ${S.contacts.size}</h2><div class="row"><button class="btn" data-act="paste">Paste a batch</button><button class="btn primary" data-act="new-contact">Add person</button></div></div>
     <div class="row" style="gap:6px">${STAGES.filter(([k])=>counts[k]).map(([k,l])=>`<button class="chip st-${k}" style="border:0;cursor:pointer" data-act="fstage" data-v="${stage===k?"":k}">${esc(l)} <span class="num">${counts[k]}</span></button>`).join("")}</div>
     <div class="filters">
       <input type="search" id="f-q" placeholder="Search name, role, email" value="${esc(q)}" aria-label="Search">
@@ -385,7 +548,7 @@ function viewPipeline(){
       ${rows.map(c=>{ const v=S.variants.get(c.variantId); const due=c.nextFollowUpAt && new Date(c.nextFollowUpAt)<=new Date() && AWAITING.includes(c.stage); return `<tr>
         <td><b>${esc(c.name)}</b> ${liLink(c)}<div class="sub" style="max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(c.role)}</div></td>
         <td>${esc(shortFirm(firmName(c.firmId)))}</td>
-        <td><span class="persona">${esc(c.persona)}</span></td>
+        <td>${personaTag(c.persona)}</td>
         <td><select class="stage st-${c.stage}" data-act="stage" data-id="${c.__id}" aria-label="Stage for ${esc(c.name)}">${STAGES.map(([k,l])=>`<option value="${k}" ${c.stage===k?"selected":""}>${l}</option>`).join("")}</select></td>
         <td style="max-width:240px">${c.subject?`<span title="${esc(v?.label||"")}">${esc(c.subject)}</span>`:"<span class='sub'>—</span>"}</td>
         <td class="n">${fmtDate(c.lastTouchAt)}</td>
@@ -398,7 +561,7 @@ function viewPipeline(){
 function firmStats(fid){ const cs=contactsArr().filter(c=>c.firmId===fid); const s=cs.filter(c=>c.sentAt); return {total:cs.length, sent:s.length, replied:s.filter(c=>REPLIED.includes(c.stage)).length, pos:s.filter(c=>POSITIVE.includes(c.stage)).length}; }
 function viewFirms(){
   const fs=[...S.firms.entries()].sort((a,b)=>(a[1].priority??99)-(b[1].priority??99));
-  return `<section class="section"><div class="spread"><h2>Firms · ${fs.length}</h2><button class="btn primary" data-act="new-firm">Add firm</button></div>
+  return `<section class="section"><div class="spread"><h2>The targets · ${fs.length}</h2><button class="btn primary" data-act="new-firm">Add firm</button></div>
   <div class="firms">${fs.map(([id,f])=>{ const st=firmStats(id); const d=f.keyDate?daysUntil(f.keyDate):null; return `
     <article class="panel firm">
       <div class="spread"><span class="rank">#${f.priority??"–"}</span><span class="chip ${esc(f.statusTone||"neutral")}">${esc(f.status||"")}</span></div>
@@ -422,17 +585,17 @@ function viewTests(){
   const firmOpts=[...S.firms.entries()].sort((a,b)=>(a[1].priority??99)-(b[1].priority??99)).map(([id,f])=>`<option value="${id}" ${firm===id?"selected":""}>${esc(f.name)}</option>`).join("");
   const stats=vid=>{ const cs=contactsArr().filter(c=>c.variantId===vid&&c.sentAt); return {n:cs.length,r:cs.filter(c=>REPLIED.includes(c.stage)).length,p:cs.filter(c=>POSITIVE.includes(c.stage)).length}; };
   return `
-  <section class="section"><h2>What's working</h2>
+  <section class="section"><h2>What's closing</h2>
     <p class="sub" style="max-width:75ch">Each email you log stores its avatar, desire, angle, mechanism, CTA and hook. Rows marked <span class="lowN">low n</span> have fewer than 20 sends, so treat them as noise until they fill in. Compare angles within one avatar before calling a winner.</p>
     <div class="dims">${DIMS.map(([d,l])=>dimTable(d,l)).join("")}</div>
   </section>
   <section class="section">
-    <div class="spread"><h2>Hook library · ${vs.length}</h2><button class="btn primary" data-act="new-variant">New variant</button></div>
+    <div class="spread"><h2>The pitch book · ${vs.length}</h2><button class="btn primary" data-act="new-variant">New variant</button></div>
     <div class="filters"><select id="vf-firm" aria-label="Firm"><option value="">All firms</option><option value="_any" ${firm==="_any"?"selected":""}>Any firm (generic)</option>${firmOpts}</select>
       <select id="vf-persona" aria-label="Avatar"><option value="">All avatars</option>${PERSONAS.map(p=>`<option ${persona===p?"selected":""}>${p}</option>`).join("")}</select></div>
     <div class="variants">${vs.map(([id,v])=>{ const s=stats(id); return `
       <article class="panel var ${v.active===false?"off":""}">
-        <div class="spread"><span class="persona">${esc(v.persona)}</span><span class="sub">${esc(v.firmId?shortFirm(firmName(v.firmId)):"Any firm")}${v.parentId?" · variation":""}</span></div>
+        <div class="spread">${personaTag(v.persona)}<span class="sub">${esc(v.firmId?shortFirm(firmName(v.firmId)):"Any firm")}${v.parentId?" · variation":""}</span></div>
         <div class="subj">${esc(v.subject)}</div>
         <pre>${esc(v.body)}</pre>
         <div class="tags"><span class="tag">Desire <b>${esc(v.desire||"")}</b></span><span class="tag">Angle <b>${esc(v.angle||"")}</b></span><span class="tag">Mechanism <b>${esc(v.mechanism||"")}</b></span><span class="tag">CTA <b>${esc(v.cta||"")}</b></span></div>
@@ -444,6 +607,7 @@ function viewTests(){
 
 function viewPlaybook(){
   const cards=[
+    ["00 · Mindset","Act as if. Keep the emails clean.",`<p>Bring the Belfort energy to the work, not the inbox. Your emails to bankers stay calm, specific and short. Confidence shows up as a clear ask and real proof (ER shifts, the Ivanhoe pitch), never hype. The swagger lives in this app, not in your subject lines.</p>`],
     ["01 · This week","Morgan Stanley first",`<p>Early Insights closes <b>Oct 30, 11:55 p.m. ET</b>. Submit the application this week, then email Monique Jean and Carlos Muñoz (both Iona alumni). An alum is the highest-reply contact you have. Leerink, Synchrony and First Citizens are open and rolling, so they come next.</p>`],
     ["02 · Volume","50 a day needs about 1,000 names",`<p>The PDF names 22 people. At 50 a day you'd use them up before lunch. Build each firm out to 20–40 people:</p><ul><li>LinkedIn: search the firm, filter by <b>School: Iona</b>, then by titles like Analyst and Associate.</li><li>Add more firms: healthcare banks (Cain Brothers/KeyBanc, Ziegler, Torreya, Jefferies HC), elite boutiques (Evercore, PJT, Moelis, Houlihan Lokey), and Stamford/Greenwich shops (UBS Stamford, Point72, Viking, AQR, Silver Point, Tudor).</li><li>Mix: about 70% analysts and associates (1–4 years out), 20% VPs, 10% MDs and recruiters. Junior bankers reply the most and remember what recruiting felt like.</li></ul>`],
     ["03 · Deliverability","Protect your inbox before you scale",`<ul><li>Send from your <b>@iona.edu</b> address. Bankers open .edu mail from students.</li><li>Ramp up: about 15 a day in week one, 30 in week two, then 50. A new mailbox that jumps straight to 50 cold emails a day gets flagged as spam.</li><li>Verify every pattern-based address (Hunter, NeverBounce). If more than 5% bounce, your later emails start landing in spam.</li><li>Plain text. No links, images or attachments in the first email. Give each one a personal first line.</li><li>Send Tue–Thu, 6:30–8 a.m. ET or around 6 p.m. Skip Fridays and weekends.</li></ul>`],
@@ -455,7 +619,7 @@ function viewPlaybook(){
     ["09 · Be ready","Outreach gets the interview; prep wins it",`<ul><li>Technicals: accounting flow-through, DCF, comps, EV vs. equity value, plus a few LBO basics. Work through the BIWS/WSO 400-question guide.</li><li>Healthcare: know one recent deal per target bank and one sub-sector view (e.g., provider margins, GLP-1s, behavioral health roll-ups).</li><li>Keep the Ivanhoe/rare-earths pitch to 2 minutes, and know its weak point.</li><li>Apply the day each posting opens. Outreach backs up an application; it doesn't replace one.</li></ul>`],
     ["10 · Accuracy","Don't overclaim",`<p>Bankers check. Say “SIE in November” until you pass it. Phrase rankings exactly as they happened (“top 500 of 1,400+”). Keep claims about December 2028 eligibility to a question, as the Leerink and Morgan Stanley gatekeeper hooks do.</p>`],
   ];
-  return `<section class="section"><h2>Playbook</h2><p class="sub" style="max-width:75ch">How to run 50 a day without burning your inbox or your reputation, and how to turn replies into an offer.</p>
+  return `<section class="section"><h2>The Straight Line</h2><p class="sub" style="max-width:75ch">The playbook. Run 50 a day with conviction, keep your inbox and your reputation clean, and turn replies into an offer.</p>
   <div class="play">${cards.map(([k,t,b])=>`<article class="panel"><span class="k">${k}</span><h3>${t}</h3>${b}</article>`).join("")}</div></section>`;
 }
 
@@ -511,7 +675,7 @@ async function saveContact(cid){
   if(firmId==="__new"){ const n=$("#cf-newfirm").value.trim(); if(!n){ toast("Name the new firm."); return; } firmId=uid("f"); if(!await write("firms",firmId,{name:n,tier:"",location:"",status:"Not researched",statusTone:"neutral",priority:(S.firms.size+1),emailPattern:"",createdAt:nowISO()},"set")) return; }
   const data={firmId,name,persona:$("#cf-persona").value,role:$("#cf-role").value.trim(),linkedin:$("#cf-li").value.trim(),email:$("#cf-email").value.trim(),notes:$("#cf-notes").value};
   if(cid){ const st=$("#cf-stage").value; const c=S.contacts.get(cid); if(c&&st!==c.stage){ await setStage(cid,st); } if(await write("contacts",cid,data)){ toast("Saved."); closeDrawer(); } }
-  else { const id=uid("c"); if(await write("contacts",id,{...data,stage:"todo",createdAt:nowISO(),sentAt:"",lastTouchAt:"",nextFollowUpAt:"",followUps:0,variantId:"",subject:"",test:{},touches:[],source:"manual"},"set")){ toast(name+" added to the queue."); closeDrawer(); } }
+  else { const id=uid("c"); if(await write("contacts",id,{...data,stage:"todo",createdAt:nowISO(),sentAt:"",lastTouchAt:"",nextFollowUpAt:"",followUps:0,variantId:"",subject:"",test:{},touches:[],source:"manual"},"set")){ toast(name+" is on the board."); closeDrawer(); } }
 }
 
 function firmForm(f={}, fid=""){
@@ -580,7 +744,7 @@ function compose(cid, mode){
   const subj = isFu ? fill(fuN>=2?S.settings.fu2Subject:S.settings.fu1Subject, c) : fill(S.variants.get(vid)?.subject,c);
   const body = isFu ? fill(fuN>=2?S.settings.fu2Body:S.settings.fu1Body, c) : fill(S.variants.get(vid)?.body,c);
   openDrawer(isFu?`Follow-up ${fuN} · ${c.name}`:`Compose · ${c.name}`,`
-    <div class="note"><b>${esc(c.name)}</b> · ${esc(c.role||"")}<br>${esc(f.name||"")} · <span class="persona">${esc(c.persona)}</span> wants: ${esc(DESIRES[c.persona]||"")}${f.avatar?`<br>Company avatar: <i>${esc(f.avatar)}</i>`:""}</div>
+    <div class="note"><b>${esc(c.name)}</b> · ${esc(c.role||"")}<br>${esc(f.name||"")} · ${personaTag(c.persona)} wants: ${esc(DESIRES[c.persona]||"")}${f.avatar?`<br>Company avatar: <i>${esc(f.avatar)}</i>`:""}</div>
     ${f.avatarNotes?`<details><summary class="sub" style="cursor:pointer">What ${esc(shortFirm(f.name||""))} values</summary><p class="sub">${esc(f.avatarNotes)}</p></details>`:""}
     ${isFu?`<p class="note">Original email: “${esc(c.subject||"")}” on ${fmtDate(c.sentAt)}. Reply in that same Gmail thread if you can.</p>`:`<label class="f">Hook to test<select id="cm-variant">${vOpts.map(([id,v])=>`<option value="${id}" ${id===vid?"selected":""}>${esc((v.firmId?"":"[Generic] ")+v.persona+" · "+v.subject)} (${variantSends(id)} sent)</option>`).join("")}</select></label>
     <div class="tags" id="cm-tags"></div>`}
@@ -696,7 +860,7 @@ async function pasteSave(){
     if(!await write("contacts",uid("c"),{firmId:fid,name:r.name,role:r.role,email,linkedin:r.linkedin,persona:r.persona,stage:"todo",notes:r.email?"":(email?"Email guessed from firm pattern; verify.":""),createdAt:nowISO(),sentAt:"",lastTouchAt:"",nextFollowUpAt:"",followUps:0,variantId:"",subject:"",test:{},touches:[],source:"paste"},"set")) break;
     added++;
   }
-  toast(`${added} ${added===1?"person":"people"} added to the queue.`); closeDrawer();
+  toast(`${added} ${added===1?"person":"people"} added to the board.`); closeDrawer();
 }
 
 // ---------- events ----------
