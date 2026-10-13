@@ -349,6 +349,10 @@ function sentContacts(){ return contactsArr().filter(c=>c.sentAt); }
 function touchesOn(day, kinds){ let n=0; for(const c of S.contacts.values()) for(const t of (c.touches||[])) if(dayKey(t.at)===day && (!kinds||kinds.includes(t.kind))) n++; return n; }
 function dueFollowUps(){ const now=Date.now(); return contactsArr().filter(c=>AWAITING.includes(c.stage) && c.nextFollowUpAt && new Date(c.nextFollowUpAt).getTime()<=now).sort((a,b)=>a.nextFollowUpAt.localeCompare(b.nextFollowUpAt)); }
 // rank: 1 = priority contact, 2 = normal (default), 3 = long shot. Rank first, then firm priority.
+// Today's focus: settings.focus = {firms:[ids], date:"YYYY-MM-DD"}. Applies only on that date, so it resets at midnight.
+function activeFocus(){ const f=S.settings.focus; return f && f.date===todayKey() && (f.firms||[]).length ? f : null; }
+function focusQueue(){ const f=activeFocus(); return f ? queue().filter(c=>f.firms.includes(c.firmId)) : queue(); }
+async function setFocus(firms){ const ok=await write("settings","main",{...S.settings, focus: firms.length?{firms,date:todayKey()}:null},"set"); if(ok) toast(firms.length?"Today's focus set. The board shows only "+firms.map(id=>shortFirm(firmName(id))).join(" + ")+".":"Focus cleared. The whole book is back on the board."); }
 function queue(){ return contactsArr().filter(c=>c.stage==="todo").sort((a,b)=>(a.rank??2)-(b.rank??2) || (S.firms.get(a.firmId)?.priority??99)-(S.firms.get(b.firmId)?.priority??99) || (a.createdAt||"").localeCompare(b.createdAt||"")); }
 function variantSends(vid){ let n=0; for(const c of S.contacts.values()) if(c.variantId===vid && c.sentAt) n++; return n; }
 // Auto-pick a hook. A contact's own variantPref wins. Alumni-only hooks never go to non-alumni, and prefOnly hooks are used only when a contact asks for them.
@@ -426,7 +430,7 @@ function liLink(c){ return c.linkedin ? `<a class="li" href="${esc(c.linkedin)}"
 function viewToday(){
   const goal=S.settings.dailyGoal||50, today=todayKey();
   const firstToday=touchesOn(today,["email"]), fuToday=touchesOn(today,["followup"]);
-  const due=dueFollowUps(), q=queue();
+  const due=dueFollowUps(), q=focusQueue(), focus=activeFocus();
   const sent=sentContacts(), replied=sent.filter(c=>REPLIED.includes(c.stage)), pos=sent.filter(c=>POSITIVE.includes(c.stage));
   const wk=Date.now()-7*86400000; const repliesWk=contactsArr().filter(c=>c.repliedAt && new Date(c.repliedAt).getTime()>wk).length;
   const firmsDl=[...S.firms.entries()].filter(([,f])=>f.keyDate).map(([id,f])=>({id,f,d:daysUntil(f.keyDate)})).filter(x=>x.d>=-1).sort((a,b)=>a.d-b.d);
@@ -457,7 +461,13 @@ function viewToday(){
         :`<div class="empty">Nobody's waiting on you. Follow-ups get scheduled automatically ${S.settings.followUpDays?.[0]||3} and ${S.settings.followUpDays?.[1]||7} business days after you log an email as sent, so go load the board.</div>`}</div>
     </section>
     <section class="section">
-      <div class="spread"><h2>On the board · ${q.length} to contact</h2>
+      <div class="spread"><div><h2>On the board · ${q.length} to contact</h2>
+        <label class="sub row" style="gap:6px;margin-top:4px">Today's focus
+          <select id="focus-sel" aria-label="Today's focus">
+            <option value="">All firms</option>
+            ${focus&&focus.firms.length>1?`<option value="__cur" selected>${esc(focus.firms.map(id=>shortFirm(firmName(id))).join(" + "))}</option>`:""}
+            ${[...S.firms.entries()].sort((a,b)=>a[1].name.localeCompare(b[1].name)).map(([id,f])=>`<option value="${id}" ${focus&&focus.firms.length===1&&focus.firms[0]===id?"selected":""}>${esc(f.name)}</option>`).join("")}
+          </select></label></div>
         <div class="row">${mcp&&q.length?`<button class="btn small" data-act="gm-bulk-new">Draft next ${Math.min(q.length,10)} in Gmail</button>`:""}<button class="btn small" data-act="new-contact">Add person</button></div></div>
       <div class="panel list">${q.length? q.slice(0,25).map(c=>{ const vid=pickVariant(c), v=S.variants.get(vid); return `
         <div class="item"><div class="who"><b>${esc(c.name)}</b> ${liLink(c)} ${personaTag(c.persona)}<div class="meta">${esc(firmName(c.firmId))}${v?` · hook: “${esc(fill(v.subject,c))}”`:""}</div></div>
@@ -782,7 +792,7 @@ async function draftFromCompose(){
   catch(e){ toast(gmErr(e)); btn.disabled=false; btn.textContent="Create Gmail draft"; }
 }
 async function bulkDraft(kind){
-  const list = kind==="fu" ? dueFollowUps().slice(0,15) : queue().filter(c=>c.email).slice(0,10);
+  const list = kind==="fu" ? dueFollowUps().slice(0,15) : focusQueue().filter(c=>c.email).slice(0,10);
   if(!list.length){ toast(kind==="fu"?"No follow-ups due.":"No one in the queue has an email address."); return; }
   let n=0; toast(`Creating ${list.length} Gmail drafts…`);
   for(const c of list){
@@ -912,6 +922,7 @@ document.addEventListener("change", async e=>{
   if(t.id==="f-firm"){ S.f.firm=t.value; render(); } else if(t.id==="f-stage"){ S.f.stage=t.value; render(); } else if(t.id==="f-persona"){ S.f.persona=t.value; render(); }
   else if(t.id==="vf-firm"){ S.vf.firm=t.value; render(); } else if(t.id==="vf-persona"){ S.vf.persona=t.value; render(); }
   else if(t.id==="cm-variant"){ const c=S.contacts.get(composeCtx?.cid), v=S.variants.get(t.value); if(c&&v){ $("#cm-subject").value=fill(v.subject,c); $("#cm-body").value=fill(v.body,c); updateComposeMeta(); } }
+  else if(t.id==="focus-sel"){ if(t.value!=="__cur") await setFocus(t.value?[t.value]:[]); }
   else if(t.id==="cf-firm"){ $("#cf-newfirm-wrap").hidden = t.value!=="__new"; }
   else if(t.id==="vf2-persona"){ const d=$("#vf2-desire"); if(d && Object.values(DESIRES).includes(d.value)) d.value=DESIRES[t.value]; }
 });
