@@ -1,0 +1,458 @@
+{%- liquid
+  assign buy_product = section.settings.product
+  if buy_product == blank and product != blank
+    assign buy_product = product
+  endif
+  if buy_product == blank
+    assign buy_product = settings.main_product
+  endif
+  assign is_product_page = false
+  if request.page_type == 'product' and buy_product.id == product.id
+    assign is_product_page = true
+  endif
+
+  if buy_product != blank
+    assign current_variant = buy_product.selected_or_first_available_variant
+  endif
+
+  assign tier_blocks = section.blocks | where: 'type', 'tier'
+  assign selected_tier = tier_blocks.first
+  assign selected_index = 0
+  for tier in tier_blocks
+    if tier.settings.selected
+      assign selected_tier = tier
+      assign selected_index = forloop.index0
+      break
+    endif
+  endfor
+  assign start_qty = 1
+  assign start_pct = 0
+  if selected_tier
+    assign start_qty = selected_tier.settings.quantity
+    assign start_pct = selected_tier.settings.discount
+  endif
+
+  assign rating_value = ''
+  assign rating_count = ''
+  if buy_product != blank and buy_product.metafields.reviews.rating.value != blank
+    assign rating_value = buy_product.metafields.reviews.rating.value.rating | round: 1
+    assign rating_count = buy_product.metafields.reviews.rating_count.value
+  endif
+  if rating_value == blank and section.settings.rating_fallback != blank
+    assign rating_value = section.settings.rating_fallback
+  endif
+
+  assign form_id = 'BuyForm-' | append: section.id
+  assign anchor = section.settings.anchor | default: 'buy' | handle
+-%}
+
+<section class="section scheme-{{ section.settings.color_scheme }}" id="{{ anchor }}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;">
+  <div class="container">
+    <buy-box class="buy" data-section="{{ section.id }}" data-form-id="{{ form_id }}"{% if is_product_page %} data-update-url{% endif %}>
+      {%- comment -%} Gallery: product media from Shopify admin, or labelled placeholders {%- endcomment -%}
+      <div class="gallery" data-gallery>
+        <div class="gallery__main">
+          <div class="gallery__slides" data-gallery-slides>
+            {%- if buy_product != blank and buy_product.media.size > 0 -%}
+              {%- for media in buy_product.media -%}
+                <div class="gallery__slide" data-media-id="{{ media.id }}">
+                  <div class="media" style="--ratio: 1 / 1;">
+                    {%- case media.media_type -%}
+                      {%- when 'image' -%}
+                        {%- assign media_loading = 'lazy' -%}
+                        {%- if forloop.first -%}{%- assign media_loading = 'eager' -%}{%- endif -%}
+                        {{ media | image_url: width: 1600 | image_tag: loading: media_loading, sizes: '(min-width: 990px) 600px, 100vw', widths: '500, 800, 1100, 1600', alt: media.alt }}
+                      {%- when 'video' -%}
+                        {{ media | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '1200x' }}
+                      {%- when 'external_video' -%}
+                        {{ media | external_video_tag: loading: 'lazy' }}
+                      {%- else -%}
+                        {{ media | media_tag }}
+                    {%- endcase -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            {%- else -%}
+              {%- for i in (18..23) -%}
+                {%- liquid
+                  case i
+                    when 18
+                      assign ph_title = 'Front packshot on a seamless light-grey background'
+                    when 19
+                      assign ph_title = 'Back view showing the magnetic ring'
+                    when 20
+                      assign ph_title = 'Snapped onto the back of a phone'
+                    when 21
+                      assign ph_title = 'Edge-on profile: card-thin'
+                    when 22
+                      assign ph_title = 'In hand, for scale'
+                    else
+                      assign ph_title = "What's in the box flat-lay"
+                  endcase
+                  assign ph_id = 'IMG-' | append: i
+                -%}
+                <div class="gallery__slide">
+                  {% render 'media', ratio: '1 / 1', asset_id: ph_id, title: ph_title, spec: '1:1 · 2048×2048 · add in Products > Media' %}
+                </div>
+              {%- endfor -%}
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="gallery__dots" aria-hidden="true" data-gallery-dots>
+          {%- assign dot_count = 6 -%}
+          {%- if buy_product != blank and buy_product.media.size > 0 -%}{%- assign dot_count = buy_product.media.size -%}{%- endif -%}
+          {%- for i in (1..dot_count) -%}<span{% if forloop.first %} class="is-active"{% endif %}></span>{%- endfor -%}
+        </div>
+        {%- if buy_product != blank and buy_product.media.size > 1 -%}
+          <div class="gallery__thumbs" role="list">
+            {%- for media in buy_product.media limit: 6 -%}
+              <button type="button" class="gallery__thumb" role="listitem" data-thumb="{{ forloop.index0 }}" aria-label="{{ 'products.product.media_thumb' | t: index: forloop.index }}"{% if forloop.first %} aria-current="true"{% endif %}>
+                <div class="media" style="--ratio: 1 / 1;">
+                  {{ media.preview_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: media.alt }}
+                </div>
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- elsif buy_product == blank or buy_product.media.size == 0 -%}
+          <div class="gallery__thumbs" role="list">
+            {%- for i in (18..23) -%}
+              {%- assign ph_id = 'IMG-' | append: i -%}
+              <button type="button" class="gallery__thumb" role="listitem" data-thumb="{{ forloop.index0 }}" aria-label="{{ 'products.product.media_thumb' | t: index: forloop.index }}"{% if forloop.first %} aria-current="true"{% endif %}>
+                {% render 'media', ratio: '1 / 1', asset_id: ph_id, compact: true %}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Product info and form {%- endcomment -%}
+      <div class="buy__info">
+        {%- if section.settings.show_rating and rating_value != blank -%}
+          {%- capture rating_text -%}
+            <a href="#{{ section.settings.reviews_anchor | default: 'reviews' }}" style="text-decoration: none;"><strong>{{ rating_value }}</strong>{% if rating_count != blank %} · {{ 'general.rating.count' | t: count: rating_count }}{% elsif section.settings.rating_text != blank %} · {{ section.settings.rating_text | escape }}{% endif %}</a>
+          {%- endcapture -%}
+          {% render 'stars', rating: rating_value, text: rating_text %}
+        {%- endif -%}
+
+        <h2 class="buy__title">{{ buy_product.title | default: section.settings.fallback_title | escape }}</h2>
+
+        {%- if buy_product != blank -%}
+          <div class="buy__price" data-price-wrap>
+            <span class="buy__price-now" data-price>{{ current_variant.price | money }}</span>
+            <s class="buy__price-was" data-compare{% unless current_variant.compare_at_price > current_variant.price %} hidden{% endunless %}>{{ current_variant.compare_at_price | money }}</s>
+            {%- if current_variant.compare_at_price > current_variant.price -%}
+              {%- assign save_pct = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price -%}
+            {%- else -%}
+              {%- assign save_pct = 0 -%}
+            {%- endif -%}
+            <span class="badge" data-save-badge{% if save_pct == 0 %} hidden{% endif %}>{{ 'products.product.save_percent' | t: percent: save_pct }}</span>
+          </div>
+        {%- else -%}
+          <div class="buy__price">
+            <span class="buy__price-now">[YOUR PRICE]</span>
+            <s class="buy__price-was">[COMPARE-AT]</s>
+          </div>
+          {%- if request.design_mode -%}<p class="small muted">{{ 'sections.buy_box.pick_product' | t }}</p>{%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.show_countdown and settings.sale_end_date != blank -%}
+          <div class="buy__countdown">
+            {% render 'icon', name: 'clock' %}
+            <span>{{ section.settings.countdown_text | escape }}</span>
+            {% render 'countdown' %}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.subtitle != blank -%}<p class="muted">{{ section.settings.subtitle }}</p>{%- endif -%}
+
+        {%- if buy_product != blank -%}
+          {%- form 'product', buy_product, id: form_id, class: 'stack', novalidate: 'novalidate', data-product-form: '' -%}
+            <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-input>
+
+            {%- unless buy_product.has_only_default_variant -%}
+              {%- for option in buy_product.options_with_values -%}
+                <fieldset class="option">
+                  <legend class="option__label">{{ option.name | escape }}: <span data-option-selected="{{ forloop.index0 }}">{{ option.selected_value | escape }}</span></legend>
+                  <div class="option__values">
+                    {%- for value in option.values -%}
+                      {%- assign input_id = section.id | append: '-' | append: option.position | append: '-' | append: forloop.index0 -%}
+                      <div class="option__value">
+                        <input type="radio" id="{{ input_id }}" name="{{ section.id }}-{{ option.name | handle }}" value="{{ value | escape }}" data-option-index="{{ option.position | minus: 1 }}"{% if option.selected_value == value %} checked{% endif %}{% unless value.available %} class="is-unavailable"{% endunless %}>
+                        <label for="{{ input_id }}">
+                          {%- if value.swatch.color or value.swatch.image -%}
+                            <span class="swatch" style="{% if value.swatch.color %}--swatch: {{ value.swatch.color }};{% endif %}{% if value.swatch.image %} background-image: url({{ value.swatch.image | image_url: width: 60 }});{% endif %}"></span>
+                          {%- endif -%}
+                          {{ value | escape }}
+                        </label>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                </fieldset>
+              {%- endfor -%}
+            {%- endunless -%}
+
+            {%- if tier_blocks.size > 0 -%}
+              <fieldset class="tiers">
+                <legend class="option__label" style="margin-bottom: 10px;">{{ section.settings.tiers_label | escape }}</legend>
+                {%- for block in tier_blocks -%}
+                  {%- liquid
+                    assign tier_qty = block.settings.quantity
+                    assign tier_pct = block.settings.discount
+                    assign keep_pct = 100 | minus: tier_pct
+                    assign tier_total = current_variant.price | times: tier_qty | times: keep_pct | divided_by: 100
+                    assign tier_full = current_variant.price | times: tier_qty
+                    if current_variant.compare_at_price > current_variant.price
+                      assign tier_full = current_variant.compare_at_price | times: tier_qty
+                    endif
+                    assign tier_each = tier_total | divided_by: tier_qty | money
+                    assign tier_input_id = section.id | append: '-tier-' | append: forloop.index
+                  -%}
+                  <div class="tier" {{ block.shopify_attributes }}>
+                    {%- if block.settings.badge != blank -%}<span class="badge tier__badge">{{ block.settings.badge | escape }}</span>{%- endif -%}
+                    <input type="radio" id="{{ tier_input_id }}" name="tier-{{ section.id }}" value="{{ tier_qty }}" data-tier data-qty="{{ tier_qty }}" data-pct="{{ tier_pct }}"{% if forloop.index0 == selected_index %} checked{% endif %}>
+                    <label for="{{ tier_input_id }}">
+                      <span class="tier__radio" aria-hidden="true"></span>
+                      <span class="tier__main">
+                        <span class="tier__title">{{ block.settings.title | escape }}{% if tier_pct > 0 %} <span class="badge badge--soft">{{ 'products.product.save_percent' | t: percent: tier_pct }}</span>{% endif %}</span>
+                        {%- if block.settings.subtitle != blank -%}<span class="tier__sub">{{ block.settings.subtitle | escape }}</span>{%- endif -%}
+                        {%- if tier_qty > 1 -%}<span class="tier__sub"><span data-tier-each>{{ tier_each }}</span> {{ 'products.product.each' | t }}</span>{%- endif -%}
+                        {%- if block.settings.perk != blank -%}<span class="tier__perk">{% render 'icon', name: 'gift' %}{{ block.settings.perk | escape }}</span>{%- endif -%}
+                      </span>
+                      <span class="tier__price">
+                        <span class="tier__now" data-tier-total>{{ tier_total | money }}</span>
+                        <s class="tier__was" data-tier-full{% unless tier_full > tier_total %} hidden{% endunless %}>{{ tier_full | money }}</s>
+                      </span>
+                    </label>
+                  </div>
+                {%- endfor -%}
+              </fieldset>
+              {%- if section.settings.tiers_note != blank -%}<p class="tiny muted">{{ section.settings.tiers_note | escape }}</p>{%- endif -%}
+            {%- endif -%}
+
+            <input type="hidden" name="quantity" value="{{ start_qty }}" data-qty-input>
+
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when '@app' -%}
+                  {% render block %}
+                {%- when 'text' -%}
+                  <div class="rte small muted" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+              {%- endcase -%}
+            {%- endfor -%}
+
+            {%- if section.settings.low_stock_threshold > 0 and current_variant.inventory_management == 'shopify' and current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= section.settings.low_stock_threshold -%}
+              <p class="buy__stock">{{ 'products.product.low_stock' | t: count: current_variant.inventory_quantity }}</p>
+            {%- endif -%}
+
+            <div class="buy__actions">
+              {%- liquid
+                assign keep_start = 100 | minus: start_pct
+                assign start_total = current_variant.price | times: start_qty | times: keep_start | divided_by: 100
+              -%}
+              <button type="submit" name="add" class="btn btn--primary btn--lg btn--block" data-add-button{% unless current_variant.available %} disabled{% endunless %}>
+                <span data-add-label>
+                  {%- if current_variant.available -%}
+                    {{ section.settings.button_label | default: 'Add to cart' | escape }} <span class="btn__price">· <span data-button-price>{{ start_total | money }}</span></span>
+                  {%- else -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- endif -%}
+                </span>
+              </button>
+              {%- if section.settings.show_dynamic_checkout -%}
+                {{ form | payment_button }}
+              {%- endif -%}
+              <p class="buy__error" role="alert" data-form-error hidden></p>
+            </div>
+
+            {%- if section.settings.show_installments -%}
+              <div class="buy__installments">{{ form | payment_terms }}</div>
+            {%- endif -%}
+          {%- endform -%}
+        {%- else -%}
+          <div class="stack">
+            <button type="button" class="btn btn--primary btn--lg btn--block" disabled>{{ section.settings.button_label | default: 'Add to cart' | escape }}</button>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.ships_text != blank -%}<p class="buy__ships">{{ section.settings.ships_text | escape }}</p>{%- endif -%}
+
+        {%- assign trust_blocks = section.blocks | where: 'type', 'trust' -%}
+        {%- if trust_blocks.size > 0 -%}
+          <ul class="trust-grid" role="list">
+            {%- for block in trust_blocks -%}
+              <li {{ block.shopify_attributes }}>{% render 'icon', name: block.settings.icon %}<span>{{ block.settings.text | escape }}</span></li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
+          <ul class="payment-icons" role="list" aria-label="{{ 'sections.footer.payment' | t }}">
+            {%- for type in shop.enabled_payment_types -%}
+              <li>{{ type | payment_type_svg_tag }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- assign accordion_blocks = section.blocks | where: 'type', 'collapsible' -%}
+        {%- if accordion_blocks.size > 0 or section.settings.show_description and buy_product.description != blank -%}
+          <div class="accordion">
+            {%- if section.settings.show_description and buy_product.description != blank -%}
+              <details>
+                <summary>{{ 'products.product.description' | t }}{% render 'icon', name: 'plus' %}</summary>
+                <div class="accordion__content rte">{{ buy_product.description }}</div>
+              </details>
+            {%- endif -%}
+            {%- for block in accordion_blocks -%}
+              <details {{ block.shopify_attributes }}>
+                <summary>{{ block.settings.heading | escape }}{% render 'icon', name: 'plus' %}</summary>
+                <div class="accordion__content rte">{{ block.settings.content }}</div>
+              </details>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if buy_product != blank -%}
+        <script type="application/json" data-product-json>
+          {
+            "id": {{ buy_product.id }},
+            "variants": {{ buy_product.variants | json }},
+            "media": [{% for media in buy_product.media %}{"id": {{ media.id }}, "index": {{ forloop.index0 }}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+          }
+        </script>
+      {%- endif -%}
+    </buy-box>
+  </div>
+
+  {%- if section.settings.show_sticky_bar and buy_product != blank -%}
+    <sticky-buy class="sticky-buy" data-target="{{ anchor }}" aria-hidden="true">
+      <div class="sticky-buy__img">
+        {%- if buy_product.featured_media -%}
+          {{ buy_product.featured_media | image_url: width: 120 | image_tag: loading: 'lazy', alt: buy_product.featured_media.alt }}
+        {%- endif -%}
+      </div>
+      <div class="sticky-buy__info">
+        <span class="sticky-buy__title">{{ buy_product.title | escape }}</span>
+        <span class="sticky-buy__price"><span data-sticky-price>{{ current_variant.price | money }}</span>{% if current_variant.compare_at_price > current_variant.price %}<s>{{ current_variant.compare_at_price | money }}</s>{% endif %}</span>
+      </div>
+      <a href="#{{ anchor }}" class="btn btn--primary" tabindex="-1">{{ section.settings.sticky_label | escape }}</a>
+    </sticky-buy>
+  {%- endif -%}
+</section>
+
+{%- if is_product_page -%}
+  <script type="application/ld+json">
+    {{ buy_product | structured_data }}
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Buy box",
+  "class": "section-buy-box",
+  "max_blocks": 16,
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product", "info": "Optional. On product pages the current product is used; elsewhere Theme settings > Your Alumnus product." },
+    { "type": "text", "id": "fallback_title", "label": "Title before a product is picked", "default": "Alumnus AI Recorder" },
+    { "type": "inline_richtext", "id": "subtitle", "label": "Short line under the price" },
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "buy", "info": "Buttons that link to #buy scroll here." },
+    { "type": "header", "content": "Rating" },
+    { "type": "checkbox", "id": "show_rating", "label": "Show star rating", "default": true },
+    { "type": "text", "id": "rating_fallback", "label": "Rating before a reviews app is connected", "default": "[X.X]" },
+    { "type": "text", "id": "rating_text", "label": "Rating text before a reviews app is connected", "default": "[X] reviews" },
+    { "type": "text", "id": "reviews_anchor", "label": "Rating links to anchor", "default": "reviews" },
+    { "type": "header", "content": "Bundles" },
+    { "type": "text", "id": "tiers_label", "label": "Bundle label", "default": "Bundle" },
+    { "type": "text", "id": "tiers_note", "label": "Bundle note", "default": "Bundle savings are applied automatically at checkout." },
+    { "type": "paragraph", "content": "Add Bundle tier blocks. Each tier sets the quantity and shows its saving. Create matching automatic discounts in Shopify admin (Discounts > Amount off products, minimum quantity) so checkout charges the same price." },
+    { "type": "header", "content": "Buying" },
+    { "type": "text", "id": "button_label", "label": "Add to cart label", "default": "Add to cart" },
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Show Shop Pay / express checkout button", "default": true },
+    { "type": "checkbox", "id": "show_installments", "label": "Show Shop Pay Installments message", "default": true },
+    { "type": "checkbox", "id": "show_countdown", "label": "Show sale countdown", "default": true },
+    { "type": "text", "id": "countdown_text", "label": "Countdown text", "default": "Launch price ends in" },
+    { "type": "range", "id": "low_stock_threshold", "label": "Show \"only X left\" at or below", "min": 0, "max": 30, "step": 1, "default": 0, "info": "0 turns it off. Uses your real inventory count." },
+    { "type": "text", "id": "ships_text", "label": "Shipping line", "default": "Ships in [X–X] business days · Free US shipping · [30]-day returns" },
+    { "type": "checkbox", "id": "show_payment_icons", "label": "Show payment icons", "default": true },
+    { "type": "checkbox", "id": "show_description", "label": "Show product description", "default": false },
+    { "type": "header", "content": "Sticky bar" },
+    { "type": "checkbox", "id": "show_sticky_bar", "label": "Show sticky buy bar while scrolling", "default": true },
+    { "type": "text", "id": "sticky_label", "label": "Sticky bar button", "default": "Buy now" },
+    { "type": "header", "content": "Section" },
+    {
+      "type": "select", "id": "color_scheme", "label": "Color scheme",
+      "options": [ { "value": "light", "label": "Light" }, { "value": "grey", "label": "Grey" } ],
+      "default": "light"
+    },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "tier",
+      "name": "Bundle tier",
+      "limit": 4,
+      "settings": [
+        { "type": "range", "id": "quantity", "label": "Quantity", "min": 1, "max": 10, "step": 1, "default": 1 },
+        { "type": "range", "id": "discount", "label": "Discount", "min": 0, "max": 60, "step": 1, "unit": "%", "default": 0, "info": "Must match the automatic discount you set up in Shopify." },
+        { "type": "text", "id": "title", "label": "Title", "default": "1 Alumnus" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Solo" },
+        { "type": "text", "id": "badge", "label": "Badge", "info": "For example: Most popular, Best value" },
+        { "type": "text", "id": "perk", "label": "Free extra", "info": "Only list extras you actually ship or include." },
+        { "type": "checkbox", "id": "selected", "label": "Selected by default", "default": false }
+      ]
+    },
+    {
+      "type": "trust",
+      "name": "Trust badge",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon",
+          "options": [
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Returns" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "credit-card", "label": "Card" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "graduation", "label": "Student" }
+          ],
+          "default": "truck"
+        },
+        { "type": "text", "id": "text", "label": "Text", "default": "Free US shipping" }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [ { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Add a short note, like a student discount or a gift message.</p>" } ]
+    },
+    {
+      "type": "collapsible",
+      "name": "Collapsible row",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "What's in the box" },
+        { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Alumnus recorder, magnetic charging cable, quick-start guide. [Confirm with supplier.]</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Buy box",
+      "blocks": [
+        { "type": "tier", "settings": { "quantity": 1, "discount": 0, "title": "1 Alumnus", "subtitle": "Solo" } },
+        { "type": "tier", "settings": { "quantity": 2, "discount": 10, "title": "2 Alumnus", "subtitle": "Duo: one for you, one to gift", "badge": "Most popular", "selected": true } },
+        { "type": "tier", "settings": { "quantity": 3, "discount": 15, "title": "3 Alumnus", "subtitle": "Study group" } },
+        { "type": "trust", "settings": { "icon": "truck", "text": "Free US shipping" } },
+        { "type": "trust", "settings": { "icon": "return", "text": "[30]-day returns" } },
+        { "type": "trust", "settings": { "icon": "shield", "text": "[1]-year warranty" } },
+        { "type": "trust", "settings": { "icon": "lock", "text": "Secure checkout" } },
+        { "type": "collapsible" }
+      ]
+    }
+  ]
+}
+{% endschema %}

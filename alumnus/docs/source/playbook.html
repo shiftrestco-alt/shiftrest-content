@@ -1,0 +1,781 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Alumnus · Website playbook & Higgsfield prompt pack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+@page { size: Letter; margin: 0.62in 0.62in 0.7in; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif; color: #0B0B0F; font-size: 9.6pt; line-height: 1.5; margin: 0; }
+h1, h2, h3, h4 { letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
+h1 { font-size: 26pt; font-weight: 700; letter-spacing: -0.035em; }
+h2 { font-size: 15pt; font-weight: 700; margin: 18pt 0 8pt; }
+h3 { font-size: 11.5pt; font-weight: 700; margin: 14pt 0 6pt; }
+h4 { font-size: 10.5pt; font-weight: 700; }
+p { margin: 0 0 7pt; }
+ul { margin: 0 0 8pt; padding-left: 15pt; }
+li { margin-bottom: 3pt; }
+a { color: #C2410C; text-decoration: none; }
+code { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 8.4pt; background: #F4F4F6; padding: 1pt 4pt; border-radius: 4pt; }
+.muted { color: #5E606E; }
+.eyebrow { display: inline-block; font-size: 8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #C2410C; margin-bottom: 6pt; }
+.part { break-before: page; }
+.part__head { border-bottom: 2pt solid #0B0B0F; padding-bottom: 10pt; margin-bottom: 14pt; }
+.part__head p { margin: 6pt 0 0; color: #5E606E; font-size: 10.5pt; }
+.lead { font-size: 11pt; color: #33343C; }
+.callout { background: #FFF4ED; border-left: 3pt solid #C2410C; padding: 9pt 12pt; border-radius: 6pt; margin: 8pt 0 12pt; break-inside: avoid; }
+.callout--grey { background: #F4F4F6; border-left-color: #0B0B0F; }
+.callout b { color: #0B0B0F; }
+.tbl { width: 100%; border-collapse: collapse; margin: 6pt 0 12pt; font-size: 8.6pt; }
+.tbl th { text-align: left; font-weight: 700; font-size: 7.8pt; text-transform: uppercase; letter-spacing: .06em; color: #5E606E; border-bottom: 1.2pt solid #0B0B0F; padding: 5pt 6pt; }
+.tbl td { border-bottom: .6pt solid #E3E3E8; padding: 6pt 6pt; vertical-align: top; }
+.tbl tr { break-inside: avoid; }
+.tbl--small { font-size: 8.2pt; }
+.nowrap { white-space: nowrap; }
+.src { color: #C2410C; font-size: 6.5pt; font-weight: 700; }
+.cover { height: 9.6in; display: flex; flex-direction: column; justify-content: space-between; }
+.cover__brand { font-size: 20pt; font-weight: 700; letter-spacing: -0.05em; }
+.cover__brand span { color: #C2410C; }
+.cover h1 { font-size: 40pt; line-height: 1.02; letter-spacing: -0.045em; margin-top: 14pt; }
+.cover__sub { font-size: 13pt; color: #5E606E; margin-top: 14pt; max-width: 5.6in; }
+.cover__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10pt; margin-top: 24pt; }
+.cover__box { background: #F4F4F6; border-radius: 12pt; padding: 12pt 14pt; }
+.cover__box b { display: block; font-size: 10.5pt; margin-bottom: 3pt; }
+.cover__box span { color: #5E606E; font-size: 9pt; }
+.cover__foot { display: flex; justify-content: space-between; color: #5E606E; font-size: 9pt; border-top: .8pt solid #E3E3E8; padding-top: 10pt; }
+.shot { width: 100%; border-radius: 10pt; border: .8pt solid #E3E3E8; display: block; }
+.figure { margin: 8pt 0 14pt; break-inside: avoid; }
+.figure figcaption { font-size: 8pt; color: #5E606E; margin-top: 4pt; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12pt; }
+.anatomy { display: grid; grid-template-columns: auto auto 1fr; gap: 14pt; align-items: start; }
+.anatomy img { height: 7.6in; width: auto; display: block; border: .8pt solid #E3E3E8; border-radius: 6pt; }
+.anatomy__label { font-size: 7.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #5E606E; margin-bottom: 4pt; }
+.card { border: .8pt solid #E3E3E8; border-radius: 10pt; padding: 10pt 12pt; margin: 0 0 10pt; break-inside: avoid; }
+.card--wide { break-inside: auto; }
+.card--wide .card__head, .card--wide .meta { break-after: avoid; }
+.card__head { display: flex; align-items: center; gap: 8pt; margin-bottom: 6pt; }
+.card__head h4 { flex: 1; }
+.pill { display: inline-block; background: #C2410C; color: #fff; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; font-size: 8pt; padding: 2pt 7pt; border-radius: 99pt; letter-spacing: .03em; white-space: nowrap; }
+.prio { font-size: 7.5pt; font-weight: 700; padding: 2pt 7pt; border-radius: 99pt; background: #F4F4F6; color: #33343C; }
+.prio--p1 { background: #0B0B0F; color: #fff; }
+.meta { display: grid; grid-template-columns: 1fr 1fr; gap: 3pt 14pt; margin: 0 0 7pt; }
+.meta div { display: grid; grid-template-columns: 0.95in 1fr; gap: 6pt; font-size: 8.4pt; }
+.meta dt { color: #5E606E; font-weight: 600; }
+.meta dd { margin: 0; }
+.prompt { background: #F7F7F9; border: .6pt solid #E3E3E8; border-left: 3pt solid #C2410C; border-radius: 6pt; padding: 7pt 10pt; font-size: 8.9pt; line-height: 1.5; margin-bottom: 6pt; }
+.prompt__label { display: block; font-size: 7pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #C2410C; margin-bottom: 3pt; }
+.tok { background: #FFE8DA; color: #9A3412; border-radius: 3pt; padding: 0 2pt; font-weight: 700; font-size: 8.2pt; }
+.checks { margin: 0; padding-left: 13pt; font-size: 8.3pt; color: #33343C; }
+.checks li { margin-bottom: 1pt; }
+.blocktext { background: #0B0B0F; color: #F5F5F7; border-radius: 8pt; padding: 10pt 12pt; font-size: 8.8pt; margin: 6pt 0 10pt; break-inside: avoid; }
+.blocktext b { color: #FDBA74; display: block; font-size: 7.5pt; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4pt; }
+.steps { counter-reset: s; list-style: none; padding: 0; }
+.steps li { counter-increment: s; position: relative; padding-left: 22pt; margin-bottom: 6pt; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 15pt; height: 15pt; border-radius: 50%; background: #0B0B0F; color: #fff; font-size: 7.5pt; font-weight: 700; display: grid; place-items: center; }
+.checklist { columns: 2; column-gap: 18pt; list-style: none; padding: 0; }
+.checklist li { break-inside: avoid; padding-left: 14pt; position: relative; margin-bottom: 4pt; }
+.checklist li::before { content: ''; position: absolute; left: 0; top: 2.5pt; width: 8pt; height: 8pt; border: 1pt solid #0B0B0F; border-radius: 2pt; }
+.sources { list-style: none; padding: 0; }
+.sources li { font-size: 8.2pt; margin-bottom: 3pt; word-break: break-word; }
+.toc { list-style: none; padding: 0; margin: 10pt 0; }
+.toc li { display: flex; gap: 10pt; padding: 4.5pt 0; border-bottom: .6pt solid #E3E3E8; font-size: 10pt; }
+.toc li b { width: 0.5in; color: #C2410C; }
+</style></head><body>
+<section class="cover">
+  <div>
+    <div class="cover__brand">alumnus<span>.</span></div>
+    <h1>Website playbook<br>&amp; Higgsfield prompt pack</h1>
+    <p class="cover__sub">How the new Shopify theme compares with heypocket.com, the offers and conversion tactics Pocket and its competitors use (and where each one now lives on your site), how to connect the store more closely with Shopify, and a prompt for every image and video slot.</p>
+    <div class="cover__grid">
+      <div class="cover__box"><b>Part 1 · Pocket vs Alumnus</b><span>Section-by-section comparison and what changed</span></div>
+      <div class="cover__box"><b>Part 2 · Offers &amp; conversion</b><span>Pocket, Plaud, Bee, Omi teardown and your offer stack</span></div>
+      <div class="cover__box"><b>Part 3 · Shopify integration</b><span>Setup order, native features and apps</span></div>
+      <div class="cover__box"><b>Part 4 · Higgsfield prompt pack</b><span>30+ assets keyed to the theme's labelled placeholders</span></div>
+    </div>
+  </div>
+  <div class="cover__foot"><span>Prepared October 15, 2026</span><span>Theme: alumnus-theme (Shopify Online Store 2.0)</span></div>
+</section>
+
+<section class="part">
+  <div class="part__head"><span class="eyebrow">Start here</span><h1>What you're getting</h1><p>Read this page first. Everything else is reference.</p></div>
+  <ol class="steps">
+    <li><b>A complete Shopify theme</b> in the same folder layout as your screenshot (assets, config, layout, locales, sections, snippets, templates) plus a ready-to-upload zip. It passes Shopify's Theme Check with 0 errors and 0 warnings.</li>
+    <li><b>Every image and video slot shows a labelled placeholder</b> (for example <span class="pill">IMG-01</span>) until you upload the real file. Each label matches a prompt in Part 4, so you always know what goes where.</li>
+    <li><b>Conversion features are built in:</b> bundle tiers, real countdowns, email popup with instant code, sticky buy bar, slide-out cart with add-on and discount field, comparison table, guarantee strip, FAQ schema, and a landing page template for ads.</li>
+    <li><b>All copy is editable</b> in the theme editor. Anything in [brackets] is a fact only you or your supplier can confirm. The checklist at the end lists every one.</li>
+  </ol>
+  <h2>Fastest path to launch</h2>
+  <ol class="steps">
+    <li>Create the product in Shopify (Part 3, step 1) and upload the theme zip (Online Store › Themes › Add theme › Upload zip file).</li>
+    <li>In Customize › Theme settings › Product and offer, pick <b>Your Alumnus product</b> and set the real sale end date.</li>
+    <li>Create the two bundle discounts and the welcome code (Part 3, steps 3–4).</li>
+    <li>Generate the <b>P1</b> assets first (hero, macro, app image, product packshots, popup, share image, brand film), then P2 and P3.</li>
+    <li>Fill every [bracket] using the checklist, place a test order, then publish.</li>
+  </ol>
+  <div class="callout"><b>Three honesty rules that protect the store.</b> Only show real reviews, real customer counts and real logos. Use a compare-at price only if you really sold at it. Keep the "Demo footage" note on AI-made clips. The theme is built to make these the easy defaults; Part 2 explains why.</div>
+  <ul class="toc">
+    <li><b>Part 1</b>Pocket vs Alumnus: comparison and what changed</li>
+    <li><b>Part 2</b>Offers and conversion research, and your recommended offer stack</li>
+    <li><b>Part 3</b>Connecting the store more closely with Shopify</li>
+    <li><b>Part 4</b>Higgsfield production guide and prompt pack</li>
+    <li><b>Part 5</b>Launch checklist</li>
+    <li><b>Sources</b></li>
+  </ul>
+</section>
+
+<section class="part">
+  <div class="part__head"><span class="eyebrow">Part 1</span><h1>Pocket vs Alumnus</h1><p>Your homepage already follows Pocket's section order. What made Pocket feel better was the execution: a white canvas, big rounded product media, video everywhere, and an offer engine around the buy box.</p></div>
+  <div class="anatomy">
+    <div><div class="anatomy__label">heypocket.com</div><img src="img/pocket-strip.jpg" alt="Pocket homepage"></div>
+    <div><div class="anatomy__label">New Alumnus</div><img src="img/alumnus-strip.jpg" alt="New Alumnus homepage"></div>
+    <div>
+      <h3 style="margin-top:0">Same storyline, top to bottom</h3>
+      <p>Both pages follow the classic hardware storyline: <b>promise</b> (hero) → <b>proof</b> (film, logos, real people) → <b>product</b> (design, app, formats) → <b>offer</b> (buy box, plans) → <b>reassurance</b> (privacy, reviews, FAQ).</p>
+      <p>The new theme keeps that order and adds three conversion sections Pocket handles on separate pages or not at all: a <b>comparison table</b>, a <b>risk-free guarantee strip</b> and a <b>closing offer</b> with countdown.</p>
+      <p class="muted">Left: your Pocket screenshot (the dark lower part is Pocket's discount popup covering the page). Right: the new Alumnus homepage rendered from the theme files, with labelled placeholders where the Higgsfield assets go.</p>
+      <div class="callout callout--grey"><b>What I deliberately did not copy:</b> Pocket's exact headlines, logos and inflated "list price". Layout and conversion patterns are fair game; cloning copy or trade dress makes Alumnus look like a knock-off and invites trouble. Your accent stays orange; a Pocket-style blue is one setting away.</div>
+    </div>
+  </div>
+</section>
+
+<section class="part">
+  <h2 style="margin-top:0">Section by section</h2>
+  <table class="tbl tbl--small"><thead><tr><th>Section</th><th>heypocket.com</th><th>Your PDF homepage</th><th>New Alumnus theme</th></tr></thead><tbody><tr><td>Announcement bar</td><td>Blue bar with a limited-time offer</td><td>Orange bar, placeholder offer</td><td>Rotating messages + a live countdown to your real sale end date (hides itself when the sale ends)</td></tr><tr><td>Header</td><td>Logo, anchor links, buy button</td><td>Same</td><td>Sticky, frosted header, anchor links, black <b>Buy now</b> pill, cart count, Shopify account sign-in, mobile slide-out menu</td></tr><tr><td>Hero</td><td>Small label, big headline, large product image, CTA with price and stars</td><td>Similar, supplier photo with Chinese marketing text</td><td>Same structure on a white canvas, large rounded media frame (IMG-01 / IMG-01M), live price + compare-at, star rating, trust line</td></tr><tr><td>Intro film</td><td>"Introducing Pocket" card with video</td><td>Card with video placeholder</td><td>Grey card, play button, Shopify-hosted video or YouTube/Vimeo (VID-01 + IMG-02)</td></tr><tr><td>Logo bar</td><td>"Trusted by people at" + company logos</td><td>[Logo] placeholders</td><td>Greyscale logo bar; doubles as an "As seen in" press bar</td></tr><tr><td>Video stories</td><td>3 vertical customer videos with names</td><td>3 placeholders</td><td>Swipeable carousel of muted autoplay clips with sound toggle (VID-02 to VID-04) and an honest "Demo footage" note until real customer clips exist</td></tr><tr><td>Statement + wide image</td><td>Big statement and wide brand image</td><td>Dark section</td><td>Light, airy wide image (IMG-03 / IMG-03M), like Pocket</td></tr><tr><td>Real-life gallery</td><td>Row of lifestyle photos</td><td>4 photo placeholders</td><td>Swipeable 4:5 photo cards (IMG-04 to IMG-07)</td></tr><tr><td>Feature bento</td><td>"Simple on the outside. Genius inside." with product images</td><td>Text cards only</td><td>Large macro image or loop (IMG-08 / VID-05) + 4 image feature cards (IMG-09 to IMG-12)</td></tr><tr><td>Review cards</td><td>"400,000+ Creators, Founders and Thinkers" with photos</td><td>4 text placeholders</td><td>Swipeable review cards with stars; optional real customer photos</td></tr><tr><td>App section</td><td>"AI that's more than smart" phone + feature cards</td><td>Dark section, text cards</td><td>Dark section with phone image (IMG-13) + 3 real screenshot cards (APP-01 to APP-03)</td></tr><tr><td>Integrations</td><td>"Takes one conversation and updates all your apps"</td><td>Format pills</td><td>Format pills + export visual (IMG-17)</td></tr><tr><td><b>New</b>: comparison</td><td>Separate "Pocket vs Plaud" pages</td><td>—</td><td>"Why not just use your phone?" table on the page</td></tr><tr><td>Buy box</td><td>Gallery + options + bundles + popup</td><td>Gallery, color, 2 bundle options</td><td>Gallery (IMG-18 to IMG-24), color swatches, 3 bundle tiers with badges and per-unit prices, countdown, Shop Pay express, Pay-in-4 message, trust badges, payment icons, sticky buy bar</td></tr><tr><td><b>New</b>: risk reversal</td><td>Free shipping in offer copy</td><td>Trust line only</td><td>"Try it risk-free" strip: shipping, returns, warranty, pay in 4</td></tr><tr><td>Specs</td><td>Spec grid</td><td>Spec grid</td><td>Spec grid that can pull values from product metafields</td></tr><tr><td>Plans</td><td>"Unlock your best with Pocket Pro" 3 columns</td><td>Free / Pro / Teams</td><td>Same 3 plans, highlighted Pro, "no subscription needed" note</td></tr><tr><td>Privacy</td><td>"Your data stays yours always"</td><td>Lock + text</td><td>Lock icon + 3 proof points (encrypted, delete anytime, not used for training)</td></tr><tr><td>Reviews</td><td>"400,000+ Happy Customers" review app widget</td><td>Manual placeholders</td><td>Live average + count from your reviews app (Judge.me etc.) and an app block slot for the full widget</td></tr><tr><td>FAQ</td><td>Tabs + accordion + product image</td><td>Same</td><td>Same, plus FAQ rich-result schema for Google (IMG-25)</td></tr><tr><td><b>New</b>: closing offer</td><td>—</td><td>—</td><td>Dark banner with countdown, price and CTA (IMG-26)</td></tr><tr><td>Popup</td><td>"Claim your 45% off today" email popup</td><td>—</td><td>Timed / scroll / exit-intent popup with instant code, copy button, auto-apply link, teaser tab (IMG-27)</td></tr><tr><td>Cart</td><td>Standard Shopify cart</td><td>—</td><td>Slide-out cart with savings lines, discount code field, add-on offer, Pay-in-4, express checkout</td></tr><tr><td>Footer</td><td>Links, app badges, big logo</td><td>Links, newsletter, badges</td><td>Same, with Shopify-native email signup and big wordmark</td></tr></tbody></table>
+  <h2>Design system</h2>
+  <table class="tbl tbl--small"><thead><tr><th></th><th>Pocket</th><th>Your PDF homepage</th><th>New theme</th></tr></thead><tbody><tr><td>Canvas</td><td>Pure white, light grey cards</td><td>Warm cream + dark sections</td><td>White + #F4F4F6 cards, one dark app section</td></tr><tr><td>Accent</td><td>Bright blue</td><td>Burnt orange #C2410C</td><td>Kept your orange (one setting to switch, e.g. #2F5BFF for a Pocket-style blue)</td></tr><tr><td>Type</td><td>Clean grotesk, semibold, tight tracking</td><td>Very heavy display grotesk</td><td>Inter Semibold headlines, tight tracking, Inter body (from Shopify's font library)</td></tr><tr><td>Shapes</td><td>Large rounded corners, pill buttons</td><td>Rounded cards</td><td>28 px card radius, pill buttons, soft shadows</td></tr><tr><td>Imagery</td><td>Studio product shots + lifestyle + video everywhere</td><td>Supplier photos</td><td>30 labelled slots, one consistent Higgsfield art direction</td></tr><tr><td>Motion</td><td>Subtle fades, carousels</td><td>—</td><td>Fade-up on scroll, swipe carousels with arrows, autoplay loops that pause off-screen</td></tr></tbody></table>
+</section>
+
+<section class="part">
+  <h2 style="margin-top:0">What the new theme looks like</h2>
+  <p class="muted">Rendered from the actual theme files with a sample product ($139, compare-at $199) and empty media slots.</p>
+  <figure class="figure"><img class="shot" src="img/new-hero.jpg" alt=""><figcaption>Hero: announcement bar with live countdown, sticky header, labelled hero slot (IMG-01), price, rating and trust line.</figcaption></figure>
+  <figure class="figure"><img class="shot" src="img/new-buybox.jpg" alt=""><figcaption>Buy box: color swatches, bundle tiers with badges and per-unit prices, countdown, Shop Pay express, Pay in 4, trust badges.</figcaption></figure>
+</section>
+
+<section class="part">
+  <div class="two">
+    <figure class="figure"><img class="shot" src="img/popup-desktop.jpg" alt=""><figcaption>Email popup (Pocket's "Claim your 45% off" pattern) with instant code and teaser tab.</figcaption></figure>
+    <figure class="figure"><img class="shot" src="img/cart-drawer.jpg" alt=""><figcaption>Slide-out cart: bundle savings line, add-on offer, discount code field, Pay in 4, express checkout.</figcaption></figure>
+  </div>
+  <figure class="figure"><img class="shot" src="img/new-compare.jpg" alt=""><figcaption>New comparison section ("Why not just use your phone?").</figcaption></figure>
+  <figure class="figure"><img class="shot" src="img/mobile-trio.jpg" alt=""><figcaption>Mobile: hero, buy box with thumbnail placeholders, sticky buy bar.</figcaption></figure>
+</section>
+
+<section class="part">
+  <div class="part__head"><span class="eyebrow">Part 2</span><h1>Offers &amp; conversion research</h1><p>What Pocket and its competitors actually do, what works, and exactly where each tactic now lives in your theme.</p></div>
+  <h2 style="margin-top:0">Pocket's offer engine</h2>
+  <table class="tbl tbl--small"><thead><tr><th>Tactic</th><th>What Pocket does</th><th>Why it works / the catch</th></tr></thead><tbody><tr><td>Price anchor</td><td>List $199, sells around $129–$139; "Up to 45% off" <sup class="src">[1]</sup><sup class="src">[2]</sup></td><td>Big headline saving, but buyers notice a permanent "sale". Use a compare-at price only if you really sold at it.</td></tr><tr><td>Quantity tiers</td><td>Solo 35% off, Double Pack 40%, Team Pack 45%; reported $139 / $238 / $327 (about $139 / $119 / $109 each) <sup class="src">[2]</sup><sup class="src">[3]</sup></td><td>Moves people to 2–3 units and raises order value. Built into the new buy box.</td></tr><tr><td>No subscription + free tier</td><td>"No subscription required", unlimited free transcription; Pro optional, about $16.59/mo yearly or about $20 monthly <sup class="src">[1]</sup><sup class="src">[4]</sup></td><td>Removes the #1 objection for AI gadgets. Copy this message if your app really works without a plan.</td></tr><tr><td>Pro add-on</td><td>"12-month access to Pocket Pro, 25% off" sold as a store product <sup class="src">[5]</sup></td><td>Recurring revenue at checkout. Only possible if your supplier gives you activation codes.</td></tr><tr><td>Email popup</td><td>"Claim your 45% off today" (in your screenshot); one reviewer says the 45% email code didn't apply at checkout <sup class="src">[6]</sup></td><td>Big list growth. Lesson: test that the code really works.</td></tr><tr><td>Quiz funnel</td><td>"Take the Pocket Quiz & Get Up to 45% Off" <sup class="src">[7]</sup></td><td>Personalises the pitch and captures email. Phase 2 for Alumnus.</td></tr><tr><td>Comparison pages</td><td>"Pocket vs Plaud Note": range, one press, languages, free minutes <sup class="src">[8]</sup></td><td>Catches people already comparing. On your page as a table; keep claims true.</td></tr><tr><td>Persona / advertorial pages</td><td>Separate pages for founders and C-suite, advertorial-style pages, several homepage variants <sup class="src">[7]</sup></td><td>Ads land on a page written for that audience. Use the new Landing page template.</td></tr><tr><td>Affiliate program</td><td>Public affiliate page <sup class="src">[7]</sup></td><td>Creators sell for you. Use Shopify Collabs.</td></tr><tr><td>Social proof</td><td>"160,000+" on one page, "400,000+" in your screenshot; logo bar; video testimonials <sup class="src">[9]</sup></td><td>Strong, but use only real numbers.</td></tr></tbody></table>
+  <div class="callout"><b>Read the numbers with care.</b> Pocket's prices and percentages differ across its own pages and third-party sites, and change often. Treat them as patterns, not exact benchmarks, and check heypocket.com before quoting them anywhere.</div>
+</section>
+
+<section class="part">
+  <h2 style="margin-top:0">What competitors do</h2>
+  <table class="tbl tbl--small"><thead><tr><th>Brand</th><th>Offers and conversion moves</th><th>Lesson for Alumnus</th></tr></thead><tbody><tr><td>Plaud</td><td>"Trusted by 1,000,000+ users" (US page); 10% education discount for students, educators and healthcare, verified via ID.me / Student Beans / GoCertify; device + AI plan bundles (e.g. Note + Unlimited annual $367 vs $399); seasonal sales up to 20%; press quotes <sup class="src">[10]</sup><sup class="src">[11]</sup><sup class="src">[12]</sup></td><td>Student offer fits Alumnus perfectly; device + plan bundles if you get codes</td></tr><tr><td>Bee (Amazon)</td><td>$49.99 hardware, optional subscription <sup class="src">[13]</sup></td><td>Low entry price; be clear why Alumnus costs more</td></tr><tr><td>Omi</td><td>About $89, no required subscription <sup class="src">[13]</sup></td><td>"No subscription" is now table stakes</td></tr><tr><td>Limitless</td><td>Bought by Meta (Dec 2025); pendant no longer sold to new buyers <sup class="src">[13]</sup></td><td>Buyers fear orphaned devices: stress export, warranty and support</td></tr></tbody></table>
+  <h2>Benchmarks to judge your results</h2>
+  <table class="tbl tbl--small"><thead><tr><th>Metric</th><th>Typical Shopify store</th><th>Top 20%</th></tr></thead><tbody><tr><td>Conversion rate</td><td>1.4%</td><td>3.2%+</td></tr><tr><td>Add-to-cart rate</td><td>4.6%</td><td>7.5%+</td></tr><tr><td>Checkout completion</td><td>45%</td><td>59%+</td></tr><tr><td>Mobile vs desktop conversion</td><td>1.2% vs 1.9%</td><td></td></tr></tbody></table>
+  <p class="muted" style="font-size:8.2pt">Littledata figures as quoted in 2026 roundups <sup class="src">[24]</sup>. Vendor claims put sticky add-to-cart bars at a 10–20% mobile lift; I couldn't verify those against primary data, so test rather than assume.</p>
+  <h2>Every tactic, and where it lives now</h2>
+  <table class="tbl tbl--small"><thead><tr><th>Tactic</th><th>Seen at</th><th>Where in the theme</th><th>What you set up</th></tr></thead><tbody><tr><td>Announcement bar + real countdown</td><td>Pocket, Plaud</td><td>Header › Announcement bar; countdown date in Theme settings › Product and offer</td><td>Set a real sale end date</td></tr><tr><td>Price, compare-at and stars beside every CTA</td><td>Pocket</td><td>Hero, Buy box, Closing offer, Sticky bar</td><td>Set price/compare-at on the product</td></tr><tr><td>Quantity tiers with badges and per-unit price</td><td>Pocket</td><td>Buy box › Bundle tier blocks</td><td>Create 2 automatic discounts (2+ and 3+ units)</td></tr><tr><td>Free extra on bigger bundles</td><td>DTC standard</td><td>Buy box › tier "Free extra" text</td><td>Buy X get Y automatic discount, or ship it free</td></tr><tr><td>Shop Pay express + Pay in 4</td><td>Shopify</td><td>Buy box, cart</td><td>Turn on Shop Pay and Installments</td></tr><tr><td>Sticky buy bar</td><td>DTC standard</td><td>Buy box › Sticky bar</td><td>—</td></tr><tr><td>Email popup with instant code</td><td>Pocket</td><td>Discount popup (timer, scroll, exit intent, teaser)</td><td>Create WELCOME code; Shopify Messaging welcome flow</td></tr><tr><td>Slide-out cart with savings, code field and add-on</td><td>DTC standard</td><td>Cart drawer; Theme settings › Cart</td><td>Pick an add-on product</td></tr><tr><td>Logos, video stories, review cards, live stars</td><td>Pocket</td><td>Logo bar, Video carousel, Review cards, Reviews</td><td>Install a reviews app (Judge.me)</td></tr><tr><td>Comparison table</td><td>Pocket (vs Plaud pages)</td><td>Comparison table section</td><td>Keep every claim true</td></tr><tr><td>Risk reversal</td><td>Plaud, DTC standard</td><td>Guarantee section + buy box trust badges</td><td>Match your refund policy</td></tr><tr><td>Subscription transparency</td><td>Pocket</td><td>Plans section + FAQ</td><td>Confirm app limits with supplier</td></tr><tr><td>Privacy reassurance</td><td>Pocket</td><td>Privacy section</td><td>Confirm data handling with supplier</td></tr><tr><td>FAQ objection handling + rich results</td><td>Pocket</td><td>FAQ (with FAQPage schema)</td><td>—</td></tr><tr><td>Second CTA at the end</td><td>Pocket</td><td>Closing offer section</td><td>—</td></tr><tr><td>Persona / ad landing pages</td><td>Pocket</td><td>Page template "landing"</td><td>Create a page, choose template "landing"</td></tr><tr><td>Student discount</td><td>Plaud</td><td>Announcement message, FAQ question, buy box text block</td><td>Student verification app</td></tr><tr><td>Creator / affiliate program</td><td>Pocket</td><td>Footer link + Collabs page</td><td>Install Shopify Collabs</td></tr><tr><td>Honest low-stock message</td><td>DTC standard</td><td>Buy box › "Only X left" threshold</td><td>Track inventory</td></tr><tr><td>Quiz funnel</td><td>Pocket</td><td>Not built yet (phase 2)</td><td>Quiz app or a landing page</td></tr></tbody></table>
+</section>
+
+<section class="part">
+  <h2 style="margin-top:0">Recommended offer stack for Alumnus</h2>
+  <p>Pocket owns founders and executives; Plaud owns professionals. <b>Alumnus can own students and early-career people</b>: the name, "In class" use case, study tips list and a student discount all point there. Build the offer around that.</p>
+  <table class="tbl tbl--small"><thead><tr><th>Lever</th><th>Recommendation</th><th>Note</th></tr></thead><tbody><tr><td>Everyday price</td><td>Your real price (competitors sit around $129–$189)</td><td>Use compare-at only if you genuinely sold at that price for a meaningful period</td></tr><tr><td>Bundles</td><td>Solo 0% · Duo 10% · Study group (3) 15% (theme defaults)</td><td>Raise only if your margin allows; Pocket's 35–45% is measured from a high list price</td></tr><tr><td>Welcome offer</td><td>10% off the first order via the popup</td><td>Don't let it stack with bundle tiers</td></tr><tr><td>Student offer</td><td>10% with verification</td><td>Same as Plaud; your brand name fits students</td></tr><tr><td>Risk reversal</td><td>Free US shipping, 30-day returns, 1-year warranty</td><td>Only promise what your supplier and margin can back</td></tr><tr><td>Holiday</td><td>BFCM: Thu Nov 26 to Mon Nov 30, 2026; gift message "one for you, one to gift" through December</td><td>Set the countdown to the real end date</td></tr><tr><td>Add-on</td><td>Sleeve, spare cable or Pro plan card in the cart (about $15–$25)</td><td>Lifts order value with one tap</td></tr></tbody></table>
+  <h3>Bundle math (example numbers)</h3>
+  <p>With a $139 price and the theme's default tiers: Duo 2 × $139 × 0.90 = <b>$250.20</b> ($125.10 each); Study group 3 × $139 × 0.85 = <b>$354.45</b> ($118.15 each). If your landed cost per unit (product + shipping + fees) were $45, the Duo would keep $160.20 of margin against $94 for a single unit. Swap in your real landed cost before raising the percentages.</p>
+  <h2 style="break-before: page; margin-top: 0">Guardrails (read before launch)</h2>
+  <table class="tbl tbl--small"><thead><tr><th>Topic</th><th>What to do</th></tr></thead><tbody><tr><td><b>Fake reviews and testimonials</b></td><td>The FTC's rule (16 CFR Part 465) bans reviews and testimonials that claim to be from people who don't exist or who didn't use the product, including AI-generated ones, with civil penalties for knowing violations <sup class="src">[14]</sup>. So: AI actors are fine for <i>demo</i> footage, never as "customers". The video carousel ships with a "Demo footage" note; review sections are for real reviews only.</td></tr><tr><td><b>Sale prices</b></td><td>A compare-at ("was") price must be a real former price (FTC Guides Against Deceptive Pricing). Bundle savings are always truthful because they are measured against your own single-unit price.</td></tr><tr><td><b>Urgency</b></td><td>Countdowns use your real sale end date and disappear when it passes. Low-stock messages use real inventory.</td></tr><tr><td><b>Shipping times</b></td><td>State realistic shipping windows and email customers about delays (FTC Mail, Internet or Telephone Order Rule).</td></tr><tr><td><b>Recording consent</b></td><td>Some US states require everyone on a call to consent. The FAQ says this; keep it.</td></tr><tr><td><b>AI ads</b></td><td>TikTok requires a label on ads with realistic AI-generated people, voices or scenes (reported live from July 2026) <sup class="src">[15]</sup>. Label AI ads and keep them away from real private individuals.</td></tr><tr><td><b>Email and SMS</b></td><td>Use the consent checkbox wording in the popup; SMS needs express written consent (TCPA).</td></tr></tbody></table>
+  <p class="muted" style="font-size:8pt">This is practical guidance, not legal advice. When in doubt, ask a lawyer.</p>
+</section>
+
+<section class="part">
+  <div class="part__head"><span class="eyebrow">Part 3</span><h1>Connecting closer with Shopify</h1><p>The theme uses Shopify's native features wherever possible, so apps and admin settings plug in instead of fighting the design.</p></div>
+  <h2 style="margin-top:0">Setup in this order</h2>
+  <table class="tbl tbl--small"><thead><tr><th>#</th><th>Step</th><th>How</th></tr></thead><tbody><tr><td>1</td><td>Create the product</td><td>Products › Add: "Alumnus AI Recorder", option <b>Color</b> (Graphite + any real second color), price, compare-at (only if genuine), SKU, weight, inventory tracking. Upload IMG-18 to IMG-24 and VID-06 as media; assign IMG-24 to its color.</td></tr><tr><td>2</td><td>Connect the theme</td><td>Online Store › Themes › Add theme › Upload zip. Then Customize › Theme settings › Product and offer › <b>Your Alumnus product</b> (one setting feeds hero, buy box, sticky bar, closing offer and reviews).</td></tr><tr><td>3</td><td>Bundle discounts</td><td>Discounts › Create › Amount off products: "Duo bundle 10% off", minimum quantity 2; "Study group 15% off", minimum quantity 3. Same product, automatic. Shopify applies the best one. Match the % in the Buy box tiers. Their titles show in the cart as savings lines.</td></tr><tr><td>4</td><td>Welcome code</td><td>Discounts › Create code <b>WELCOME10</b> (or your %), one use per customer, and decide whether it combines with the bundle discounts (recommended: no).</td></tr><tr><td>5</td><td>Payments</td><td>Settings › Payments: Shop Pay, Shop Pay Installments (Pay in 4 on orders of $50–$3,000), Apple Pay, Google Pay. The theme already shows the Installments message.</td></tr><tr><td>6</td><td>Email and SMS</td><td>Shopify Messaging (formerly Shopify Email): welcome series with the code, abandoned checkout, abandoned cart, browse abandonment, post-purchase review request, win-back. 10,000 free emails a month on paid plans; abandoned checkout emails don't count.</td></tr><tr><td>7</td><td>Reviews</td><td>Install Judge.me (free plan available) or similar. It writes Shopify's standard rating fields, so stars and counts appear in the hero, buy box and Reviews section automatically. Add its widget as an app block in the Reviews section.</td></tr><tr><td>8</td><td>Customer accounts</td><td>Settings › Customer accounts: use the new customer accounts. The header already includes Shopify's sign-in component.</td></tr><tr><td>9</td><td>Policies and contact</td><td>Settings › Policies: refund (30 days), shipping (real times), privacy, terms. Create a Contact page with the "contact" template.</td></tr><tr><td>10</td><td>Channels</td><td>Add TikTok, Facebook & Instagram, and Google & YouTube sales channels so your catalog and pixels sync. You already post on TikTok, so TikTok is the first to set up.</td></tr></tbody></table>
+  <div class="callout callout--grey"><b>Your store today.</b> The connected store ("My Store", Basic plan, USD) still lists two streetwear products. Archive them (Products › select › Archive) so they don't appear in search, collections or Google Shopping. I haven't changed anything in the store.</div>
+</section>
+
+<section class="part">
+  <h2 style="margin-top:0">Native features the theme already uses</h2>
+  <ul style="font-size: 8.9pt">
+    <li><b>Online Store 2.0 JSON templates and section groups</b>: every section can be added, removed and reordered in the editor. Header and footer live in section groups, as Shopify requires.</li>
+    <li><b>Shopify-hosted video</b> settings for every video slot (upload once in Content › Files, pick it in the editor).</li>
+    <li><b>Product form + dynamic checkout</b> (Shop Pay express) and the <b>Shop Pay Installments</b> message <sup class="src">[18]</sup>.</li>
+    <li><b>Section Rendering API</b> for the cart drawer: quantities, add-ons and discount codes update without a page reload <sup class="src">[18]</sup>; discount codes use the cart <code>discount</code> parameter Shopify added to <code>/cart/update.js</code> <sup class="src">[19]</sup>.</li>
+    <li><b>Standard review metafields</b> (<code>reviews.rating</code>, <code>reviews.rating_count</code>): any major reviews app makes the stars live everywhere <sup class="src">[20]</sup>.</li>
+    <li><b>Customer accounts component</b> in the header (Shopify's sign-in sheet with Shop, Google and email) <sup class="src">[18]</sup>.</li>
+    <li><b>Native customer forms</b> for the popup and footer signup: subscribers land in Customers with email consent, ready for Shopify Messaging.</li>
+    <li><b>Dynamic sources</b>: spec values can be connected to product metafields in the editor, so specs update from the product.</li>
+    <li><b>App blocks</b> in the buy box, reviews and an Apps section, so reviews, bundles or upsell apps drop in without code.</li>
+    <li><b>SEO</b>: product structured data, FAQ structured data, Open Graph and X cards, plus your share image (IMG-28).</li>
+  </ul>
+  <h2>Apps and services worth adding</h2>
+  <table class="tbl tbl--small"><thead><tr><th>App / feature</th><th>What it does</th><th>Cost</th><th>Use it for</th></tr></thead><tbody><tr><td>Shopify Messaging</td><td>Email/SMS automations and campaigns</td><td>Free allowance</td><td>Welcome code, abandoned cart, review requests</td></tr><tr><td>Shopify Flow</td><td>Automations</td><td>Free on Basic and up</td><td>Tag VIPs, alert on low stock, tag students, route reviews</td></tr><tr><td>Shopify Collabs</td><td>Creator and affiliate program</td><td>Free install, 2.9% fee on automatic payouts</td><td>Seed devices to student creators; replace AI demos with real clips</td></tr><tr><td>Search & Discovery</td><td>Complementary products</td><td>Free</td><td>Pick the cart add-on and recommendations</td></tr><tr><td>Shopify Bundles</td><td>Fixed bundles</td><td>Free</td><td>e.g. Alumnus + sleeve as one product (optional)</td></tr><tr><td>Shopify Inbox</td><td>Chat</td><td>Free</td><td>Answer pre-sale questions</td></tr><tr><td>Judge.me</td><td>Reviews with photos/videos</td><td>Free plan available</td><td>Live stars + UGC for the review cards</td></tr><tr><td>Student discount app</td><td>Verified student pricing</td><td>Varies (e.g. Easy Student Discounts, StudyPerks)</td><td>Match Plaud's education offer</td></tr><tr><td>Shop app / Shop Campaigns</td><td>Shop app audience</td><td>Pay per sale (if eligible)</td><td>Follow on Shop button is in the footer settings</td></tr></tbody></table>
+  <p class="muted" style="font-size:8pt">Plan availability per Shopify's Flow page and Collabs listing <sup class="src">[22]</sup><sup class="src">[23]</sup>; Messaging allowance per 2026 guides <sup class="src">[21]</sup>. Confirm in your admin, since plans change.</p>
+</section>
+
+<section class="part">
+  <div class="part__head"><span class="eyebrow">Part 4</span><h1>Higgsfield prompt pack</h1><p>One art direction, product accuracy first. Every ID matches a labelled placeholder in the theme.</p></div>
+  <h2 style="margin-top:0">Workflow</h2>
+  <ol class="steps">
+    <li><b>Collect references.</b> Get 3–5 clean photos of the real device (front, back, edge, on a phone) and the cable. Your supplier photos work if you crop out their text.</li>
+    <li><b>Make stills first.</b> For product-only shots use <b>Nano Banana Pro</b> with your reference photos attached; it is the best at keeping exact geometry and handling edits. For scenes with people use <b>Soul 2.0</b> (photoreal, editorial), then run a Nano Banana Pro edit with the references to make the device exact <sup class="src">[16]</sup>.</li>
+    <li><b>Animate approved stills.</b> Use image-to-video (<b>Kling 3.0</b> or <b>Seedance 2.0</b>; Veo 3.1 when you need sound). Use one camera move per clip and keep clips to 5–10 seconds <sup class="src">[17]</sup>.</li>
+    <li><b>Check every frame</b> against the references: groove count and spacing, the black strip layout, no logos, hands and fingers.</li>
+    <li><b>Export and name files</b> as listed, then upload: theme slots in the editor, product images in Products › Media.</li>
+  </ol>
+  <div class="callout"><b>Copy-ready prompts.</b> The file <code>alumnus/docs/Higgsfield-Prompts-Copy-Ready.txt</code> has every prompt below with the device description and house style already filled in, so you can paste straight into Higgsfield.</div>
+  <div class="callout callout--grey"><b>Model names change fast.</b> Higgsfield adds models monthly. If a newer version of the same model is in the picker (Nano Banana, Soul, Kling, Seedance), use the newest. The prompts work across them.</div>
+  <div class="figure two" style="align-items:center">
+    <img class="shot" src="img/device-ref.jpg" alt="Supplier device photo" style="max-height:2.6in;object-fit:contain">
+    <div>
+      <h3 style="margin-top:0">Your device, described</h3>
+      <p>Paste this wherever a prompt says <span class="tok">[DEVICE]</span>. It matches your supplier photos; correct anything that differs on your real unit.</p>
+      <div class="blocktext"><b>[DEVICE]</b>the Alumnus AI voice recorder: an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on the device</div>
+    </div>
+  </div>
+</section>
+
+<section class="part">
+  <div class="blocktext" style="margin-top:0"><b>House style (add to every prompt)</b>bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props</div>
+  <div class="two">
+    <div class="blocktext"><b>[CAST]</b>diverse 19 to 30 year old students and young professionals, natural and candid, not posing for the camera, casual neutral clothing with no logos</div>
+    <div class="blocktext"><b>Negative prompt (when the model has a field for it)</b>text, letters, numbers, logos, watermarks, brand names, user interface on the device, extra buttons, extra lights, duplicate devices, warped or bent phone, bent device, extra fingers, distorted hands, plastic skin, oversaturated colors, harsh flash, cluttered background, cartoon look</div>
+  </div>
+  <h2>Asset map</h2>
+  <p class="muted">P1 = needed to launch · P2 = soon after · P3 = nice to have. "Real" = must be genuine, not generated. IMG-14 to IMG-16 are intentionally skipped: those slots take real app screenshots (APP-01 to APP-03).</p>
+  <table class="tbl tbl--small"><thead><tr><th>ID</th><th>Asset</th><th>Ratio</th><th>Where it goes</th><th>Priority</th></tr></thead><tbody><tr><td><b>IMG-01</b></td><td>Hero product shot (desktop)</td><td>16:10</td><td>Home page › Hero › Image</td><td>P1</td></tr><tr><td><b>IMG-01M</b></td><td>Hero product shot (mobile crop)</td><td>4:5</td><td>Home page › Hero › Mobile image</td><td>P1</td></tr><tr><td><b>VID-01</b></td><td>Brand film (8 shots + VO)</td><td>16:9</td><td>Home page › Intro film › Video</td><td>P1</td></tr><tr><td><b>IMG-02</b></td><td>Brand film poster frame</td><td>16:9</td><td>Home page › Intro film › Poster image</td><td>P1</td></tr><tr><td><b>VID-02</b></td><td>Use-case clip: The lecture</td><td>9:16</td><td>Home page › Video carousel › Video 1</td><td>P2</td></tr><tr><td><b>VID-03</b></td><td>Use-case clip: The client call</td><td>9:16</td><td>Home page › Video carousel › Video 2</td><td>P2</td></tr><tr><td><b>VID-04</b></td><td>Use-case clip: The team meeting</td><td>9:16</td><td>Home page › Video carousel › Video 3</td><td>P2</td></tr><tr><td><b>IMG-03</b></td><td>Wide statement image</td><td>21:9 (mobile 4:5)</td><td>Home page › Image banner › Image (+ Mobile image = IMG-03M)</td><td>P2</td></tr><tr><td><b>IMG-04</b></td><td>Real-life card: In class</td><td>4:5</td><td>Home page › Lifestyle gallery › Photo card 1</td><td>P2</td></tr><tr><td><b>IMG-05</b></td><td>Real-life card: At work</td><td>4:5</td><td>Home page › Lifestyle gallery › Photo card 2</td><td>P2</td></tr><tr><td><b>IMG-06</b></td><td>Real-life card: On a call</td><td>4:5</td><td>Home page › Lifestyle gallery › Photo card 3</td><td>P2</td></tr><tr><td><b>IMG-07</b></td><td>Real-life card: On the go</td><td>4:5</td><td>Home page › Lifestyle gallery › Photo card 4</td><td>P2</td></tr><tr><td><b>IMG-08</b></td><td>Macro hero of the device</td><td>16:9</td><td>Home page › Feature grid › Large image</td><td>P1</td></tr><tr><td><b>VID-05</b></td><td>Looping turntable video (optional, replaces IMG-08)</td><td>16:9</td><td>Home page › Feature grid › Or a looping video</td><td>P3</td></tr><tr><td><b>IMG-09</b></td><td>Feature tile: One-press recording</td><td>4:3</td><td>Home page › Feature grid › Feature 1 › Image</td><td>P2</td></tr><tr><td><b>IMG-10</b></td><td>Feature tile: Card-thin, magnetic</td><td>4:3</td><td>Home page › Feature grid › Feature 2 › Image</td><td>P2</td></tr><tr><td><b>IMG-11</b></td><td>Feature tile: Records calls</td><td>4:3</td><td>Home page › Feature grid › Feature 3 › Image</td><td>P2</td></tr><tr><td><b>IMG-12</b></td><td>Feature tile: All-day battery</td><td>4:3</td><td>Home page › Feature grid › Feature 4 › Image</td><td>P2</td></tr><tr><td><b>IMG-13</b></td><td>App showcase: phone with the summary screen</td><td>1:1</td><td>Home page › App showcase › Image</td><td>P1</td></tr><tr><td><b>APP-01–03</b></td><td>Real app screenshots (summary, mind map, to-dos)</td><td>4:3</td><td>Home page › App showcase › App feature blocks</td><td>P1 · real</td></tr><tr><td><b>IMG-17</b></td><td>Export visual: one recording, many formats</td><td>16:9</td><td>Home page › Export formats › Image</td><td>P3</td></tr><tr><td><b>IMG-18</b></td><td>Product gallery 1: front packshot (main image)</td><td>1:1</td><td>Shopify admin › Products › Alumnus AI Recorder › Media (first image)</td><td>P1</td></tr><tr><td><b>IMG-19</b></td><td>Product gallery 2: back / magnetic side</td><td>1:1</td><td>Shopify admin › Products › Media</td><td>P2</td></tr><tr><td><b>IMG-20</b></td><td>Product gallery 3: on a phone</td><td>1:1</td><td>Shopify admin › Products › Media</td><td>P1</td></tr><tr><td><b>IMG-21</b></td><td>Product gallery 4: edge-on (thinness)</td><td>1:1</td><td>Shopify admin › Products › Media</td><td>P2</td></tr><tr><td><b>IMG-22</b></td><td>Product gallery 5: in hand for scale</td><td>1:1</td><td>Shopify admin › Products › Media</td><td>P2</td></tr><tr><td><b>IMG-23</b></td><td>Product gallery 6: what&#x27;s in the box</td><td>1:1</td><td>Shopify admin › Products › Media</td><td>P2</td></tr><tr><td><b>IMG-24</b></td><td>Second color packshot (variant image)</td><td>1:1</td><td>Shopify admin › Products › Media, then assign it to the second color variant</td><td>P2</td></tr><tr><td><b>VID-06</b></td><td>Product 360° spin (product media video)</td><td>1:1</td><td>Shopify admin › Products › Media (video)</td><td>P3</td></tr><tr><td><b>IMG-25</b></td><td>FAQ image</td><td>4:5</td><td>Home page › FAQ › Image</td><td>P3</td></tr><tr><td><b>IMG-26</b></td><td>Closing offer background</td><td>16:9</td><td>Home page › Closing offer › Background image</td><td>P2</td></tr><tr><td><b>IMG-27</b></td><td>Discount popup image</td><td>4:5</td><td>Discount popup (listed with the page sections) › Image</td><td>P1</td></tr><tr><td><b>IMG-28</b></td><td>Social share image</td><td>1.91:1</td><td>Theme settings › Favicon and sharing › Social share image</td><td>P1</td></tr></tbody></table>
+</section>
+
+<section class="part">
+  <h2 style="margin-top:0">Videos</h2>
+  
+    <article class="card card--wide">
+      <header class="card__head"><span class="pill">VID-01</span><h4>&quot;Introducing Alumnus&quot; brand film</h4><span class="prio prio--p1">P1</span></header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Intro film › Shopify-hosted video (or paste a YouTube link)</dd></div>
+        <div><dt>Format</dt><dd>16:9, 1920 × 1080, 60–90 s, MP4 (H.264). Built from 8 short clips plus voice-over and music.</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-vid-01-film.mp4</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Start frames: Soul 2.0 / Nano Banana Pro. Motion: Kling 3.0 or Seedance 2.0 image-to-video, one camera move per clip. Edit in CapCut or Premiere.</dd></div>
+      </dl>
+      <table class="tbl tbl--small">
+        <thead><tr><th>Shot</th><th>Length</th><th>Start frame (image prompt)</th><th>Motion prompt (video)</th></tr></thead>
+        <tbody><tr><td class='nowrap'><b>1</b> One press</td><td>6 s</td><td>Close-up, top-down at 45°, a hand next to a phone lying face-down on a wooden lecture desk with <span class="tok">[DEVICE]</span> on its back.</td><td>Static camera. The index finger presses the switch on the black top strip; the small white sound-wave light softly turns on. Natural hand movement, shallow depth of field.</td></tr><tr><td class='nowrap'><b>2</b> Eyes up</td><td>6 s</td><td>IMG-02 (student in a sunlit lecture hall, device on the desk).</td><td>Slow dolly in toward the student, who keeps listening and nods slightly; the lecturer stays out of focus in the background. One continuous shot.</td></tr><tr><td class='nowrap'><b>3</b> Card-thin</td><td>5 s</td><td>Macro of the device standing on its edge on a pale grey surface.</td><td>Slow 90-degree orbit around the device; a soft light sweep crosses the grooves and reveals how thin it is.</td></tr><tr><td class='nowrap'><b>4</b> On a call</td><td>6 s</td><td>A young professional walking down a bright office corridor, phone to ear, device visible on the back of the phone.</td><td>Smooth tracking shot moving backward in front of them as they walk and talk naturally.</td></tr><tr><td class='nowrap'><b>5</b> In the meeting</td><td>6 s</td><td>Four colleagues around a light wood table; the phone with the device lies in the center among notebooks.</td><td>Slow lateral pan from left to right across the table; people talk and gesture naturally.</td></tr><tr><td class='nowrap'><b>6</b> The notes</td><td>5 s</td><td>Hands holding a phone over a desk; the screen is plain white (you place a real screen recording or APP-01 on it in editing).</td><td>Static camera, the thumb scrolls gently; subtle hand movement only.</td></tr><tr><td class='nowrap'><b>7</b> Study time</td><td>6 s</td><td>Evening desk, warm lamp, a student reviewing notes on a laptop, phone with the device beside the notebook.</td><td>Slow push-in toward the device on the desk.</td></tr><tr><td class='nowrap'><b>8</b> End card</td><td>5 s</td><td>IMG-08 (device floating on pale grey).</td><td>Slow 180-degree orbit that ends facing front; hold the last second still for your logo and price card.</td></tr></tbody>
+      </table>
+      <div class="prompt"><span class="prompt__label">Voice-over (≈150 words ≈ 60 s)</span>Ever tried to take notes and actually listen at the same time? (beat) Meet Alumnus. One press, and it records your lecture, meeting or call. No unlocking your phone. No typing. Just listen. It&#x27;s card-thin, snaps onto your phone, and captures calls without speakerphone. Then the app does the rest: a clean summary, a mind map and a to-do list, from 17 templates. Export to PDF, Word or email in a tap. In class. At work. On a call. On the go. Alumnus. Listen, don&#x27;t type.</div>
+      <ul class="checks"><li>Music: light, optimistic indie-electronic, 100–110 BPM, no vocals.</li>
+      <li>Voice: record a real person (you, a friend, a student creator). If you use an AI voice, label the ad as AI-generated on TikTok and Meta.</li>
+      <li>Add captions in the edit. Keep the last 2 seconds for your logo and the launch price.</li></ul>
+    </article>
+  
+    <article class="card card--wide">
+      <header class="card__head"><span class="pill">VID-02</span><h4>Use-case clip: The lecture</h4><span class="prio prio--p2">P2</span></header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Video carousel › Video 1</dd></div>
+        <div><dt>Format</dt><dd>9:16 vertical · 1080 × 1920 · 15–20 s · MP4</dd></div>
+        <div><dt>On-screen captions</dt><dd>Press once. → Actually listen. → Notes ready before you leave the room.</dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 start frames (+ Nano Banana Pro device fix) → Kling 3.0 image-to-video</dd></div>
+      </dl>
+      <table class="tbl tbl--small">
+        <thead><tr><th>Shot</th><th>Start frame</th><th>Motion</th></tr></thead>
+        <tbody><tr><td class='nowrap'><b>A</b> 5 s</td><td>Vertical 9:16. A student sits down in a lecture hall and places a phone face-down on the desk with <span class="tok">[DEVICE]</span> on its back.</td><td>Handheld phone-camera look; the student presses the switch on the device and leans back to listen.</td></tr><tr><td class='nowrap'><b>B</b> 6 s</td><td>Vertical 9:16. The same student listening and smiling at something the lecturer says (lecturer out of focus); no laptop open.</td><td>Slow push-in, natural reactions.</td></tr><tr><td class='nowrap'><b>C</b> 5 s</td><td>Vertical 9:16. After class, the student walks out holding the phone, glances at it (screen not visible) and smiles.</td><td>Tracking shot following them through the hallway.</td></tr></tbody>
+      </table>
+    </article>
+    <article class="card card--wide">
+      <header class="card__head"><span class="pill">VID-03</span><h4>Use-case clip: The client call</h4><span class="prio prio--p2">P2</span></header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Video carousel › Video 2</dd></div>
+        <div><dt>Format</dt><dd>9:16 vertical · 1080 × 1920 · 15–20 s · MP4</dd></div>
+        <div><dt>On-screen captions</dt><dd>Snap it on. → Take the call. → Summary and action items, done.</dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 start frames (+ Nano Banana Pro device fix) → Kling 3.0 image-to-video</dd></div>
+      </dl>
+      <table class="tbl tbl--small">
+        <thead><tr><th>Shot</th><th>Start frame</th><th>Motion</th></tr></thead>
+        <tbody><tr><td class='nowrap'><b>A</b> 4 s</td><td>Vertical 9:16 macro. A hand brings <span class="tok">[DEVICE]</span> to the back of a smartphone.</td><td>The device snaps onto the phone magnetically; slight camera shake on contact, then still.</td></tr><tr><td class='nowrap'><b>B</b> 6 s</td><td>Vertical 9:16. A young analyst walks outdoors near a glass office building, phone to ear, device visible on the back.</td><td>Tracking shot walking backward in front of them.</td></tr><tr><td class='nowrap'><b>C</b> 5 s</td><td>Vertical 9:16. Seated at a desk, they look at their phone (screen not visible) and nod, satisfied.</td><td>Static medium shot.</td></tr></tbody>
+      </table>
+    </article>
+    <article class="card card--wide">
+      <header class="card__head"><span class="pill">VID-04</span><h4>Use-case clip: The team meeting</h4><span class="prio prio--p2">P2</span></header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Video carousel › Video 3</dd></div>
+        <div><dt>Format</dt><dd>9:16 vertical · 1080 × 1920 · 15–20 s · MP4</dd></div>
+        <div><dt>On-screen captions</dt><dd>Press. Talk. Done. → Minutes and to-dos for everyone.</dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 start frames (+ Nano Banana Pro device fix) → Kling 3.0 image-to-video</dd></div>
+      </dl>
+      <table class="tbl tbl--small">
+        <thead><tr><th>Shot</th><th>Start frame</th><th>Motion</th></tr></thead>
+        <tbody><tr><td class='nowrap'><b>A</b> 4 s</td><td>Vertical 9:16 top-down. A phone with <span class="tok">[DEVICE]</span> is placed in the center of a meeting table; a hand presses the switch.</td><td>Static top-down camera.</td></tr><tr><td class='nowrap'><b>B</b> 6 s</td><td>Vertical 9:16. A small team discussing around the table in natural light.</td><td>Slow orbit around the table.</td></tr><tr><td class='nowrap'><b>C</b> 5 s</td><td>Vertical 9:16. The founder holds the phone and smiles, showing the screen to a colleague (screen facing away from camera).</td><td>Static medium shot.</td></tr></tbody>
+      </table>
+    </article>
+</section>
+
+<section>
+  <h2>Images</h2>
+  
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-01</span>
+        <h4>Hero product shot (desktop)</h4>
+        <span class="prio prio--p1">P1</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Hero › Image</dd></div>
+        <div><dt>Format</dt><dd>Image · 16:10 · 2400 × 1500 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-01-hero.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with 2–3 reference photos of your real device</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Premium website hero product photo, 16:10. A modern smartphone stands upright at a slight three-quarter angle on a seamless very light cool-grey surface, back of the phone facing the camera, with <span class="tok">[DEVICE]</span> snapped flat onto the center of the phone&#x27;s back. Keep the device identical to the reference photos. Large soft window light from the left, smooth background gradient from white to pale blue-grey, delicate contact shadow, crisp detail on the grooves and the black top strip. Subject centered with wide empty space left and right. Minimal, calm, Apple-style product page. No text, no logos.</div>
+      <ul class="checks"><li>Grooves straight and evenly spaced; top strip layout matches your unit</li><li>No phone-brand logo visible</li><li>Nothing important near the left/right edges (the theme crops to fit)</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-01M</span>
+        <h4>Hero product shot (mobile crop)</h4>
+        <span class="prio prio--p1">P1</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Hero › Mobile image</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:5 · 1200 × 1500 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-01m-hero-mobile.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro (edit IMG-01, or regenerate with the same references)</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Same scene as IMG-01, reframed vertically at 4:5. The phone and <span class="tok">[DEVICE]</span> fill the middle of the frame with extra clean space above and below. Same light, same background, same shadow. No text.</div>
+      <ul class="checks"><li>Matches IMG-01 colors so desktop and mobile feel like one shoot</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-02</span>
+        <h4>Brand film poster frame</h4>
+        <span class="prio prio--p1">P1</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Intro film › Poster image</dd></div>
+        <div><dt>Format</dt><dd>Image · 16:9 · 1920 × 1080 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-02-film-poster.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 for the scene, then Nano Banana Pro edit with your device references to fix the device</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Cinematic 16:9 still. A university student in a sunlit lecture hall, seated in the middle rows, looking up at the out-of-focus lecturer with a relaxed, attentive expression; no laptop open. On the desk in front of them a smartphone lies face-down with <span class="tok">[DEVICE]</span> attached to its back, the tiny white sound-wave light glowing. Warm morning light through tall windows, shallow depth of field focused on the device and the student&#x27;s hand, soft film grain. No text.</div>
+      <ul class="checks"><li>Also works as the first frame of shot 2 in VID-01</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-03</span>
+        <h4>Wide statement image</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Image banner › Image (+ Mobile image = IMG-03M)</dd></div>
+        <div><dt>Format</dt><dd>Image · 21:9 (mobile 4:5) · 2400 × 1030 px (mobile 1200 × 1500)</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-03-wide.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 or Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Wide cinematic 21:9 photo. A clean light-wood desk by a large window overlooking a leafy university campus in soft morning light. On the desk: an open notebook, a cup of coffee, a pen with an orange cap, and a smartphone lying face-down with <span class="tok">[DEVICE]</span> on its back, placed on the right third. Lots of calm negative space, airy, muted natural palette, shallow depth of field. No people, no text. Mobile version (IMG-03M): same scene, vertical 4:5, device in the lower middle.</div>
+      <ul class="checks"><li>Keep the device large enough to read at phone size in the 4:5 version</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-04</span>
+        <h4>Real-life card: In class</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Lifestyle gallery › Photo card 1</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:5 · 1200 × 1500 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-04-in-class.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 (people) → Nano Banana Pro edit to insert the exact device</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Vertical 4:5 lifestyle photo. A student in a bright lecture hall seen from the side at desk level, relaxed and attentive, listening instead of typing. A smartphone with <span class="tok">[DEVICE]</span> on its back lies on the desk in the foreground, slightly in focus. Soft daylight, candid, shallow depth of field. <span class="tok">[CAST]</span>. No logos, no text.</div>
+      <ul class="checks"><li>Device clearly visible in the foreground</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-05</span>
+        <h4>Real-life card: At work</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Lifestyle gallery › Photo card 2</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:5 · 1200 × 1500 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-05-at-work.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 → Nano Banana Pro edit</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Vertical 4:5 lifestyle photo. A young professional in a modern glass meeting room, mid-conversation with colleagues who are softly out of focus. A smartphone with <span class="tok">[DEVICE]</span> on its back lies on the table in the foreground. Bright, natural light, candid moment. <span class="tok">[CAST]</span>. No logos, no text.</div>
+      <ul class="checks"><li>No laptop or wall screens showing readable text</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-06</span>
+        <h4>Real-life card: On a call</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Lifestyle gallery › Photo card 3</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:5 · 1200 × 1500 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-06-on-a-call.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 → Nano Banana Pro edit</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Vertical 4:5 lifestyle photo. A person on a phone call in a bright café, phone held to their ear with <span class="tok">[DEVICE]</span> clearly attached to the back of the phone and facing the camera. Natural smile, soft window light, shallow depth of field. <span class="tok">[CAST]</span>. No logos, no text.</div>
+      <ul class="checks"><li>The device faces the camera (the back of the phone is toward the lens)</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-07</span>
+        <h4>Real-life card: On the go</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Lifestyle gallery › Photo card 4</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:5 · 1200 × 1500 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-07-on-the-go.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 → Nano Banana Pro edit</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Vertical 4:5 lifestyle photo. A student walking on a tree-lined campus path at golden hour, holding a phone near their chin and talking an idea through, <span class="tok">[DEVICE]</span> on the back of the phone. Warm low sun, gentle motion, candid. <span class="tok">[CAST]</span>. No logos, no text.</div>
+      <ul class="checks"><li>Feels like the same world as IMG-04 to IMG-06 (same grade)</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-08</span>
+        <h4>Macro hero of the device</h4>
+        <span class="prio prio--p1">P1</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Feature grid › Large image</dd></div>
+        <div><dt>Format</dt><dd>Image · 16:9 · 2400 × 1350 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-08-macro.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Studio macro product photo, 16:9. <span class="tok">[DEVICE]</span> floats at a slight angle above a seamless pale cool-grey background, front facing the camera. Soft large key light from the upper left plus a thin rim light that traces the vertical grooves and the edge, showing how thin it is. Extremely sharp detail, soft shadow below, generous empty space around it. Minimal and premium. No text.</div>
+      <ul class="checks"><li>This is the image people zoom into: details must be right</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">VID-05</span>
+        <h4>Looping turntable video (optional, replaces IMG-08)</h4>
+        <span class="prio prio--p3">P3</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Feature grid › Or a looping video</dd></div>
+        <div><dt>Format</dt><dd>Video · 16:9 · 1920 × 1080, 6–8 s, MP4 under 10 MB</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-vid-05-loop.mp4</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Kling 3.0 image-to-video, IMG-08 as both start and end frame</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Slow 360-degree turntable rotation of the device in place, light glints across the vertical grooves, camera locked off, background unchanged, ends exactly where it started so the clip loops seamlessly.</div>
+      <ul class="checks"><li>No morphing of the grooves during the turn</li><li>Plays muted; no audio needed</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-09</span>
+        <h4>Feature tile: One-press recording</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Feature grid › Feature 1 › Image</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:3 · 1200 × 900 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-09-one-press.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Macro photo, 4:3. A thumb presses the slide switch on the black top strip of <span class="tok">[DEVICE]</span>, which is attached to the back of a phone held in one hand. Very shallow depth of field, soft daylight, the tiny white sound-wave light glowing. No text.</div>
+      <ul class="checks"><li>Confirm which control starts recording on your unit and describe that control in the prompt</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-10</span>
+        <h4>Feature tile: Card-thin, magnetic</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Feature grid › Feature 2 › Image</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:3 · 1200 × 900 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-10-card-thin.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Product photo, 4:3. <span class="tok">[DEVICE]</span> lies flat next to a plain blank card the size of a credit card (no logos, no numbers) on a pale grey surface. Camera almost at table height so the thin edge is visible. Soft side light, crisp edges, minimal. No text.</div>
+      <ul class="checks"><li>Thickness looks right next to the card (about 3 mm; confirm your real spec)</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-11</span>
+        <h4>Feature tile: Records calls</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Feature grid › Feature 3 › Image</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:3 · 1200 × 900 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-11-calls.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 → Nano Banana Pro edit</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Lifestyle photo, 4:3. Close view of a person holding a smartphone to their ear in a bright modern office, <span class="tok">[DEVICE]</span> clearly attached to the back of the phone facing the camera. Face partly out of frame and softly out of focus, natural light. No text.</div>
+      <ul class="checks"><li>Device sharp, person soft</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-12</span>
+        <h4>Feature tile: All-day battery</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Feature grid › Feature 4 › Image</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:3 · 1200 × 900 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-12-charging.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references + a photo of your real cable</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Product photo, 4:3. <span class="tok">[DEVICE]</span> on a light wood desk with its magnetic charging cable attached; the cable curves gracefully out of frame. Soft morning light, minimal props. Match the cable and connector to the reference photo exactly. No text.</div>
+      <ul class="checks"><li>Connector position matches your real device</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-13</span>
+        <h4>App showcase: phone with the summary screen</h4>
+        <span class="prio prio--p1">P1</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › App showcase › Image</dd></div>
+        <div><dt>Format</dt><dd>Image · 1:1 · 1600 × 1600 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-13-app.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro (scene) + composite your real screenshot APP-01 onto the screen</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Square product photo, 1:1, on a dark charcoal surface. A smartphone stands at a slight angle with its screen facing the camera; the screen is plain pure white. <span class="tok">[DEVICE]</span> lies flat beside it at a slight angle. Soft top light, subtle warm orange rim light, premium tech mood. Leave the screen pure white for compositing. No text. Then: &quot;Place this screenshot onto the phone screen with matching perspective and glass reflection; keep everything else identical.&quot;</div>
+      <ul class="checks"><li>The screen must show your real app (APP-01), never an AI-invented interface</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-17</span>
+        <h4>Export visual: one recording, many formats</h4>
+        <span class="prio prio--p3">P3</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Export formats › Image</dd></div>
+        <div><dt>Format</dt><dd>Image · 16:9 · 2400 × 1350 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-17-export.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro or Kling Image 3.0 (clean 3D render)</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Clean 3D render, 16:9. <span class="tok">[DEVICE]</span> floats in the center of a soft white-to-pale-grey space with a faint glowing sound wave above it. Around it, five translucent frosted-glass cards float outward in a gentle arc, each showing only a simple icon: a document, a word-processor page, an envelope, an audio waveform, a download arrow. Subtle orange accent light, soft shadows, airy and minimal. No letters or words anywhere.</div>
+      <ul class="checks"><li>No fake file names or text on the cards</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-18</span>
+        <h4>Product gallery 1: front packshot (main image)</h4>
+        <span class="prio prio--p1">P1</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Shopify admin › Products › Alumnus AI Recorder › Media (first image)</dd></div>
+        <div><dt>Format</dt><dd>Image · 1:1 · 2048 × 2048 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-18-front.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Studio packshot, 1:1. <span class="tok">[DEVICE]</span> stands upright facing the camera straight on, perfectly centered, filling about 65% of the frame. Seamless light-grey background (#F4F4F6), large soft light from above-left, soft shadow, ultra sharp. No props, no text.</div>
+      <ul class="checks"><li>This image feeds Google Shopping, the Shop app and Meta catalogs: product only, no text or badges</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-19</span>
+        <h4>Product gallery 2: back / magnetic side</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Shopify admin › Products › Media</dd></div>
+        <div><dt>Format</dt><dd>Image · 1:1 · 2048 × 2048 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-19-back.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with a real photo of the back as reference</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Studio packshot, 1:1, same setup as IMG-18. The back of the device, showing its flat magnetic back exactly as in the reference photo of the back. No text.</div>
+      <ul class="checks"><li>Only generate this if you have a real photo of the back; otherwise photograph it</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-20</span>
+        <h4>Product gallery 3: on a phone</h4>
+        <span class="prio prio--p1">P1</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Shopify admin › Products › Media</dd></div>
+        <div><dt>Format</dt><dd>Image · 1:1 · 2048 × 2048 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-20-on-phone.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Studio photo, 1:1, same setup as IMG-18. Three-quarter view of the back of a modern smartphone with <span class="tok">[DEVICE]</span> attached in the center. No phone-brand logo. No text.</div>
+      <ul class="checks"><li>Phone looks generic (no Apple/Samsung logo)</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-21</span>
+        <h4>Product gallery 4: edge-on (thinness)</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Shopify admin › Products › Media</dd></div>
+        <div><dt>Format</dt><dd>Image · 1:1 · 2048 × 2048 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-21-edge.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Studio photo, 1:1, same setup as IMG-18. <span class="tok">[DEVICE]</span> seen exactly edge-on, standing on its long side, very low camera angle, showing the slim profile. No text.</div>
+      <ul class="checks"><li>Proportions match the real thickness</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-22</span>
+        <h4>Product gallery 5: in hand for scale</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Shopify admin › Products › Media</dd></div>
+        <div><dt>Format</dt><dd>Image · 1:1 · 2048 × 2048 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-22-in-hand.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Studio photo, 1:1, light-grey background. A hand holds <span class="tok">[DEVICE]</span> between thumb and fingers, front facing the camera, to show its size. Natural skin, short clean nails. No text.</div>
+      <ul class="checks"><li>Five fingers, natural grip, device not oversized</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-23</span>
+        <h4>Product gallery 6: what&#x27;s in the box</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Shopify admin › Products › Media</dd></div>
+        <div><dt>Format</dt><dd>Image · 1:1 · 2048 × 2048 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-23-in-the-box.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with photos of every real item</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Top-down flat lay, 1:1, on light grey. <span class="tok">[DEVICE]</span>, its magnetic charging cable coiled neatly, and a small blank quick-start card, evenly spaced and aligned. Soft even light. No text.</div>
+      <ul class="checks"><li>Show only what you actually ship</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-24</span>
+        <h4>Second color packshot (variant image)</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Shopify admin › Products › Media, then assign it to the second color variant</dd></div>
+        <div><dt>Format</dt><dd>Image · 1:1 · 2048 × 2048 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-24-color-2.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with a real photo of that color</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Same as IMG-18, but the device is in [your second color], matching the reference photo of that color exactly.</div>
+      <ul class="checks"><li>Only list colors you can actually ship</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">VID-06</span>
+        <h4>Product 360° spin (product media video)</h4>
+        <span class="prio prio--p3">P3</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Shopify admin › Products › Media (video)</dd></div>
+        <div><dt>Format</dt><dd>Video · 1:1 · 1080 × 1080, 8 s loop, MP4</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-vid-06-spin.mp4</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Kling 3.0 image-to-video, IMG-18 as start and end frame</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Slow 360-degree turntable rotation of the device, camera locked off, studio light constant, background unchanged, seamless loop.</div>
+      <ul class="checks"><li>Plays muted in the product gallery</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-25</span>
+        <h4>FAQ image</h4>
+        <span class="prio prio--p3">P3</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › FAQ › Image</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:5 · 1200 × 1500 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-25-faq.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Vertical 4:5 photo, top-down at about 30 degrees. An open notebook with handwritten notes, a smartphone lying face-down on it with <span class="tok">[DEVICE]</span> on its back, a pen with an orange cap, soft daylight from a window, calm and tidy. The handwriting is blurred and unreadable. No text.</div>
+      <ul class="checks"><li>No readable words in the notebook</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-26</span>
+        <h4>Closing offer background</h4>
+        <span class="prio prio--p2">P2</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Home page › Closing offer › Background image</dd></div>
+        <div><dt>Format</dt><dd>Image · 16:9 · 2400 × 1350 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-26-closing.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Soul 2.0 or Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Wide 16:9 evening desk scene. Warm desk lamp and cool laptop glow, a smartphone with <span class="tok">[DEVICE]</span> on its back on the right third of the desk next to a notebook. The left 45% of the frame is dark, calm and empty for text. Cinematic, moody but clean. No text, no readable screen.</div>
+      <ul class="checks"><li>Left side dark enough for white text</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-27</span>
+        <h4>Discount popup image</h4>
+        <span class="prio prio--p1">P1</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Discount popup (listed with the page sections) › Image</dd></div>
+        <div><dt>Format</dt><dd>Image · 4:5 · 1000 × 1250 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-27-popup.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Vertical 4:5 bright product photo. A phone with <span class="tok">[DEVICE]</span> on its back lies on a pale surface beside a small white gift box tied with an orange ribbon. Clean, cheerful, soft daylight, lots of white space. No text.</div>
+      <ul class="checks"><li>Reads clearly at small size</li></ul>
+    </article>
+    <article class="card">
+      <header class="card__head">
+        <span class="pill">IMG-28</span>
+        <h4>Social share image</h4>
+        <span class="prio prio--p1">P1</span>
+      </header>
+      <dl class="meta">
+        <div><dt>Where it goes</dt><dd>Theme editor › Theme settings › Favicon and sharing › Social share image</dd></div>
+        <div><dt>Format</dt><dd>Image · 1.91:1 · 1200 × 630 px</dd></div>
+        <div><dt>File name</dt><dd><code>alumnus-img-28-share.jpg</code></dd></div>
+        <div><dt>Higgsfield model</dt><dd>Nano Banana Pro with device references, then add your logo and headline in Canva</dd></div>
+      </dl>
+      <div class="prompt"><span class="prompt__label">Prompt</span>Wide product photo, 1.91:1. A phone with <span class="tok">[DEVICE]</span> on its back stands at a three-quarter angle on the right side of a white-to-pale-grey seamless background; the left half is empty for a logo and headline added later. No text.</div>
+      <ul class="checks"><li>This is what people see when your link is shared on iMessage, TikTok DMs and X</li></ul>
+    </article>
+</section>
+
+<section>
+  <h2>Assets that must be real (no Higgsfield)</h2>
+  <table class="tbl tbl--small"><thead><tr><th>ID</th><th>What</th><th>How to get it</th></tr></thead><tbody><tr><td><b>APP-01–03</b></td><td>App screenshots: summary, mind map, to-do list</td><td>Record a 5-minute sample (read an article aloud), let the app generate each view, screenshot on a clean phone, crop to 4:3. These also go on the phone screen in IMG-13 and shot 6 of VID-01.</td></tr><tr><td><b>LOGO-01–05</b></td><td>Logo bar</td><td>Only schools, companies or press where it's true. Until then, hide the section or switch it to "As seen in" when you get press.</td></tr><tr><td><b>Reviews</b></td><td>Review cards and Reviews section</td><td>Real reviews only. A reviews app sends requests after delivery and imports photos and videos.</td></tr><tr><td><b>UGC videos</b></td><td>Replace VID-02–04 over time</td><td>Seed devices to student creators through Shopify Collabs; use their clips with permission, real names and roles, and remove the "Demo footage" note.</td></tr></tbody></table>
+  <h2>Bonus: three ad concepts for TikTok and Reels</h2>
+  <p class="muted">These aren't for the website. TikTok requires an AI label on ads with realistic AI people, voices or scenes <sup class="src">[15]</sup>. Best practice: AI for b-roll and product shots, real creators for faces.</p>
+  <article class='card'><header class='card__head'><span class='pill'>AD-01</span><h4>&quot;I stopped taking notes in class&quot;</h4><span class='prio'>Ads</span></header><p class='muted' style='font-size:8.6pt'>Creator-style talking head (Higgsfield UGC Factory or Marketing Studio, UGC preset, 9:16). Hook in the first 2 seconds, then the device, then a real screen recording of the summary.</p><div class='prompt'><span class='prompt__label'>Prompt</span>Vertical 9:16, handheld selfie framing in a dorm room. A student talks to camera: &quot;I stopped taking notes in lectures. Here&#x27;s why.&quot; Cut to them pressing <span class="tok">[DEVICE]</span> on the back of their phone. Natural vlog pacing, casual and honest.</div></article><article class='card'><header class='card__head'><span class='pill'>AD-02</span><h4>&quot;Why not just use your phone?&quot;</h4><span class='prio'>Ads</span></header><p class='muted' style='font-size:8.6pt'>Split-screen comparison, 9:16. Mirrors the comparison table on the site.</p><div class='prompt'><span class='prompt__label'>Prompt</span>Vertical 9:16 split screen. Left: a stressed student typing fast on a laptop and missing what the lecturer says. Right: a relaxed student listening, phone with <span class="tok">[DEVICE]</span> on the desk. Same lecture hall, same light.</div></article><article class='card'><header class='card__head'><span class='pill'>AD-03</span><h4>The snap (product ASMR)</h4><span class='prio'>Ads</span></header><p class='muted' style='font-size:8.6pt'>Product-only macro loop, no people. Add a real recorded snap sound.</p><div class='prompt'><span class='prompt__label'>Prompt</span>Vertical 9:16 macro. <span class="tok">[DEVICE]</span> snaps onto the back of a phone in slow motion, the white sound-wave light turns on, then a slow orbit shows the thin edge. Clean studio light, pale grey background.</div></article>
+</section>
+
+<section class="part">
+  <div class="part__head"><span class="eyebrow">Part 5</span><h1>Launch checklist</h1><p>Every [bracket] in the theme, plus the settings that make the offers work.</p></div>
+  <h3 style="margin-top:0">Facts to confirm with your supplier</h3>
+  <ul class="checklist">
+    <li>Thickness [3] mm and weight [X] g</li><li>Battery [X] hrs recording, [X] days standby</li><li>Storage [X] GB</li><li>Languages [X]</li>
+    <li>iPhone and Android support; MagSafe or included magnetic ring</li><li>What's in the box</li><li>Free app limits ([X] minutes) and whether a Pro plan exists ([$X]/mo)</li>
+    <li>Encryption, storage location, AI training use</li><li>Export formats ([More: confirm])</li><li>Which control starts recording (for IMG-09)</li>
+  </ul>
+  <h3>Your business decisions</h3>
+  <ul class="checklist">
+    <li>Sale % in the announcement bar, popup, teaser and closing offer ([X]%)</li><li>Sale end date (Theme settings › Product and offer)</li>
+    <li>Bundle tier percentages (Buy box) = your automatic discounts</li><li>Welcome code (popup) created in Discounts</li>
+    <li>Return window [30] days and warranty [1] year (announcement, hero, buy box, guarantee, FAQ, closing offer)</li>
+    <li>Shipping time [X–X] business days (buy box, guarantee, FAQ)</li><li>Countries you ship to (FAQ)</li><li>Student discount: yes or no (FAQ)</li>
+    <li>Teams plan: contact page or remove</li><li>Cart add-on product (Theme settings › Cart)</li>
+  </ul>
+  <h3>Social proof (real only)</h3>
+  <ul class="checklist">
+    <li>Hero, buy box and reviews rating [X.X] and count [X] (automatic once a reviews app is installed)</li>
+    <li>"[X]+ students, interns and founders" and "[X]+ happy customers": real numbers or rewrite the headings</li>
+    <li>Review cards and review blocks: real reviews or remove</li><li>Logo bar: real logos or hide</li>
+  </ul>
+  <h3>Before you publish</h3>
+  <ul class="checklist">
+    <li>Archive the old streetwear products</li><li>Upload P1 assets; turn off "Show placeholder labels" if any slot is still empty</li>
+    <li>Footer: TikTok and Instagram links (replace "yourhandle"), App Store / Google Play links or hide badges</li>
+    <li>Policies: refund, shipping, privacy, terms</li><li>Place a test order with each bundle tier and the welcome code</li>
+    <li>Check the site on your phone: popup, sticky bar, cart drawer</li><li>Install reviews app and sales channel pixels (TikTok, Meta, Google)</li>
+  </ul>
+</section>
+
+<section class="part">
+  <div class="part__head"><span class="eyebrow">Sources</span><h1>Sources</h1><p>Research done October 2026. Prices and policies change; recheck before quoting.</p></div>
+  <ol class="sources">
+    <li>[1] Plaud, &quot;Is HeyPocket legit? A straight review of the Pocket AI recorder&quot; · <a href="https://www.plaud.ai/blogs/articles/heypocket-review">https://www.plaud.ai/blogs/articles/heypocket-review</a></li><li>[2] mrktcorrect, &quot;Pocket AI pricing: what it really costs over 12 months&quot; · <a href="https://mrktcorrect.com/blog/pocket-ai-pricing">https://mrktcorrect.com/blog/pocket-ai-pricing</a></li><li>[3] FlexGlimpse, heyPocket coupons (tier percentages) · <a href="https://www.flexglimpse.com/store/heypocket">https://www.flexglimpse.com/store/heypocket</a></li><li>[4] heypocket.com comparison and product pages · <a href="https://heypocket.com/pages/comparison">https://heypocket.com/pages/comparison</a></li><li>[5] heypocket.com, Pocket Pro 12-month access product · <a href="https://heypocket.com/products/pocket-pro-12-month-access-to-pocket-s-full-power-25-off-1">https://heypocket.com/products/pocket-pro-12-month-access-to-pocket-s-full-power-25-off-1</a></li><li>[6] Trustpilot, Pocket reviews · <a href="https://nz.trustpilot.com/review/heypocket.com?page=2">https://nz.trustpilot.com/review/heypocket.com?page=2</a></li><li>[7] heypocket.com pages: /pages/quiz, /pages/founders-csuite, /pages/this-simple-device-1, /pages/affiliate · <a href="https://heypocket.com/pages/quiz">https://heypocket.com/pages/quiz</a></li><li>[8] heypocket.com, &quot;Pocket vs Plaud Note&quot; · <a href="https://heypocket.com/pages/pocket-vs-plaud">https://heypocket.com/pages/pocket-vs-plaud</a></li><li>[9] heypocket.com, Pocket summary page · <a href="https://heypocket.com/pages/pocket-summary">https://heypocket.com/pages/pocket-summary</a></li><li>[10] Plaud education discount page and support article · <a href="https://support.plaud.ai/hc/en-us/articles/59006112625689-Student-educator-and-healthcare-discount">https://support.plaud.ai/hc/en-us/articles/59006112625689-Student-educator-and-healthcare-discount</a></li><li>[11] DealNews, Plaud anniversary sale · <a href="https://www.dealnews.com/Plaud-Anniversary-Sale-Extra-20-off-free-shipping/21920626.html">https://www.dealnews.com/Plaud-Anniversary-Sale-Extra-20-off-free-shipping/21920626.html</a></li><li>[12] Tom&#x27;s Guide, Plaud discount codes · <a href="https://www.tomsguide.com/uk/ai/plaud-ai-coupons">https://www.tomsguide.com/uk/ai/plaud-ai-coupons</a></li><li>[13] Layer3 Labs, best AI wearable pendants 2026 · <a href="https://www.layer3labs.io/guides/best-ai-wearable-pendants-2026">https://www.layer3labs.io/guides/best-ai-wearable-pendants-2026</a></li><li>[14] Hogan Lovells, FTC final rule banning fake reviews and testimonials · <a href="https://www.hoganlovells.com/en/publications/ftc-publishes-final-rule-banning-fake-consumer-reviews-and-testimonials">https://www.hoganlovells.com/en/publications/ftc-publishes-final-rule-banning-fake-consumer-reviews-and-testimonials</a></li><li>[15] CineRads, TikTok AI content policy 2026; Common Thread Collective, TikTok AI ad disclosure rules · <a href="https://www.cinerads.com/blog/tiktok-ai-content-policy">https://www.cinerads.com/blog/tiktok-ai-content-policy</a></li><li>[16] Higgsfield blog: Soul 2.0 vs Nano Banana Pro; AI UGC videos; Seedance prompting guide · <a href="https://higgsfield.ai/blog/soul-2-vs-nano-banana-pro">https://higgsfield.ai/blog/soul-2-vs-nano-banana-pro</a></li><li>[17] Higgsfield prompt cheat sheet (camera presets, one move per clip) · <a href="https://memons.ai/higgsfield-prompt-cheat-sheet">https://memons.ai/higgsfield-prompt-cheat-sheet</a></li><li>[18] Shopify dev docs: theme architecture, Theme Store requirements, Shop Pay Installments, account component, Section Rendering API · <a href="https://shopify.dev/docs/storefronts/themes/architecture">https://shopify.dev/docs/storefronts/themes/architecture</a></li><li>[19] Shopify dev changelog: discounts on /cart/update.js · <a href="https://shopify.dev/changelog/posts/cart-ajax-api-discounts-support-on-cartupdatejs">https://shopify.dev/changelog/posts/cart-ajax-api-discounts-support-on-cartupdatejs</a></li><li>[20] Shopify standard metafields (reviews.rating, reviews.rating_count) · <a href="https://shopify.dev/docs/apps/build/metafields/list-of-standard-definitions">https://shopify.dev/docs/apps/build/metafields/list-of-standard-definitions</a></li><li>[21] Shopify Messaging guide (free email allowance) · <a href="https://eseospace.com/blog/shopify-messaging/">https://eseospace.com/blog/shopify-messaging/</a></li><li>[22] Shopify Flow (plans) · <a href="https://www.shopify.com/flow">https://www.shopify.com/flow</a></li><li>[23] Shopify Collabs on the Shopify App Store · <a href="https://apps.shopify.com/collabs">https://apps.shopify.com/collabs</a></li><li>[24] Shopify conversion benchmarks 2026 (Blend Commerce; DTC Pages) · <a href="https://blendcommerce.com/blogs/shopify/ecommerce-conversion-rate-benchmarks-2026">https://blendcommerce.com/blogs/shopify/ecommerce-conversion-rate-benchmarks-2026</a></li>
+  </ol>
+</section>
+</body></html>

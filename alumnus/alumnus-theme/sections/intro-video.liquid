@@ -1,0 +1,74 @@
+{%- liquid
+  assign video = section.settings.video
+  assign video_url = section.settings.video_url
+  assign poster = section.settings.poster
+  if poster == blank and video != blank
+    assign poster = video.preview_image
+  endif
+  assign card_class = 'intro-card'
+  if section.settings.layout == 'media_first'
+    assign card_class = card_class | append: ' intro-card--reverse'
+  endif
+-%}
+<section class="section scheme-{{ section.settings.color_scheme }}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;">
+  <div class="container">
+    <div class="{{ card_class }} reveal">
+      <div class="intro-card__text">
+        {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
+        <h2 class="h2">{{ section.settings.heading | escape }}</h2>
+        {%- if section.settings.text != blank -%}<p class="muted">{{ section.settings.text }}</p>{%- endif -%}
+        {%- if section.settings.link_label != blank -%}
+          <p><button type="button" class="link-arrow" data-play-video="IntroVideo-{{ section.id }}">{{ section.settings.link_label | escape }} {% render 'icon', name: 'arrow-right' %}</button></p>
+        {%- endif -%}
+      </div>
+
+      <video-player class="video-player" id="IntroVideo-{{ section.id }}"{% if video_url != blank %} data-type="{{ video_url.type }}" data-video-id="{{ video_url.id }}"{% endif %}>
+        <div class="media" style="--ratio: 16 / 9;">
+          {%- if video != blank -%}
+            {{ video | video_tag: controls: true, playsinline: true, preload: 'none', image_size: '1600x' }}
+          {%- elsif poster != blank -%}
+            {{ poster | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 640px, 100vw', widths: '600, 900, 1200, 1600', alt: section.settings.heading }}
+          {%- else -%}
+            {% render 'placeholder', asset_id: 'VID-01 + IMG-02', title: 'Brand film (60-90 s) with a poster frame', spec: '16:9 · 1920×1080 · MP4 under 250 MB', kind: 'video', dark: true %}
+          {%- endif -%}
+        </div>
+        {%- if video != blank or video_url != blank -%}
+          <button type="button" class="video-player__play" aria-label="{{ 'sections.video.play' | t }}">
+            <span>{% render 'icon', name: 'play' %}</span>
+          </button>
+        {%- endif -%}
+      </video-player>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Intro film",
+  "class": "section-intro-video",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Introducing" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Alumnus: a smarter way to remember everything." },
+    { "type": "inline_richtext", "id": "text", "label": "Text" },
+    { "type": "text", "id": "link_label", "label": "Play link label", "default": "Watch the film" },
+    { "type": "header", "content": "Video" },
+    { "type": "paragraph", "content": "VID-01 from the Higgsfield prompt pack. Upload it to Shopify, or paste a YouTube or Vimeo link. IMG-02 is the poster frame." },
+    { "type": "video", "id": "video", "label": "Shopify-hosted video (VID-01)" },
+    { "type": "video_url", "id": "video_url", "label": "Or YouTube / Vimeo link", "accept": ["youtube", "vimeo"] },
+    { "type": "image_picker", "id": "poster", "label": "Poster image (IMG-02, 16:9)" },
+    {
+      "type": "select", "id": "layout", "label": "Layout",
+      "options": [ { "value": "text_first", "label": "Text left" }, { "value": "media_first", "label": "Video left" } ],
+      "default": "text_first"
+    },
+    {
+      "type": "select", "id": "color_scheme", "label": "Color scheme",
+      "options": [ { "value": "light", "label": "Light" }, { "value": "grey", "label": "Grey" }, { "value": "dark", "label": "Dark" } ],
+      "default": "light"
+    },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 72 }
+  ],
+  "presets": [ { "name": "Intro film" } ]
+}
+{% endschema %}

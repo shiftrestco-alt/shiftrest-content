@@ -1,0 +1,30 @@
+{%- comment -%}
+  Product card for collection and search grids.
+  Accepts:
+  - card_product {Object} product
+{%- endcomment -%}
+<a class="product-card" href="{{ card_product.url }}">
+  {%- if card_product.featured_media -%}
+    <div class="media" style="--ratio: 1 / 1;">
+      {{
+        card_product.featured_media
+        | image_url: width: 900
+        | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 50vw', widths: '300, 450, 600, 900', alt: card_product.featured_media.alt
+      }}
+    </div>
+  {%- else -%}
+    {% render 'media', ratio: '1 / 1', asset_id: 'IMG-18', title: card_product.title, spec: '1:1 · 2048×2048' %}
+  {%- endif -%}
+  <span class="product-card__title">{{ card_product.title }}</span>
+  <span class="product-card__price">
+    {%- if card_product.price_varies -%}
+      {%- assign min_price = card_product.price_min | money -%}
+      {{ 'products.product.price_from' | t: price: min_price }}
+    {%- else -%}
+      {{ card_product.price | money }}
+    {%- endif -%}
+    {%- if card_product.compare_at_price > card_product.price -%}
+      <s>{{ card_product.compare_at_price | money }}</s>
+    {%- endif -%}
+  </span>
+</a>

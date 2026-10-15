@@ -1,0 +1,27 @@
+<section class="section scheme-light" style="--pt: 48px; --pb: 96px;">
+  <div class="container">
+    <div class="page-head"><h1 class="h1">{{ 'sections.collection.all' | t }}</h1></div>
+    <ul class="product-grid" role="list">
+      {%- for collection in collections -%}
+        <li>
+          <a class="product-card" href="{{ collection.url }}">
+            {%- if collection.featured_image -%}
+              <div class="media" style="--ratio: 1 / 1;">{{ collection.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 50vw', widths: '300, 450, 600, 900', alt: collection.title }}</div>
+            {%- else -%}
+              {% render 'media', ratio: '1 / 1', title: collection.title %}
+            {%- endif -%}
+            <span class="product-card__title">{{ collection.title | escape }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections list",
+  "class": "section-main-list-collections",
+  "settings": []
+}
+{% endschema %}

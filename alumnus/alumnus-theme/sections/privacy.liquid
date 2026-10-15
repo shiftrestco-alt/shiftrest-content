@@ -1,0 +1,71 @@
+<section class="section scheme-{{ section.settings.color_scheme }}" id="{{ section.settings.anchor | default: 'privacy' | handle }}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;">
+  <div class="container">
+    <div class="privacy">
+      <span class="privacy__icon">{% render 'icon', name: 'lock' %}</span>
+      <h2 class="h2 reveal">{{ section.settings.heading | escape }}</h2>
+      {%- if section.settings.text != blank -%}<p class="lead" style="max-width: 620px;">{{ section.settings.text }}</p>{%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+        <ul class="privacy__points" role="list">
+          {%- for block in section.blocks -%}
+            <li class="privacy__point reveal" data-delay="{{ forloop.index0 | modulo: 3 }}" {{ block.shopify_attributes }}>
+              <span class="icon-tile">{% render 'icon', name: block.settings.icon %}</span>
+              <strong>{{ block.settings.title | escape }}</strong>
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Privacy",
+  "class": "section-privacy",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your recordings stay yours." },
+    { "type": "inline_richtext", "id": "text", "label": "Text", "default": "[Confirm encryption, where audio is stored, and whether it's used for AI training.] Delete any recording at any time." },
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "privacy" },
+    {
+      "type": "select", "id": "color_scheme", "label": "Color scheme",
+      "options": [ { "value": "light", "label": "Light" }, { "value": "grey", "label": "Grey" }, { "value": "dark", "label": "Dark" } ],
+      "default": "light"
+    },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon",
+          "options": [
+            { "value": "lock", "label": "Lock" },
+            { "value": "trash", "label": "Delete" },
+            { "value": "eye-off", "label": "Private" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "user", "label": "Person" }
+          ],
+          "default": "lock"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Encrypted [confirm]" },
+        { "type": "inline_richtext", "id": "text", "label": "Text", "default": "Recordings are encrypted in transit and at rest. [Confirm with supplier.]" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Privacy",
+      "blocks": [
+        { "type": "point" },
+        { "type": "point", "settings": { "icon": "trash", "title": "Delete anytime", "text": "Remove any recording or transcript from the app in one tap." } },
+        { "type": "point", "settings": { "icon": "eye-off", "title": "Not used to train AI [confirm]", "text": "Your audio isn't used to train AI models. [Confirm with supplier.]" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

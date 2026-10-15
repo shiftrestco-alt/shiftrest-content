@@ -1,0 +1,108 @@
+<section class="section scheme-{{ section.settings.color_scheme }}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handle }}"{% endif %}>
+  <div class="container">
+    <div class="bento__head">
+      <div class="stack" style="--gap: 14px;">
+        {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
+        <h2 class="h1 reveal">{{ section.settings.heading | escape | newline_to_br }}</h2>
+      </div>
+      {%- if section.settings.text != blank -%}<p class="lead reveal" data-delay="1">{{ section.settings.text }}</p>{%- endif -%}
+    </div>
+
+    {%- if section.settings.show_main_media -%}
+      <div class="bento__main reveal">
+        {% render 'media',
+          image: section.settings.image,
+          video: section.settings.video,
+          ratio: '16 / 9',
+          mobile_ratio: '4 / 5',
+          sizes: '(min-width: 1200px) 1200px, 100vw',
+          asset_id: 'IMG-08 or VID-05',
+          title: 'Macro hero of the device: ribbed graphite body, one button, card-thin',
+          spec: '16:9 · 2400×1350 (video: 6-8 s seamless loop)'
+        %}
+      </div>
+    {%- endif -%}
+
+    <div class="grid grid--4 bento__grid">
+      {%- for block in section.blocks -%}
+        {%- assign img_number = forloop.index | plus: 8 -%}
+        {%- if img_number < 10 -%}{%- assign asset_id = 'IMG-0' | append: img_number -%}{%- else -%}{%- assign asset_id = 'IMG-' | append: img_number -%}{%- endif -%}
+        <div class="feature-card{% unless block.settings.show_image %} feature-card--no-media{% endunless %} reveal" data-delay="{{ forloop.index0 | modulo: 4 }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.show_image -%}
+            {% render 'media', image: block.settings.image, ratio: '4 / 3', sizes: '(min-width: 990px) 25vw, 100vw', asset_id: asset_id, title: block.settings.placeholder_note, spec: '4:3 · 1200×900' %}
+          {%- else -%}
+            <span class="icon-tile">{% render 'icon', name: block.settings.icon %}</span>
+          {%- endif -%}
+          <div class="feature-card__body">
+            <h3 class="feature-card__title">{{ block.settings.title | escape }}</h3>
+            {%- if block.settings.text != blank -%}<p class="feature-card__text">{{ block.settings.text }}</p>{%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature grid",
+  "class": "section-feature-bento",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Designed for real life" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Simple on the outside.\nSmart inside." },
+    { "type": "inline_richtext", "id": "text", "label": "Text", "default": "One button, a card-thin body and a magnet. Everything else happens in the app." },
+    { "type": "checkbox", "id": "show_main_media", "label": "Show large image", "default": true },
+    { "type": "image_picker", "id": "image", "label": "Large image (IMG-08, 16:9)" },
+    { "type": "video", "id": "video", "label": "Or a looping video (VID-05)" },
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "features" },
+    {
+      "type": "select", "id": "color_scheme", "label": "Color scheme",
+      "options": [ { "value": "light", "label": "Light" }, { "value": "grey", "label": "Grey" }, { "value": "dark", "label": "Dark" } ],
+      "default": "light"
+    },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "checkbox", "id": "show_image", "label": "Show image", "default": true },
+        { "type": "image_picker", "id": "image", "label": "Image (4:3)" },
+        { "type": "text", "id": "placeholder_note", "label": "What this image shows", "default": "Thumb pressing the single record button, macro" },
+        {
+          "type": "select", "id": "icon", "label": "Icon (used when the image is off)",
+          "options": [
+            { "value": "mic", "label": "Microphone" },
+            { "value": "magnet", "label": "Magnet" },
+            { "value": "phone-call", "label": "Phone call" },
+            { "value": "battery", "label": "Battery" },
+            { "value": "sparkle", "label": "AI sparkle" },
+            { "value": "globe", "label": "Languages" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "bolt", "label": "Bolt" },
+            { "value": "smartphone", "label": "Phone" },
+            { "value": "wave", "label": "Sound wave" }
+          ],
+          "default": "mic"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "One-press recording" },
+        { "type": "inline_richtext", "id": "text", "label": "Text", "default": "Start and stop with a single button. No unlocking your phone." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature grid",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature", "settings": { "icon": "magnet", "placeholder_note": "Side profile showing how thin it is next to a credit card", "title": "Card-thin, magnetic", "text": "About [3] mm thick and snaps to the back of your phone." } },
+        { "type": "feature", "settings": { "icon": "phone-call", "placeholder_note": "Phone held to ear with Alumnus snapped on the back", "title": "Records calls", "text": "Picks up phone calls clearly, no speakerphone needed." } },
+        { "type": "feature", "settings": { "icon": "battery", "placeholder_note": "Magnetic charging cable clicking onto the device", "title": "All-day battery", "text": "[X] hours of recording. Magnetic cable to recharge." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

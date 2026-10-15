@@ -1,0 +1,48 @@
+{%- comment -%}
+  Cart totals, discount code field and checkout button.
+  Accepts:
+  - context {String} 'drawer' or 'page'
+{%- endcomment -%}
+{%- if cart.item_count > 0 -%}
+  {%- if settings.cart_show_discount_field -%}
+    <form class="cart-discount" data-discount-form novalidate>
+      <label class="visually-hidden" for="CartDiscount-{{ context }}">{{ 'sections.cart.discount_label' | t }}</label>
+      <input id="CartDiscount-{{ context }}" type="text" name="discount" autocomplete="off" placeholder="{{ 'sections.cart.discount_placeholder' | t }}">
+      <button type="submit" class="btn btn--outline btn--sm">{{ 'sections.cart.discount_apply' | t }}</button>
+    </form>
+    <p class="form-message form-message--error" data-discount-error hidden>{{ 'sections.cart.discount_invalid' | t }}</p>
+    {%- assign code_applications = cart.discount_applications | where: 'type', 'discount_code' -%}
+    {%- if code_applications.size > 0 -%}
+      <div class="cart-discount__tags">
+        {%- for application in code_applications -%}
+          <span class="cart-discount__tag" data-applied-code="{{ application.title | escape }}">
+            {% render 'icon', name: 'tag', class: 'icon--sm' %}{{ application.title | escape }}
+            <button type="button" data-remove-discount="{{ application.title | escape }}" aria-label="{{ 'sections.cart.discount_remove' | t: code: application.title }}">{% render 'icon', name: 'x' %}</button>
+          </span>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+
+  <div class="totals">
+    {%- if cart.total_discount > 0 -%}
+      <div class="totals__row"><span>{{ 'sections.cart.subtotal' | t }}</span><span>{{ cart.original_total_price | money }}</span></div>
+      {%- for application in cart.discount_applications -%}
+        <div class="totals__row totals__row--savings"><span>{{ application.title | escape }}</span><span>−{{ application.total_allocated_amount | money }}</span></div>
+      {%- endfor -%}
+    {%- endif -%}
+    <div class="totals__row totals__row--total"><span>{{ 'sections.cart.total' | t }}</span><span data-cart-subtotal>{{ cart.total_price | money_with_currency }}</span></div>
+  </div>
+
+  {%- assign cart_form_id = 'CartForm-' | append: context -%}
+  {%- form 'cart', cart, id: cart_form_id, class: 'stack' -%}
+    <div class="small muted">{{ form | payment_terms }}</div>
+    <button type="submit" name="checkout" class="btn btn--primary btn--lg btn--block">{% render 'icon', name: 'lock', class: 'icon--sm' %}{{ 'sections.cart.checkout' | t }}</button>
+  {%- endform -%}
+
+  {%- if additional_checkout_buttons and settings.cart_show_express -%}
+    <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+  {%- endif -%}
+
+  <p class="cart-note">{{ 'sections.cart.taxes_note' | t }}</p>
+{%- endif -%}

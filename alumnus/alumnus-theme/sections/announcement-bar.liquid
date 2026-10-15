@@ -1,0 +1,83 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="announcement scheme-{{ section.settings.color_scheme }}" role="region" aria-label="{{ 'sections.announcement.label' | t }}">
+    <div class="container announcement__inner">
+      <announcement-rotator class="announcement__messages" data-interval="{{ section.settings.interval }}">
+        {%- for block in section.blocks -%}
+          <p class="announcement__message{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
+            {%- if block.settings.link != blank -%}
+              <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+            {%- else -%}
+              {{ block.settings.text }}
+            {%- endif -%}
+          </p>
+        {%- endfor -%}
+      </announcement-rotator>
+      {%- if section.settings.show_countdown -%}
+        <span class="announcement__timer">
+          {% render 'countdown', label: section.settings.countdown_label %}
+        </span>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "class": "section-announcement",
+  "enabled_on": { "groups": ["header"] },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        { "value": "accent", "label": "Accent" },
+        { "value": "dark", "label": "Dark" },
+        { "value": "grey", "label": "Grey" },
+        { "value": "light", "label": "Light" }
+      ],
+      "default": "accent"
+    },
+    {
+      "type": "range",
+      "id": "interval",
+      "label": "Seconds between messages",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown",
+      "label": "Show sale countdown",
+      "info": "Counts down to the sale end date in Theme settings > Product and offer and hides itself when the sale ends.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "countdown_label",
+      "label": "Countdown label",
+      "default": "Ends in"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        { "type": "inline_richtext", "id": "text", "label": "Text", "default": "Launch sale: up to [X]% off Alumnus. Free US shipping." },
+        { "type": "text", "id": "link", "label": "Link", "info": "A URL or an anchor such as #buy" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar",
+      "blocks": [{ "type": "message" }]
+    }
+  ]
+}
+{% endschema %}

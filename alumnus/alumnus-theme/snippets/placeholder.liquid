@@ -1,0 +1,48 @@
+{%- comment -%}
+  Labelled media placeholder. Shows which asset from the Higgsfield prompt pack belongs in this slot.
+
+  Accepts:
+  - asset_id {String} e.g. 'IMG-01'
+  - title {String} what the asset shows
+  - spec {String} ratio / size / format hint
+  - kind {String} 'image' (default) or 'video'
+  - compact {Boolean} smaller label for thumbnails
+  - dark {Boolean} dark styling
+
+  Labels are always shown in the theme editor. On the live store they follow
+  Theme settings > Media placeholders > Show placeholder labels.
+{%- endcomment -%}
+{%- liquid
+  assign show_labels = settings.show_placeholder_labels
+  if request.design_mode
+    assign show_labels = true
+  endif
+  assign classes = 'placeholder'
+  if compact
+    assign classes = classes | append: ' placeholder--compact'
+  endif
+  if dark
+    assign classes = classes | append: ' placeholder--dark'
+  endif
+  unless show_labels
+    assign classes = classes | append: ' placeholder--plain'
+  endunless
+-%}
+<div class="{{ classes }}" role="img" aria-label="{{ title | default: 'Media placeholder' | escape }}">
+  <div class="placeholder__inner">
+    {%- if kind == 'video' -%}
+      {% render 'icon', name: 'video', class: 'placeholder__icon' %}
+    {%- else -%}
+      {% render 'icon', name: 'image', class: 'placeholder__icon' %}
+    {%- endif -%}
+    {%- if asset_id != blank -%}
+      <span class="placeholder__id">{{ asset_id }}</span>
+    {%- endif -%}
+    {%- if title != blank -%}
+      <span class="placeholder__title">{{ title }}</span>
+    {%- endif -%}
+    {%- if spec != blank -%}
+      <span class="placeholder__spec">{{ spec }}</span>
+    {%- endif -%}
+  </div>
+</div>

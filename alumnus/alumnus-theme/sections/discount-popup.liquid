@@ -1,0 +1,95 @@
+{%- if section.settings.enabled -%}
+  {%- assign code = section.settings.discount_code | strip -%}
+  <discount-popup
+    class="popup"
+    id="DiscountPopup"
+    data-delay="{{ section.settings.delay }}"
+    data-scroll="{{ section.settings.scroll_trigger }}"
+    data-exit="{{ section.settings.exit_intent }}"
+    data-days="{{ section.settings.frequency_days }}"
+    {% if request.design_mode %}data-design-mode{% endif %}
+  >
+    <div class="popup__overlay" data-popup-close></div>
+    <div class="popup__panel" role="dialog" aria-modal="true" aria-labelledby="DiscountPopupTitle" tabindex="-1">
+      <button type="button" class="icon-btn popup__close" data-popup-close aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', name: 'x' %}</button>
+      <div class="popup__media">
+        {% render 'media',
+          image: section.settings.image,
+          ratio: '4 / 5',
+          sizes: '(min-width: 750px) 410px, 100vw',
+          asset_id: 'IMG-27',
+          title: 'Alumnus on a phone, gift-wrap mood, bright and clean',
+          spec: '4:5 · 1000×1250'
+        %}
+      </div>
+      <div class="popup__body">
+        {%- form 'customer', id: 'PopupForm', class: 'popup__form', data-popup-form: '' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter,popup">
+          {%- if form.posted_successfully? -%}
+            <div class="stack" style="--gap: 14px;" data-popup-success>
+              <span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>
+              <h2 class="h2" id="DiscountPopupTitle">{{ section.settings.success_heading | escape }}</h2>
+              {%- if section.settings.success_text != blank -%}<p class="muted">{{ section.settings.success_text }}</p>{%- endif -%}
+              {%- if code != blank -%}
+                <div class="popup__code">
+                  <span data-code>{{ code | escape }}</span>
+                  <button type="button" class="btn btn--dark btn--sm" data-copy-code="{{ code | escape }}">{{ 'general.popup.copy' | t }}</button>
+                </div>
+                {%- if section.settings.auto_apply -%}
+                  <a class="btn btn--primary btn--lg btn--block" href="/discount/{{ code | url_encode }}?redirect=%2F%23buy">{{ section.settings.apply_label | escape }}</a>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          {%- else -%}
+            <span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>
+            <h2 class="h2" id="DiscountPopupTitle">{{ section.settings.heading | escape }}</h2>
+            {%- if section.settings.text != blank -%}<p class="muted">{{ section.settings.text }}</p>{%- endif -%}
+            <label class="visually-hidden" for="PopupEmail">{{ 'newsletter.label' | t }}</label>
+            <input id="PopupEmail" type="email" name="contact[email]" autocomplete="email" placeholder="{{ 'newsletter.placeholder' | t }}" required>
+            <button type="submit" class="btn btn--primary btn--lg btn--block">{{ section.settings.button_label | escape }}</button>
+            {%- if form.errors -%}<p class="form-message form-message--error">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>{%- endif -%}
+            {%- if section.settings.fine_print != blank -%}<p class="popup__fine">{{ section.settings.fine_print }}</p>{%- endif -%}
+            <button type="button" class="popup__no" data-popup-close>{{ section.settings.decline_label | escape }}</button>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+  </discount-popup>
+
+  {%- if section.settings.show_teaser -%}
+    <button type="button" class="popup-teaser" data-popup-open hidden>{% render 'icon', name: 'gift' %}{{ section.settings.teaser_label | escape }}</button>
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Discount popup",
+  "class": "section-discount-popup",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Show the popup", "default": true },
+    { "type": "paragraph", "content": "Signups are saved to Shopify Customers with email consent. Create the code below in Discounts, and set up a Shopify Email welcome automation for subscribers who don't finish checkout." },
+    { "type": "header", "content": "When it opens" },
+    { "type": "range", "id": "delay", "label": "Open after (seconds)", "min": 0, "max": 60, "step": 1, "default": 10, "info": "0 turns the timer off." },
+    { "type": "range", "id": "scroll_trigger", "label": "Or after scrolling (% of page)", "min": 0, "max": 90, "step": 5, "default": 40, "info": "0 turns this off." },
+    { "type": "checkbox", "id": "exit_intent", "label": "Open when a desktop visitor moves to leave", "default": true },
+    { "type": "range", "id": "frequency_days", "label": "Show again after (days)", "min": 1, "max": 30, "step": 1, "default": 7 },
+    { "type": "header", "content": "Content" },
+    { "type": "image_picker", "id": "image", "label": "Image (IMG-27, 4:5)" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Launch offer" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Claim [X]% off your Alumnus" },
+    { "type": "inline_richtext", "id": "text", "label": "Text", "default": "Join the list for launch pricing and study tips. Your code shows up instantly." },
+    { "type": "text", "id": "button_label", "label": "Button", "default": "Unlock my discount" },
+    { "type": "text", "id": "decline_label", "label": "Close link", "default": "No thanks" },
+    { "type": "inline_richtext", "id": "fine_print", "label": "Fine print", "default": "By signing up you agree to receive marketing emails. Unsubscribe anytime." },
+    { "type": "header", "content": "After signup" },
+    { "type": "text", "id": "success_heading", "label": "Heading", "default": "You're in. Here's your code." },
+    { "type": "inline_richtext", "id": "success_text", "label": "Text", "default": "Use it at checkout. It's also on its way to your inbox." },
+    { "type": "text", "id": "discount_code", "label": "Discount code", "default": "WELCOME10", "info": "Create this exact code in Shopify admin > Discounts." },
+    { "type": "checkbox", "id": "auto_apply", "label": "Show a button that applies the code automatically", "default": true },
+    { "type": "text", "id": "apply_label", "label": "Apply button", "default": "Apply code and shop" },
+    { "type": "header", "content": "Teaser" },
+    { "type": "checkbox", "id": "show_teaser", "label": "Show a small offer tab after the popup is closed", "default": true },
+    { "type": "text", "id": "teaser_label", "label": "Teaser label", "default": "Get [X]% off" }
+  ]
+}
+{% endschema %}

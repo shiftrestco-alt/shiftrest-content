@@ -1,0 +1,109 @@
+<section class="section scheme-{{ section.settings.color_scheme }}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handle }}"{% endif %}>
+  <div class="container">
+    <div class="app__top{% if section.settings.layout == 'media_first' %} app__top--reverse{% endif %}">
+      <div class="app__copy">
+        {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
+        <h2 class="h1 reveal">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- if section.settings.text != blank -%}<p class="lead reveal" data-delay="1">{{ section.settings.text }}</p>{%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <p><a class="btn btn--outline" href="{{ section.settings.button_link | default: '#buy' }}">{{ section.settings.button_label | escape }}</a></p>
+        {%- endif -%}
+      </div>
+      <div class="reveal" data-delay="1">
+        {% render 'media',
+          image: section.settings.image,
+          video: section.settings.video,
+          ratio: '1 / 1',
+          mobile_ratio: '4 / 5',
+          sizes: '(min-width: 990px) 600px, 100vw',
+          asset_id: 'IMG-13 (+ APP screenshot)',
+          title: 'Hand holding a phone showing the summary view, Alumnus on the back',
+          spec: '1:1 · 1600×1600 · screen = your real app screenshot',
+          dark: true
+        %}
+      </div>
+    </div>
+
+    <div class="grid grid--3">
+      {%- for block in section.blocks -%}
+        {%- assign asset_id = 'APP-0' | append: forloop.index -%}
+        <div class="app-feature{% unless block.settings.show_image %} app-feature--no-media{% endunless %} reveal" data-delay="{{ forloop.index0 | modulo: 3 }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.show_image -%}
+            {% render 'media', image: block.settings.image, ratio: '4 / 3', sizes: '(min-width: 990px) 33vw, 100vw', asset_id: asset_id, title: block.settings.placeholder_note, spec: 'Real screenshot from the app · 4:3' %}
+          {%- else -%}
+            <span class="icon-tile">{% render 'icon', name: block.settings.icon %}</span>
+          {%- endif -%}
+          <div class="app-feature__body">
+            <h3 class="feature-card__title">{{ block.settings.title | escape }}</h3>
+            {%- if block.settings.text != blank -%}<p class="feature-card__text">{{ block.settings.text }}</p>{%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "App showcase",
+  "class": "section-app",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The app" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "More than a transcript." },
+    { "type": "inline_richtext", "id": "text", "label": "Text", "default": "17 summary templates turn every recording into the format you need, from meeting minutes to a study guide." },
+    { "type": "text", "id": "button_label", "label": "Button label" },
+    { "type": "text", "id": "button_link", "label": "Button link", "default": "#buy" },
+    { "type": "image_picker", "id": "image", "label": "Image (IMG-13, 1:1)" },
+    { "type": "video", "id": "video", "label": "Or a screen-recording video" },
+    {
+      "type": "select", "id": "layout", "label": "Layout",
+      "options": [ { "value": "text_first", "label": "Text left" }, { "value": "media_first", "label": "Image left" } ],
+      "default": "text_first"
+    },
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "app" },
+    {
+      "type": "select", "id": "color_scheme", "label": "Color scheme",
+      "options": [ { "value": "light", "label": "Light" }, { "value": "grey", "label": "Grey" }, { "value": "dark", "label": "Dark" } ],
+      "default": "dark"
+    },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 112 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 112 }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "App feature",
+      "settings": [
+        { "type": "checkbox", "id": "show_image", "label": "Show screenshot", "default": true },
+        { "type": "image_picker", "id": "image", "label": "Screenshot (4:3)" },
+        { "type": "text", "id": "placeholder_note", "label": "What this screenshot shows", "default": "Summary view of a recorded lecture" },
+        {
+          "type": "select", "id": "icon", "label": "Icon (used when the screenshot is off)",
+          "options": [
+            { "value": "doc", "label": "Document" },
+            { "value": "mindmap", "label": "Mind map" },
+            { "value": "list-checks", "label": "Checklist" },
+            { "value": "sparkle", "label": "AI sparkle" },
+            { "value": "globe", "label": "Languages" },
+            { "value": "search", "label": "Search" }
+          ],
+          "default": "doc"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Summaries" },
+        { "type": "inline_richtext", "id": "text", "label": "Text", "default": "Key points pulled out automatically." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "App showcase",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature", "settings": { "icon": "mindmap", "placeholder_note": "Mind map generated from a meeting", "title": "Mind maps", "text": "See how ideas connect at a glance." } },
+        { "type": "feature", "settings": { "icon": "list-checks", "placeholder_note": "To-do list with action items and owners", "title": "To-do lists", "text": "Action items, assigned and ready to go." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

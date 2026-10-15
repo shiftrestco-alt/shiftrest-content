@@ -1,0 +1,170 @@
+{
+  "accessibility": {
+    "skip_to_content": "Skip to content"
+  },
+  "general": {
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "accessibility": {
+      "close": "Close"
+    },
+    "countdown": {
+      "days_short": "d",
+      "hours_short": "h",
+      "minutes_short": "m",
+      "seconds_short": "s"
+    },
+    "pagination": {
+      "label": "Pagination"
+    },
+    "popup": {
+      "copy": "Copy",
+      "copied": "Copied"
+    },
+    "rating": {
+      "out_of_five": "Rated {{ rating }} out of 5",
+      "count": {
+        "one": "{{ count }} review",
+        "other": "{{ count }} reviews"
+      },
+      "based_on": {
+        "one": "Based on {{ count }} review",
+        "other": "Based on {{ count }} reviews"
+      }
+    },
+    "slider": {
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "newsletter": {
+    "label": "Email",
+    "placeholder": "Your email",
+    "button": "Join",
+    "success": "Thanks for signing up. Check your inbox."
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "price_from": "From {{ price }}",
+      "save_percent": "Save {{ percent }}%",
+      "each": "each",
+      "low_stock": {
+        "one": "Only {{ count }} left in stock",
+        "other": "Only {{ count }} left in stock"
+      },
+      "description": "Description",
+      "media_thumb": "Show image {{ index }}"
+    }
+  },
+  "sections": {
+    "announcement": {
+      "label": "Announcement"
+    },
+    "header": {
+      "menu": "Menu",
+      "main_nav": "Main",
+      "cart": "Cart"
+    },
+    "hero": {
+      "pick_product": "Pick a product in this section to show its price."
+    },
+    "buy_box": {
+      "pick_product": "Pick your Alumnus product in this section's settings to show live prices and the add to cart button."
+    },
+    "video": {
+      "play": "Play video",
+      "unmute": "Turn sound on"
+    },
+    "compare": {
+      "feature": "Feature",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "reviews": {
+      "write": "Write a review",
+      "verified": "Verified buyer"
+    },
+    "faq": {
+      "categories": "Question topics"
+    },
+    "footer": {
+      "payment": "Payment methods",
+      "app_store": "Download on the App Store",
+      "play_store": "Get it on Google Play"
+    },
+    "cart": {
+      "title": "Your cart",
+      "empty": "Your cart is empty",
+      "shop_cta": "Shop Alumnus",
+      "error": "Something went wrong. Please try again.",
+      "free_shipping_remaining": "You're {{ amount }} away from free shipping",
+      "free_shipping_unlocked": "You've unlocked free shipping",
+      "decrease": "Decrease quantity",
+      "increase": "Increase quantity",
+      "quantity": "Quantity",
+      "remove": "Remove",
+      "add": "Add",
+      "discount_label": "Discount code",
+      "discount_placeholder": "Discount code",
+      "discount_apply": "Apply",
+      "discount_invalid": "That code can't be used with this cart.",
+      "discount_remove": "Remove discount {{ code }}",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "checkout": "Checkout",
+      "taxes_note": "Taxes and shipping are calculated at checkout."
+    },
+    "collection": {
+      "all": "Collections",
+      "empty": "No products here yet."
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search",
+      "submit": "Search",
+      "results_count": {
+        "zero": "No results for \"{{ terms }}\"",
+        "one": "{{ count }} result for \"{{ terms }}\"",
+        "other": "{{ count }} results for \"{{ terms }}\""
+      }
+    },
+    "contact": {
+      "name": "Name",
+      "email": "Email",
+      "order": "Order number (optional)",
+      "message": "Message",
+      "send": "Send",
+      "success": "Thanks! We'll get back to you within one business day."
+    },
+    "blog": {
+      "back": "Back to the blog"
+    },
+    "not_found": {
+      "title": "This page took notes somewhere else.",
+      "text": "The page you're looking for doesn't exist.",
+      "cta": "Back to home"
+    },
+    "password": {
+      "owner": "Store owner? Enter password",
+      "label": "Password",
+      "enter": "Enter"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext": "Your gift card",
+      "initial_value": "Initial value {{ value }}",
+      "expired": "Expired",
+      "add_to_apple_wallet": "Add to Apple Wallet",
+      "shop_link": "Start shopping",
+      "print": "Print",
+      "qr_image_alt": "QR code: scan to redeem the gift card"
+    }
+  }
+}

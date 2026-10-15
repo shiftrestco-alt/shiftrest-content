@@ -1,0 +1,43 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "col-shop": {
+          "type": "links",
+          "settings": { "heading": "Shop", "links": "Alumnus | #buy\nApp plans | #plans\nSpecs | #specs\nCompare | #compare" }
+        },
+        "col-support": {
+          "type": "links",
+          "settings": { "heading": "Support", "links": "FAQ | #faq\nShipping and returns | /policies/shipping-policy\nContact | /pages/contact" }
+        },
+        "col-legal": {
+          "type": "links",
+          "settings": { "heading": "Legal", "links": "Privacy | /policies/privacy-policy\nTerms | /policies/terms-of-service\nRefunds | /policies/refund-policy" }
+        },
+        "col-social": {
+          "type": "links",
+          "settings": { "heading": "Social", "links": "TikTok | https://www.tiktok.com/@yourhandle\nInstagram | https://www.instagram.com/yourhandle" }
+        }
+      },
+      "block_order": ["col-shop", "col-support", "col-legal", "col-social"],
+      "settings": {
+        "logo_text": "alumnus",
+        "show_logo_dot": true,
+        "tagline": "Get launch deals and study tips.",
+        "show_newsletter": true,
+        "newsletter_button": "Join",
+        "show_badge_placeholders": true,
+        "show_follow_on_shop": false,
+        "show_policies": false,
+        "show_payment_icons": false,
+        "show_wordmark": true,
+        "copyright": "Alumnus AI",
+        "color_scheme": "dark"
+      }
+    }
+  },
+  "order": ["footer"]
+}

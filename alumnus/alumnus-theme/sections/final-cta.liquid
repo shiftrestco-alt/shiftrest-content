@@ -1,0 +1,74 @@
+{%- liquid
+  assign cta_product = section.settings.product
+  if cta_product == blank
+    assign cta_product = settings.main_product
+  endif
+  if cta_product != blank
+    assign cta_variant = cta_product.selected_or_first_available_variant
+  endif
+-%}
+<section class="section scheme-{{ section.settings.color_scheme }}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div class="cta-banner__media">
+        {% render 'media',
+          image: section.settings.image,
+          video: section.settings.video,
+          ratio: '16 / 9',
+          sizes: '(min-width: 1200px) 1200px, 100vw',
+          asset_id: 'IMG-26',
+          title: 'Evening desk scene: laptop, notebook, Alumnus glowing softly. Empty left side for text',
+          spec: '16:9 · 2400×1350 · keep the left 45% calm',
+          dark: true
+        %}
+      </div>
+      <div class="cta-banner__copy">
+        {%- if section.settings.eyebrow != blank -%}<span class="eyebrow" style="color: inherit; opacity: .8;">{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
+        <h2 class="h1">{{ section.settings.heading | escape }}</h2>
+        {%- if section.settings.text != blank -%}<p class="lead">{{ section.settings.text }}</p>{%- endif -%}
+        {%- if section.settings.show_countdown and settings.sale_end_date != blank -%}
+          {% render 'countdown', style: 'chips' %}
+        {%- endif -%}
+        <div class="cta-banner__row">
+          {%- if section.settings.button_label != blank -%}
+            <a class="btn btn--primary btn--lg" href="{{ section.settings.button_link | default: '#buy' }}">{{ section.settings.button_label | escape }}</a>
+          {%- endif -%}
+          {%- if cta_variant != blank -%}
+            <span class="price-inline">
+              <span class="price-inline__now">{{ cta_variant.price | money }}</span>
+              {%- if cta_variant.compare_at_price > cta_variant.price -%}<s class="price-inline__was" style="color: rgba(255,255,255,.6);">{{ cta_variant.compare_at_price | money }}</s>{%- endif -%}
+            </span>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.small_print != blank -%}<p class="small" style="opacity: .7;">{{ section.settings.small_print | escape }}</p>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Closing offer",
+  "class": "section-final-cta",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Launch offer" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Never miss what matters again." },
+    { "type": "inline_richtext", "id": "text", "label": "Text", "default": "Up to [X]% off bundles while the launch sale lasts." },
+    { "type": "checkbox", "id": "show_countdown", "label": "Show sale countdown", "default": true },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Get Alumnus" },
+    { "type": "text", "id": "button_link", "label": "Button link", "default": "#buy" },
+    { "type": "product", "id": "product", "label": "Product (shows price)", "info": "Optional. Defaults to Theme settings > Your Alumnus product." },
+    { "type": "text", "id": "small_print", "label": "Small print", "default": "Free US shipping · [30]-day returns · [1]-year warranty" },
+    { "type": "image_picker", "id": "image", "label": "Background image (IMG-26, 16:9)" },
+    { "type": "video", "id": "video", "label": "Or background video" },
+    {
+      "type": "select", "id": "color_scheme", "label": "Section background",
+      "options": [ { "value": "light", "label": "Light" }, { "value": "grey", "label": "Grey" } ],
+      "default": "light"
+    },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "presets": [ { "name": "Closing offer" } ]
+}
+{% endschema %}

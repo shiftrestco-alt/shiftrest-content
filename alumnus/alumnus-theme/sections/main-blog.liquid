@@ -1,0 +1,38 @@
+<section class="section scheme-light" style="--pt: 48px; --pb: 96px;">
+  <div class="container">
+    <div class="page-head"><h1 class="h1">{{ blog.title | escape }}</h1></div>
+    {%- paginate blog.articles by 9 -%}
+      <ul class="product-grid" role="list">
+        {%- for article in blog.articles -%}
+          <li>
+            <a class="article-card" href="{{ article.url }}">
+              {%- if article.image -%}
+                <div class="media" style="--ratio: 16 / 10;">{{ article.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 50vw', widths: '300, 450, 600, 900', alt: article.title }}</div>
+              {%- else -%}
+                {% render 'media', ratio: '16 / 10', title: article.title %}
+              {%- endif -%}
+              <span class="tiny muted">{{ article.published_at | time_tag: format: 'date' }}</span>
+              <span class="product-card__title">{{ article.title | escape }}</span>
+              <span class="muted small">{{ article.excerpt_or_content | strip_html | truncatewords: 24 }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+      {%- if paginate.pages > 1 -%}
+        <nav class="pagination" aria-label="{{ 'general.pagination.label' | t }}">
+          {%- for part in paginate.parts -%}
+            {%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>{%- elsif part.title == paginate.current_page -%}<span class="is-current" aria-current="page">{{ part.title }}</span>{%- else -%}<span>{{ part.title }}</span>{%- endif -%}
+          {%- endfor -%}
+        </nav>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog posts",
+  "class": "section-main-blog",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,77 @@
+<section class="section scheme-{{ section.settings.color_scheme }}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handle }}"{% endif %}>
+  <div class="container">
+    <div class="section-head section-head--center">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
+      <h2 class="h2 reveal">{{ section.settings.heading | escape }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="lead reveal" data-delay="1">{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+    <carousel-slider class="carousel{% if section.blocks.size > 4 %} carousel--has-nav{% endif %}" style="--per-view: 4; --per-view-md: 2;">
+      <ul class="carousel__track" role="list" data-track>
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <figure class="review-card{% if block.settings.image == blank %} review-card--no-media{% endif %}">
+              {%- if block.settings.image != blank -%}
+                {% render 'media', image: block.settings.image, ratio: '1 / 1', sizes: '(min-width: 990px) 25vw, 82vw', title: block.settings.name %}
+              {%- endif -%}
+              <div class="review-card__body">
+                {% render 'stars', rating: block.settings.rating, star_size: '15px' %}
+                <blockquote class="review-card__quote">{{ block.settings.quote }}</blockquote>
+                <figcaption>
+                  <span class="review-card__name">{{ block.settings.name | escape }}</span>
+                  {%- if block.settings.detail != blank -%}
+                    <span class="review-card__meta">{% render 'icon', name: 'check-circle' %}{{ block.settings.detail | escape }}</span>
+                  {%- endif -%}
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        {%- endfor -%}
+      </ul>
+      <div class="carousel__nav">
+        <button type="button" class="carousel__btn" data-prev aria-label="{{ 'general.slider.previous' | t }}">{% render 'icon', name: 'chevron-left' %}</button>
+        <button type="button" class="carousel__btn" data-next aria-label="{{ 'general.slider.next' | t }}">{% render 'icon', name: 'chevron-right' %}</button>
+      </div>
+    </carousel-slider>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Review cards",
+  "class": "section-review-cards",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "[X]+ students, interns and founders" },
+    { "type": "inline_richtext", "id": "subheading", "label": "Subheading" },
+    { "type": "paragraph", "content": "Use real reviews from real buyers only, and real customer photos (UGC). Do not generate people for this section." },
+    { "type": "text", "id": "anchor", "label": "Anchor ID" },
+    {
+      "type": "select", "id": "color_scheme", "label": "Color scheme",
+      "options": [ { "value": "light", "label": "Light" }, { "value": "grey", "label": "Grey" }, { "value": "dark", "label": "Dark" } ],
+      "default": "grey"
+    },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Customer photo (optional, real UGC only)" },
+        { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "textarea", "id": "quote", "label": "Review", "default": "[Real customer review]" },
+        { "type": "text", "id": "name", "label": "Name", "default": "[Name]" },
+        { "type": "text", "id": "detail", "label": "Detail", "default": "Verified buyer" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Review cards",
+      "blocks": [ { "type": "review" }, { "type": "review" }, { "type": "review" }, { "type": "review" } ]
+    }
+  ]
+}
+{% endschema %}

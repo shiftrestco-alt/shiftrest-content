@@ -1,0 +1,14 @@
+{%- comment -%}
+  Countdown to the real sale end date set in Theme settings > Product and offer.
+  It hides itself once the date has passed, so it never shows a fake or resetting timer.
+
+  Accepts:
+  - style {String} 'inline' (default) or 'chips'
+  - label {String} optional text shown before the timer
+{%- endcomment -%}
+{%- if settings.sale_end_date != blank -%}
+  <count-down class="countdown{% if style == 'chips' %} countdown-chips{% endif %}" data-end="{{ settings.sale_end_date | escape }}" data-style="{{ style | default: 'inline' }}" hidden>
+    {%- if label != blank -%}<span class="countdown__label">{{ label }}</span>{%- endif -%}
+    <span class="countdown__value" aria-live="off"></span>
+  </count-down>
+{%- endif -%}

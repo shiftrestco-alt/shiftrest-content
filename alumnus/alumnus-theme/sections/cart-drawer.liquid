@@ -1,0 +1,27 @@
+<cart-drawer class="drawer" id="CartDrawer" data-item-count="{{ cart.item_count }}">
+  <div class="drawer__overlay" data-cart-close></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="CartDrawerTitle" tabindex="-1">
+    <div class="drawer__head">
+      <h2 id="CartDrawerTitle">{{ 'sections.cart.title' | t }}{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</h2>
+      <button type="button" class="icon-btn" data-cart-close aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', name: 'x' %}</button>
+    </div>
+    <div class="drawer__body">
+      {% render 'cart-contents', context: 'drawer' %}
+    </div>
+    {%- if cart.item_count > 0 -%}
+      <div class="drawer__foot">
+        {% render 'cart-summary', context: 'drawer' %}
+      </div>
+    {%- endif -%}
+  </div>
+</cart-drawer>
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "class": "section-cart-drawer",
+  "settings": [
+    { "type": "paragraph", "content": "Cart drawer options live in Theme settings > Cart." }
+  ]
+}
+{% endschema %}

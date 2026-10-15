@@ -1,0 +1,90 @@
+{%- comment -%}
+  Renders a merchant-picked image or Shopify-hosted video inside a rounded frame.
+  Falls back to a labelled placeholder (snippets/placeholder.liquid) until the asset is uploaded.
+
+  Accepts:
+  - image {Object} image_picker value
+  - mobile_image {Object} optional image for screens under 750px
+  - video {Object} optional `video` setting value (plays muted, looped, inline)
+  - ratio {String} CSS aspect-ratio, e.g. '16 / 10' (default '16 / 10')
+  - mobile_ratio {String} aspect-ratio under 750px
+  - sizes {String} sizes attribute (default '100vw')
+  - eager {Boolean} load immediately (use for the first image on the page)
+  - fit {String} 'cover' (default) or 'contain'
+  - class {String} extra classes
+  - asset_id, title, spec, kind: passed to the placeholder
+  - dark {Boolean} dark placeholder
+  - compact {Boolean} small placeholder label (thumbnails)
+{%- endcomment -%}
+{%- liquid
+  assign ratio = ratio | default: '16 / 10'
+  assign sizes = sizes | default: '100vw'
+  assign loading = 'lazy'
+  assign priority = 'auto'
+  if eager
+    assign loading = 'eager'
+    assign priority = 'high'
+  endif
+  assign media_class = 'media'
+  if mobile_ratio != blank
+    assign media_class = media_class | append: ' media--mobile-ratio'
+  endif
+  if fit == 'contain'
+    assign media_class = media_class | append: ' media--contain'
+  endif
+  if class != blank
+    assign media_class = media_class | append: ' ' | append: class
+  endif
+  assign alt_text = title | default: shop.name
+  if image != blank and image.alt != blank
+    assign alt_text = image.alt
+  endif
+-%}
+<div class="{{ media_class }}" style="--ratio: {{ ratio }};{% if mobile_ratio != blank %} --ratio-mobile: {{ mobile_ratio }};{% endif %}">
+  {%- if video != blank -%}
+    {{
+      video
+      | video_tag:
+        autoplay: true,
+        loop: true,
+        muted: true,
+        playsinline: true,
+        controls: false,
+        preload: 'metadata',
+        image_size: '1600x'
+    }}
+  {%- elsif image != blank -%}
+    {%- if mobile_image != blank -%}
+      <picture>
+        <source
+          media="(max-width: 749px)"
+          srcset="{{ mobile_image | image_url: width: 600 }} 600w, {{ mobile_image | image_url: width: 900 }} 900w, {{ mobile_image | image_url: width: 1200 }} 1200w, {{ mobile_image | image_url: width: 1500 }} 1500w"
+          sizes="100vw"
+        >
+        {{
+          image
+          | image_url: width: 2400
+          | image_tag:
+            loading: loading,
+            fetchpriority: priority,
+            sizes: sizes,
+            widths: '750, 1100, 1500, 1800, 2400',
+            alt: alt_text
+        }}
+      </picture>
+    {%- else -%}
+      {{
+        image
+        | image_url: width: 2400
+        | image_tag:
+          loading: loading,
+          fetchpriority: priority,
+          sizes: sizes,
+          widths: '375, 550, 750, 1100, 1500, 1800, 2400',
+          alt: alt_text
+      }}
+    {%- endif -%}
+  {%- else -%}
+    {% render 'placeholder', asset_id: asset_id, title: title, spec: spec, kind: kind, dark: dark, compact: compact %}
+  {%- endif -%}
+</div>

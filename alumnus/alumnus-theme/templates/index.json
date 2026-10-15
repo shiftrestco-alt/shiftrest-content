@@ -1,0 +1,559 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Alumnus AI",
+        "heading": "Your AI note-taker.",
+        "heading_size": "h-display",
+        "media_width": "contained",
+        "text": "Listen, don't type. One press records your lecture, meeting or call, and Alumnus turns it into notes you'll actually use.",
+        "button_label": "Get Alumnus",
+        "button_link": "#buy",
+        "show_price": true,
+        "show_rating": true,
+        "rating_fallback": "[X.X]",
+        "rating_text": "[X] reviews",
+        "trust_items": "Free US shipping|[30]-day returns|[1]-year warranty",
+        "color_scheme": "light",
+        "padding_top": 48,
+        "padding_bottom": 72
+      }
+    },
+    "intro": {
+      "type": "intro-video",
+      "settings": {
+        "eyebrow": "Introducing",
+        "heading": "Alumnus: a smarter way to remember everything.",
+        "text": "Watch how one press turns a 50-minute lecture into a one-page summary.",
+        "link_label": "Watch the film",
+        "layout": "text_first",
+        "color_scheme": "light",
+        "padding_top": 0,
+        "padding_bottom": 72
+      }
+    },
+    "logos": {
+      "type": "logo-list",
+      "blocks": {
+        "logo-1": { "type": "logo", "settings": { "name": "[Logo]" } },
+        "logo-2": { "type": "logo", "settings": { "name": "[Logo]" } },
+        "logo-3": { "type": "logo", "settings": { "name": "[Logo]" } },
+        "logo-4": { "type": "logo", "settings": { "name": "[Logo]" } },
+        "logo-5": { "type": "logo", "settings": { "name": "[Logo]" } }
+      },
+      "block_order": ["logo-1", "logo-2", "logo-3", "logo-4", "logo-5"],
+      "settings": {
+        "heading": "Used by students and professionals at",
+        "color_scheme": "light",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "stories": {
+      "type": "video-carousel",
+      "blocks": {
+        "video-class": {
+          "type": "video",
+          "settings": {
+            "placeholder_note": "Student records a lecture with one press",
+            "tag": "In class",
+            "name": "The lecture",
+            "role": "Record → summary in under a minute"
+          }
+        },
+        "video-call": {
+          "type": "video",
+          "settings": {
+            "placeholder_note": "Analyst snaps Alumnus to the phone for a client call",
+            "tag": "On a call",
+            "name": "The client call",
+            "role": "Both sides captured, no speakerphone"
+          }
+        },
+        "video-work": {
+          "type": "video",
+          "settings": {
+            "placeholder_note": "Founder reviews meeting action items in the app",
+            "tag": "At work",
+            "name": "The team meeting",
+            "role": "Minutes and to-dos, done"
+          }
+        }
+      },
+      "block_order": ["video-class", "video-call", "video-work"],
+      "settings": {
+        "heading": "How Alumnus helps people work smarter",
+        "subheading": "One press in class, at work and on calls.",
+        "disclosure": "Demo footage. Scenes are dramatized.",
+        "anchor": "stories",
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "statement": {
+      "type": "image-banner",
+      "settings": {
+        "heading": "A new kind of device for a different way of thinking.",
+        "text": "No screen, no typing, no app open on your phone. Just press and talk.",
+        "layout": "above",
+        "color_scheme": "light",
+        "padding_top": 48,
+        "padding_bottom": 96
+      }
+    },
+    "real-life": {
+      "type": "lifestyle-gallery",
+      "blocks": {
+        "card-class": {
+          "type": "card",
+          "settings": {
+            "placeholder_note": "Student in a lecture hall, Alumnus on the desk",
+            "title": "In class",
+            "text": "Record the lecture, study from the summary."
+          }
+        },
+        "card-work": {
+          "type": "card",
+          "settings": {
+            "placeholder_note": "Young professional in a meeting room, device on the table",
+            "title": "At work",
+            "text": "Meeting minutes and action items, done."
+          }
+        },
+        "card-call": {
+          "type": "card",
+          "settings": {
+            "placeholder_note": "Person on a phone call, Alumnus snapped to the phone",
+            "title": "On a call",
+            "text": "Capture calls without speakerphone."
+          }
+        },
+        "card-go": {
+          "type": "card",
+          "settings": {
+            "placeholder_note": "Walking outdoors talking an idea into the device",
+            "title": "On the go",
+            "text": "Talk through ideas, get a clean outline."
+          }
+        }
+      },
+      "block_order": ["card-class", "card-work", "card-call", "card-go"],
+      "settings": {
+        "heading": "See Alumnus in real life",
+        "subheading": "From lecture halls to client calls.",
+        "color_scheme": "grey",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "features": {
+      "type": "feature-bento",
+      "blocks": {
+        "feature-press": {
+          "type": "feature",
+          "settings": {
+            "show_image": true,
+            "placeholder_note": "Thumb pressing the single record button, macro",
+            "icon": "mic",
+            "title": "One-press recording",
+            "text": "Start and stop with a single button. No unlocking your phone."
+          }
+        },
+        "feature-thin": {
+          "type": "feature",
+          "settings": {
+            "show_image": true,
+            "placeholder_note": "Side profile showing how thin it is next to a credit card",
+            "icon": "magnet",
+            "title": "Card-thin, magnetic",
+            "text": "About [3] mm thick and snaps to the back of your phone."
+          }
+        },
+        "feature-calls": {
+          "type": "feature",
+          "settings": {
+            "show_image": true,
+            "placeholder_note": "Phone held to ear with Alumnus snapped on the back",
+            "icon": "phone-call",
+            "title": "Records calls",
+            "text": "Picks up phone calls clearly, no speakerphone needed."
+          }
+        },
+        "feature-battery": {
+          "type": "feature",
+          "settings": {
+            "show_image": true,
+            "placeholder_note": "Magnetic charging cable clicking onto the device",
+            "icon": "battery",
+            "title": "All-day battery",
+            "text": "[X] hours of recording. Magnetic cable to recharge."
+          }
+        }
+      },
+      "block_order": ["feature-press", "feature-thin", "feature-calls", "feature-battery"],
+      "settings": {
+        "eyebrow": "Designed for real life",
+        "heading": "Simple on the outside.\nSmart inside.",
+        "text": "One button, a card-thin body and a magnet. Everything else happens in the app.",
+        "show_main_media": true,
+        "anchor": "features",
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "review-cards": {
+      "type": "review-cards",
+      "blocks": {
+        "review-1": { "type": "review", "settings": { "rating": 5, "quote": "[Real customer review]", "name": "[Name]", "detail": "Verified buyer" } },
+        "review-2": { "type": "review", "settings": { "rating": 5, "quote": "[Real customer review]", "name": "[Name]", "detail": "Verified buyer" } },
+        "review-3": { "type": "review", "settings": { "rating": 5, "quote": "[Real customer review]", "name": "[Name]", "detail": "Verified buyer" } },
+        "review-4": { "type": "review", "settings": { "rating": 5, "quote": "[Real customer review]", "name": "[Name]", "detail": "Verified buyer" } }
+      },
+      "block_order": ["review-1", "review-2", "review-3", "review-4"],
+      "settings": {
+        "heading": "[X]+ students, interns and founders",
+        "color_scheme": "grey",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "app": {
+      "type": "app-showcase",
+      "blocks": {
+        "app-summaries": {
+          "type": "feature",
+          "settings": {
+            "show_image": true,
+            "placeholder_note": "Summary view of a recorded lecture",
+            "icon": "doc",
+            "title": "Summaries",
+            "text": "Key points pulled out automatically."
+          }
+        },
+        "app-mindmaps": {
+          "type": "feature",
+          "settings": {
+            "show_image": true,
+            "placeholder_note": "Mind map generated from a meeting",
+            "icon": "mindmap",
+            "title": "Mind maps",
+            "text": "See how ideas connect at a glance."
+          }
+        },
+        "app-todos": {
+          "type": "feature",
+          "settings": {
+            "show_image": true,
+            "placeholder_note": "To-do list with action items and owners",
+            "icon": "list-checks",
+            "title": "To-do lists",
+            "text": "Action items, assigned and ready to go."
+          }
+        }
+      },
+      "block_order": ["app-summaries", "app-mindmaps", "app-todos"],
+      "settings": {
+        "eyebrow": "The app",
+        "heading": "More than a transcript.",
+        "text": "17 summary templates turn every recording into the format you need, from meeting minutes to a study guide.",
+        "layout": "text_first",
+        "anchor": "app",
+        "color_scheme": "dark",
+        "padding_top": 112,
+        "padding_bottom": 112
+      }
+    },
+    "formats": {
+      "type": "export-formats",
+      "blocks": {
+        "format-pdf": { "type": "format", "settings": { "label": "PDF", "icon": "doc" } },
+        "format-word": { "type": "format", "settings": { "label": "Word", "icon": "doc" } },
+        "format-email": { "type": "format", "settings": { "label": "Email", "icon": "mail" } },
+        "format-audio": { "type": "format", "settings": { "label": "MP3 / WAV", "icon": "wave" } },
+        "format-more": { "type": "format", "settings": { "label": "[More: confirm]", "icon": "download" } }
+      },
+      "block_order": ["format-pdf", "format-word", "format-email", "format-audio", "format-more"],
+      "settings": {
+        "heading": "One recording. Notes wherever you work.",
+        "text": "Export or share your notes in a tap.",
+        "show_media": true,
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "compare": {
+      "type": "comparison-table",
+      "blocks": {
+        "row-press": { "type": "row", "settings": { "feature": "Records with one press, phone locked", "value_1": "yes", "value_2": "no", "value_3": "no" } },
+        "row-calls": { "type": "row", "settings": { "feature": "Records phone calls without speakerphone", "value_1": "yes", "value_2": "no", "value_3": "no" } },
+        "row-ai": { "type": "row", "settings": { "feature": "AI summary, mind map and to-dos", "value_1": "yes", "value_2": "no", "value_3": "no" } },
+        "row-eyes": { "type": "row", "settings": { "feature": "Keeps your eyes on the speaker", "value_1": "yes", "value_2": "yes", "value_3": "no" } },
+        "row-search": { "type": "row", "settings": { "feature": "Searchable transcript", "value_1": "yes", "value_2": "no", "value_3": "no" } },
+        "row-battery": { "type": "row", "settings": { "feature": "Battery", "value_1": "[X] hrs, separate from your phone", "value_2": "Drains your phone", "value_3": "Laptop battery" } }
+      },
+      "block_order": ["row-press", "row-calls", "row-ai", "row-eyes", "row-search", "row-battery"],
+      "settings": {
+        "eyebrow": "Why Alumnus",
+        "heading": "Why not just use your phone?",
+        "text": "Your phone can record. It can't take the notes for you.",
+        "col_1": "Alumnus",
+        "col_2": "Phone voice memo",
+        "col_3": "Typing notes",
+        "anchor": "compare",
+        "color_scheme": "grey",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "buy": {
+      "type": "buy-box",
+      "blocks": {
+        "tier-1": { "type": "tier", "settings": { "quantity": 1, "discount": 0, "title": "1 Alumnus", "subtitle": "Solo", "selected": false } },
+        "tier-2": { "type": "tier", "settings": { "quantity": 2, "discount": 10, "title": "2 Alumnus", "subtitle": "Duo: one for you, one to gift", "badge": "Most popular", "selected": true } },
+        "tier-3": { "type": "tier", "settings": { "quantity": 3, "discount": 15, "title": "3 Alumnus", "subtitle": "Study group", "badge": "Best value", "selected": false } },
+        "trust-ship": { "type": "trust", "settings": { "icon": "truck", "text": "Free US shipping" } },
+        "trust-returns": { "type": "trust", "settings": { "icon": "return", "text": "[30]-day returns" } },
+        "trust-warranty": { "type": "trust", "settings": { "icon": "shield", "text": "[1]-year warranty" } },
+        "trust-secure": { "type": "trust", "settings": { "icon": "lock", "text": "Secure checkout" } },
+        "row-box": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "What's in the box",
+            "content": "<p>Alumnus recorder, magnetic charging cable, quick-start guide. [Confirm with supplier.]</p>"
+          }
+        },
+        "row-shipping": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Shipping and returns",
+            "content": "<p>Ships in [X–X] business days with tracking. Free US shipping. Return within [30] days for a full refund.</p>"
+          }
+        }
+      },
+      "block_order": ["tier-1", "tier-2", "tier-3", "trust-ship", "trust-returns", "trust-warranty", "trust-secure", "row-box", "row-shipping"],
+      "settings": {
+        "fallback_title": "Alumnus AI Recorder",
+        "anchor": "buy",
+        "show_rating": true,
+        "rating_fallback": "[X.X]",
+        "rating_text": "[X] reviews",
+        "reviews_anchor": "reviews",
+        "tiers_label": "Bundle",
+        "tiers_note": "Bundle savings are applied automatically at checkout.",
+        "button_label": "Add to cart",
+        "show_dynamic_checkout": true,
+        "show_installments": true,
+        "show_countdown": true,
+        "countdown_text": "Launch price ends in",
+        "low_stock_threshold": 0,
+        "ships_text": "Ships in [X–X] business days · Free US shipping · [30]-day returns",
+        "show_payment_icons": true,
+        "show_description": false,
+        "show_sticky_bar": true,
+        "sticky_label": "Buy now",
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "guarantee": {
+      "type": "guarantee",
+      "blocks": {
+        "g-ship": { "type": "item", "settings": { "icon": "truck", "title": "Free US shipping", "text": "Ships in [X–X] business days with tracking." } },
+        "g-returns": { "type": "item", "settings": { "icon": "return", "title": "[30]-day returns", "text": "Not for you? Send it back for a full refund." } },
+        "g-warranty": { "type": "item", "settings": { "icon": "shield", "title": "[1]-year warranty", "text": "If it breaks, we replace it." } },
+        "g-pay": { "type": "item", "settings": { "icon": "credit-card", "title": "Pay in 4 with Shop Pay", "text": "Interest-free installments at checkout." } }
+      },
+      "block_order": ["g-ship", "g-returns", "g-warranty", "g-pay"],
+      "settings": {
+        "heading": "Try it risk-free",
+        "text": "If Alumnus doesn't make your notes better, send it back within [30] days for a full refund.",
+        "color_scheme": "light",
+        "padding_top": 0,
+        "padding_bottom": 96
+      }
+    },
+    "specs": {
+      "type": "specs",
+      "blocks": {
+        "spec-thickness": { "type": "spec", "settings": { "label": "Thickness", "value": "[3] mm" } },
+        "spec-weight": { "type": "spec", "settings": { "label": "Weight", "value": "[X] g" } },
+        "spec-battery": { "type": "spec", "settings": { "label": "Battery", "value": "[X] hrs recording" } },
+        "spec-storage": { "type": "spec", "settings": { "label": "Storage", "value": "[X] GB" } },
+        "spec-formats": { "type": "spec", "settings": { "label": "Audio formats", "value": "MP3, WAV" } },
+        "spec-templates": { "type": "spec", "settings": { "label": "Summary templates", "value": "17" } },
+        "spec-languages": { "type": "spec", "settings": { "label": "Languages", "value": "[X]" } },
+        "spec-charging": { "type": "spec", "settings": { "label": "Charging", "value": "Magnetic cable" } },
+        "spec-compat": { "type": "spec", "settings": { "label": "Compatibility", "value": "iPhone and Android [confirm]" } },
+        "spec-attach": { "type": "spec", "settings": { "label": "Attachment", "value": "Magnetic back, MagSafe-style [confirm]" } },
+        "spec-box": { "type": "spec", "settings": { "label": "In the box", "value": "Recorder, magnetic cable, guide [confirm]" } },
+        "spec-warranty": { "type": "spec", "settings": { "label": "Warranty", "value": "[1] year" } }
+      },
+      "block_order": ["spec-thickness", "spec-weight", "spec-battery", "spec-storage", "spec-formats", "spec-templates", "spec-languages", "spec-charging", "spec-compat", "spec-attach", "spec-box", "spec-warranty"],
+      "settings": {
+        "heading": "Specifications",
+        "anchor": "specs",
+        "color_scheme": "grey",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "plans": {
+      "type": "plans",
+      "blocks": {
+        "plan-free": {
+          "type": "plan",
+          "settings": {
+            "name": "Free",
+            "price": "$0",
+            "period": "forever",
+            "description": "Everything you need to start.",
+            "features": "[X] minutes of transcription per month\nSummaries and mind maps\nExport to PDF and Word",
+            "featured": false,
+            "button_link": "#buy"
+          }
+        },
+        "plan-pro": {
+          "type": "plan",
+          "settings": {
+            "name": "Pro",
+            "badge": "Most popular",
+            "price": "[$X]",
+            "period": "/mo",
+            "description": "For heavy note-takers.",
+            "features": "Everything in Free\n[More minutes]\n[Extra templates and features]",
+            "featured": true,
+            "button_link": "#buy"
+          }
+        },
+        "plan-teams": {
+          "type": "plan",
+          "settings": {
+            "name": "Teams",
+            "price": "[Contact us]",
+            "period": "",
+            "description": "Clubs, firms and classes.",
+            "features": "[Bulk orders for clubs, firms, classes]\n[Volume pricing]",
+            "featured": false,
+            "button_label": "Contact us",
+            "button_link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["plan-free", "plan-pro", "plan-teams"],
+      "settings": {
+        "heading": "App plans",
+        "text": "Start free. Upgrade only if you need more. [Confirm what the app includes free with your supplier.]",
+        "note": "No subscription is needed to record, play back and export your audio. [Confirm with supplier.]",
+        "anchor": "plans",
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "privacy": {
+      "type": "privacy",
+      "blocks": {
+        "p-encrypted": { "type": "point", "settings": { "icon": "lock", "title": "Encrypted [confirm]", "text": "Recordings are encrypted in transit and at rest. [Confirm with supplier.]" } },
+        "p-delete": { "type": "point", "settings": { "icon": "trash", "title": "Delete anytime", "text": "Remove any recording or transcript from the app in one tap." } },
+        "p-training": { "type": "point", "settings": { "icon": "eye-off", "title": "Not used to train AI [confirm]", "text": "Your audio isn't used to train AI models. [Confirm with supplier.]" } }
+      },
+      "block_order": ["p-encrypted", "p-delete", "p-training"],
+      "settings": {
+        "heading": "Your recordings stay yours.",
+        "text": "[Confirm encryption, where audio is stored, and whether it's used for AI training.] Delete any recording at any time.",
+        "anchor": "privacy",
+        "color_scheme": "grey",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "r-1": { "type": "review", "settings": { "rating": 5, "title": "[Review title]", "text": "[Review text]", "name": "[Name]", "verified": true } },
+        "r-2": { "type": "review", "settings": { "rating": 5, "title": "[Review title]", "text": "[Review text]", "name": "[Name]", "verified": true } },
+        "r-3": { "type": "review", "settings": { "rating": 5, "title": "[Review title]", "text": "[Review text]", "name": "[Name]", "verified": true } }
+      },
+      "block_order": ["r-1", "r-2", "r-3"],
+      "settings": {
+        "heading": "[X]+ happy customers",
+        "show_summary": true,
+        "average": "[X.X]",
+        "count_text": "Based on [X] reviews",
+        "write_link": "#reviews",
+        "anchor": "reviews",
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q-subscription": { "type": "question", "settings": { "category": "Product", "question": "Do I need a subscription?", "answer": "<p>No. Recording, playback and audio export work without one. AI summaries include [X] free minutes a month, and Pro adds more. [Confirm with supplier.]</p>" } },
+        "q-phone": { "type": "question", "settings": { "category": "Product", "question": "Does it work with my phone?", "answer": "<p>It pairs with the app on iPhone and Android [confirm]. The magnetic back snaps onto MagSafe iPhones. [Confirm what is included for other phones.]</p>" } },
+        "q-legal": { "type": "question", "settings": { "category": "Product", "question": "Is it legal to record calls?", "answer": "<p>Laws vary by state and country, and some require everyone's consent. Always tell people you're recording.</p>" } },
+        "q-battery": { "type": "question", "settings": { "category": "Product", "question": "How long does the battery last?", "answer": "<p>[X] hours of recording, [X] days on standby.</p>" } },
+        "q-languages": { "type": "question", "settings": { "category": "Product", "question": "What languages does it support?", "answer": "<p>[X] languages [confirm].</p>" } },
+        "q-student": { "type": "question", "settings": { "category": "Product", "question": "Is there a student discount?", "answer": "<p>[Yes: explain how to verify and the discount. No: remove this question.]</p>" } },
+        "q-app": { "type": "question", "settings": { "category": "App", "question": "What does the app do with my recordings?", "answer": "<p>It transcribes them and turns them into summaries, mind maps and to-do lists, using 17 summary templates.</p>" } },
+        "q-export": { "type": "question", "settings": { "category": "App", "question": "Can I export my notes?", "answer": "<p>Yes. Export to PDF, Word, email or MP3/WAV audio. [Confirm.]</p>" } },
+        "q-ship-time": { "type": "question", "settings": { "category": "Shipping", "question": "When will my order arrive?", "answer": "<p>Orders ship in [X–X] business days with tracking. US shipping is free.</p>" } },
+        "q-ship-intl": { "type": "question", "settings": { "category": "Shipping", "question": "Do you ship outside the US?", "answer": "<p>[List the countries you ship to.]</p>" } },
+        "q-returns": { "type": "question", "settings": { "category": "Returns", "question": "What if it's not for me?", "answer": "<p>Send it back within [30] days for a full refund. [Confirm your return terms.]</p>" } },
+        "q-warranty": { "type": "question", "settings": { "category": "Returns", "question": "Is there a warranty?", "answer": "<p>Yes, a [1]-year warranty against defects.</p>" } }
+      },
+      "block_order": ["q-subscription", "q-phone", "q-legal", "q-battery", "q-languages", "q-student", "q-app", "q-export", "q-ship-time", "q-ship-intl", "q-returns", "q-warranty"],
+      "settings": {
+        "heading": "Got questions?\nWe've got answers.",
+        "categories": "Product, App, Shipping, Returns",
+        "show_media": true,
+        "anchor": "faq",
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "closing": {
+      "type": "final-cta",
+      "settings": {
+        "eyebrow": "Launch offer",
+        "heading": "Never miss what matters again.",
+        "text": "Up to [X]% off bundles while the launch sale lasts.",
+        "show_countdown": true,
+        "button_label": "Get Alumnus",
+        "button_link": "#buy",
+        "small_print": "Free US shipping · [30]-day returns · [1]-year warranty",
+        "color_scheme": "light",
+        "padding_top": 0,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "intro",
+    "logos",
+    "stories",
+    "statement",
+    "real-life",
+    "features",
+    "review-cards",
+    "app",
+    "formats",
+    "compare",
+    "buy",
+    "guarantee",
+    "specs",
+    "plans",
+    "privacy",
+    "reviews",
+    "faq",
+    "closing"
+  ]
+}

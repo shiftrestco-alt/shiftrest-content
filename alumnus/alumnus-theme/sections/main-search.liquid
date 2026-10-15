@@ -1,0 +1,47 @@
+<section class="section scheme-light" style="--pt: 48px; --pb: 96px;">
+  <div class="container">
+    <div class="page-head">
+      <h1 class="h1">{{ 'sections.search.title' | t }}</h1>
+      <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+        <label class="visually-hidden" for="SearchInput">{{ 'sections.search.title' | t }}</label>
+        <input id="SearchInput" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'sections.search.placeholder' | t }}">
+        <input type="hidden" name="options[prefix]" value="last">
+        <button type="submit" class="btn btn--dark">{% render 'icon', name: 'search' %}<span class="visually-hidden">{{ 'sections.search.submit' | t }}</span></button>
+      </form>
+    </div>
+    {%- if search.performed -%}
+      {%- paginate search.results by 24 -%}
+        <p class="muted" style="margin-bottom: 24px;">{{ 'sections.search.results_count' | t: count: search.results_count, terms: search.terms }}</p>
+        <ul class="product-grid" role="list">
+          {%- for item in search.results -%}
+            <li>
+              {%- if item.object_type == 'product' -%}
+                {% render 'product-card', card_product: item %}
+              {%- else -%}
+                <a class="article-card" href="{{ item.url }}">
+                  <span class="product-card__title">{{ item.title | escape }}</span>
+                  <span class="muted small">{{ item.content | strip_html | truncatewords: 24 }}</span>
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+        {%- if paginate.pages > 1 -%}
+          <nav class="pagination" aria-label="{{ 'general.pagination.label' | t }}">
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>{%- elsif part.title == paginate.current_page -%}<span class="is-current" aria-current="page">{{ part.title }}</span>{%- else -%}<span>{{ part.title }}</span>{%- endif -%}
+            {%- endfor -%}
+          </nav>
+        {%- endif -%}
+      {%- endpaginate -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search results",
+  "class": "section-main-search",
+  "settings": []
+}
+{% endschema %}

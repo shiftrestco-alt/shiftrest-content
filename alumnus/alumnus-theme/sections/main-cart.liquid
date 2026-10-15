@@ -1,0 +1,25 @@
+<section class="section scheme-light" style="--pt: 48px; --pb: 96px;">
+  <div class="container">
+    <div class="page-head">
+      <h1 class="h1">{{ 'sections.cart.title' | t }}</h1>
+    </div>
+    <cart-page class="cart-page" data-section="{{ section.id }}">
+      <div class="stack" style="--gap: 16px;">
+        {% render 'cart-contents', context: 'page' %}
+      </div>
+      {%- if cart.item_count > 0 -%}
+        <aside class="cart-page__summary">
+          {% render 'cart-summary', context: 'page' %}
+        </aside>
+      {%- endif -%}
+    </cart-page>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart",
+  "class": "section-main-cart",
+  "settings": []
+}
+{% endschema %}

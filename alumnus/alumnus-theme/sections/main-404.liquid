@@ -1,0 +1,18 @@
+<section class="section scheme-light" style="--pt: 120px; --pb: 120px;">
+  <div class="container center">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">404</span>
+      <h1 class="h1">{{ 'sections.not_found.title' | t }}</h1>
+      <p class="lead">{{ 'sections.not_found.text' | t }}</p>
+      <p><a class="btn btn--primary btn--lg" href="{{ routes.root_url }}">{{ 'sections.not_found.cta' | t }}</a></p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "404",
+  "class": "section-main-404",
+  "settings": []
+}
+{% endschema %}

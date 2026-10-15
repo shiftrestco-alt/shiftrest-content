@@ -1,0 +1,304 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Alumnus",
+    "theme_version": "1.0.0",
+    "theme_author": "Alumnus AI",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com/"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Clean white canvas with soft grey cards, like heypocket.com. Accent is your brand color for buttons, badges and the logo dot."
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Cards and grey sections",
+        "default": "#F4F4F6"
+      },
+      {
+        "type": "color",
+        "id": "color_surface_strong",
+        "label": "Placeholders and dividers",
+        "default": "#E9E9EE"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#0B0B0F"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Secondary text",
+        "default": "#5E606E"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Borders",
+        "default": "#E3E3E8"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#C2410C",
+        "info": "Your Alumnus orange. For a Pocket-style blue try #2F5BFF."
+      },
+      {
+        "type": "color",
+        "id": "color_accent_text",
+        "label": "Text on accent",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_dark",
+        "label": "Dark sections",
+        "default": "#0B0B0F"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_surface",
+        "label": "Cards on dark sections",
+        "default": "#1A1A21"
+      },
+      {
+        "type": "color",
+        "id": "color_star",
+        "label": "Review stars",
+        "default": "#F59E0B"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_heading_font",
+        "label": "Heading font",
+        "default": "inter_n4"
+      },
+      {
+        "type": "select",
+        "id": "heading_weight",
+        "label": "Heading weight",
+        "options": [
+          {
+            "value": "500",
+            "label": "Medium"
+          },
+          {
+            "value": "600",
+            "label": "Semibold"
+          },
+          {
+            "value": "700",
+            "label": "Bold"
+          },
+          {
+            "value": "800",
+            "label": "Extra bold"
+          }
+        ],
+        "default": "600"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Body font",
+        "default": "inter_n4"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Page width",
+        "min": 1000,
+        "max": 1600,
+        "step": 20,
+        "unit": "px",
+        "default": 1200
+      },
+      {
+        "type": "range",
+        "id": "radius_card",
+        "label": "Corner radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "default": 28
+      }
+    ]
+  },
+  {
+    "name": "Product and offer",
+    "settings": [
+      {
+        "type": "product",
+        "id": "main_product",
+        "label": "Your Alumnus product",
+        "info": "Used by the hero, buy box, sticky bar, closing offer and reviews unless a section picks a different product. Set it once here."
+      },
+      {
+        "type": "paragraph",
+        "content": "Countdowns in the announcement bar, buy box and closing banner count to this date and hide automatically when it passes. Use your real sale end date."
+      },
+      {
+        "type": "text",
+        "id": "sale_end_date",
+        "label": "Sale end date",
+        "info": "Format YYYY-MM-DD or YYYY-MM-DD HH:MM, for example 2026-11-30 23:59. Empty hides every countdown."
+      }
+    ]
+  },
+  {
+    "name": "Media placeholders",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Empty image and video slots show the asset ID from the Higgsfield prompt pack (for example IMG-01) so you know what to upload where. Labels always show in the theme editor."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_placeholder_labels",
+        "label": "Show placeholder labels on the live store",
+        "default": true,
+        "info": "Turn off before launch if some slots are still empty. They then show as plain grey panels."
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart type",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          }
+        ],
+        "default": "drawer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_free_shipping_bar",
+        "label": "Show free shipping progress bar",
+        "default": false
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold (store currency)",
+        "default": 0,
+        "info": "Only used when the progress bar is on. Must match your shipping rates."
+      },
+      {
+        "type": "text",
+        "id": "cart_shipping_message",
+        "label": "Shipping message (when the bar is off)",
+        "default": "Free US shipping on every order"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_show_discount_field",
+        "label": "Show discount code field",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_show_express",
+        "label": "Show express checkout buttons",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Add-on offer"
+      },
+      {
+        "type": "product",
+        "id": "cart_upsell_product",
+        "label": "Product to offer in the cart",
+        "info": "For example a case, a spare cable, or a Pro plan card. Hidden once it is in the cart."
+      },
+      {
+        "type": "text",
+        "id": "cart_upsell_heading",
+        "label": "Add-on title",
+        "default": "Add a protective sleeve"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "TikTok"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "YouTube"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "X (Twitter)"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook"
+      }
+    ]
+  },
+  {
+    "name": "Favicon and sharing",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "32 × 32 px PNG"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Social share image (IMG-28)",
+        "info": "1200 × 630 px. Shown when your link is shared on iMessage, TikTok, Instagram DMs and X."
+      }
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message-sale": {
+          "type": "message",
+          "settings": {
+            "text": "Launch sale: up to [X]% off Alumnus. Free US shipping.",
+            "link": "#buy"
+          }
+        },
+        "message-trust": {
+          "type": "message",
+          "settings": {
+            "text": "[30]-day returns · [1]-year warranty · Pay in 4 with Shop Pay",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["message-sale", "message-trust"],
+      "settings": {
+        "color_scheme": "accent",
+        "interval": 5,
+        "show_countdown": true,
+        "countdown_label": "Ends in"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "link-features": { "type": "link", "settings": { "label": "Features", "link": "#features" } },
+        "link-reviews": { "type": "link", "settings": { "label": "Reviews", "link": "#reviews" } },
+        "link-specs": { "type": "link", "settings": { "label": "Specs", "link": "#specs" } },
+        "link-plans": { "type": "link", "settings": { "label": "Plans", "link": "#plans" } },
+        "link-faq": { "type": "link", "settings": { "label": "FAQ", "link": "#faq" } }
+      },
+      "block_order": ["link-features", "link-reviews", "link-specs", "link-plans", "link-faq"],
+      "settings": {
+        "logo_width": 120,
+        "logo_text": "alumnus",
+        "show_logo_dot": true,
+        "cta_label": "Buy now",
+        "cta_link": "#buy",
+        "show_account": true
+      }
+    }
+  },
+  "order": ["announcement", "header"]
+}

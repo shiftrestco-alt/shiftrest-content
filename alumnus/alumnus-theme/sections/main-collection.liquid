@@ -1,0 +1,43 @@
+<section class="section scheme-light" style="--pt: 48px; --pb: 96px;">
+  <div class="container">
+    <div class="page-head">
+      <h1 class="h1">{{ collection.title | escape }}</h1>
+      {%- if collection.description != blank -%}<div class="rte lead">{{ collection.description }}</div>{%- endif -%}
+    </div>
+    {%- paginate collection.products by section.settings.per_page -%}
+      {%- if collection.products.size > 0 -%}
+        <ul class="product-grid" role="list" style="--cols: {{ section.settings.columns }};">
+          {%- for card in collection.products -%}
+            <li>{% render 'product-card', card_product: card %}</li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <p class="muted">{{ 'sections.collection.empty' | t }}</p>
+      {%- endif -%}
+      {%- if paginate.pages > 1 -%}
+        <nav class="pagination" aria-label="{{ 'general.pagination.label' | t }}">
+          {%- for part in paginate.parts -%}
+            {%- if part.is_link -%}
+              <a href="{{ part.url }}">{{ part.title }}</a>
+            {%- elsif part.title == paginate.current_page -%}
+              <span class="is-current" aria-current="page">{{ part.title }}</span>
+            {%- else -%}
+              <span>{{ part.title }}</span>
+            {%- endif -%}
+          {%- endfor -%}
+        </nav>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection grid",
+  "class": "section-main-collection",
+  "settings": [
+    { "type": "range", "id": "per_page", "label": "Products per page", "min": 4, "max": 48, "step": 4, "default": 12 },
+    { "type": "range", "id": "columns", "label": "Columns on desktop", "min": 2, "max": 4, "step": 1, "default": 3 }
+  ]
+}
+{% endschema %}

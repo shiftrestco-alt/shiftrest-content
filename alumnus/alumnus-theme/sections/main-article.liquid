@@ -1,0 +1,23 @@
+<article class="section scheme-light" style="--pt: 48px; --pb: 96px;">
+  <div class="container container--narrow">
+    <div class="page-head">
+      <span class="tiny muted">{{ article.published_at | time_tag: format: 'date' }}</span>
+      <h1 class="h1">{{ article.title | escape }}</h1>
+    </div>
+    {%- if article.image -%}
+      <div class="media" style="--ratio: 16 / 9; margin-bottom: 32px;">
+        {{ article.image | image_url: width: 1600 | image_tag: loading: 'eager', sizes: '(min-width: 900px) 860px, 100vw', widths: '600, 900, 1200, 1600', alt: article.title }}
+      </div>
+    {%- endif -%}
+    <div class="rte">{{ article.content }}</div>
+    <p style="margin-top: 40px;"><a class="link-arrow" href="{{ blog.url }}">{{ 'sections.blog.back' | t }} {% render 'icon', name: 'arrow-right' %}</a></p>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Blog post",
+  "class": "section-main-article",
+  "settings": []
+}
+{% endschema %}

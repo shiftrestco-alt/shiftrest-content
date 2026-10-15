@@ -1,0 +1,28 @@
+{%- comment -%}
+  Star rating with partial fill.
+  Accepts:
+  - rating {Number} 0-5 (default 5)
+  - text {String} optional label shown next to the stars (can contain HTML)
+  - star_size {String} optional CSS size for each star, e.g. '14px'
+{%- endcomment -%}
+{%- liquid
+  assign rating_value = rating | default: 5 | times: 1.0
+  if rating_value > 5
+    assign rating_value = 5
+  endif
+  assign fill_pct = rating_value | divided_by: 5.0 | times: 100 | round: 1
+-%}
+<span class="stars"{% if star_size != blank %} style="--star-size: {{ star_size }};"{% endif %}>
+  <span class="stars__icons" aria-hidden="true">
+    <span class="stars__base">
+      {%- for i in (1..5) -%}{% render 'icon', name: 'star' %}{%- endfor -%}
+    </span>
+    <span class="stars__fill" style="width: {{ fill_pct }}%;">
+      {%- for i in (1..5) -%}{% render 'icon', name: 'star' %}{%- endfor -%}
+    </span>
+  </span>
+  <span class="visually-hidden">{{ 'general.rating.out_of_five' | t: rating: rating_value }}</span>
+  {%- if text != blank -%}
+    <span class="stars__text">{{ text }}</span>
+  {%- endif -%}
+</span>

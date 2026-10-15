@@ -1,0 +1,97 @@
+{%- comment -%}
+  Shared cart markup for the cart drawer and the cart page.
+  Accepts:
+  - context {String} 'drawer' or 'page'
+{%- endcomment -%}
+{%- liquid
+  assign threshold_cents = settings.free_shipping_threshold | times: 100
+  assign upsell = settings.cart_upsell_product
+  assign upsell_in_cart = false
+  if upsell != blank
+    for item in cart.items
+      if item.product_id == upsell.id
+        assign upsell_in_cart = true
+      endif
+    endfor
+  endif
+-%}
+
+{%- if cart.item_count == 0 -%}
+  <div class="cart-empty">
+    <span class="icon-tile">{% render 'icon', name: 'bag' %}</span>
+    <p class="h3">{{ 'sections.cart.empty' | t }}</p>
+    <a href="{{ routes.root_url }}#buy" class="btn btn--primary"{% if context == 'drawer' %} data-cart-close{% endif %}>{{ 'sections.cart.shop_cta' | t }}</a>
+  </div>
+{%- else -%}
+  {%- if settings.show_free_shipping_bar and threshold_cents > 0 -%}
+    {%- liquid
+      assign remaining = threshold_cents | minus: cart.total_price
+      assign progress = cart.total_price | times: 100 | divided_by: threshold_cents
+      if progress > 100
+        assign progress = 100
+      endif
+    -%}
+    <div class="ship-bar">
+      <span>
+        {%- if remaining > 0 -%}
+          {%- assign remaining_money = remaining | money -%}
+          {{ 'sections.cart.free_shipping_remaining' | t: amount: remaining_money }}
+        {%- else -%}
+          {{ 'sections.cart.free_shipping_unlocked' | t }}
+        {%- endif -%}
+      </span>
+      <div class="ship-bar__track"><div class="ship-bar__fill" style="--progress: {{ progress }}%;"></div></div>
+    </div>
+  {%- elsif settings.cart_shipping_message != blank -%}
+    <div class="ship-bar"><span>{{ settings.cart_shipping_message | escape }}</span></div>
+  {%- endif -%}
+
+  <ul class="stack" role="list" style="--gap: 16px;">
+    {%- for item in cart.items -%}
+      <li class="line" data-line="{{ forloop.index }}">
+        <a class="line__img" href="{{ item.url }}" tabindex="-1">
+          {%- if item.image -%}
+            {{ item.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: item.title }}
+          {%- endif -%}
+        </a>
+        <div class="line__main">
+          <div class="line__top">
+            <div class="stack" style="--gap: 2px;">
+              <a class="line__title" href="{{ item.url }}">{{ item.product.title | escape }}</a>
+              {%- unless item.product.has_only_default_variant -%}<span class="line__variant">{{ item.variant.title | escape }}</span>{%- endunless -%}
+              {%- for allocation in item.line_level_discount_allocations -%}
+                <span class="line__discount">{% render 'icon', name: 'tag' %}{{ allocation.discount_application.title | escape }} (−{{ allocation.amount | money }})</span>
+              {%- endfor -%}
+            </div>
+            <div class="line__price">
+              {{ item.final_line_price | money }}
+              {%- if item.original_line_price > item.final_line_price -%}<s>{{ item.original_line_price | money }}</s>{%- endif -%}
+            </div>
+          </div>
+          <div class="line__controls">
+            <div class="qty">
+              <button type="button" data-qty-change="{{ item.quantity | minus: 1 }}" data-line-index="{{ forloop.index }}" aria-label="{{ 'sections.cart.decrease' | t }}">{% render 'icon', name: 'minus' %}</button>
+              <input type="number" value="{{ item.quantity }}" min="0" aria-label="{{ 'sections.cart.quantity' | t }}" data-qty-input-line="{{ forloop.index }}">
+              <button type="button" data-qty-change="{{ item.quantity | plus: 1 }}" data-line-index="{{ forloop.index }}" aria-label="{{ 'sections.cart.increase' | t }}">{% render 'icon', name: 'plus' %}</button>
+            </div>
+            <button type="button" class="line__remove" data-qty-change="0" data-line-index="{{ forloop.index }}">{{ 'sections.cart.remove' | t }}</button>
+          </div>
+        </div>
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  {%- if upsell != blank and upsell_in_cart == false and upsell.available -%}
+    {%- assign upsell_variant = upsell.selected_or_first_available_variant -%}
+    <div class="upsell">
+      <div class="upsell__img">
+        {%- if upsell.featured_media -%}{{ upsell.featured_media | image_url: width: 120 | image_tag: loading: 'lazy', alt: upsell.title }}{%- endif -%}
+      </div>
+      <div>
+        <p class="upsell__title">{{ settings.cart_upsell_heading | default: upsell.title | escape }}</p>
+        <p class="upsell__price">{{ upsell_variant.price | money }}{% if upsell_variant.compare_at_price > upsell_variant.price %} <s>{{ upsell_variant.compare_at_price | money }}</s>{% endif %}</p>
+      </div>
+      <button type="button" class="btn btn--dark btn--sm" data-quick-add="{{ upsell_variant.id }}">{{ 'sections.cart.add' | t }}</button>
+    </div>
+  {%- endif -%}
+{%- endif -%}

@@ -1,0 +1,400 @@
+ALUMNUS · HIGGSFIELD PROMPTS (COPY-READY)
+Every prompt below already includes the device description. Attach 2-3 photos of your real
+device as reference images whenever the device appears. IDs match the labels in the theme.
+
+NEGATIVE PROMPT (paste into the negative field when the model has one):
+text, letters, numbers, logos, watermarks, brand names, user interface on the device, extra buttons, extra lights, duplicate devices, warped or bent phone, bent device, extra fingers, distorted hands, plastic skin, oversaturated colors, harsh flash, cluttered background, cartoon look
+
+==============================================================================
+VID-01 · "Introducing Alumnus" brand film
+Theme editor › Home page › Intro film › Shopify-hosted video (or paste a YouTube link)
+16:9, 1920 × 1080, 60–90 s, MP4 (H.264). Built from 8 short clips plus voice-over and music.
+==============================================================================
+Shot 1 · One press · 6 s
+START FRAME (image): Close-up, top-down at 45°, a hand next to a phone lying face-down on a wooden lecture desk with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on its back. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Static camera. The index finger presses the switch on the black top strip; the small white sound-wave light softly turns on. Natural hand movement, shallow depth of field.
+
+Shot 2 · Eyes up · 6 s
+START FRAME (image): IMG-02 (student in a sunlit lecture hall, device on the desk). Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Slow dolly in toward the student, who keeps listening and nods slightly; the lecturer stays out of focus in the background. One continuous shot.
+
+Shot 3 · Card-thin · 5 s
+START FRAME (image): Macro of the device standing on its edge on a pale grey surface. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Slow 90-degree orbit around the device; a soft light sweep crosses the grooves and reveals how thin it is.
+
+Shot 4 · On a call · 6 s
+START FRAME (image): A young professional walking down a bright office corridor, phone to ear, device visible on the back of the phone. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Smooth tracking shot moving backward in front of them as they walk and talk naturally.
+
+Shot 5 · In the meeting · 6 s
+START FRAME (image): Four colleagues around a light wood table; the phone with the device lies in the center among notebooks. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Slow lateral pan from left to right across the table; people talk and gesture naturally.
+
+Shot 6 · The notes · 5 s
+START FRAME (image): Hands holding a phone over a desk; the screen is plain white (you place a real screen recording or APP-01 on it in editing). Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Static camera, the thumb scrolls gently; subtle hand movement only.
+
+Shot 7 · Study time · 6 s
+START FRAME (image): Evening desk, warm lamp, a student reviewing notes on a laptop, phone with the device beside the notebook. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Slow push-in toward the device on the desk.
+
+Shot 8 · End card · 5 s
+START FRAME (image): IMG-08 (device floating on pale grey). Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Slow 180-degree orbit that ends facing front; hold the last second still for your logo and price card.
+
+VOICE-OVER: Ever tried to take notes and actually listen at the same time? (beat) Meet Alumnus. One press, and it records your lecture, meeting or call. No unlocking your phone. No typing. Just listen. It's card-thin, snaps onto your phone, and captures calls without speakerphone. Then the app does the rest: a clean summary, a mind map and a to-do list, from 17 templates. Export to PDF, Word or email in a tap. In class. At work. On a call. On the go. Alumnus. Listen, don't type.
+
+==============================================================================
+VID-02 · Use-case clip: The lecture
+Theme editor › Home page › Video carousel › Video 1
+9:16 vertical · 1080 x 1920 · 15-20 s
+Captions: Press once. → Actually listen. → Notes ready before you leave the room.
+==============================================================================
+Shot A · 5 s
+START FRAME (image): Vertical 9:16. A student sits down in a lecture hall and places a phone face-down on the desk with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on its back. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Handheld phone-camera look; the student presses the switch on the device and leans back to listen.
+
+Shot B · 6 s
+START FRAME (image): Vertical 9:16. The same student listening and smiling at something the lecturer says (lecturer out of focus); no laptop open. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Slow push-in, natural reactions.
+
+Shot C · 5 s
+START FRAME (image): Vertical 9:16. After class, the student walks out holding the phone, glances at it (screen not visible) and smiles. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Tracking shot following them through the hallway.
+
+==============================================================================
+VID-03 · Use-case clip: The client call
+Theme editor › Home page › Video carousel › Video 2
+9:16 vertical · 1080 x 1920 · 15-20 s
+Captions: Snap it on. → Take the call. → Summary and action items, done.
+==============================================================================
+Shot A · 4 s
+START FRAME (image): Vertical 9:16 macro. A hand brings the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) to the back of a smartphone. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): The device snaps onto the phone magnetically; slight camera shake on contact, then still.
+
+Shot B · 6 s
+START FRAME (image): Vertical 9:16. A young analyst walks outdoors near a glass office building, phone to ear, device visible on the back. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Tracking shot walking backward in front of them.
+
+Shot C · 5 s
+START FRAME (image): Vertical 9:16. Seated at a desk, they look at their phone (screen not visible) and nod, satisfied. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Static medium shot.
+
+==============================================================================
+VID-04 · Use-case clip: The team meeting
+Theme editor › Home page › Video carousel › Video 3
+9:16 vertical · 1080 x 1920 · 15-20 s
+Captions: Press. Talk. Done. → Minutes and to-dos for everyone.
+==============================================================================
+Shot A · 4 s
+START FRAME (image): Vertical 9:16 top-down. A phone with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) is placed in the center of a meeting table; a hand presses the switch. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Static top-down camera.
+
+Shot B · 6 s
+START FRAME (image): Vertical 9:16. A small team discussing around the table in natural light. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Slow orbit around the table.
+
+Shot C · 5 s
+START FRAME (image): Vertical 9:16. The founder holds the phone and smiles, showing the screen to a colleague (screen facing away from camera). Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+MOTION (video): Static medium shot.
+
+==============================================================================
+IMG-01 · Hero product shot (desktop) · P1
+Where: Theme editor › Home page › Hero › Image
+Format: 16:10 · 2400 × 1500 px · save as alumnus-img-01-hero.jpg
+Model: Nano Banana Pro with 2–3 reference photos of your real device
+==============================================================================
+Premium website hero product photo, 16:10. A modern smartphone stands upright at a slight three-quarter angle on a seamless very light cool-grey surface, back of the phone facing the camera, with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) snapped flat onto the center of the phone's back. Keep the device identical to the reference photos. Large soft window light from the left, smooth background gradient from white to pale blue-grey, delicate contact shadow, crisp detail on the grooves and the black top strip. Subject centered with wide empty space left and right. Minimal, calm, Apple-style product page. No text, no logos. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Grooves straight and evenly spaced; top strip layout matches your unit
+  [ ] No phone-brand logo visible
+  [ ] Nothing important near the left/right edges (the theme crops to fit)
+
+==============================================================================
+IMG-01M · Hero product shot (mobile crop) · P1
+Where: Theme editor › Home page › Hero › Mobile image
+Format: 4:5 · 1200 × 1500 px · save as alumnus-img-01m-hero-mobile.jpg
+Model: Nano Banana Pro (edit IMG-01, or regenerate with the same references)
+==============================================================================
+Same scene as IMG-01, reframed vertically at 4:5. The phone and the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) fill the middle of the frame with extra clean space above and below. Same light, same background, same shadow. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Matches IMG-01 colors so desktop and mobile feel like one shoot
+
+==============================================================================
+IMG-02 · Brand film poster frame · P1
+Where: Theme editor › Home page › Intro film › Poster image
+Format: 16:9 · 1920 × 1080 px · save as alumnus-img-02-film-poster.jpg
+Model: Soul 2.0 for the scene, then Nano Banana Pro edit with your device references to fix the device
+==============================================================================
+Cinematic 16:9 still. A university student in a sunlit lecture hall, seated in the middle rows, looking up at the out-of-focus lecturer with a relaxed, attentive expression; no laptop open. On the desk in front of them a smartphone lies face-down with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) attached to its back, the tiny white sound-wave light glowing. Warm morning light through tall windows, shallow depth of field focused on the device and the student's hand, soft film grain. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Also works as the first frame of shot 2 in VID-01
+
+==============================================================================
+IMG-03 · Wide statement image · P2
+Where: Theme editor › Home page › Image banner › Image (+ Mobile image = IMG-03M)
+Format: 21:9 (mobile 4:5) · 2400 × 1030 px (mobile 1200 × 1500) · save as alumnus-img-03-wide.jpg
+Model: Soul 2.0 or Nano Banana Pro with device references
+==============================================================================
+Wide cinematic 21:9 photo. A clean light-wood desk by a large window overlooking a leafy university campus in soft morning light. On the desk: an open notebook, a cup of coffee, a pen with an orange cap, and a smartphone lying face-down with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on its back, placed on the right third. Lots of calm negative space, airy, muted natural palette, shallow depth of field. No people, no text. Mobile version (IMG-03M): same scene, vertical 4:5, device in the lower middle. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Keep the device large enough to read at phone size in the 4:5 version
+
+==============================================================================
+IMG-04 · Real-life card: In class · P2
+Where: Theme editor › Home page › Lifestyle gallery › Photo card 1
+Format: 4:5 · 1200 × 1500 px · save as alumnus-img-04-in-class.jpg
+Model: Soul 2.0 (people) → Nano Banana Pro edit to insert the exact device
+==============================================================================
+Vertical 4:5 lifestyle photo. A student in a bright lecture hall seen from the side at desk level, relaxed and attentive, listening instead of typing. A smartphone with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on its back lies on the desk in the foreground, slightly in focus. Soft daylight, candid, shallow depth of field. Diverse 19 to 30 year old students and young professionals, natural and candid, not posing for the camera, casual neutral clothing with no logos. No logos, no text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Device clearly visible in the foreground
+
+==============================================================================
+IMG-05 · Real-life card: At work · P2
+Where: Theme editor › Home page › Lifestyle gallery › Photo card 2
+Format: 4:5 · 1200 × 1500 px · save as alumnus-img-05-at-work.jpg
+Model: Soul 2.0 → Nano Banana Pro edit
+==============================================================================
+Vertical 4:5 lifestyle photo. A young professional in a modern glass meeting room, mid-conversation with colleagues who are softly out of focus. A smartphone with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on its back lies on the table in the foreground. Bright, natural light, candid moment. Diverse 19 to 30 year old students and young professionals, natural and candid, not posing for the camera, casual neutral clothing with no logos. No logos, no text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] No laptop or wall screens showing readable text
+
+==============================================================================
+IMG-06 · Real-life card: On a call · P2
+Where: Theme editor › Home page › Lifestyle gallery › Photo card 3
+Format: 4:5 · 1200 × 1500 px · save as alumnus-img-06-on-a-call.jpg
+Model: Soul 2.0 → Nano Banana Pro edit
+==============================================================================
+Vertical 4:5 lifestyle photo. A person on a phone call in a bright café, phone held to their ear with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) clearly attached to the back of the phone and facing the camera. Natural smile, soft window light, shallow depth of field. Diverse 19 to 30 year old students and young professionals, natural and candid, not posing for the camera, casual neutral clothing with no logos. No logos, no text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] The device faces the camera (the back of the phone is toward the lens)
+
+==============================================================================
+IMG-07 · Real-life card: On the go · P2
+Where: Theme editor › Home page › Lifestyle gallery › Photo card 4
+Format: 4:5 · 1200 × 1500 px · save as alumnus-img-07-on-the-go.jpg
+Model: Soul 2.0 → Nano Banana Pro edit
+==============================================================================
+Vertical 4:5 lifestyle photo. A student walking on a tree-lined campus path at golden hour, holding a phone near their chin and talking an idea through, the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on the back of the phone. Warm low sun, gentle motion, candid. Diverse 19 to 30 year old students and young professionals, natural and candid, not posing for the camera, casual neutral clothing with no logos. No logos, no text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Feels like the same world as IMG-04 to IMG-06 (same grade)
+
+==============================================================================
+IMG-08 · Macro hero of the device · P1
+Where: Theme editor › Home page › Feature grid › Large image
+Format: 16:9 · 2400 × 1350 px · save as alumnus-img-08-macro.jpg
+Model: Nano Banana Pro with device references
+==============================================================================
+Studio macro product photo, 16:9. the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) floats at a slight angle above a seamless pale cool-grey background, front facing the camera. Soft large key light from the upper left plus a thin rim light that traces the vertical grooves and the edge, showing how thin it is. Extremely sharp detail, soft shadow below, generous empty space around it. Minimal and premium. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] This is the image people zoom into: details must be right
+
+==============================================================================
+VID-05 · Looping turntable video (optional, replaces IMG-08) · P3
+Where: Theme editor › Home page › Feature grid › Or a looping video
+Format: 16:9 · 1920 × 1080, 6–8 s, MP4 under 10 MB · save as alumnus-vid-05-loop.mp4
+Model: Kling 3.0 image-to-video, IMG-08 as both start and end frame
+==============================================================================
+Slow 360-degree turntable rotation of the device in place, light glints across the vertical grooves, camera locked off, background unchanged, ends exactly where it started so the clip loops seamlessly.
+
+  [ ] No morphing of the grooves during the turn
+  [ ] Plays muted; no audio needed
+
+==============================================================================
+IMG-09 · Feature tile: One-press recording · P2
+Where: Theme editor › Home page › Feature grid › Feature 1 › Image
+Format: 4:3 · 1200 × 900 px · save as alumnus-img-09-one-press.jpg
+Model: Nano Banana Pro with device references
+==============================================================================
+Macro photo, 4:3. A thumb presses the slide switch on the black top strip of the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it), which is attached to the back of a phone held in one hand. Very shallow depth of field, soft daylight, the tiny white sound-wave light glowing. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Confirm which control starts recording on your unit and describe that control in the prompt
+
+==============================================================================
+IMG-10 · Feature tile: Card-thin, magnetic · P2
+Where: Theme editor › Home page › Feature grid › Feature 2 › Image
+Format: 4:3 · 1200 × 900 px · save as alumnus-img-10-card-thin.jpg
+Model: Nano Banana Pro with device references
+==============================================================================
+Product photo, 4:3. the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) lies flat next to a plain blank card the size of a credit card (no logos, no numbers) on a pale grey surface. Camera almost at table height so the thin edge is visible. Soft side light, crisp edges, minimal. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Thickness looks right next to the card (about 3 mm; confirm your real spec)
+
+==============================================================================
+IMG-11 · Feature tile: Records calls · P2
+Where: Theme editor › Home page › Feature grid › Feature 3 › Image
+Format: 4:3 · 1200 × 900 px · save as alumnus-img-11-calls.jpg
+Model: Soul 2.0 → Nano Banana Pro edit
+==============================================================================
+Lifestyle photo, 4:3. Close view of a person holding a smartphone to their ear in a bright modern office, the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) clearly attached to the back of the phone facing the camera. Face partly out of frame and softly out of focus, natural light. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Device sharp, person soft
+
+==============================================================================
+IMG-12 · Feature tile: All-day battery · P2
+Where: Theme editor › Home page › Feature grid › Feature 4 › Image
+Format: 4:3 · 1200 × 900 px · save as alumnus-img-12-charging.jpg
+Model: Nano Banana Pro with device references + a photo of your real cable
+==============================================================================
+Product photo, 4:3. the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on a light wood desk with its magnetic charging cable attached; the cable curves gracefully out of frame. Soft morning light, minimal props. Match the cable and connector to the reference photo exactly. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Connector position matches your real device
+
+==============================================================================
+IMG-13 · App showcase: phone with the summary screen · P1
+Where: Theme editor › Home page › App showcase › Image
+Format: 1:1 · 1600 × 1600 px · save as alumnus-img-13-app.jpg
+Model: Nano Banana Pro (scene) + composite your real screenshot APP-01 onto the screen
+==============================================================================
+Square product photo, 1:1, on a dark charcoal surface. A smartphone stands at a slight angle with its screen facing the camera; the screen is plain pure white. the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) lies flat beside it at a slight angle. Soft top light, subtle warm orange rim light, premium tech mood. Leave the screen pure white for compositing. No text. Then: "Place this screenshot onto the phone screen with matching perspective and glass reflection; keep everything else identical." Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] The screen must show your real app (APP-01), never an AI-invented interface
+
+==============================================================================
+IMG-17 · Export visual: one recording, many formats · P3
+Where: Theme editor › Home page › Export formats › Image
+Format: 16:9 · 2400 × 1350 px · save as alumnus-img-17-export.jpg
+Model: Nano Banana Pro or Kling Image 3.0 (clean 3D render)
+==============================================================================
+Clean 3D render, 16:9. the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) floats in the center of a soft white-to-pale-grey space with a faint glowing sound wave above it. Around it, five translucent frosted-glass cards float outward in a gentle arc, each showing only a simple icon: a document, a word-processor page, an envelope, an audio waveform, a download arrow. Subtle orange accent light, soft shadows, airy and minimal. No letters or words anywhere. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] No fake file names or text on the cards
+
+==============================================================================
+IMG-18 · Product gallery 1: front packshot (main image) · P1
+Where: Shopify admin › Products › Alumnus AI Recorder › Media (first image)
+Format: 1:1 · 2048 × 2048 px · save as alumnus-img-18-front.jpg
+Model: Nano Banana Pro with device references
+==============================================================================
+Studio packshot, 1:1. the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) stands upright facing the camera straight on, perfectly centered, filling about 65% of the frame. Seamless light-grey background (#F4F4F6), large soft light from above-left, soft shadow, ultra sharp. No props, no text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] This image feeds Google Shopping, the Shop app and Meta catalogs: product only, no text or badges
+
+==============================================================================
+IMG-19 · Product gallery 2: back / magnetic side · P2
+Where: Shopify admin › Products › Media
+Format: 1:1 · 2048 × 2048 px · save as alumnus-img-19-back.jpg
+Model: Nano Banana Pro with a real photo of the back as reference
+==============================================================================
+Studio packshot, 1:1, same setup as IMG-18. The back of the device, showing its flat magnetic back exactly as in the reference photo of the back. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Only generate this if you have a real photo of the back; otherwise photograph it
+
+==============================================================================
+IMG-20 · Product gallery 3: on a phone · P1
+Where: Shopify admin › Products › Media
+Format: 1:1 · 2048 × 2048 px · save as alumnus-img-20-on-phone.jpg
+Model: Nano Banana Pro with device references
+==============================================================================
+Studio photo, 1:1, same setup as IMG-18. Three-quarter view of the back of a modern smartphone with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) attached in the center. No phone-brand logo. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Phone looks generic (no Apple/Samsung logo)
+
+==============================================================================
+IMG-21 · Product gallery 4: edge-on (thinness) · P2
+Where: Shopify admin › Products › Media
+Format: 1:1 · 2048 × 2048 px · save as alumnus-img-21-edge.jpg
+Model: Nano Banana Pro with device references
+==============================================================================
+Studio photo, 1:1, same setup as IMG-18. the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) seen exactly edge-on, standing on its long side, very low camera angle, showing the slim profile. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Proportions match the real thickness
+
+==============================================================================
+IMG-22 · Product gallery 5: in hand for scale · P2
+Where: Shopify admin › Products › Media
+Format: 1:1 · 2048 × 2048 px · save as alumnus-img-22-in-hand.jpg
+Model: Nano Banana Pro with device references
+==============================================================================
+Studio photo, 1:1, light-grey background. A hand holds the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) between thumb and fingers, front facing the camera, to show its size. Natural skin, short clean nails. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Five fingers, natural grip, device not oversized
+
+==============================================================================
+IMG-23 · Product gallery 6: what's in the box · P2
+Where: Shopify admin › Products › Media
+Format: 1:1 · 2048 × 2048 px · save as alumnus-img-23-in-the-box.jpg
+Model: Nano Banana Pro with photos of every real item
+==============================================================================
+Top-down flat lay, 1:1, on light grey. the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it), its magnetic charging cable coiled neatly, and a small blank quick-start card, evenly spaced and aligned. Soft even light. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Show only what you actually ship
+
+==============================================================================
+IMG-24 · Second color packshot (variant image) · P2
+Where: Shopify admin › Products › Media, then assign it to the second color variant
+Format: 1:1 · 2048 × 2048 px · save as alumnus-img-24-color-2.jpg
+Model: Nano Banana Pro with a real photo of that color
+==============================================================================
+Same as IMG-18, but the device is in [your second color], matching the reference photo of that color exactly. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Only list colors you can actually ship
+
+==============================================================================
+VID-06 · Product 360° spin (product media video) · P3
+Where: Shopify admin › Products › Media (video)
+Format: 1:1 · 1080 × 1080, 8 s loop, MP4 · save as alumnus-vid-06-spin.mp4
+Model: Kling 3.0 image-to-video, IMG-18 as start and end frame
+==============================================================================
+Slow 360-degree turntable rotation of the device, camera locked off, studio light constant, background unchanged, seamless loop.
+
+  [ ] Plays muted in the product gallery
+
+==============================================================================
+IMG-25 · FAQ image · P3
+Where: Theme editor › Home page › FAQ › Image
+Format: 4:5 · 1200 × 1500 px · save as alumnus-img-25-faq.jpg
+Model: Nano Banana Pro with device references
+==============================================================================
+Vertical 4:5 photo, top-down at about 30 degrees. An open notebook with handwritten notes, a smartphone lying face-down on it with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on its back, a pen with an orange cap, soft daylight from a window, calm and tidy. The handwriting is blurred and unreadable. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] No readable words in the notebook
+
+==============================================================================
+IMG-26 · Closing offer background · P2
+Where: Theme editor › Home page › Closing offer › Background image
+Format: 16:9 · 2400 × 1350 px · save as alumnus-img-26-closing.jpg
+Model: Soul 2.0 or Nano Banana Pro with device references
+==============================================================================
+Wide 16:9 evening desk scene. Warm desk lamp and cool laptop glow, a smartphone with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on its back on the right third of the desk next to a notebook. The left 45% of the frame is dark, calm and empty for text. Cinematic, moody but clean. No text, no readable screen. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Left side dark enough for white text
+
+==============================================================================
+IMG-27 · Discount popup image · P1
+Where: Theme editor › Discount popup (listed with the page sections) › Image
+Format: 4:5 · 1000 × 1250 px · save as alumnus-img-27-popup.jpg
+Model: Nano Banana Pro with device references
+==============================================================================
+Vertical 4:5 bright product photo. A phone with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on its back lies on a pale surface beside a small white gift box tied with an orange ribbon. Clean, cheerful, soft daylight, lots of white space. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] Reads clearly at small size
+
+==============================================================================
+IMG-28 · Social share image · P1
+Where: Theme editor › Theme settings › Favicon and sharing › Social share image
+Format: 1.91:1 · 1200 × 630 px · save as alumnus-img-28-share.jpg
+Model: Nano Banana Pro with device references, then add your logo and headline in Canva
+==============================================================================
+Wide product photo, 1.91:1. A phone with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on its back stands at a three-quarter angle on the right side of a white-to-pale-grey seamless background; the left half is empty for a logo and headline added later. No text. Style: bright premium consumer-tech photography, clean white and soft cool-grey tones, large soft daylight, gentle natural shadows, realistic textures, shallow depth of field, full-frame camera look, neutral-cool color grade with clean whites, small warm orange accents only in props.
+
+  [ ] This is what people see when your link is shared on iMessage, TikTok DMs and X
+
+==============================================================================
+AD-01 · "I stopped taking notes in class" (ads, label as AI-generated)
+Creator-style talking head (Higgsfield UGC Factory or Marketing Studio, UGC preset, 9:16). Hook in the first 2 seconds, then the device, then a real screen recording of the summary.
+==============================================================================
+Vertical 9:16, handheld selfie framing in a dorm room. A student talks to camera: "I stopped taking notes in lectures. Here's why." Cut to them pressing the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on the back of their phone. Natural vlog pacing, casual and honest.
+
+==============================================================================
+AD-02 · "Why not just use your phone?" (ads, label as AI-generated)
+Split-screen comparison, 9:16. Mirrors the comparison table on the site.
+==============================================================================
+Vertical 9:16 split screen. Left: a stressed student typing fast on a laptop and missing what the lecturer says. Right: a relaxed student listening, phone with the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) on the desk. Same lecture hall, same light.
+
+==============================================================================
+AD-03 · The snap (product ASMR) (ads, label as AI-generated)
+Product-only macro loop, no people. Add a real recorded snap sound.
+==============================================================================
+Vertical 9:16 macro. the Alumnus AI voice recorder (an ultra-thin, credit-card-sized rectangle about 3 mm thick with softly rounded corners; satin graphite-blue anodized aluminum with about ten fine vertical grooves running from top to bottom; a glossy black glass strip across the top holding a small pill-shaped slide switch on the left, a tiny white sound-wave light in the middle and a small round silver dot on the right; flat magnetic back; no logos or text on it) snaps onto the back of a phone in slow motion, the white sound-wave light turns on, then a slow orbit shows the thin edge. Clean studio light, pale grey background.
